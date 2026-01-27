@@ -53,6 +53,8 @@ const parseResults = (html: string, limit: number): PartResult[] => {
       $(el).find(".result__extras__url").text().trim();
 
     if (!title || !url) return;
+    // Skip obvious DDG ad/redirects
+    if (url.includes("duckduckgo.com/y.js") || url.includes("ad_domain=")) return;
 
     const mpn = guessPartNumber(title) || guessPartNumber(snippet) || title;
     items.push({

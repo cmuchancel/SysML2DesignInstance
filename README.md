@@ -35,6 +35,8 @@ USE_MOCK=1 npm run cli -- --category capacitor --value 10uF --voltage 6.3V --pac
 OPENAI_API_KEY=... npm run cli -- --nl "need right-angle micro usb b smd connector" --provider web --limit 8
 # Try the web-scrape path (hits DuckDuckGo and supplier pages):
 DISABLE_WEB_SEARCH=0 npm run test:web
+# Run a few sample scenarios:
+npm run test:scenarios
 ```
 
 ## UI
@@ -50,3 +52,4 @@ Fill the form; results render from live or mock data depending on env.
 - The web search scraper uses DuckDuckGo's HTML results to surface supplier listings even when no API is available. It caches results on disk (`cache/search-cache.json`) like the other providers.
 - The live Digi-Key path uses OAuth2 refresh tokens.
 - If credentials are absent and web search is disabled, the code automatically switches to the bundled mock dataset so you can still exercise the flows. Replace `USE_MOCK=1` with your env vars to query live sources.
+- UI: provider badges per result, attribute chips, JSON copy and CSV download buttons, optional provider override checkboxes.

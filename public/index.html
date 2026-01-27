@@ -119,6 +119,19 @@
         color: var(--muted);
         font-size: 13px;
       }
+      .chips {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+      .chip {
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #c8d3df;
+        font-size: 12px;
+      }
       .error {
         color: #f87171;
         margin: 4px 0 0 0;
@@ -248,9 +261,14 @@
       <div class="actions">
         <button id="submit">Search</button>
         <span id="status" class="pill">Idle</span>
-        <button id="copy-json" type="button" style="background:#0f1319;border:1px solid rgba(255,255,255,0.08);color:#e8eef5">
-          Copy JSON
-        </button>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button id="copy-json" type="button" style="background:#0f1319;border:1px solid rgba(255,255,255,0.08);color:#e8eef5">
+            Copy JSON
+          </button>
+          <button id="download-csv" type="button" style="background:#0f1319;border:1px solid rgba(255,255,255,0.08);color:#e8eef5">
+            Download CSV
+          </button>
+        </div>
       </div>
       <div id="error" class="error"></div>
       <div class="results" id="results"></div>
@@ -264,6 +282,7 @@
       const statusEl = document.getElementById("status");
       const errorEl = document.getElementById("error");
       const copyBtn = document.getElementById("copy-json");
+      const downloadCsvBtn = document.getElementById("download-csv");
       let latestPayload = null;
 
       const setStatus = (text, color) => {
@@ -274,10 +293,10 @@
       const renderResults = (payload) => {
         latestPayload = payload;
         resultsEl.innerHTML = "";
-        const { results, query, source } = payload;
+        const { results, query, source, providersTried } = payload;
         const heading = document.createElement("div");
         heading.className = "pill";
-        heading.textContent = `Query: ${query} • Source: ${source}`;
+        heading.textContent = `Query: ${query} • Source: ${source}` + (providersTried?.length ? ` • Tried: ${providersTried.join(", ")}` : "");
         resultsEl.appendChild(heading);
 
         if (!results.length) {
@@ -320,6 +339,19 @@
           if (item.attributes && item.attributes.category)
             meta.innerHTML += `<span>${item.attributes.category}</span>`;
           card.appendChild(meta);
+
+          if (item.attributes && Object.keys(item.attributes).length) {
+            const chips = document.createElement("div");
+            chips.className = "chips";
+            Object.entries(item.attributes).forEach(([k, v]) => {
+              if (!v) return;
+              const chip = document.createElement("div");
+              chip.className = "chip";
+              chip.textContent = `${k}: ${v}`;
+              chips.appendChild(chip);
+            });
+            card.appendChild(chips);
+          }
 
           if (item.url) {
             const link = document.createElement("a");
@@ -403,6 +435,33 @@
         } catch (err) {
           errorEl.textContent = "Copy failed";
         }
+      });
+
+      downloadCsvBtn.addEventListener("click", () => {
+        if (!latestPayload || !latestPayload.results?.length) {
+          errorEl.textContent = "No results to download yet.";
+          return;
+        }
+        const rows = [
+          ["manufacturer", "mpn", "provider", "description", "stock", "unitPrice", "url"],
+          ...latestPayload.results.map((r) => [
+            r.manufacturer || "",
+            r.manufacturerPartNumber || "",
+            r.provider || "",
+            (r.description || "").replace(/,/g, ";"),
+            r.stock ?? "",
+            r.unitPrice ?? "",
+            r.url || "",
+          ]),
+        ];
+        const csv = rows.map((row) => row.join(",")).join("\n");
+        const blob = new Blob([csv], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "component-results.csv";
+        a.click();
+        URL.revokeObjectURL(url);
       });
 
       tabs.forEach((tab) => {

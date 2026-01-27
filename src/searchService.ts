@@ -11,6 +11,21 @@ const preferMock = () => process.env.USE_MOCK === "1";
 
 const validProviders: Provider[] = ["web", "mouser", "octopart", "digikey", "mock"];
 
+const tokensFromInput = (input: PartSearchInput): string[] =>
+  [
+    input.partNumber,
+    input.manufacturer,
+    input.category,
+    input.value,
+    input.package,
+    input.voltage,
+    input.current,
+    ...(input.keywords || []),
+    ...(input.features || []),
+  ]
+    .filter(Boolean)
+    .map((t) => t!.toLowerCase());
+
 const resolveProviders = (requested?: Provider[]): Provider[] => {
   const disableOctopart = process.env.DISABLE_OCTOPART === "1";
   const list = (requested && requested.length ? requested : null) || [];
@@ -51,7 +66,7 @@ const mergePart = (base: PartResult, incoming: PartResult): PartResult => {
 const dedupeResults = (items: PartResult[]): PartResult[] => {
   const byKey = new Map<string, PartResult>();
   for (const item of items) {
-    const mpn = item.manufacturerPartNumber?.toLowerCase().trim();
+    const mpn = item.manufacturerPartNumber?.toLowerCase().replace(/\s+/g, "").trim();
     const url = item.url?.split("?")[0].toLowerCase();
     const key = mpn || url || `${item.manufacturer}-${Math.random()}`;
     if (byKey.has(key)) {
@@ -62,6 +77,32 @@ const dedupeResults = (items: PartResult[]): PartResult[] => {
     }
   }
   return Array.from(byKey.values());
+};
+
+const providerWeight: Record<Provider, number> = {
+  digikey: 4,
+  mouser: 3,
+  octopart: 3,
+  web: 2,
+  mock: 1,
+};
+
+const scorePart = (item: PartResult, tokens: string[]): number => {
+  let score = providerWeight[item.provider || "web"] || 1;
+  if (item.stock && item.stock > 0) score += 1;
+  if (item.unitPrice && item.unitPrice > 0) score += 0.5;
+  const hay = [
+    item.manufacturerPartNumber,
+    item.description,
+    ...Object.values(item.attributes || {}),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+  tokens.forEach((t) => {
+    if (hay.includes(t)) score += 0.5;
+  });
+  return score;
 };
 
 const filterMock = (
@@ -167,10 +208,16 @@ export const searchParts = async (
     if (aggregated.length >= limit) break;
   }
 
-  const deduped = dedupeResults(aggregated).slice(0, limit);
+  const deduped = dedupeResults(aggregated);
+  const tokens = tokensFromInput(input);
+  const sorted = deduped
+    .map((item) => ({ item, score: scorePart(item, tokens) }))
+    .sort((a, b) => b.score - a.score || (b.item.stock || 0) - (a.item.stock || 0))
+    .slice(0, limit)
+    .map((x) => x.item);
   const source = deduped.some((r) => r.provider && r.provider !== "mock")
     ? "live"
     : "mock";
 
-  return { source, query, results: deduped, providersTried: tried };
+  return { source, query, results: sorted, providersTried: tried };
 };

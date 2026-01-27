@@ -8,7 +8,8 @@
     "cli": "tsx src/cli.ts",
     "lint": "tsc --noEmit",
     "test": "tsx scripts/run-mock-search.ts",
-    "test:web": "tsx scripts/run-web-search.ts"
+    "test:web": "tsx scripts/run-web-search.ts",
+    "test:scenarios": "tsx scripts/run-scenarios.ts"
   },
   "keywords": [],
   "author": "",
