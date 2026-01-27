@@ -19,6 +19,21 @@ const scenarios = [
     },
     providers: ["web", "mock"],
   },
+  {
+    name: "Compression spring McMaster",
+    input: { category: "spring", keywords: ["compression", "stainless", "mcmaster"] },
+    providers: ["web"],
+  },
+  {
+    name: "Socket head cap screw Amazon",
+    input: { category: "screw", keywords: ["socket head cap", "M3", "amazon"] },
+    providers: ["web"],
+  },
+  {
+    name: "608ZZ bearing",
+    input: { category: "bearing", partNumber: "608ZZ", keywords: ["skate", "bearing"] },
+    providers: ["web"],
+  },
 ];
 
 const run = async () => {
