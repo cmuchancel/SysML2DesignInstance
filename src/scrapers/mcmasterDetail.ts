@@ -1,13 +1,20 @@
 import * as cheerio from "cheerio";
 import { PartResult } from "../types.js";
 import { fetchWithTimeout } from "../http.js";
+import { renderPage } from "../headless.js";
 
 const timeoutMs = Number(process.env.MCMASTER_TIMEOUT_MS || "10000");
 
 export const scrapeMcMasterDetail = async (url: string, limit = 10): Promise<PartResult[]> => {
-  const res = await fetchWithTimeout(url, { headers: { "User-Agent": "Mozilla/5.0" } }, timeoutMs);
-  if (!res.ok) return [];
-  const html = await res.text();
+  // Try headless render first (their tables are JS-rendered)
+  let html: string | null = null;
+  try {
+    html = await renderPage(url, timeoutMs);
+  } catch {
+    const res = await fetchWithTimeout(url, { headers: { "User-Agent": "Mozilla/5.0" } }, timeoutMs);
+    if (!res.ok) return [];
+    html = await res.text();
+  }
   const $ = cheerio.load(html);
   const items: PartResult[] = [];
 

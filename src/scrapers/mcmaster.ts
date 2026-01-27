@@ -2,18 +2,29 @@ import * as cheerio from "cheerio";
 import { PartResult } from "../types.js";
 import { extractSpecs, specsToAttributes } from "../specExtractor.js";
 import { fetchWithTimeout } from "../http.js";
+import { renderPage } from "../headless.js";
 
 export const scrapeMcMasterSearch = async (query: string, limit = 6): Promise<PartResult[]> => {
   const url = `https://www.mcmaster.com/catalog/psearch/?searchText=${encodeURIComponent(query)}`;
-  const res = await fetchWithTimeout(url, {
-    headers: {
-      "User-Agent": "Mozilla/5.0",
-    },
-  }, 12000);
-  if (!res.ok) throw new Error(`McMaster search failed ${res.status}`);
-  const html = await res.text();
+  let html: string;
+  try {
+    html = await renderPage(url, 12000);
+  } catch {
+    const res = await fetchWithTimeout(
+      url,
+      {
+        headers: {
+          "User-Agent": "Mozilla/5.0",
+        },
+      },
+      12000,
+    );
+    if (!res.ok) throw new Error(`McMaster search failed ${res.status}`);
+    html = await res.text();
+  }
   const $ = cheerio.load(html);
   const results: PartResult[] = [];
+  const productLinks: string[] = [];
   $(".ps-list .ps-item").each((_i, el) => {
     if (results.length >= limit) return false;
     const title = $(el).find(".ps-item-name").text().trim();
@@ -21,6 +32,7 @@ export const scrapeMcMasterSearch = async (query: string, limit = 6): Promise<Pa
     const link = $(el).find("a.ps-link").attr("href");
     const mpn = title.split("—")[0]?.trim() || title;
     const url = link ? new URL(link, "https://www.mcmaster.com").toString() : undefined;
+    if (url) productLinks.push(url);
     const item: PartResult = {
       manufacturer: "McMaster-Carr",
       manufacturerPartNumber: mpn,
@@ -33,5 +45,9 @@ export const scrapeMcMasterSearch = async (query: string, limit = 6): Promise<Pa
     item.attributes = { ...item.attributes, ...specs };
     results.push(item);
   });
+  // Keep category results and note product links for callers
+  if (productLinks.length) {
+    results[0] = { ...results[0], attributes: { ...(results[0]?.attributes || {}), productLinks: productLinks.join(",") } };
+  }
   return results;
 };

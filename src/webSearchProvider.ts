@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { PartResult, PartSearchInput } from "./types.js";
-import { scrapeAmazonSearch, scrapeMcMasterSearch, scrapeMcMasterDetail } from "./scrapers/index.js";
+import { scrapeAmazonSearch, scrapeAmazonDetail, scrapeMcMasterSearch, scrapeMcMasterDetail } from "./scrapers/index.js";
 import { fetchWithTimeout } from "./http.js";
 import { extractMultiplePages } from "./llmExtractor.js";
 
@@ -72,6 +72,28 @@ const parseResults = (html: string, limit: number): PartResult[] => {
   return items;
 };
 
+const parseLiteResults = (html: string, limit: number): PartResult[] => {
+  const $ = cheerio.load(html);
+  const items: PartResult[] = [];
+  $("a.result-link").each((_i, el) => {
+    if (items.length >= limit) return false;
+    const title = $(el).text().trim();
+    const rawHref = $(el).attr("href");
+    const url = decodeDuckDuckGoRedirect(rawHref) || rawHref || undefined;
+    if (!title || !url) return;
+    const mpn = guessPartNumber(title) || title;
+    items.push({
+      manufacturer: domainLabel(url),
+      manufacturerPartNumber: mpn,
+      description: title,
+      url,
+      attributes: { sourceTitle: title },
+      provider: "web" as const,
+    });
+  });
+  return items;
+};
+
 export const webSearch = async (
   input: PartSearchInput,
   limit = 8,
@@ -86,7 +108,21 @@ export const webSearch = async (
   if ((input.category || "").includes("spring") || query.includes("spring") || query.includes("mcmaster")) {
     try {
       const mcm = await scrapeMcMasterSearch(refined, limit);
-      if (mcm.length) return mcm;
+      if (mcm.length) {
+        // if we got product links, try detail scrape on first
+        const linksAttr = mcm[0]?.attributes?.productLinks;
+        const linkArr = linksAttr ? linksAttr.split(",").filter(Boolean) : [];
+        if (linkArr.length) {
+          const detailResults: PartResult[] = [];
+          for (const l of linkArr.slice(0, limit)) {
+            const detail = await scrapeMcMasterDetail(l, limit);
+            detailResults.push(...detail);
+            if (detailResults.length >= limit) break;
+          }
+          if (detailResults.length) return detailResults.slice(0, limit);
+        }
+        return mcm;
+      }
     } catch {
       // fall back
     }
@@ -94,21 +130,42 @@ export const webSearch = async (
   if (query.includes("amazon")) {
     try {
       const az = await scrapeAmazonSearch(refined, limit);
-      if (az.length) return az;
+      if (az.length) {
+        const linksAttr = az[0]?.attributes?.productLinks;
+        const linkArr = linksAttr ? linksAttr.split(",").filter(Boolean) : [];
+        for (const l of linkArr.slice(0, limit)) {
+          const detail = await scrapeAmazonDetail(l);
+          if (detail) return [detail, ...az].slice(0, limit);
+        }
+        return az;
+      }
     } catch {
       // fall back
     }
   }
 
-  const searchUrl = `https://duckduckgo.com/html/?q=${encodeURIComponent(refined)}`;
-  const res = await fetchWithTimeout(searchUrl, {
-    headers: { "User-Agent": defaultUserAgent },
-  });
-  if (!res.ok) {
-    throw new Error(`Web search failed with status ${res.status}`);
+  const searchUrls = [
+    `https://duckduckgo.com/html/?q=${encodeURIComponent(refined)}`,
+    `https://lite.duckduckgo.com/lite/?q=${encodeURIComponent(refined)}`,
+  ];
+
+  let basic: PartResult[] = [];
+  for (const u of searchUrls) {
+    try {
+      const res = await fetchWithTimeout(u, {
+        headers: {
+          "User-Agent": defaultUserAgent,
+          "Accept-Language": "en-US,en;q=0.9",
+        },
+      });
+      if (!res.ok) continue;
+      const html = await res.text();
+      basic = u.includes("lite") ? parseLiteResults(html, limit * 2) : parseResults(html, limit * 2);
+      if (basic.length) break;
+    } catch {
+      continue;
+    }
   }
-  const html = await res.text();
-  const basic = parseResults(html, limit * 2);
 
   // If we have no direct results yet, try LLM extraction on the first few product-like URLs
   const urls = basic.map((b) => b.url).filter(Boolean) as string[];
