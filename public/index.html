@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digi-Key Resistor Finder</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: radial-gradient(circle at 20% 20%, #243949, #0f1215 40%),
+          radial-gradient(circle at 80% 0%, #1a3c5c, transparent 45%);
+        --card: rgba(18, 22, 28, 0.9);
+        --accent: #5eead4;
+        --muted: #9fb1c4;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        background: var(--bg);
+        color: #e8eef5;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .shell {
+        width: min(1000px, 100%);
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        margin: 0 0 8px 0;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      p.desc {
+        margin: 0 0 20px 0;
+        color: var(--muted);
+      }
+      form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      input {
+        background: #0f1319;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e8eef5;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 14px;
+        transition: border 0.15s ease, transform 0.15s ease;
+      }
+      input:focus {
+        border-color: var(--accent);
+        outline: none;
+        transform: translateY(-1px);
+      }
+      button {
+        background: linear-gradient(120deg, #1dd1a1, #48dbfb);
+        color: #0c1016;
+        border: none;
+        padding: 12px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 30px rgba(72, 219, 251, 0.3);
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 8px 0 18px 0;
+      }
+      .results {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 12px;
+        display: grid;
+        gap: 12px;
+      }
+      .card {
+        padding: 12px;
+        border-radius: 12px;
+        background: #0f1319;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .card h3 {
+        margin: 0 0 6px 0;
+        font-size: 16px;
+      }
+      .card .meta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .error {
+        color: #f87171;
+        margin: 4px 0 0 0;
+        font-size: 13px;
+      }
+      .pill {
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(94, 234, 212, 0.12);
+        color: var(--accent);
+        font-size: 12px;
+      }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .tab {
+        background: #0f1319;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e8eef5;
+        border-radius: 10px;
+        padding: 10px 14px;
+        cursor: pointer;
+      }
+      .tab.active {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <h1>Mouser Resistor Finder</h1>
+      <p class="desc">
+        Describe the resistor you need and we will search Mouser first
+        (falling back to other sources or mock data only if needed).
+      </p>
+      <div class="tabs">
+        <button class="tab active" data-tab="chat">Chatbot</button>
+        <button class="tab" data-tab="form">Resistor Lookup</button>
+      </div>
+      <div id="chat-panel">
+        <div style="margin-bottom: 12px">
+          <label style="display:block;margin-bottom:6px;color:var(--muted)">
+            Chat prompt (uses OpenAI if configured)
+          </label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input
+              id="nl-input"
+              placeholder="e.g., need a 10k 1% 0603 resistor for 0.1W"
+              style="flex:1 1 320px"
+            />
+            <button id="submit-nl" type="button">Ask & Search</button>
+          </div>
+        </div>
+      </div>
+      <form id="search-form" style="display:none">
+        <label>
+          Resistance
+          <input name="resistance" placeholder="10k, 4.7, 2.2M" />
+        </label>
+        <label>
+          Tolerance
+          <input name="tolerance" placeholder="1%, 5%" />
+        </label>
+        <label>
+          Power
+          <input name="power" placeholder="0.1W, 0.25W" />
+        </label>
+        <label>
+          Package
+          <input name="package" placeholder="0402, 0603, 0805" />
+        </label>
+        <label>
+          Temp. Coefficient
+          <input name="temperatureCoefficient" placeholder="100ppm/°C" />
+        </label>
+        <label>
+          Composition
+          <input name="composition" placeholder="Thick Film, Thin Film" />
+        </label>
+        <label>
+          Extra keywords
+          <input name="keywords" placeholder="automotive, AEC-Q200" />
+        </label>
+      </form>
+      <div class="actions">
+        <button id="submit">Search Mouser</button>
+        <span id="status" class="pill">Idle</span>
+      </div>
+      <div id="error" class="error"></div>
+      <div class="results" id="results"></div>
+    </div>
+    <script>
+      const form = document.getElementById("search-form");
+      const nlInput = document.getElementById("nl-input");
+      const chatPanel = document.getElementById("chat-panel");
+      const tabs = Array.from(document.querySelectorAll(".tab"));
+      const resultsEl = document.getElementById("results");
+      const statusEl = document.getElementById("status");
+      const errorEl = document.getElementById("error");
+
+      const setStatus = (text, color) => {
+        statusEl.textContent = text;
+        statusEl.style.color = color || "#0c1016";
+      };
+
+      const renderResults = (payload) => {
+        resultsEl.innerHTML = "";
+        const { results, query, source } = payload;
+        const heading = document.createElement("div");
+        heading.className = "pill";
+        heading.textContent = `Query: ${query} • Source: ${source}`;
+        resultsEl.appendChild(heading);
+
+        if (!results.length) {
+          const msg = document.createElement("p");
+          msg.textContent = "No results found. Try relaxing the filters.";
+          msg.style.color = "#9fb1c4";
+          resultsEl.appendChild(msg);
+          return;
+        }
+
+        results.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "card";
+          const title = document.createElement("h3");
+          title.textContent = `${item.manufacturerPartNumber} — ${item.manufacturer}`;
+          card.appendChild(title);
+
+          if (item.description) {
+            const desc = document.createElement("div");
+            desc.textContent = item.description;
+            desc.style.color = "#c8d3df";
+            desc.style.marginBottom = "8px";
+            card.appendChild(desc);
+          }
+
+          const meta = document.createElement("div");
+          meta.className = "meta";
+          if (item.digiKeyPartNumber)
+            meta.innerHTML += `<span>Digi-Key #: ${item.digiKeyPartNumber}</span>`;
+          if (item.stock !== undefined) meta.innerHTML += `<span>Stock: ${item.stock}</span>`;
+          if (item.unitPrice !== undefined)
+            meta.innerHTML += `<span>$${Number(item.unitPrice).toFixed(4)} ea</span>`;
+          card.appendChild(meta);
+
+          if (item.url) {
+            const link = document.createElement("a");
+            link.href = item.url;
+            link.textContent = "View part";
+            link.style.display = "inline-block";
+            link.style.marginTop = "8px";
+            link.style.color = "#5eead4";
+            link.target = "_blank";
+            card.appendChild(link);
+          }
+
+          resultsEl.appendChild(card);
+        });
+      };
+
+      const runSearch = async () => {
+        errorEl.textContent = "";
+        setStatus("Searching...", "#0c1016");
+        const formData = new FormData(form);
+        const payload = {};
+        const nlVal = nlInput.value.trim();
+        if (nlVal) payload["nl"] = nlVal;
+        formData.forEach((value, key) => {
+          const trimmed = value.trim();
+          if (trimmed) {
+            if (key === "keywords") {
+              payload[key] = trimmed.split(/[,;]/).map((v) => v.trim());
+            } else {
+              payload[key] = trimmed;
+            }
+          }
+        });
+
+        try {
+          const res = await fetch("/api/search/resistor", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || res.statusText);
+          }
+          const data = await res.json();
+          renderResults(data);
+          setStatus("Done", "#0c1016");
+        } catch (err) {
+          errorEl.textContent = err.message || "Request failed";
+          setStatus("Error", "#f87171");
+        }
+      };
+
+      document.getElementById("submit").addEventListener("click", runSearch);
+      document.getElementById("submit-nl").addEventListener("click", runSearch);
+      nlInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          runSearch();
+        }
+      });
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          const target = tab.dataset.tab;
+          if (target === "chat") {
+            chatPanel.style.display = "block";
+            form.style.display = "none";
+          } else {
+            chatPanel.style.display = "none";
+            form.style.display = "grid";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

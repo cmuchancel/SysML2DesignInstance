@@ -1,0 +1,1037 @@
+[
+  {
+    "provider": "mouser",
+    "query": "5k resistor 1% tol 0.1W power 0603 SMD chip resistor",
+    "results": [
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RMCF0603FG274R",
+        "description": "Thick Film Resistors - SMD 274Ohms 0603 0.1W 1% Std Power AEC-Q200",
+        "stock": 28785,
+        "url": "https://www.mouser.com/datasheet/3/1099/1/SEI_RMCF_RMCP.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RMCF0603FG274R"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRGH0603F5K6",
+        "description": "Thick Film Resistors - SMD CRGH0603 1% 5K6 0.2W",
+        "stock": 27076,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRGH0603F5K6"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / AMP",
+        "manufacturerPartNumber": "CRG0603F5K49",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 5K49",
+        "stock": 10000,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F5K49"
+        }
+      },
+      {
+        "manufacturer": "Vishay / Draloric",
+        "manufacturerPartNumber": "RCS06035K11FKEA",
+        "description": "Thick Film Resistors - SMD RCS0603 100 5K11 1% ET1 e3",
+        "stock": 4260,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-RCS06035K11FKEA"
+        }
+      },
+      {
+        "manufacturer": "Vishay / Draloric",
+        "manufacturerPartNumber": "RCS06035K60FKEA",
+        "description": "Thick Film Resistors - SMD 0.25watt 5.6Kohms 1% 100ppm",
+        "stock": 16947,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-RCS06035K60FKEA"
+        }
+      },
+      {
+        "manufacturer": "Vishay / Draloric",
+        "manufacturerPartNumber": "RCS06035K10FKEA",
+        "description": "Thick Film Resistors - SMD 0.25watt 5.1Kohms 1% 100ppm",
+        "stock": 33050,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-RCS06035K10FKEA"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F75R",
+        "description": "Thick Film Resistors - SMD Thick Film General Purpose Resistor 75Ohm, 1%, 0603, 0.1W",
+        "stock": 17628,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F75R"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F5K1",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 5K1",
+        "stock": 11009,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F5K1"
+        }
+      },
+      {
+        "manufacturer": "Vishay",
+        "manufacturerPartNumber": "CRCW06035K60FKEAHP",
+        "description": "Thick Film Resistors - SMD 0.33W 5.6Kohms 1% High Power AEC-Q200",
+        "stock": 14040,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-CRCW06035K60FKEAH"
+        }
+      },
+      {
+        "manufacturer": "Vishay",
+        "manufacturerPartNumber": "CRCW06035K10FKEAHP",
+        "description": "Thick Film Resistors - SMD 0.33W 5.1Kohms 1% High Power AEC-Q200",
+        "stock": 8931,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-CRCW06035K10FKEAH"
+        }
+      }
+    ],
+    "timestamp": 1769205897692
+  },
+  {
+    "provider": "mouser",
+    "query": "10k resistor 1% tol 0.1w power 0603",
+    "results": [
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F1M0/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
+        "stock": 20000,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F1M0/10"
+        }
+      },
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RMCF0603FG274R",
+        "description": "Thick Film Resistors - SMD 274Ohms 0603 0.1W 1% Std Power AEC-Q200",
+        "stock": 28785,
+        "url": "https://www.mouser.com/datasheet/3/1099/1/SEI_RMCF_RMCP.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RMCF0603FG274R"
+        }
+      },
+      {
+        "manufacturer": "KOA Speer",
+        "manufacturerPartNumber": "HV731JRTTD1002F",
+        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
+        "stock": 20876,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "660-HV731JRTTD1002F"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "PWR8030W1002FE",
+        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
+        "stock": 500,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
+        "attributes": {
+          "category": "Wirewound Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-PWR8030W1002FE"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F22K/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
+        "stock": 37629,
+        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F22K/10"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
+        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
+        "stock": 10442,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CMP0603-FX-1002L"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F75R",
+        "description": "Thick Film Resistors - SMD Thick Film General Purpose Resistor 75Ohm, 1%, 0603, 0.1W",
+        "stock": 17628,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F75R"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CMP0603AFX-1002ELF",
+        "description": "Thick Film Resistors - SMD 10K   OHM   1%",
+        "stock": 28511,
+        "url": "https://www.mouser.com/datasheet/3/40/1/cmp_a.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CMP0603AFX-1002L"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CHP0603AFX-1002ELF",
+        "description": "Thick Film Resistors - SMD 10K   OHM   1% 1/3W",
+        "stock": 10875,
+        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CHP0603AFX1002EL"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CHP0603AFX-1003ELF",
+        "description": "Thick Film Resistors - SMD ResHighPowerA 0603 100k 1% 1/3W TC100",
+        "stock": 19572,
+        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CHP0603AFX1003EL"
+        }
+      }
+    ],
+    "timestamp": 1769205533559
+  },
+  {
+    "provider": "mouser",
+    "query": "10k resistor 1% tol 0.1W power 0603 10k 1% 0603 0.1W SMD resistor",
+    "results": [
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F1M0/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
+        "stock": 20000,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F1M0/10"
+        }
+      },
+      {
+        "manufacturer": "Vishay",
+        "manufacturerPartNumber": "CRCW0603910KFKEAHP",
+        "description": "Thick Film Resistors - SMD Thick Film Resistors - SMD",
+        "stock": 14489,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-CRCW0603910KFKEAH"
+        }
+      },
+      {
+        "manufacturer": "YAGEO",
+        "manufacturerPartNumber": "AC0603FRE0710KL",
+        "description": "Thick Film Resistors - SMD 10 kOhms 100 mW 0603  1% AEC-Q200 Standard Power Version",
+        "stock": 9715,
+        "url": "https://www.mouser.com/datasheet/3/508/1/PYu-AC_51_RoHS_L_11.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "603-AC0603FRE0710KL"
+        }
+      },
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RMCA0603FT10K0-HP",
+        "description": "Thick Film Resistors - SMD 10KOhms 0603 0.125W 1% Hi Power AEC-Q200",
+        "stock": 19700,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RMCA0603FT10K0HP"
+        }
+      },
+      {
+        "manufacturer": "KOA Speer",
+        "manufacturerPartNumber": "HV731JRTTD1002F",
+        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
+        "stock": 20876,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "660-HV731JRTTD1002F"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F22K/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
+        "stock": 37629,
+        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F22K/10"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
+        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
+        "stock": 10442,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CMP0603-FX-1002L"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "PWR8030W1002FE",
+        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
+        "stock": 500,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
+        "attributes": {
+          "category": "Wirewound Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-PWR8030W1002FE"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CHP0603AFX-1002ELF",
+        "description": "Thick Film Resistors - SMD 10K   OHM   1% 1/3W",
+        "stock": 10875,
+        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CHP0603AFX1002EL"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CMP0603AFX-1002ELF",
+        "description": "Thick Film Resistors - SMD 10K   OHM   1%",
+        "stock": 28511,
+        "url": "https://www.mouser.com/datasheet/3/40/1/cmp_a.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CMP0603AFX-1002L"
+        }
+      }
+    ],
+    "timestamp": 1769204535871
+  },
+  {
+    "provider": "mouser",
+    "query": "10k resistor 1% tol 0.1W power 0603 10k 1% 0603 0.1W",
+    "results": [
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F1M0/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
+        "stock": 20000,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F1M0/10"
+        }
+      },
+      {
+        "manufacturer": "Vishay",
+        "manufacturerPartNumber": "CRCW0603910KFKEAHP",
+        "description": "Thick Film Resistors - SMD Thick Film Resistors - SMD",
+        "stock": 14489,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-CRCW0603910KFKEAH"
+        }
+      },
+      {
+        "manufacturer": "YAGEO",
+        "manufacturerPartNumber": "AC0603FRE0710KL",
+        "description": "Thick Film Resistors - SMD 10 kOhms 100 mW 0603  1% AEC-Q200 Standard Power Version",
+        "stock": 9715,
+        "url": "https://www.mouser.com/datasheet/3/508/1/PYu-AC_51_RoHS_L_11.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "603-AC0603FRE0710KL"
+        }
+      },
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RMCA0603FT10K0-HP",
+        "description": "Thick Film Resistors - SMD 10KOhms 0603 0.125W 1% Hi Power AEC-Q200",
+        "stock": 19700,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RMCA0603FT10K0HP"
+        }
+      },
+      {
+        "manufacturer": "KOA Speer",
+        "manufacturerPartNumber": "HV731JRTTD1002F",
+        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
+        "stock": 20876,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "660-HV731JRTTD1002F"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F22K/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
+        "stock": 37629,
+        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F22K/10"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
+        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
+        "stock": 10442,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CMP0603-FX-1002L"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "PWR8030W1002FE",
+        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
+        "stock": 500,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
+        "attributes": {
+          "category": "Wirewound Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-PWR8030W1002FE"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CHP0603AFX-1002ELF",
+        "description": "Thick Film Resistors - SMD 10K   OHM   1% 1/3W",
+        "stock": 10875,
+        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CHP0603AFX1002EL"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CMP0603AFX-1002ELF",
+        "description": "Thick Film Resistors - SMD 10K   OHM   1%",
+        "stock": 28511,
+        "url": "https://www.mouser.com/datasheet/3/40/1/cmp_a.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CMP0603AFX-1002L"
+        }
+      }
+    ],
+    "timestamp": 1769200282202
+  },
+  {
+    "provider": "mouser",
+    "query": "10k resistor 1% tol 0.1W power 0603 10k 1%",
+    "results": [
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F1M0/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
+        "stock": 20000,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F1M0/10"
+        }
+      },
+      {
+        "manufacturer": "Vishay",
+        "manufacturerPartNumber": "CRCW0603910KFKEAHP",
+        "description": "Thick Film Resistors - SMD Thick Film Resistors - SMD",
+        "stock": 14489,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "71-CRCW0603910KFKEAH"
+        }
+      },
+      {
+        "manufacturer": "YAGEO",
+        "manufacturerPartNumber": "AC0603FRE0710KL",
+        "description": "Thick Film Resistors - SMD 10 kOhms 100 mW 0603  1% AEC-Q200 Standard Power Version",
+        "stock": 9715,
+        "url": "https://www.mouser.com/datasheet/3/508/1/PYu-AC_51_RoHS_L_11.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "603-AC0603FRE0710KL"
+        }
+      },
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RMCA0603FT10K0-HP",
+        "description": "Thick Film Resistors - SMD 10KOhms 0603 0.125W 1% Hi Power AEC-Q200",
+        "stock": 19700,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RMCA0603FT10K0HP"
+        }
+      },
+      {
+        "manufacturer": "KOA Speer",
+        "manufacturerPartNumber": "HV731JRTTD1002F",
+        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
+        "stock": 20876,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "660-HV731JRTTD1002F"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F22K/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
+        "stock": 37629,
+        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F22K/10"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
+        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
+        "stock": 10442,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-CMP0603-FX-1002L"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "PWR8030W1002FE",
+        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
+        "stock": 500,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
+        "attributes": {
+          "category": "Wirewound Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-PWR8030W1002FE"
+        }
+      }
+    ],
+    "timestamp": 1769200251677
+  },
+  {
+    "provider": "mouser",
+    "query": "10k resistor 1% tol 0.1W power 0603",
+    "results": [
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F1M0/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
+        "stock": 20000,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F1M0/10"
+        }
+      },
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RMCF0603FG274R",
+        "description": "Thick Film Resistors - SMD 274Ohms 0603 0.1W 1% Std Power AEC-Q200",
+        "stock": 28785,
+        "url": "https://www.mouser.com/datasheet/3/1099/1/SEI_RMCF_RMCP.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RMCF0603FG274R"
+        }
+      },
+      {
+        "manufacturer": "KOA Speer",
+        "manufacturerPartNumber": "HV731JRTTD1002F",
+        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
+        "stock": 20876,
+        "url": "",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "660-HV731JRTTD1002F"
+        }
+      },
+      {
+        "manufacturer": "Bourns",
+        "manufacturerPartNumber": "PWR8030W1002FE",
+        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
+        "stock": 500,
+        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
+        "attributes": {
+          "category": "Wirewound Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "652-PWR8030W1002FE"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity / Holsworthy",
+        "manufacturerPartNumber": "CRG0603F22K/10",
+        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
+        "stock": 37629,
+        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "279-CRG0603F22K/10"
+        }
+      }
+    ],
+    "timestamp": 1769199112704
+  },
+  {
+    "provider": "octopart",
+    "query": "10k resistor 1% tol 0.1W power 0603",
+    "results": [
+      {
+        "manufacturer": "TE Connectivity",
+        "manufacturerPartNumber": "1622829-1",
+        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±100ppm/C Pad SMD T/R",
+        "url": "https://octopart.com/part/te-connectivity/1622829-1",
+        "stock": 645762,
+        "unitPrice": 0.01,
+        "attributes": {
+          "case_package": "0603",
+          "casecode_imperial_": "0603",
+          "casecode_metric_": "1608",
+          "china_rohs": "Non-Compliant",
+          "composition": "Thick Film",
+          "depth": "800 µm",
+          "elv": "Compliant",
+          "height": "450 µm",
+          "leadfree": "Lead Free",
+          "length": "1.6 mm",
+          "lifecyclestatus": "Production (Last Updated: 5 days ago)",
+          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 5 days ago)",
+          "maxoperatingtemperature": "125 °C",
+          "maxpowerdissipation": "100 mW",
+          "militarystandard": "Not",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofresistors": "1",
+          "numberofterminals": "2",
+          "numberofterminations": "2",
+          "operatingsupplyvoltage": "50 V",
+          "packaging": "TapeandReel",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "radiationhardening": "No",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "scheduleB": "8533100070, 8533100070|8533100070, 8533100070|8533100070|8533100070, 8533100070|8533100070|8533100070|8533100070",
+          "temperaturecoefficient": "100 ppm/°C",
+          "termination": "Solder",
+          "tolerance": "1 %",
+          "voltagerating": "50 V",
+          "voltagerating_dc_": "75 V",
+          "weight": "2.012816 mg",
+          "width": "800 µm",
+          "workingvoltage": "50 V"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity",
+        "manufacturerPartNumber": "1622829-2",
+        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±100ppm/C Pad SMD T/R",
+        "url": "https://octopart.com/part/te-connectivity/1622829-2",
+        "stock": 2786332,
+        "unitPrice": 0.01,
+        "attributes": {
+          "case_package": "0603",
+          "casecode_imperial_": "0603",
+          "casecode_metric_": "1608",
+          "china_rohs": "Non-Compliant",
+          "composition": "Thick Film",
+          "depth": "800 µm",
+          "height": "450 µm",
+          "length": "1.6 mm",
+          "lifecyclestatus": "Production (Last Updated: 5 days ago)",
+          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 5 days ago)",
+          "maxoperatingtemperature": "155 °C",
+          "militarystandard": "Not",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofresistors": "1",
+          "numberofterminals": "2",
+          "numberofterminations": "2",
+          "operatingsupplyvoltage": "50 V",
+          "packaging": "Tape & Reel (TR)",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "temperaturecoefficient": "100 ppm/°C",
+          "termination": "Solder",
+          "tolerance": "1 %",
+          "voltagerating": "50 V",
+          "weight": "2.012816 mg",
+          "width": "800 µm",
+          "workingvoltage": "50 V"
+        }
+      },
+      {
+        "manufacturer": "Vishay",
+        "manufacturerPartNumber": "RCA060310K0FKEA",
+        "description": "100mW Thick Film Resistors 75V ±1% ±100ppm/℃ 10kΩ 0603 Chip Resistor - Surface Mount ROHS",
+        "url": "https://octopart.com/part/vishay/RCA060310K0FKEA",
+        "stock": 100000,
+        "unitPrice": 0.01071,
+        "attributes": {
+          "case_package": "0603",
+          "casecode_imperial_": "0603",
+          "casecode_metric_": "1608",
+          "china_rohs": "Non-Compliant",
+          "composition": "Thick Film",
+          "contactplating": "Tin",
+          "depth": "850 µm",
+          "features": "Anti-Sulfur, Automotive AEC-Q200",
+          "height": "450 µm",
+          "length": "1.5494 mm",
+          "lifecyclestatus": "Production (Last Updated: 1 month ago)",
+          "maxoperatingtemperature": "155 °C",
+          "maxpowerdissipation": "100 mW",
+          "militarystandard": "Not",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofterminals": "2",
+          "numberofterminations": "2",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "radiationhardening": "No",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "scheduleB": "8533210045, 8533210045|8533210045|8533210045|8533210045|8533210045",
+          "temperaturecoefficient": "100 ppm/°C",
+          "tolerance": "1 %",
+          "voltagerating": "75 V",
+          "voltagerating_dc_": "75 V",
+          "width": "850 µm",
+          "workingvoltage": "75 V"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity",
+        "manufacturerPartNumber": "CPG0603F10KC",
+        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±50ppm/C Pad SMD T/R",
+        "url": "https://octopart.com/part/te-connectivity/CPG0603F10KC",
+        "stock": 30927,
+        "unitPrice": 0.47,
+        "attributes": {
+          "case_package": "0603",
+          "casecode_imperial_": "0603",
+          "casecode_metric_": "1608",
+          "china_rohs": "Non-Compliant",
+          "composition": "Thick Film",
+          "depth": "800 µm",
+          "elv": "Compliant",
+          "height": "450 µm",
+          "leadfree": "Lead Free",
+          "length": "1.6 mm",
+          "lifecyclestatus": "Production (Last Updated: 2 years ago)",
+          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 2 years ago)",
+          "maxoperatingtemperature": "155 °C",
+          "maxpowerdissipation": "63 mW",
+          "militarystandard": "Not",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofresistors": "1",
+          "numberofterminals": "2",
+          "numberofterminations": "2",
+          "packaging": "Tape & Reel (TR)",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "radiationhardening": "No",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "temperaturecoefficient": "50 ppm/°C",
+          "termination": "Solder",
+          "tolerance": "1 %",
+          "voltagerating_dc_": "75 V",
+          "weight": "2.012816 mg",
+          "width": "800 µm"
+        }
+      },
+      {
+        "manufacturer": "TE Connectivity",
+        "manufacturerPartNumber": "CRGCQ0603F10K",
+        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±100ppm/°C Pad SMD T/R Automotive AEC-Q200",
+        "url": "https://octopart.com/part/te-connectivity/CRGCQ0603F10K",
+        "stock": 1256275,
+        "unitPrice": 0.01,
+        "attributes": {
+          "ambienttemperaturerangehigh": "70 °C",
+          "case_package": "0603",
+          "china_rohs": "Non-Compliant",
+          "composition": "Thick Film",
+          "height": "450 µm",
+          "lifecyclestatus": "Production (Last Updated: 5 days ago)",
+          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 5 days ago)",
+          "maxoperatingtemperature": "155 °C",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofterminals": "2",
+          "operatingsupplyvoltage": "75 V",
+          "packaging": "Cut Tape",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "scheduleB": "8533210025|8533210025|8533210025|8533210025|8533210025",
+          "temperaturecoefficient": "100 ppm/°C",
+          "tolerance": "1 %",
+          "voltagerating": "75 V",
+          "voltagerating_dc_": "75 V",
+          "width": "800 µm",
+          "workingvoltage": "75 V"
+        }
+      },
+      {
+        "manufacturer": "KOA Speer",
+        "manufacturerPartNumber": "RK73H1JTTD1002F",
+        "description": "Resistor Thick Film 0603 10K Ohm 1% 1/10W ±100ppm/°C SMD Punched Paper Tape and Reel",
+        "url": "https://octopart.com/part/koa-speer/RK73H1JTTD1002F",
+        "stock": 17214,
+        "unitPrice": 0.006,
+        "attributes": {
+          "case_package": "0603",
+          "casecode_imperial_": "0603",
+          "casecode_metric_": "1608",
+          "china_rohs": "Non-Compliant",
+          "composition": "Thick Film",
+          "depth": "800 µm",
+          "height": "450 µm",
+          "leadfree": "Lead Free",
+          "length": "1.6 mm",
+          "lifecyclestatus": "Production (Last Updated: 3 weeks ago)",
+          "maxoperatingtemperature": "155 °C",
+          "militarystandard": "Not",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofpins": "2",
+          "numberofterminals": "2",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "scheduleB": "8533210045, 8533210045|8533210045|8533210045|8533210045|8533210045",
+          "temperaturecoefficient": "100 ppm/°C",
+          "termination": "SMD/SMT",
+          "tolerance": "1 %",
+          "voltagerating": "75 V",
+          "voltagerating_dc_": "50 V",
+          "width": "800 µm",
+          "workingvoltage": "75 V"
+        }
+      },
+      {
+        "manufacturer": "Yageo Group",
+        "manufacturerPartNumber": "RT0603FRE0710KL",
+        "description": "100mW Thin Film Resistor 75V ±50ppm/℃ ±1% 10kΩ 0603 Chip Resistor - Surface Mount ROHS",
+        "url": "https://octopart.com/part/yageo-group/RT0603FRE0710KL",
+        "stock": 2298,
+        "unitPrice": 0.103,
+        "attributes": {
+          "case_package": "0603",
+          "casecode_imperial_": "0603",
+          "china_rohs": "Non-Compliant",
+          "composition": "Thin Film",
+          "contactplating": "Lead, Tin",
+          "depth": "800 µm",
+          "features": "Moisture Resistant",
+          "height": "450 µm",
+          "leadfree": "Lead Free",
+          "length": "1.6002 mm",
+          "lifecyclestatus": "Production (Last Updated: 1 month ago)",
+          "maxoperatingtemperature": "155 °C",
+          "maxpowerdissipation": "100 mW",
+          "militarystandard": "Not",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofpins": "2",
+          "numberofterminals": "2",
+          "numberofterminations": "2",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "scheduleB": "8533210045, 8533210045|8533210045, 8533210045|8533210045|8533210045, 8533210045|8533210045|8533210045|8533210045",
+          "temperaturecoefficient": "50 ppm/°C",
+          "termination": "SMD/SMT",
+          "tolerance": "1 %",
+          "voltagerating": "75 V",
+          "voltagerating_dc_": "75 V",
+          "width": "800 µm",
+          "workingvoltage": "75 V"
+        }
+      },
+      {
+        "manufacturer": "Walsin Technologies",
+        "manufacturerPartNumber": "WR06X1002FTL",
+        "description": "100mW Thick Film Resistors 75V ±100ppm/℃ ±1% 10kΩ 0603 Chip Resistor - Surface Mount ROHS",
+        "url": "https://octopart.com/part/walsin-technologies/WR06X1002FTL",
+        "stock": 391796,
+        "unitPrice": 0.1,
+        "attributes": {
+          "case_package": "0603",
+          "casecode_imperial_": "0603",
+          "casecode_metric_": "1608",
+          "composition": "Thick Film",
+          "contactmaterial": "Tin",
+          "depth": "800 µm",
+          "height": "450 µm",
+          "leadfree": "Lead Free",
+          "length": "1.6 mm",
+          "lifecyclestatus": "Production (Last Updated: 3 weeks ago)",
+          "maxoperatingtemperature": "155 °C",
+          "militarystandard": "Not",
+          "minoperatingtemperature": "-55 °C",
+          "mount": "Surface Mount",
+          "numberofterminals": "2",
+          "numberofterminations": "2",
+          "packaging": "Cut Tape",
+          "powerdissipation": "100 mW",
+          "powerrating": "100 mW",
+          "reachsvhc": "Yes",
+          "resistance": "10 kΩ",
+          "rohs": "Compliant",
+          "temperaturecoefficient": "100 ppm/°C",
+          "termination": "SMD/SMT",
+          "tolerance": "1 %",
+          "voltagerating": "50 V",
+          "voltagerating_dc_": "75 V",
+          "width": "800 µm",
+          "workingvoltage": "50 V"
+        }
+      }
+    ],
+    "timestamp": 1769198937867
+  },
+  {
+    "provider": "mock",
+    "query": "10k resistor 1% tol 0.1W power 0603",
+    "results": [
+      {
+        "manufacturer": "Yageo",
+        "manufacturerPartNumber": "RC0603FR-0710KL",
+        "digiKeyPartNumber": "311-10.0KHRCT-ND",
+        "description": "RES SMD 10K OHM 1% 1/10W 0603",
+        "stock": 125000,
+        "unitPrice": 0.012,
+        "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+        "attributes": {
+          "resistance": "10 kOhms",
+          "tolerance": "±1%",
+          "power": "0.1W",
+          "package": "0603 (1608 Metric)",
+          "composition": "Thick Film"
+        }
+      }
+    ],
+    "timestamp": 1769198517762
+  }
+]
