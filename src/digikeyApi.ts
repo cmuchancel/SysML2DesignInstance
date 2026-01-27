@@ -1,5 +1,6 @@
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { PartResult, PartSearchInput } from "./types.js";
+import { fetchWithTimeout } from "./http.js";
 
 type AccessToken = {
   token: string;
@@ -30,7 +31,7 @@ const fetchAccessToken = async (): Promise<string> => {
     grant_type: "refresh_token",
   });
 
-  const response = await fetch(`${baseUrl}/v1/oauth2/token`, {
+  const response = await fetchWithTimeout(`${baseUrl}/v1/oauth2/token`, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -126,7 +127,7 @@ export const digikeyKeywordSearch = async (
     Filters: [],
   };
 
-  const response = await fetch(`${baseUrl}/Search/v3/Products/Keyword`, {
+  const response = await fetchWithTimeout(`${baseUrl}/Search/v3/Products/Keyword`, {
     method: "POST",
     headers,
     body: JSON.stringify(payload),

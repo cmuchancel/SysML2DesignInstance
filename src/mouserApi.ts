@@ -1,5 +1,6 @@
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { PartResult, PartSearchInput } from "./types.js";
+import { fetchWithTimeout } from "./http.js";
 
 const apiKey = process.env.MOUSER_API_KEY;
 const baseUrl =
@@ -60,7 +61,7 @@ export const mouserSearch = async (
     },
   };
 
-  const res = await fetch(`${baseUrl}?apiKey=${encodeURIComponent(apiKey)}`, {
+  const res = await fetchWithTimeout(`${baseUrl}?apiKey=${encodeURIComponent(apiKey)}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),

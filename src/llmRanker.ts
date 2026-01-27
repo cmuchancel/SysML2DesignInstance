@@ -14,6 +14,7 @@ export const rerankWithLLM = async (
   limit: number,
 ): Promise<PartResult[]> => {
   if (!llmRankerAvailable) return results;
+  const timeoutMs = Number(process.env.LLM_RERANK_TIMEOUT_MS || "8000");
   const client = new OpenAI({ apiKey: apiKey! });
 
   const itemsForModel = results.map((r, idx) => ({
@@ -30,7 +31,7 @@ User query: ${query}
 Structured request: ${JSON.stringify(input)}
 Return the item ids in best-to-worst order, top ${limit}. Respond as JSON array of ids only.`;
 
-  const completion = await client.chat.completions.create({
+  const completionPromise = client.chat.completions.create({
     model,
     messages: [
       { role: "system", content: "Return concise JSON only." },
@@ -38,6 +39,13 @@ Return the item ids in best-to-worst order, top ${limit}. Respond as JSON array 
     ],
     response_format: { type: "json_object" },
   });
+
+  const completion = await Promise.race([
+    completionPromise,
+    new Promise<null>((resolve) => setTimeout(() => resolve(null), timeoutMs)),
+  ]);
+
+  if (!completion) return results;
 
   const raw = completion.choices[0]?.message?.content;
   if (!raw) return results;

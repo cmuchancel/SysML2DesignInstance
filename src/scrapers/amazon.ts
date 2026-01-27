@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
 import { PartResult } from "../types.js";
 import { extractSpecs, specsToAttributes } from "../specExtractor.js";
+import { fetchWithTimeout } from "../http.js";
 
 const headers = {
   "User-Agent": "Mozilla/5.0",
@@ -9,7 +10,7 @@ const headers = {
 
 export const scrapeAmazonSearch = async (query: string, limit = 6): Promise<PartResult[]> => {
   const url = `https://www.amazon.com/s?k=${encodeURIComponent(query)}`;
-  const res = await fetch(url, { headers });
+  const res = await fetchWithTimeout(url, { headers }, 12000);
   if (!res.ok) throw new Error(`Amazon search failed ${res.status}`);
   const html = await res.text();
   const $ = cheerio.load(html);

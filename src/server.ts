@@ -56,18 +56,25 @@ const handleSearch = async (req: Request, res: Response) => {
   try {
     let input = { ...parse.data };
     if (parse.data.nl) {
-      if (!llmAvailable) {
-        return res.status(400).json({ error: "OPENAI_API_KEY not set for NL parsing" });
-      }
-      const parsed = await naturalLanguageToSearch(parse.data.nl);
-      if (parsed) {
-        input = { ...input, ...parsed };
+      if (llmAvailable) {
+        const parsed = await naturalLanguageToSearch(parse.data.nl);
+        if (parsed) {
+          input = { ...input, ...parsed };
+        }
+      } else {
+        // fallback: use nl as keyword bag
+        const words = parse.data.nl.split(/\s+/).filter(Boolean);
+        input = { ...input, keywords: [...(input.keywords || []), ...words] };
       }
     }
     // remove nl before search
     const { nl: _nl, limit, providers, ...structured } = input;
 
-    const outcome = await searchParts(structured, limit || 12, providers);
+    const searchTimeout = Number(process.env.SEARCH_TIMEOUT_MS || "15000");
+    const outcome = (await Promise.race([
+      searchParts(structured, limit || 12, providers),
+      timeout(searchTimeout, "Search timed out"),
+    ])) as Awaited<ReturnType<typeof searchParts>>;
     res.json({
       query: outcome.query,
       source: outcome.source,
@@ -87,3 +94,5 @@ const port = Number(process.env.PORT || 3000);
 app.listen(port, () => {
   console.log(`Component finder listening on http://localhost:${port}`);
 });
+const timeout = <T>(ms: number, message = "timeout"): Promise<T> =>
+  new Promise((_resolve, reject) => setTimeout(() => reject(new Error(message)), ms));

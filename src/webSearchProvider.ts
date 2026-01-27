@@ -2,6 +2,7 @@ import * as cheerio from "cheerio";
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { PartResult, PartSearchInput } from "./types.js";
 import { scrapeAmazonSearch, scrapeMcMasterSearch } from "./scrapers/index.js";
+import { fetchWithTimeout } from "./http.js";
 
 const defaultUserAgent =
   process.env.WEB_SEARCH_USER_AGENT ||
@@ -97,7 +98,7 @@ export const webSearch = async (
   }
 
   const searchUrl = `https://duckduckgo.com/html/?q=${encodeURIComponent(refined)}`;
-  const res = await fetch(searchUrl, {
+  const res = await fetchWithTimeout(searchUrl, {
     headers: { "User-Agent": defaultUserAgent },
   });
   if (!res.ok) {

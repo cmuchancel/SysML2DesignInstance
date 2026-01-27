@@ -1,5 +1,6 @@
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { NexarPart, PartResult, PartSearchInput } from "./types.js";
+import { fetchWithTimeout } from "./http.js";
 
 const apiKey = process.env.OCTOPART_API_KEY;
 const nexarToken = process.env.NEXAR_TOKEN;
@@ -90,7 +91,7 @@ const searchViaNexar = async (
     }
   `;
 
-  const res = await fetch(nexarGraphql, {
+  const res = await fetchWithTimeout(nexarGraphql, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${nexarToken}`,
@@ -127,7 +128,7 @@ const searchViaRest = async (
   url.searchParams.set("apikey", apiKey);
   url.searchParams.set("limit", String(limit));
 
-  const res = await fetch(url.toString(), {
+  const res = await fetchWithTimeout(url.toString(), {
     headers: { Accept: "application/json" },
   });
 

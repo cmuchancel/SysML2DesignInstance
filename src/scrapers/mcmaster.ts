@@ -1,14 +1,15 @@
 import * as cheerio from "cheerio";
 import { PartResult } from "../types.js";
 import { extractSpecs, specsToAttributes } from "../specExtractor.js";
+import { fetchWithTimeout } from "../http.js";
 
 export const scrapeMcMasterSearch = async (query: string, limit = 6): Promise<PartResult[]> => {
   const url = `https://www.mcmaster.com/catalog/psearch/?searchText=${encodeURIComponent(query)}`;
-  const res = await fetch(url, {
+  const res = await fetchWithTimeout(url, {
     headers: {
       "User-Agent": "Mozilla/5.0",
     },
-  });
+  }, 12000);
   if (!res.ok) throw new Error(`McMaster search failed ${res.status}`);
   const html = await res.text();
   const $ = cheerio.load(html);
