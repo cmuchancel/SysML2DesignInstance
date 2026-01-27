@@ -82,16 +82,18 @@ export const webSearch = async (
   const refined = input.category ? `${query} ${input.category}` : query;
 
   // Prefer site-specific scrapes when a vendor is implied
-  if ((input.category || "").includes("spring") || query.includes("mcmaster")) {
+  if ((input.category || "").includes("spring") || query.includes("spring") || query.includes("mcmaster")) {
     try {
-      return await scrapeMcMasterSearch(refined, limit);
+      const mcm = await scrapeMcMasterSearch(refined, limit);
+      if (mcm.length) return mcm;
     } catch {
       // fall back
     }
   }
   if (query.includes("amazon")) {
     try {
-      return await scrapeAmazonSearch(refined, limit);
+      const az = await scrapeAmazonSearch(refined, limit);
+      if (az.length) return az;
     } catch {
       // fall back
     }

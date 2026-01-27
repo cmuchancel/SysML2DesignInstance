@@ -105,6 +105,9 @@ const run = async () => {
           material: clean(parsed.material),
           keywords,
         };
+        if ((!input.keywords || input.keywords.length === 0) && typeof argv.nl === "string") {
+          input.keywords = argv.nl.split(/\s+/).filter(Boolean);
+        }
         console.log("LLM parsed query:", { ...input, keywords });
       } else {
         console.warn("LLM parse failed, using manual flags only.");

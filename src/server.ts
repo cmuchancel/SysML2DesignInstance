@@ -61,6 +61,9 @@ const handleSearch = async (req: Request, res: Response) => {
         if (parsed) {
           input = { ...input, ...parsed };
         }
+        if (!input.keywords || input.keywords.length === 0) {
+          input.keywords = parse.data.nl.split(/\s+/).filter(Boolean);
+        }
       } else {
         // fallback: use nl as keyword bag
         const words = parse.data.nl.split(/\s+/).filter(Boolean);
