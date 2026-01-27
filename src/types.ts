@@ -26,7 +26,7 @@ export type SearchOutcome = {
   results: ResistorResult[];
 };
 
-export type Provider = "octopart" | "digikey" | "mouser" | "mock";
+export type Provider = "octopart" | "digikey" | "mouser" | "web" | "mock";
 
 export type NexarPart = {
   mpn: string;

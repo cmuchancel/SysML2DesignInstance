@@ -5,6 +5,7 @@ import { mouserAvailable, mouserSearch } from "./mouserApi.js";
 import { getCachedResults, setCachedResults } from "./cache.js";
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { Provider, ResistorResult, ResistorSearchInput, SearchOutcome } from "./types.js";
+import { webSearch, webSearchAvailable } from "./webSearchProvider.js";
 
 const preferMock = () => process.env.USE_MOCK === "1";
 
@@ -59,6 +60,7 @@ export const searchResistors = async (
   if (octopartAvailable && !disableOctopart && !preferMock())
     providerPreference.push("octopart");
   if (digikeyAvailable && !preferMock()) providerPreference.push("digikey");
+  if (webSearchAvailable && !preferMock()) providerPreference.push("web");
   if (useMock || providerPreference.length === 0) providerPreference.push("mock");
 
   for (const provider of providerPreference) {
@@ -82,6 +84,13 @@ export const searchResistors = async (
         const results = await digikeyKeywordSearch(input, limit);
         setCachedResults(provider, query, results);
         return { source: "live", query, results };
+      }
+      if (provider === "web") {
+        const results = await webSearch(input, limit);
+        setCachedResults(provider, query, results);
+        if (results.length) {
+          return { source: "live", query, results };
+        }
       }
       if (provider === "mock") {
         const filtered = filterMock(mockResistors, input).slice(0, limit);

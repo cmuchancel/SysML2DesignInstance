@@ -7,13 +7,15 @@
     "dev:server": "tsx src/server.ts",
     "cli": "tsx src/cli.ts",
     "lint": "tsc --noEmit",
-    "test": "tsx scripts/run-mock-search.ts"
+    "test": "tsx scripts/run-mock-search.ts",
+    "test:web": "tsx scripts/run-web-search.ts"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "cheerio": "^1.2.0",
     "dotenv": "^17.2.3",
     "express": "^4.19.2",
     "localtunnel": "^2.0.2",

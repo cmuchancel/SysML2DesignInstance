@@ -1,6 +1,6 @@
-# Digi-Key Resistor Finder
+# Resistor Finder
 
-CLI + lightweight UI that turns human-friendly resistor requirements into a Digi-Key search. Without live credentials it falls back to a small mock catalog so you can demo the flow immediately.
+CLI + lightweight UI that turns human-friendly resistor requirements into supplier searches. Prefers live APIs (Mouser, Octopart/Nexar, Digi-Key), but can now fall back to a web-search scraper to reach suppliers without APIs. Without any live path it uses a small mock catalog so you can demo immediately.
 
 ## Setup
 1) Install deps: `npm install`
@@ -21,7 +21,10 @@ CLI + lightweight UI that turns human-friendly resistor requirements into a Digi
    - `MOUSER_API_KEY`
    - `MOUSER_BASE_URL` (defaults to `https://api.mouser.com/api/v1/search/keyword`)
    - Set `DISABLE_OCTOPART=1` if you want to force Mouser to be tried before any Octopart/Nexar calls.
-6) (Optional) OpenAI for natural-language parsing:
+6) (Optional) Web search scraper (DuckDuckGo HTML):
+   - Enabled by default; set `DISABLE_WEB_SEARCH=1` to turn it off.
+   - Optional: `WEB_SEARCH_USER_AGENT` to customize the UA string.
+7) (Optional) OpenAI for natural-language parsing:
    - `OPENAI_API_KEY`
    - `OPENAI_MODEL` (defaults to `gpt-4o-mini`)
 
@@ -30,6 +33,8 @@ Run searches from the terminal:
 ```bash
 USE_MOCK=1 npm run cli -- --resistance 10k --tolerance 1% --package 0603 --power 0.1W
 OPENAI_API_KEY=... npm run cli -- --nl "need 10k 1% 0603 0.1W thick film"
+# Try the web-scrape path (hits DuckDuckGo and supplier pages):
+DISABLE_WEB_SEARCH=0 npm run test:web
 ```
 
 ## UI
@@ -40,5 +45,7 @@ npm run dev:server
 Fill the form; results render from live or mock data depending on env.
 
 ## Notes
-- The live path hits Digi-Key's keyword search endpoint using OAuth2 refresh tokens.
-- If credentials are absent, the code automatically switches to the bundled mock dataset so you can still exercise the flows. Replace `USE_MOCK=1` with your env vars to query Digi-Key.
+- Provider priority: Mouser → Octopart/Nexar → Digi-Key → Web search scraper → Mock.
+- The web search scraper uses DuckDuckGo's HTML results to surface supplier listings even when no API is available. It caches results on disk (`cache/search-cache.json`) like the other providers.
+- The live Digi-Key path uses OAuth2 refresh tokens.
+- If credentials are absent and web search is disabled, the code automatically switches to the bundled mock dataset so you can still exercise the flows. Replace `USE_MOCK=1` with your env vars to query live sources.

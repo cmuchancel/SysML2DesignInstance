@@ -33,6 +33,7 @@ app.get("/health", (_req, res) =>
       octopart: Boolean(process.env.OCTOPART_API_KEY || process.env.NEXAR_TOKEN),
       digikey: Boolean(process.env.DIGIKEY_CLIENT_ID && process.env.DIGIKEY_REFRESH_TOKEN),
       mouser: Boolean(process.env.MOUSER_API_KEY),
+      web: process.env.DISABLE_WEB_SEARCH === "1" ? false : true,
     },
   }),
 );
@@ -55,10 +56,9 @@ app.post("/api/search/resistor", async (req, res) => {
       }
     }
     // remove nl before search
-    // @ts-expect-error removing helper key
-    delete input.nl;
+    const { nl: _nl, ...structured } = input;
 
-    const outcome = await searchResistors(input, 10);
+    const outcome = await searchResistors(structured, 10);
     res.json({
       query: outcome.query,
       source: outcome.source,
