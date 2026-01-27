@@ -55,12 +55,12 @@ export const searchResistors = async (
   const useMock =
     preferMock() || (!digikeyAvailable && (!octopartAvailable || disableOctopart) && !mouserAvailable);
   const providerPreference: Provider[] = [];
-  // Mouser first (per request), then Octopart (if not disabled), then Digi-Key.
+  // Web search first to reach suppliers without APIs, then Mouser, Octopart, Digi-Key.
+  if (webSearchAvailable && !preferMock()) providerPreference.push("web");
   if (mouserAvailable && !preferMock()) providerPreference.push("mouser");
   if (octopartAvailable && !disableOctopart && !preferMock())
     providerPreference.push("octopart");
   if (digikeyAvailable && !preferMock()) providerPreference.push("digikey");
-  if (webSearchAvailable && !preferMock()) providerPreference.push("web");
   if (useMock || providerPreference.length === 0) providerPreference.push("mock");
 
   for (const provider of providerPreference) {
