@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { PartResult, PartSearchInput } from "./types.js";
+import { scrapeAmazonSearch, scrapeMcMasterSearch } from "./scrapers/index.js";
 
 const defaultUserAgent =
   process.env.WEB_SEARCH_USER_AGENT ||
@@ -78,6 +79,23 @@ export const webSearch = async (
   if (!query) return [];
 
   const refined = input.category ? `${query} ${input.category}` : query;
+
+  // Prefer site-specific scrapes when a vendor is implied
+  if ((input.category || "").includes("spring") || query.includes("mcmaster")) {
+    try {
+      return await scrapeMcMasterSearch(refined, limit);
+    } catch {
+      // fall back
+    }
+  }
+  if (query.includes("amazon")) {
+    try {
+      return await scrapeAmazonSearch(refined, limit);
+    } catch {
+      // fall back
+    }
+  }
+
   const searchUrl = `https://duckduckgo.com/html/?q=${encodeURIComponent(refined)}`;
   const res = await fetch(searchUrl, {
     headers: { "User-Agent": defaultUserAgent },

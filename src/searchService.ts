@@ -6,6 +6,7 @@ import { getCachedResults, setCachedResults } from "./cache.js";
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { Provider, PartResult, PartSearchInput, SearchOutcome } from "./types.js";
 import { webSearch, webSearchAvailable } from "./webSearchProvider.js";
+import { rerankWithLLM, llmRankerAvailable } from "./llmRanker.js";
 
 const preferMock = () => process.env.USE_MOCK === "1";
 
@@ -215,9 +216,10 @@ export const searchParts = async (
     .sort((a, b) => b.score - a.score || (b.item.stock || 0) - (a.item.stock || 0))
     .slice(0, limit)
     .map((x) => x.item);
+  const reranked = await rerankWithLLM(query, input, sorted, limit);
   const source = deduped.some((r) => r.provider && r.provider !== "mock")
     ? "live"
     : "mock";
 
-  return { source, query, results: sorted, providersTried: tried };
+  return { source, query, results: reranked, providersTried: tried };
 };
