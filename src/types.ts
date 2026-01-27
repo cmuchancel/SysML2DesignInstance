@@ -25,12 +25,14 @@ export type PartResult = {
   unitPrice?: number;
   url?: string;
   attributes?: Record<string, string>;
+  provider?: Provider;
 };
 
 export type SearchOutcome = {
   source: "live" | "mock";
   query: string;
   results: PartResult[];
+  providersTried?: Provider[];
 };
 
 export type Provider = "octopart" | "digikey" | "mouser" | "web" | "mock";

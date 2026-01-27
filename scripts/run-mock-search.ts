@@ -3,7 +3,7 @@ import { searchParts } from "../src/searchService.js";
 
 const run = async () => {
   process.env.USE_MOCK = "1";
-  const { results, query, source } = await searchParts(
+  const { results, query, source, providersTried } = await searchParts(
     {
       category: "resistor",
       value: "10k",
@@ -14,7 +14,11 @@ const run = async () => {
     5,
   );
 
-  console.log(`Query "${query}" using source "${source}" returned:`);
+  console.log(
+    `Query "${query}" using source "${source}" providers [${providersTried?.join(
+      ", ",
+    )}] returned:`,
+  );
   for (const item of results) {
     console.log(
       `- ${item.manufacturerPartNumber} (${item.manufacturer})` +

@@ -1,6 +1,6 @@
 # Component Finder
 
-CLI + lightweight UI that turns human-friendly component requirements into supplier searches. Prefers live APIs (Mouser, Octopart/Nexar, Digi-Key), but can fall back to a web-search scraper to reach suppliers without APIs. Without any live path it uses a small mock catalog so you can demo immediately.
+CLI + lightweight UI that turns human-friendly component requirements into supplier searches. Prefers live APIs (Mouser, Octopart/Nexar, Digi-Key), but can fall back to a web-search scraper to reach suppliers without APIs. Without any live path it uses a small mock catalog so you can demo immediately. Provider order is configurable and results are deduped/merged across providers until your limit is reached.
 
 ## Setup
 1) Install deps: `npm install`
@@ -31,8 +31,8 @@ CLI + lightweight UI that turns human-friendly component requirements into suppl
 ## CLI
 Run searches from the terminal:
 ```bash
-USE_MOCK=1 npm run cli -- --category capacitor --value 10uF --voltage 6.3V --package 0603
-OPENAI_API_KEY=... npm run cli -- --nl "need right-angle micro usb b smd connector"
+USE_MOCK=1 npm run cli -- --category capacitor --value 10uF --voltage 6.3V --package 0603 --limit 5
+OPENAI_API_KEY=... npm run cli -- --nl "need right-angle micro usb b smd connector" --provider web --limit 8
 # Try the web-scrape path (hits DuckDuckGo and supplier pages):
 DISABLE_WEB_SEARCH=0 npm run test:web
 ```
@@ -45,7 +45,8 @@ npm run dev:server
 Fill the form; results render from live or mock data depending on env.
 
 ## Notes
-- Provider priority: Web search scraper → Mouser → Octopart/Nexar → Digi-Key → Mock.
+- Default provider priority: Web search scraper → Mouser → Octopart/Nexar → Digi-Key → Mock. Override via CLI `--provider web --provider digikey ...` or API `providers: ["web","mouser"]`.
+- Results are aggregated and deduped across providers until your `limit` (default 12). Each result carries the originating `provider`.
 - The web search scraper uses DuckDuckGo's HTML results to surface supplier listings even when no API is available. It caches results on disk (`cache/search-cache.json`) like the other providers.
 - The live Digi-Key path uses OAuth2 refresh tokens.
 - If credentials are absent and web search is disabled, the code automatically switches to the bundled mock dataset so you can still exercise the flows. Replace `USE_MOCK=1` with your env vars to query live sources.

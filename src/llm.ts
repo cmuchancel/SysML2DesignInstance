@@ -35,12 +35,18 @@ export const naturalLanguageToSearch = async (
     const valueMatch =
       lower.match(/(\d+(?:\.\d+)?\s*(?:k|m)?\s*ohm)/) ||
       lower.match(/(\d+(?:\.\d+)?\s*u?f)/);
-    if (packageMatch || voltageMatch || currentMatch || valueMatch) {
+    const partNumberMatch = raw.match(/[A-Z0-9][A-Z0-9\-\._]{4,}/);
+    const categoryMatch = lower.match(
+      /\b(resistor|res|cap|capacitor|inductor|connector|op-amp|regulator|mcu|ic|sensor)\b/,
+    );
+    if (packageMatch || voltageMatch || currentMatch || valueMatch || partNumberMatch || categoryMatch) {
       return {
         value: valueMatch?.[1]?.replace(/\s+/g, "") || undefined,
         voltage: voltageMatch?.[1]?.replace(/\s+/g, "") || undefined,
         current: currentMatch?.[1]?.replace(/\s+/g, "") || undefined,
         package: packageMatch?.[1],
+        partNumber: partNumberMatch?.[0],
+        category: categoryMatch?.[1],
       };
     }
     return null;

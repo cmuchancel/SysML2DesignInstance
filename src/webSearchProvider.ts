@@ -61,6 +61,7 @@ const parseResults = (html: string, limit: number): PartResult[] => {
       description: snippet || title,
       url,
       attributes: { sourceTitle: title },
+      provider: "web" as const,
     });
   });
   return items;

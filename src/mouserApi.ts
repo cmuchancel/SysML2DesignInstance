@@ -40,6 +40,7 @@ const mapParts = (parts: MouserPart[]): PartResult[] =>
         rohs: p.RohsStatus || "",
         mouserPartNumber: p.MouserPartNumber || "",
       },
+      provider: "mouser" as const,
     }))
     .filter((r) => r.manufacturerPartNumber);
 

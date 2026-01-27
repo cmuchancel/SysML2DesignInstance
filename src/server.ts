@@ -30,6 +30,8 @@ const searchSchema = z.object({
   quantity: z.number().optional(),
   keywords: z.array(z.string()).optional(),
   specs: z.record(z.string(), z.string()).optional(),
+  limit: z.number().min(1).max(30).optional(),
+  providers: z.array(z.enum(["web", "mouser", "octopart", "digikey", "mock"])).optional(),
 });
 
 app.get("/health", (_req, res) =>
@@ -63,12 +65,13 @@ const handleSearch = async (req: Request, res: Response) => {
       }
     }
     // remove nl before search
-    const { nl: _nl, ...structured } = input;
+    const { nl: _nl, limit, providers, ...structured } = input;
 
-    const outcome = await searchParts(structured, 10);
+    const outcome = await searchParts(structured, limit || 12, providers);
     res.json({
       query: outcome.query,
       source: outcome.source,
+      providersTried: outcome.providersTried,
       count: outcome.results.length,
       results: outcome.results,
     });

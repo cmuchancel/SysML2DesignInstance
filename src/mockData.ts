@@ -17,6 +17,7 @@ export const mockParts: PartResult[] = [
       package: "0603 (1608 Metric)",
       material: "Thick Film",
     },
+    provider: "mock" as const,
   },
   {
     manufacturer: "Murata Electronics",
@@ -32,6 +33,7 @@ export const mockParts: PartResult[] = [
       dielectric: "X5R",
       package: "0603",
     },
+    provider: "mock" as const,
   },
   {
     manufacturer: "Texas Instruments",
@@ -47,6 +49,7 @@ export const mockParts: PartResult[] = [
       package: "SOT-23-5",
       offset: "10 uV",
     },
+    provider: "mock" as const,
   },
   {
     manufacturer: "Amphenol ICC",
@@ -61,5 +64,6 @@ export const mockParts: PartResult[] = [
       mount: "SMT",
       orientation: "Right Angle",
     },
+    provider: "mock" as const,
   },
 ];

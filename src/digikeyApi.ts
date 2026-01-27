@@ -96,6 +96,7 @@ const mapProductsToResults = (
         unitPrice: Number(p.UnitPrice) || undefined,
         url: p.PrimaryPhoto?.ImageUrl || p.DigitalUrl || p.ProductUrl,
         attributes,
+        provider: "digikey" as const,
       } as PartResult;
     })
     .filter((item) => item.manufacturerPartNumber);

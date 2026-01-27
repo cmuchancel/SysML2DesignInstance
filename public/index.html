@@ -220,10 +220,37 @@
           Extra keywords
           <input name="keywords" placeholder="automotive, AEC-Q200, medical" />
         </label>
+        <label>
+          Limit
+          <input name="limit" type="number" min="1" max="30" value="12" />
+        </label>
+        <label>
+          Providers (optional override)
+          <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:#c8d3df">
+            <label style="display:flex;align-items:center;gap:4px">
+              <input type="checkbox" name="providers" value="web" /> Web
+            </label>
+            <label style="display:flex;align-items:center;gap:4px">
+              <input type="checkbox" name="providers" value="mouser" /> Mouser
+            </label>
+            <label style="display:flex;align-items:center;gap:4px">
+              <input type="checkbox" name="providers" value="octopart" /> Octopart
+            </label>
+            <label style="display:flex;align-items:center;gap:4px">
+              <input type="checkbox" name="providers" value="digikey" /> Digi-Key
+            </label>
+            <label style="display:flex;align-items:center;gap:4px">
+              <input type="checkbox" name="providers" value="mock" /> Mock
+            </label>
+          </div>
+        </label>
       </form>
       <div class="actions">
         <button id="submit">Search</button>
         <span id="status" class="pill">Idle</span>
+        <button id="copy-json" type="button" style="background:#0f1319;border:1px solid rgba(255,255,255,0.08);color:#e8eef5">
+          Copy JSON
+        </button>
       </div>
       <div id="error" class="error"></div>
       <div class="results" id="results"></div>
@@ -236,6 +263,8 @@
       const resultsEl = document.getElementById("results");
       const statusEl = document.getElementById("status");
       const errorEl = document.getElementById("error");
+      const copyBtn = document.getElementById("copy-json");
+      let latestPayload = null;
 
       const setStatus = (text, color) => {
         statusEl.textContent = text;
@@ -243,6 +272,7 @@
       };
 
       const renderResults = (payload) => {
+        latestPayload = payload;
         resultsEl.innerHTML = "";
         const { results, query, source } = payload;
         const heading = document.createElement("div");
@@ -265,6 +295,13 @@
           title.textContent = `${item.manufacturerPartNumber} — ${item.manufacturer}`;
           card.appendChild(title);
 
+          const provider = document.createElement("div");
+          provider.className = "pill";
+          provider.style.display = "inline-block";
+          provider.style.marginBottom = "8px";
+          provider.textContent = (item.provider || "unknown").toUpperCase();
+          card.appendChild(provider);
+
           if (item.description) {
             const desc = document.createElement("div");
             desc.textContent = item.description;
@@ -280,6 +317,8 @@
           if (item.stock !== undefined) meta.innerHTML += `<span>Stock: ${item.stock}</span>`;
           if (item.unitPrice !== undefined)
             meta.innerHTML += `<span>$${Number(item.unitPrice).toFixed(4)} ea</span>`;
+          if (item.attributes && item.attributes.category)
+            meta.innerHTML += `<span>${item.attributes.category}</span>`;
           card.appendChild(meta);
 
           if (item.url) {
@@ -309,11 +348,20 @@
           if (trimmed) {
             if (key === "keywords" || key === "features") {
               payload[key] = trimmed.split(/[,;]/).map((v) => v.trim());
+            } else if (key === "limit") {
+              payload[key] = Number(trimmed);
             } else {
               payload[key] = trimmed;
             }
           }
         });
+
+        const providerChecks = Array.from(
+          document.querySelectorAll('input[name="providers"]:checked'),
+        ) as HTMLInputElement[];
+        if (providerChecks.length) {
+          payload["providers"] = providerChecks.map((c) => c.value);
+        }
 
         try {
           const res = await fetch("/api/search/parts", {
@@ -340,6 +388,20 @@
         if (e.key === "Enter") {
           e.preventDefault();
           runSearch();
+        }
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        if (!latestPayload) {
+          errorEl.textContent = "No results to copy yet.";
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(JSON.stringify(latestPayload, null, 2));
+          setStatus("Copied JSON", "#0c1016");
+          setTimeout(() => setStatus("Idle"), 1200);
+        } catch (err) {
+          errorEl.textContent = "Copy failed";
         }
       });
 

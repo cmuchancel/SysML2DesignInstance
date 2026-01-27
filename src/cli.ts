@@ -4,7 +4,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { naturalLanguageToSearch, llmAvailable } from "./llm.js";
 import { searchParts } from "./searchService.js";
-import { PartSearchInput } from "./types.js";
+import { PartSearchInput, Provider } from "./types.js";
 
 const builder = (y: typeof yargs) =>
   y
@@ -36,6 +36,18 @@ const builder = (y: typeof yargs) =>
       describe: "Additional keywords",
       default: [],
     })
+    .option("provider", {
+      alias: "P",
+      type: "array",
+      describe: "Provider order override (web,mouser,octopart,digikey,mock)",
+      default: [],
+    })
+    .option("limit", {
+      alias: "l",
+      type: "number",
+      describe: "Maximum results to return (1-30)",
+      default: 12,
+    })
     .option("quantity", {
       alias: "q",
       type: "number",
@@ -65,6 +77,10 @@ const run = async () => {
     quantity: argv.quantity as number | undefined,
     keywords: ((argv.keyword as string[] | undefined) || []).map((k) => k.trim()).filter(Boolean),
   };
+  const providersArg = ((argv.provider as string[] | undefined) || []).map((p) =>
+    p.trim(),
+  ) as Provider[];
+  const limitArg = (argv.limit as number) || 12;
 
   if (argv.nl && typeof argv.nl === "string") {
     if (!llmAvailable) {
@@ -99,7 +115,7 @@ const run = async () => {
   }
 
   try {
-    const result = await searchParts(input, 8);
+    const result = await searchParts(input, limitArg, providersArg);
     if (!result.results.length) {
       console.log("No results found. Adjust your query or relax filters.");
       return;

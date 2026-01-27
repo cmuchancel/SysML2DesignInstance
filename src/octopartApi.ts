@@ -31,6 +31,7 @@ const mapNexarParts = (parts: NexarPart[]): PartResult[] =>
               s.displayValue || "",
             ]),
         ),
+        provider: "octopart" as const,
       };
     })
     .filter((r) => r.manufacturerPartNumber);
@@ -51,6 +52,7 @@ const mapRestParts = (parts: any[]): PartResult[] =>
         attributes: {
           category: p?.category?.name,
         },
+        provider: "octopart" as const,
       };
     })
     .filter((r: PartResult) => r.manufacturerPartNumber);

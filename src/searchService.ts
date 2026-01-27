@@ -9,6 +9,61 @@ import { webSearch, webSearchAvailable } from "./webSearchProvider.js";
 
 const preferMock = () => process.env.USE_MOCK === "1";
 
+const validProviders: Provider[] = ["web", "mouser", "octopart", "digikey", "mock"];
+
+const resolveProviders = (requested?: Provider[]): Provider[] => {
+  const disableOctopart = process.env.DISABLE_OCTOPART === "1";
+  const list = (requested && requested.length ? requested : null) || [];
+  const unique = (arr: Provider[]) =>
+    Array.from(new Set(arr.filter((p) => validProviders.includes(p))));
+
+  if (list.length) return unique(list);
+
+  // default order (web first) honoring availability and mock preference
+  const order: Provider[] = [];
+  if (webSearchAvailable && !preferMock()) order.push("web");
+  if (mouserAvailable && !preferMock()) order.push("mouser");
+  if (octopartAvailable && !preferMock() && !disableOctopart) order.push("octopart");
+  if (digikeyAvailable && !preferMock()) order.push("digikey");
+  if (preferMock() || order.length === 0) order.push("mock");
+  return order;
+};
+
+const mergePart = (base: PartResult, incoming: PartResult): PartResult => {
+  const merged: PartResult = { ...base };
+  const fill = <K extends keyof PartResult>(key: K) => {
+    if (merged[key] === undefined || merged[key] === null || merged[key] === "") {
+      merged[key] = incoming[key];
+    }
+  };
+  fill("manufacturer");
+  fill("manufacturerPartNumber");
+  fill("digiKeyPartNumber");
+  fill("description");
+  fill("stock");
+  fill("unitPrice");
+  fill("url");
+  merged.attributes = { ...(base.attributes || {}), ...(incoming.attributes || {}) };
+  merged.provider = merged.provider || incoming.provider;
+  return merged;
+};
+
+const dedupeResults = (items: PartResult[]): PartResult[] => {
+  const byKey = new Map<string, PartResult>();
+  for (const item of items) {
+    const mpn = item.manufacturerPartNumber?.toLowerCase().trim();
+    const url = item.url?.split("?")[0].toLowerCase();
+    const key = mpn || url || `${item.manufacturer}-${Math.random()}`;
+    if (byKey.has(key)) {
+      const merged = mergePart(byKey.get(key)!, item);
+      byKey.set(key, merged);
+    } else {
+      byKey.set(key, item);
+    }
+  }
+  return Array.from(byKey.values());
+};
+
 const filterMock = (
   items: PartResult[],
   input: PartSearchInput,
@@ -63,63 +118,59 @@ const filterMock = (
 export const searchParts = async (
   input: PartSearchInput,
   limit = 8,
+  providersOverride?: Provider[],
 ): Promise<SearchOutcome> => {
   const query = buildKeywordQuery(input);
   if (!query) {
     throw new Error("Provide at least one search term or keyword.");
   }
 
-  const disableOctopart = process.env.DISABLE_OCTOPART === "1";
-  const useMock =
-    preferMock() || (!digikeyAvailable && (!octopartAvailable || disableOctopart) && !mouserAvailable);
-  const providerPreference: Provider[] = [];
-  // Web search first to reach suppliers without APIs, then Mouser, Octopart, Digi-Key.
-  if (webSearchAvailable && !preferMock()) providerPreference.push("web");
-  if (mouserAvailable && !preferMock()) providerPreference.push("mouser");
-  if (octopartAvailable && !disableOctopart && !preferMock())
-    providerPreference.push("octopart");
-  if (digikeyAvailable && !preferMock()) providerPreference.push("digikey");
-  if (useMock || providerPreference.length === 0) providerPreference.push("mock");
+  const providerPreference = resolveProviders(providersOverride);
+  const aggregated: PartResult[] = [];
+  const tried: Provider[] = [];
 
   for (const provider of providerPreference) {
+    tried.push(provider);
     const cached = getCachedResults(provider, query);
     if (cached) {
-      return { source: provider === "mock" ? "mock" : "live", query, results: cached };
+      aggregated.push(...cached);
+      if (aggregated.length >= limit) break;
+      continue;
     }
 
     try {
       if (provider === "octopart") {
         const results = await octopartSearch(input, limit);
         setCachedResults(provider, query, results);
-        return { source: "live", query, results };
-      }
-      if (provider === "mouser") {
+        aggregated.push(...results);
+      } else if (provider === "mouser") {
         const results = await mouserSearch(input, limit);
         setCachedResults(provider, query, results);
-        return { source: "live", query, results };
-      }
-      if (provider === "digikey") {
+        aggregated.push(...results);
+      } else if (provider === "digikey") {
         const results = await digikeyKeywordSearch(input, limit);
         setCachedResults(provider, query, results);
-        return { source: "live", query, results };
-      }
-      if (provider === "web") {
+        aggregated.push(...results);
+      } else if (provider === "web") {
         const results = await webSearch(input, limit);
         setCachedResults(provider, query, results);
-        if (results.length) {
-          return { source: "live", query, results };
-        }
-      }
-      if (provider === "mock") {
+        aggregated.push(...results);
+      } else if (provider === "mock") {
         const filtered = filterMock(mockParts, input).slice(0, limit);
         setCachedResults(provider, query, filtered);
-        return { source: "mock", query, results: filtered };
+        aggregated.push(...filtered);
       }
-    } catch (err) {
-      // Continue to next provider
+    } catch {
       continue;
     }
+
+    if (aggregated.length >= limit) break;
   }
 
-  return { source: "mock", query, results: [] };
+  const deduped = dedupeResults(aggregated).slice(0, limit);
+  const source = deduped.some((r) => r.provider && r.provider !== "mock")
+    ? "live"
+    : "mock";
+
+  return { source, query, results: deduped, providersTried: tried };
 };

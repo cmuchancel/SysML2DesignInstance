@@ -17,9 +17,9 @@ export const buildKeywordQuery = (input: PartSearchInput): string => {
   const tempco = sanitize(input.temperatureCoefficient);
   const material = sanitize(input.material);
 
-  if (category) parts.push(category);
-  if (manufacturer) parts.push(manufacturer);
   if (partNumber) parts.push(partNumber);
+  if (manufacturer) parts.push(manufacturer);
+  if (category) parts.push(category);
   if (value) parts.push(value);
   if (tolerance) parts.push(tolerance);
   if (power) parts.push(power);
