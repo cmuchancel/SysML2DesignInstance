@@ -1,19 +1,19 @@
 import { digikeyAvailable, digikeyKeywordSearch } from "./digikeyApi.js";
 import { octopartAvailable, octopartSearch } from "./octopartApi.js";
-import { mockResistors } from "./mockData.js";
+import { mockParts } from "./mockData.js";
 import { mouserAvailable, mouserSearch } from "./mouserApi.js";
 import { getCachedResults, setCachedResults } from "./cache.js";
 import { buildKeywordQuery } from "./queryBuilder.js";
-import { Provider, ResistorResult, ResistorSearchInput, SearchOutcome } from "./types.js";
+import { Provider, PartResult, PartSearchInput, SearchOutcome } from "./types.js";
 import { webSearch, webSearchAvailable } from "./webSearchProvider.js";
 
 const preferMock = () => process.env.USE_MOCK === "1";
 
 const filterMock = (
-  items: ResistorResult[],
-  input: ResistorSearchInput,
-): ResistorResult[] => {
-  const haystackFor = (item: ResistorResult) =>
+  items: PartResult[],
+  input: PartSearchInput,
+): PartResult[] => {
+  const haystackFor = (item: PartResult) =>
     [
       item.manufacturer,
       item.manufacturerPartNumber,
@@ -27,28 +27,46 @@ const filterMock = (
   const matchesField = (value: string | undefined, haystack: string) =>
     !value || haystack.includes(value.trim().toLowerCase());
 
+  const matchesArray = (values: string[] | undefined, haystack: string) =>
+    !values || values.every((v) => matchesField(v, haystack));
+
+  const matchesSpecs = (specs: Record<string, string> | undefined, haystack: string) =>
+    !specs ||
+    Object.entries(specs).every(
+      ([k, v]) =>
+        matchesField(k, haystack) ||
+        matchesField(v, haystack) ||
+        matchesField(`${k} ${v}`, haystack),
+    );
+
   return items.filter((item) => {
     const hay = haystackFor(item);
     return (
-      matchesField(input.resistance, hay) &&
+      matchesField(input.category, hay) &&
+      matchesField(input.manufacturer, hay) &&
+      matchesField(input.partNumber, hay) &&
+      matchesField(input.value, hay) &&
       matchesField(input.tolerance, hay) &&
       matchesField(input.power, hay) &&
+      matchesField(input.voltage, hay) &&
+      matchesField(input.current, hay) &&
       matchesField(input.package, hay) &&
       matchesField(input.temperatureCoefficient, hay) &&
-      matchesField(input.composition, hay) &&
-      (!input.keywords?.length ||
-        input.keywords.every((kw) => matchesField(kw, hay)))
+      matchesField(input.material, hay) &&
+      matchesArray(input.features, hay) &&
+      matchesArray(input.keywords, hay) &&
+      matchesSpecs(input.specs, hay)
     );
   });
 };
 
-export const searchResistors = async (
-  input: ResistorSearchInput,
+export const searchParts = async (
+  input: PartSearchInput,
   limit = 8,
 ): Promise<SearchOutcome> => {
   const query = buildKeywordQuery(input);
   if (!query) {
-    throw new Error("At minimum provide a resistance value or a keyword.");
+    throw new Error("Provide at least one search term or keyword.");
   }
 
   const disableOctopart = process.env.DISABLE_OCTOPART === "1";
@@ -93,7 +111,7 @@ export const searchResistors = async (
         }
       }
       if (provider === "mock") {
-        const filtered = filterMock(mockResistors, input).slice(0, limit);
+        const filtered = filterMock(mockParts, input).slice(0, limit);
         setCachedResults(provider, query, filtered);
         return { source: "mock", query, results: filtered };
       }

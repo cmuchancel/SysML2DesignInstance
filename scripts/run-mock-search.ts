@@ -1,11 +1,12 @@
 import "dotenv/config";
-import { searchResistors } from "../src/searchService.js";
+import { searchParts } from "../src/searchService.js";
 
 const run = async () => {
   process.env.USE_MOCK = "1";
-  const { results, query, source } = await searchResistors(
+  const { results, query, source } = await searchParts(
     {
-      resistance: "10k",
+      category: "resistor",
+      value: "10k",
       tolerance: "1%",
       package: "0603",
       power: "0.1W",

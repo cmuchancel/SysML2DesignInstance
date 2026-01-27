@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
-import { Provider, ResistorResult } from "./types.js";
+import { Provider, PartResult } from "./types.js";
 
 type CacheEntry = {
   provider: Provider;
   query: string;
-  results: ResistorResult[];
+  results: PartResult[];
   timestamp: number;
 };
 
@@ -36,7 +36,7 @@ const saveCache = (entries: CacheEntry[]) => {
 export const getCachedResults = (
   provider: Provider,
   query: string,
-): ResistorResult[] | null => {
+): PartResult[] | null => {
   const entries = loadCache();
   const now = Date.now();
   const ttlMs = ttlMinutes * 60 * 1000;
@@ -51,7 +51,7 @@ export const getCachedResults = (
 export const setCachedResults = (
   provider: Provider,
   query: string,
-  results: ResistorResult[],
+  results: PartResult[],
 ) => {
   if (!results || results.length === 0) return;
   const entries = loadCache().filter(

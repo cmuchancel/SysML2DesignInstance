@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digi-Key Resistor Finder</title>
+    <title>Component Finder</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -152,14 +152,13 @@
   </head>
   <body>
     <div class="shell">
-      <h1>Mouser Resistor Finder</h1>
+      <h1>Component Finder</h1>
       <p class="desc">
-        Describe the resistor you need and we will search Mouser first
-        (falling back to other sources or mock data only if needed).
+        Describe any electronic component; the app searches web + supplier APIs when available and falls back to mock data if needed.
       </p>
       <div class="tabs">
         <button class="tab active" data-tab="chat">Chatbot</button>
-        <button class="tab" data-tab="form">Resistor Lookup</button>
+        <button class="tab" data-tab="form">Component Lookup</button>
       </div>
       <div id="chat-panel">
         <div style="margin-bottom: 12px">
@@ -169,7 +168,7 @@
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <input
               id="nl-input"
-              placeholder="e.g., need a 10k 1% 0603 resistor for 0.1W"
+              placeholder="e.g., need a 10uF 6.3V 0603 X5R cap or a micro USB right-angle connector"
               style="flex:1 1 320px"
             />
             <button id="submit-nl" type="button">Ask & Search</button>
@@ -178,36 +177,52 @@
       </div>
       <form id="search-form" style="display:none">
         <label>
-          Resistance
-          <input name="resistance" placeholder="10k, 4.7, 2.2M" />
+          Category
+          <input name="category" placeholder="resistor, capacitor, ic, connector" />
+        </label>
+        <label>
+          Manufacturer
+          <input name="manufacturer" placeholder="TI, Murata, Amphenol" />
+        </label>
+        <label>
+          Part number
+          <input name="partNumber" placeholder="OPA333AIDBVR, GRM188R60J106ME47D" />
+        </label>
+        <label>
+          Value
+          <input name="value" placeholder="10k, 10uF, 3.3V reg" />
+        </label>
+        <label>
+          Package
+          <input name="package" placeholder="0603, QFN48, SOT-23-5" />
+        </label>
+        <label>
+          Voltage
+          <input name="voltage" placeholder="6.3V, 30V, 1.8V-5.5V" />
+        </label>
+        <label>
+          Current
+          <input name="current" placeholder="1A, 10mA" />
+        </label>
+        <label>
+          Power
+          <input name="power" placeholder="0.1W, 2W, 10W" />
         </label>
         <label>
           Tolerance
           <input name="tolerance" placeholder="1%, 5%" />
         </label>
         <label>
-          Power
-          <input name="power" placeholder="0.1W, 0.25W" />
-        </label>
-        <label>
-          Package
-          <input name="package" placeholder="0402, 0603, 0805" />
-        </label>
-        <label>
-          Temp. Coefficient
-          <input name="temperatureCoefficient" placeholder="100ppm/°C" />
-        </label>
-        <label>
-          Composition
-          <input name="composition" placeholder="Thick Film, Thin Film" />
+          Features
+          <input name="features" placeholder="low-noise, shielded, waterproof" />
         </label>
         <label>
           Extra keywords
-          <input name="keywords" placeholder="automotive, AEC-Q200" />
+          <input name="keywords" placeholder="automotive, AEC-Q200, medical" />
         </label>
       </form>
       <div class="actions">
-        <button id="submit">Search Mouser</button>
+        <button id="submit">Search</button>
         <span id="status" class="pill">Idle</span>
       </div>
       <div id="error" class="error"></div>
@@ -292,7 +307,7 @@
         formData.forEach((value, key) => {
           const trimmed = value.trim();
           if (trimmed) {
-            if (key === "keywords") {
+            if (key === "keywords" || key === "features") {
               payload[key] = trimmed.split(/[,;]/).map((v) => v.trim());
             } else {
               payload[key] = trimmed;
@@ -301,7 +316,7 @@
         });
 
         try {
-          const res = await fetch("/api/search/resistor", {
+          const res = await fetch("/api/search/parts", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),

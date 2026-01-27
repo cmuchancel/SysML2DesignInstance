@@ -1,7 +1,7 @@
 {
   "name": "sysmltodesigninstance",
   "version": "1.0.0",
-  "description": "Digi-Key resistor finder with CLI and UI.",
+  "description": "General component finder with CLI, UI, API, and web-scrape fallback.",
   "main": "dist/index.js",
   "scripts": {
     "dev:server": "tsx src/server.ts",

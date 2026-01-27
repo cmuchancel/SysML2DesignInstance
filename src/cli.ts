@@ -3,45 +3,32 @@ import "dotenv/config";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { naturalLanguageToSearch, llmAvailable } from "./llm.js";
-import { searchResistors } from "./searchService.js";
-import { ResistorSearchInput } from "./types.js";
+import { searchParts } from "./searchService.js";
+import { PartSearchInput } from "./types.js";
 
 const builder = (y: typeof yargs) =>
   y
-    .option("resistance", {
-      alias: "r",
-      type: "string",
-      describe: "Resistance value (e.g., 10k, 47k, 4.7)",
-    })
     .option("nl", {
       type: "string",
       describe:
         "Natural language description (uses OpenAI to extract fields when OPENAI_API_KEY is set)",
     })
-    .option("tolerance", {
-      alias: "t",
-      type: "string",
-      describe: "Tolerance (e.g., 1%, 5%)",
-    })
-    .option("power", {
-      alias: "p",
-      type: "string",
-      describe: "Power rating (e.g., 0.25W)",
-    })
-    .option("package", {
-      alias: "pkg",
-      type: "string",
-      describe: "Package/size (e.g., 0603, 0402)",
-    })
-    .option("temperatureCoefficient", {
-      alias: "tc",
-      type: "string",
-      describe: "Temperature coefficient (e.g., 100ppm/°C)",
-    })
-    .option("composition", {
-      alias: "c",
-      type: "string",
-      describe: "Film type (Thick Film, Thin Film, Metal Film)",
+    .option("category", { type: "string", describe: "Category (resistor, capacitor, ic, connector...)" })
+    .option("manufacturer", { type: "string", describe: "Manufacturer name" })
+    .option("partNumber", { type: "string", describe: "Exact manufacturer part number" })
+    .option("value", { alias: "v", type: "string", describe: "Value (10k, 1uF, 3.3V regulator, etc.)" })
+    .option("tolerance", { alias: "t", type: "string", describe: "Tolerance (1%, 5%, etc.)" })
+    .option("power", { alias: "p", type: "string", describe: "Power rating (0.25W, 1W...)" })
+    .option("voltage", { alias: "V", type: "string", describe: "Voltage rating or supply voltage" })
+    .option("current", { alias: "I", type: "string", describe: "Current rating" })
+    .option("package", { alias: "pkg", type: "string", describe: "Package (0603, QFN48, SOT-23-5...)" })
+    .option("temperatureCoefficient", { alias: "tc", type: "string", describe: "Tempco (e.g., 100ppm/°C)" })
+    .option("material", { alias: "m", type: "string", describe: "Material/dielectric (X7R, FR4, etc.)" })
+    .option("feature", {
+      alias: "f",
+      type: "array",
+      describe: "Feature keywords (low-noise, shielded, waterproof...)",
+      default: [],
     })
     .option("keyword", {
       alias: "k",
@@ -54,10 +41,7 @@ const builder = (y: typeof yargs) =>
       type: "number",
       describe: "Desired quantity (used for sorting only)",
     })
-    .example(
-      "$0 --resistance 10k --tolerance 1% --package 0603 --power 0.1W",
-      "Find a 10k 1% 0603 resistor.",
-    )
+    .example("$0 --category capacitor --value 10uF --voltage 6.3V --package 0603", "Find a 10uF 6.3V 0603 ceramic capacitor.")
     .help();
 
 const run = async () => {
@@ -65,13 +49,19 @@ const run = async () => {
 
   const clean = (s?: string) => (s && s.trim() ? s.trim() : undefined);
 
-  let input: ResistorSearchInput = {
-    resistance: clean(argv.resistance as string | undefined),
+  let input: PartSearchInput = {
+    category: clean(argv.category as string | undefined),
+    manufacturer: clean(argv.manufacturer as string | undefined),
+    partNumber: clean(argv.partNumber as string | undefined),
+    value: clean(argv.value as string | undefined),
     tolerance: clean(argv.tolerance as string | undefined),
     power: clean(argv.power as string | undefined),
+    voltage: clean(argv.voltage as string | undefined),
+    current: clean(argv.current as string | undefined),
     package: clean(argv.package as string | undefined),
     temperatureCoefficient: clean(argv.temperatureCoefficient as string | undefined),
-    composition: clean(argv.composition as string | undefined),
+    material: clean(argv.material as string | undefined),
+    features: ((argv.feature as string[] | undefined) || []).map((f) => f.trim()).filter(Boolean),
     quantity: argv.quantity as number | undefined,
     keywords: ((argv.keyword as string[] | undefined) || []).map((k) => k.trim()).filter(Boolean),
   };
@@ -85,16 +75,18 @@ const run = async () => {
       const parsed = await naturalLanguageToSearch(argv.nl);
       if (parsed) {
         const keywords =
-          parsed.keywords?.map((k) => k.trim()).filter(Boolean).slice(0, 2) || undefined;
+          parsed.keywords?.map((k) => k.trim()).filter(Boolean).slice(0, 3) || undefined;
         input = {
           ...input,
           ...parsed,
-          resistance: clean(parsed.resistance),
+          value: clean(parsed.value),
           tolerance: clean(parsed.tolerance),
           power: clean(parsed.power),
+          voltage: clean(parsed.voltage),
+          current: clean(parsed.current),
           package: clean(parsed.package),
           temperatureCoefficient: clean(parsed.temperatureCoefficient),
-          composition: clean(parsed.composition),
+          material: clean(parsed.material),
           keywords,
         };
         console.log("LLM parsed query:", { ...input, keywords });
@@ -107,7 +99,7 @@ const run = async () => {
   }
 
   try {
-    const result = await searchResistors(input, 8);
+    const result = await searchParts(input, 8);
     if (!result.results.length) {
       console.log("No results found. Adjust your query or relax filters.");
       return;

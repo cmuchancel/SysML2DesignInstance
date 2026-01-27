@@ -1,5 +1,5 @@
 import { buildKeywordQuery } from "./queryBuilder.js";
-import { ResistorResult, ResistorSearchInput } from "./types.js";
+import { PartResult, PartSearchInput } from "./types.js";
 
 const apiKey = process.env.MOUSER_API_KEY;
 const baseUrl =
@@ -25,7 +25,7 @@ const parseAvailability = (availability?: string): number | undefined => {
   return match ? Number(match[1].replace(/,/g, "")) : undefined;
 };
 
-const mapParts = (parts: MouserPart[]): ResistorResult[] =>
+const mapParts = (parts: MouserPart[]): PartResult[] =>
   parts
     ?.map((p) => ({
       manufacturer: p.Manufacturer || "Unknown",
@@ -44,12 +44,12 @@ const mapParts = (parts: MouserPart[]): ResistorResult[] =>
     .filter((r) => r.manufacturerPartNumber);
 
 export const mouserSearch = async (
-  input: ResistorSearchInput,
+  input: PartSearchInput,
   limit = 8,
-): Promise<ResistorResult[]> => {
+): Promise<PartResult[]> => {
   if (!apiKey) throw new Error("Mouser API key missing.");
   const keyword = buildKeywordQuery(input);
-  if (!keyword) throw new Error("Provide a resistance or keyword for Mouser search.");
+  if (!keyword) throw new Error("Provide at least one search term or keyword for Mouser search.");
 
   const payload = {
     SearchByKeywordRequest: {

@@ -1,5 +1,5 @@
 import { buildKeywordQuery } from "./queryBuilder.js";
-import { ResistorResult, ResistorSearchInput } from "./types.js";
+import { PartResult, PartSearchInput } from "./types.js";
 
 type AccessToken = {
   token: string;
@@ -74,7 +74,7 @@ const headersForRequest = async () => {
 
 const mapProductsToResults = (
   products: any[] | undefined,
-): ResistorResult[] => {
+): PartResult[] => {
   if (!Array.isArray(products)) return [];
   return products
     .map((p) => {
@@ -96,20 +96,21 @@ const mapProductsToResults = (
         unitPrice: Number(p.UnitPrice) || undefined,
         url: p.PrimaryPhoto?.ImageUrl || p.DigitalUrl || p.ProductUrl,
         attributes,
-      } as ResistorResult;
+      } as PartResult;
     })
     .filter((item) => item.manufacturerPartNumber);
 };
 
 export const digikeyKeywordSearch = async (
-  input: ResistorSearchInput,
+  input: PartSearchInput,
   limit = 10,
-): Promise<ResistorResult[]> => {
+): Promise<PartResult[]> => {
   if (!hasCredentials) {
     throw new Error("Digi-Key credentials are missing.");
   }
 
   const query = buildKeywordQuery(input);
+  if (!query) throw new Error("Provide at least one search term or keyword for Digi-Key search.");
   const headers = await headersForRequest();
   const payload = {
     Keywords: query,

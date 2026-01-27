@@ -1,10 +1,10 @@
 import "dotenv/config";
-import express from "express";
+import express, { type Request, type Response } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import { z } from "zod";
 import { naturalLanguageToSearch, llmAvailable } from "./llm.js";
-import { searchResistors } from "./searchService.js";
+import { searchParts } from "./searchService.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,14 +15,21 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 const searchSchema = z.object({
   nl: z.string().optional(),
-  resistance: z.string().optional(),
+  category: z.string().optional(),
+  manufacturer: z.string().optional(),
+  partNumber: z.string().optional(),
+  value: z.string().optional(),
   tolerance: z.string().optional(),
   power: z.string().optional(),
+  voltage: z.string().optional(),
+  current: z.string().optional(),
   package: z.string().optional(),
   temperatureCoefficient: z.string().optional(),
-  composition: z.string().optional(),
+  material: z.string().optional(),
+  features: z.array(z.string()).optional(),
   quantity: z.number().optional(),
   keywords: z.array(z.string()).optional(),
+  specs: z.record(z.string(), z.string()).optional(),
 });
 
 app.get("/health", (_req, res) =>
@@ -38,7 +45,7 @@ app.get("/health", (_req, res) =>
   }),
 );
 
-app.post("/api/search/resistor", async (req, res) => {
+const handleSearch = async (req: Request, res: Response) => {
   const parse = searchSchema.safeParse(req.body);
   if (!parse.success) {
     return res.status(400).json({ error: parse.error.flatten() });
@@ -58,7 +65,7 @@ app.post("/api/search/resistor", async (req, res) => {
     // remove nl before search
     const { nl: _nl, ...structured } = input;
 
-    const outcome = await searchResistors(structured, 10);
+    const outcome = await searchParts(structured, 10);
     res.json({
       query: outcome.query,
       source: outcome.source,
@@ -68,9 +75,12 @@ app.post("/api/search/resistor", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: (error as Error).message });
   }
-});
+};
+
+app.post("/api/search/resistor", handleSearch); // backward compatibility
+app.post("/api/search/parts", handleSearch);
 
 const port = Number(process.env.PORT || 3000);
 app.listen(port, () => {
-  console.log(`Resistor finder listening on http://localhost:${port}`);
+  console.log(`Component finder listening on http://localhost:${port}`);
 });

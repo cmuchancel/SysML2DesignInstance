@@ -1,6 +1,6 @@
-# Resistor Finder
+# Component Finder
 
-CLI + lightweight UI that turns human-friendly resistor requirements into supplier searches. Prefers live APIs (Mouser, Octopart/Nexar, Digi-Key), but can now fall back to a web-search scraper to reach suppliers without APIs. Without any live path it uses a small mock catalog so you can demo immediately.
+CLI + lightweight UI that turns human-friendly component requirements into supplier searches. Prefers live APIs (Mouser, Octopart/Nexar, Digi-Key), but can fall back to a web-search scraper to reach suppliers without APIs. Without any live path it uses a small mock catalog so you can demo immediately.
 
 ## Setup
 1) Install deps: `npm install`
@@ -31,8 +31,8 @@ CLI + lightweight UI that turns human-friendly resistor requirements into suppli
 ## CLI
 Run searches from the terminal:
 ```bash
-USE_MOCK=1 npm run cli -- --resistance 10k --tolerance 1% --package 0603 --power 0.1W
-OPENAI_API_KEY=... npm run cli -- --nl "need 10k 1% 0603 0.1W thick film"
+USE_MOCK=1 npm run cli -- --category capacitor --value 10uF --voltage 6.3V --package 0603
+OPENAI_API_KEY=... npm run cli -- --nl "need right-angle micro usb b smd connector"
 # Try the web-scrape path (hits DuckDuckGo and supplier pages):
 DISABLE_WEB_SEARCH=0 npm run test:web
 ```

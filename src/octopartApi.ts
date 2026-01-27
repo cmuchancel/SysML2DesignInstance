@@ -1,5 +1,5 @@
 import { buildKeywordQuery } from "./queryBuilder.js";
-import { NexarPart, ResistorResult, ResistorSearchInput } from "./types.js";
+import { NexarPart, PartResult, PartSearchInput } from "./types.js";
 
 const apiKey = process.env.OCTOPART_API_KEY;
 const nexarToken = process.env.NEXAR_TOKEN;
@@ -10,7 +10,7 @@ const nexarGraphql =
 
 export const octopartAvailable = Boolean(apiKey || nexarToken);
 
-const mapNexarParts = (parts: NexarPart[]): ResistorResult[] =>
+const mapNexarParts = (parts: NexarPart[]): PartResult[] =>
   parts
     ?.map((p) => {
       const offers =
@@ -35,7 +35,7 @@ const mapNexarParts = (parts: NexarPart[]): ResistorResult[] =>
     })
     .filter((r) => r.manufacturerPartNumber);
 
-const mapRestParts = (parts: any[]): ResistorResult[] =>
+const mapRestParts = (parts: any[]): PartResult[] =>
   parts
     ?.map((p) => {
       const offers = p?.offers ?? [];
@@ -53,12 +53,12 @@ const mapRestParts = (parts: any[]): ResistorResult[] =>
         },
       };
     })
-    .filter((r: ResistorResult) => r.manufacturerPartNumber);
+    .filter((r: PartResult) => r.manufacturerPartNumber);
 
 const searchViaNexar = async (
-  input: ResistorSearchInput,
+  input: PartSearchInput,
   limit: number,
-): Promise<ResistorResult[]> => {
+): Promise<PartResult[]> => {
   if (!nexarToken) throw new Error("Nexar token missing.");
   const query = buildKeywordQuery(input);
   const gql = `
@@ -115,9 +115,9 @@ const searchViaNexar = async (
 };
 
 const searchViaRest = async (
-  input: ResistorSearchInput,
+  input: PartSearchInput,
   limit: number,
-): Promise<ResistorResult[]> => {
+): Promise<PartResult[]> => {
   if (!apiKey) throw new Error("Octopart API key missing.");
   const query = buildKeywordQuery(input);
   const url = new URL(baseUrl);
@@ -140,11 +140,11 @@ const searchViaRest = async (
 };
 
 export const octopartSearch = async (
-  input: ResistorSearchInput,
+  input: PartSearchInput,
   limit = 8,
-): Promise<ResistorResult[]> => {
+): Promise<PartResult[]> => {
   const query = buildKeywordQuery(input);
-  if (!query) throw new Error("Provide a resistance or keyword for Octopart search.");
+  if (!query) throw new Error("Provide at least one search term or keyword for Octopart search.");
 
   if (nexarToken) {
     try {

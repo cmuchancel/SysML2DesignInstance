@@ -1,6 +1,6 @@
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 import { buildKeywordQuery } from "./queryBuilder.js";
-import { ResistorResult, ResistorSearchInput } from "./types.js";
+import { PartResult, PartSearchInput } from "./types.js";
 
 const defaultUserAgent =
   process.env.WEB_SEARCH_USER_AGENT ||
@@ -39,9 +39,9 @@ const domainLabel = (urlStr: string): string => {
   }
 };
 
-const parseResults = (html: string, limit: number): ResistorResult[] => {
+const parseResults = (html: string, limit: number): PartResult[] => {
   const $ = cheerio.load(html);
-  const items: ResistorResult[] = [];
+  const items: PartResult[] = [];
   $(".result").each((_idx, el) => {
     if (items.length >= limit) return false;
     const link = $(el).find("a.result__a");
@@ -67,14 +67,15 @@ const parseResults = (html: string, limit: number): ResistorResult[] => {
 };
 
 export const webSearch = async (
-  input: ResistorSearchInput,
+  input: PartSearchInput,
   limit = 8,
-): Promise<ResistorResult[]> => {
+): Promise<PartResult[]> => {
   if (isDisabled()) return [];
   const query = buildKeywordQuery(input);
   if (!query) return [];
 
-  const searchUrl = `https://duckduckgo.com/html/?q=${encodeURIComponent(query + " resistor")}`;
+  const refined = input.category ? `${query} ${input.category}` : query;
+  const searchUrl = `https://duckduckgo.com/html/?q=${encodeURIComponent(refined)}`;
   const res = await fetch(searchUrl, {
     headers: { "User-Agent": defaultUserAgent },
   });

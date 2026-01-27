@@ -1,39 +1,45 @@
 import OpenAI from "openai";
 import { z } from "zod";
-import { ResistorSearchInput } from "./types.js";
+import { PartSearchInput } from "./types.js";
 
 const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
 const apiKey = process.env.OPENAI_API_KEY;
 
 const schema = z.object({
-  resistance: z.string().optional(),
+  category: z.string().optional(),
+  manufacturer: z.string().optional(),
+  partNumber: z.string().optional(),
+  value: z.string().optional(),
   tolerance: z.string().optional(),
   power: z.string().optional(),
+  voltage: z.string().optional(),
+  current: z.string().optional(),
   package: z.string().optional(),
   temperatureCoefficient: z.string().optional(),
-  composition: z.string().optional(),
+  material: z.string().optional(),
+  features: z.array(z.string()).optional(),
   keywords: z.array(z.string()).optional(),
+  specs: z.record(z.string(), z.string()).optional(),
 });
 
 export const llmAvailable = Boolean(apiKey);
 
 export const naturalLanguageToSearch = async (
   text: string,
-): Promise<ResistorSearchInput | null> => {
-  const fallbackHeuristic = (raw: string): ResistorSearchInput | null => {
+): Promise<PartSearchInput | null> => {
+  const fallbackHeuristic = (raw: string): PartSearchInput | null => {
     const lower = raw.toLowerCase();
-    const resistanceMatch =
+    const packageMatch = lower.match(/\b(0201|0402|0603|0805|1206|1210|2512|qfn|tssop|soic|sot\-23)\b/);
+    const voltageMatch = lower.match(/(\d+(?:\.\d+)?\s*v)/);
+    const currentMatch = lower.match(/(\d+(?:\.\d+)?\s*a)/);
+    const valueMatch =
       lower.match(/(\d+(?:\.\d+)?\s*(?:k|m)?\s*ohm)/) ||
-      lower.match(/(\d+(?:\.\d+)?\s*(?:k|m))/);
-    const toleranceMatch = lower.match(/(\d+(?:\.\d+)?\s*%)/);
-    const packageMatch = lower.match(/\b(0201|0402|0603|0805|1206|1210|2512)\b/);
-    const powerMatch = lower.match(/(\d+(?:\.\d+)?\s*w)/);
-
-    if (resistanceMatch || toleranceMatch || packageMatch || powerMatch) {
+      lower.match(/(\d+(?:\.\d+)?\s*u?f)/);
+    if (packageMatch || voltageMatch || currentMatch || valueMatch) {
       return {
-        resistance: resistanceMatch?.[1]?.replace(/\s+/g, "") || undefined,
-        tolerance: toleranceMatch?.[1]?.replace(/\s+/g, "") || undefined,
-        power: powerMatch?.[1]?.replace(/\s+/g, "") || undefined,
+        value: valueMatch?.[1]?.replace(/\s+/g, "") || undefined,
+        voltage: voltageMatch?.[1]?.replace(/\s+/g, "") || undefined,
+        current: currentMatch?.[1]?.replace(/\s+/g, "") || undefined,
         package: packageMatch?.[1],
       };
     }
@@ -45,16 +51,23 @@ export const naturalLanguageToSearch = async (
   }
   const client = new OpenAI({ apiKey });
 
-  const systemPrompt = `You extract structured resistor search parameters from a short user request.
+  const systemPrompt = `You extract structured electronic component search parameters from a short user request.
 Return ONLY minified JSON matching:
 {
-  "resistance": string?,
+  "category": string?,
+  "manufacturer": string?,
+  "partNumber": string?,
+  "value": string?,
   "tolerance": string?,
   "power": string?,
+  "voltage": string?,
+  "current": string?,
   "package": string?,
   "temperatureCoefficient": string?,
-  "composition": string?,
-  "keywords": string[]?
+  "material": string?,
+  "features": string[]?,
+  "keywords": string[]?,
+  "specs": { [key: string]: string }?
 }`;
 
   const userPrompt = `Request: "${text}"`;

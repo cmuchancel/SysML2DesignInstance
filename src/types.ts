@@ -1,15 +1,22 @@
-export type ResistorSearchInput = {
-  resistance?: string;
+export type PartSearchInput = {
+  category?: string; // resistor, capacitor, ic, connector, etc.
+  manufacturer?: string;
+  partNumber?: string;
+  value?: string; // e.g., 10k, 1uF, 3.3V
   tolerance?: string;
   power?: string;
+  voltage?: string;
+  current?: string;
   package?: string;
   temperatureCoefficient?: string;
-  composition?: string;
+  material?: string;
+  features?: string[];
   quantity?: number;
   keywords?: string[];
+  specs?: Record<string, string>;
 };
 
-export type ResistorResult = {
+export type PartResult = {
   manufacturer: string;
   manufacturerPartNumber: string;
   digiKeyPartNumber?: string;
@@ -23,7 +30,7 @@ export type ResistorResult = {
 export type SearchOutcome = {
   source: "live" | "mock";
   query: string;
-  results: ResistorResult[];
+  results: PartResult[];
 };
 
 export type Provider = "octopart" | "digikey" | "mouser" | "web" | "mock";
