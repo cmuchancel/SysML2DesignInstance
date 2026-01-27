@@ -34,6 +34,15 @@ export const buildKeywordQuery = (input: PartSearchInput): string => {
     parts.push(input.keywords.map((k) => sanitize(k)).filter(Boolean).join(" "));
   }
 
+  if (parts.length === 0 && input.specs) {
+    parts.push(
+      Object.entries(input.specs)
+        .map(([k, v]) => `${sanitize(k)} ${sanitize(v)}`)
+        .filter(Boolean)
+        .join(" "),
+    );
+  }
+
   if (input.specs) {
     parts.push(
       Object.entries(input.specs)

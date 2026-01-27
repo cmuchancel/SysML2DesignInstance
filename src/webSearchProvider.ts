@@ -1,8 +1,9 @@
 import * as cheerio from "cheerio";
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { PartResult, PartSearchInput } from "./types.js";
-import { scrapeAmazonSearch, scrapeMcMasterSearch } from "./scrapers/index.js";
+import { scrapeAmazonSearch, scrapeMcMasterSearch, scrapeMcMasterDetail } from "./scrapers/index.js";
 import { fetchWithTimeout } from "./http.js";
+import { extractMultiplePages } from "./llmExtractor.js";
 
 const defaultUserAgent =
   process.env.WEB_SEARCH_USER_AGENT ||
@@ -107,5 +108,20 @@ export const webSearch = async (
     throw new Error(`Web search failed with status ${res.status}`);
   }
   const html = await res.text();
-  return parseResults(html, limit);
+  const basic = parseResults(html, limit * 2);
+
+  // If we have no direct results yet, try LLM extraction on the first few product-like URLs
+  const urls = basic.map((b) => b.url).filter(Boolean) as string[];
+
+  // Special-case: if a McMaster product page appears, try detail scrape
+  const mcmUrl = urls.find((u) => u.includes("mcmaster.com"));
+  if (mcmUrl) {
+    const detail = await scrapeMcMasterDetail(mcmUrl, limit);
+    if (detail.length) return detail.slice(0, limit);
+  }
+
+  const enriched = await extractMultiplePages(urls);
+  if (enriched.length) return enriched.slice(0, limit);
+
+  return basic.slice(0, limit);
 };

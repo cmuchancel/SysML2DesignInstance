@@ -77,6 +77,9 @@ const run = async () => {
     quantity: argv.quantity as number | undefined,
     keywords: ((argv.keyword as string[] | undefined) || []).map((k) => k.trim()).filter(Boolean),
   };
+  if (input.keywords && input.keywords.length === 0) {
+    input.keywords = undefined;
+  }
   const providersArg = ((argv.provider as string[] | undefined) || []).map((p) =>
     p.trim(),
   ) as Provider[];

@@ -7,6 +7,7 @@ import { buildKeywordQuery } from "./queryBuilder.js";
 import { Provider, PartResult, PartSearchInput, SearchOutcome } from "./types.js";
 import { webSearch, webSearchAvailable } from "./webSearchProvider.js";
 import { rerankWithLLM, llmRankerAvailable } from "./llmRanker.js";
+import { enrichResults } from "./enrich.js";
 
 const preferMock = () => process.env.USE_MOCK === "1";
 
@@ -211,7 +212,8 @@ export const searchParts = async (
 
   const deduped = dedupeResults(aggregated);
   const tokens = tokensFromInput(input);
-  const sorted = deduped
+  const enriched = await enrichResults(deduped);
+  const sorted = enriched
     .map((item) => ({ item, score: scorePart(item, tokens) }))
     .sort((a, b) => b.score - a.score || (b.item.stock || 0) - (a.item.stock || 0))
     .slice(0, limit)
