@@ -1,0 +1,13 @@
+slot: supply
+query_input_original: {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "4.91971192V", "current": "0.05A", "features": ["rechargeable", "regulated"]}
+query_input_used: {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "4.91971192V", "current": "0.05A", "features": ["rechargeable", "regulated"]}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "4.91971192V", "current": "0.05A", "features": ["rechargeable", "regulated"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+SWI5-5-N-MUB (CUI Inc.)
+Stock: 1856
+Unit price: 5.5
+URL: https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 2, "stock": 1856, "unitPrice": 5.5, "manufacturer": "CUI Inc.", "manufacturerPartNumber": "SWI5-5-N-MUB", "description": "Regulated 5 VDC, 1 A (5 W) wall-mount AC adapter with integrated micro-USB output, universal input 90\u2013264 VAC, Level VI efficiency, over-current/over-voltage protection.", "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D", "provider": "configurator", "attributes": {"voltage": "5 VDC", "current": "1 A", "power": "5 W", "value": "regulated, USB Micro output, universal 90\u2013264 VAC input", "package": "wall-mount (US blade), integrated micro-USB"}}

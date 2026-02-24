@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Balanced Handheld AirSense",
+    "approach": "Compact consumer/prosumer handheld with integrated optical PM2.5 sensor, low‑power NDIR CO2 sensor, digital temperature/humidity combo sensor, active low-noise sampling (micro-fan), and an ESP32-class SoC providing both Wi‑Fi and Bluetooth.  Designed around a single PCB, 3.2\" color touchscreen for local readout and menus, local data logging (ring buffer + microSD), and USB-C charging. Power management uses intermittent sampling and sensor duty‑cycling to guarantee an 8‑hour runtime on a single rechargeable 4000 mAh Li‑ion battery.",
+    "highlights": [
+      "Sensors: laser-scatter PM2.5 module, low-power mini NDIR CO2, combined T/H digital sensor (I2C)",
+      "Wireless: built-in Wi‑Fi (802.11 b/g/n) and BLE 5.0 via single SoC for phone/cloud sync and OTA firmware updates",
+      "Battery: 4000 mAh Li‑ion (~14.8 Wh) with power budget optimized by duty-cycling PM pump and CO2 sampling to meet 8 hours typical use",
+      "UI & storage: 3.2\" color touchscreen, quick-access status LEDs, onboard microSD + 10,000 sample ring buffer",
+      "Enclosure: lightweight ABS with honeycomb inlet, ergonomic pistol grip, IP21 splash resistance for indoor use",
+      "Calibration & accuracy: software ABC baseline + user-initiated calibration via mobile app; scheduled auto-zero routines",
+      "Charging: USB-C PD 5V/3A with smart battery fuel gauge and fast-charge safety"
+    ]
+  },
+  {
+    "name": "Rugged Field Pro Monitor",
+    "approach": "Durable, mission-oriented handheld for professionals and field technicians. Modular sensor cartridges allow use of high-accuracy NDIR CO2 cartridges and a high-flow optical PM2.5 module with replaceable pump. Built with a larger swappable battery pack (10,000 mAh) to support continuous active sampling for 8+ hours even under high sampling rates. Primary connectivity via Wi‑Fi for direct upload to enterprise servers; BLE used for local handset control. Includes hardened IP65 enclosure, glove-friendly interface (physical buttons + sunlight-readable monochrome LCD), GPS timestamping and optional rugged cradle for vehicle use.",
+    "highlights": [
+      "Sensors: industrial-grade NDIR CO2 cartridge (replaceable/field-calibratable), high-flow laser PM2.5 sensor with calibrated inlet and particulate pre-filter",
+      "Power: hot-swappable 10,000 mAh Li-ion battery pack and external DC charging in vehicle/field dock — guaranteed 8 hours under continuous active sampling",
+      "Connectivity: enterprise Wi‑Fi (WPA2/WPA3) for secure uploads, BLE for quick phone pairing and local status",
+      "Ruggedization: IP65, drop-rated (1.5 m), MIL-style connectors for charging and docking, glove-friendly buttons, rugged lanyard/holster",
+      "Data & calibration: onboard SQL-style logger, automatic timestamping (GPS), per-sensor calibration routines and replaceable calibration caps",
+      "User workflow: customizable sampling profiles (continuous, interval, burst), alarm thresholds (vibration + LED + audible), export CSV/JSON via Wi‑Fi or USB"
+    ]
+  },
+  {
+    "name": "PocketSync Sensor Dongle",
+    "approach": "Ultra-portable pocket sensor that offloads heavy UI and cloud sync to the user's smartphone. Small enclosure contains a low-power optical PM2.5 sensor, a compact low-power NDIR CO2 sensor (or CO2 module with ABC algorithm), and a combined T/H sensor. Primary sync over Bluetooth Low Energy to the phone app; optional direct Wi‑Fi upload through built-in Wi‑Fi hotspot when phone not present. Minimal local interface (multi-color status LED + one button). Runtime tailored to 8 hours with a 3000 mAh battery by aggressive power optimization (intermittent sampling, sensor sleep modes) and by delegating long-term storage/visualization to the phone.",
+    "highlights": [
+      "Form factor: pocket-sized (≈100×40×20 mm), lightweight (<120 g) with clip or lanyard — designed for personal monitoring and mobile workers",
+      "Sensors: mini laser PM2.5, micro NDIR CO2 or calibrated VOC-to-eCO2 fallback depending on SKU, combined temp/humidity sensor",
+      "Connectivity: BLE Low Energy primary for continuous smartphone pairing and background uploads; Wi‑Fi client mode optional for direct cloud sync",
+      "Battery: 3000 mAh Li‑ion with smart duty-cycling and configurable sampling intervals (e.g., 1–60 min) to ensure 8 hours typical runtime",
+      "User experience: smartphone app handles real-time graphs, cloud backup, firmware updates, calibration prompts; device keeps a small circular buffer if disconnected",
+      "Low-profile indicators: tri-color LED for air quality status, single button for quick on/off and pairing, pocket-friendly magnetic charging (USB-C optional)",
+      "Cost & maintenance: low parts count for affordable retail pricing, user-replaceable battery and modular sensor PCB for upgrade or replacement"
+    ]
+  }
+]

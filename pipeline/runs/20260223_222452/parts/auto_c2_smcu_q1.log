@@ -1,0 +1,13 @@
+slot: mcu
+query_input_original: {"slot": "mcu", "keywords": ["ATTINY13A 5V microcontroller", "Microcontroller-PWM", "mcu"], "category": "ic", "voltage": "4.91971192V", "features": ["timer", "oscillator", "low power"]}
+query_input_used: {"slot": "mcu", "keywords": ["ATTINY13A 5V microcontroller", "Microcontroller-PWM", "mcu"], "category": "ic", "voltage": "4.91971192V", "features": ["timer", "oscillator", "low power"]}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "mcu", "keywords": ["ATTINY13A 5V microcontroller", "Microcontroller-PWM", "mcu"], "category": "ic", "voltage": "4.91971192V", "features": ["timer", "oscillator", "low power"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+ATTINY13A-PU (Microchip Technology)
+Stock: 5529
+Unit price: 1.13
+URL: https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 4, "stock": 5529, "unitPrice": 1.13, "manufacturer": "Microchip Technology", "manufacturerPartNumber": "ATTINY13A-PU", "description": "tinyAVR 8-bit MCU, 1KB Flash, 64B SRAM, up to 20 MHz, single 8-bit timer/PWM, internal oscillator, low-power sleep modes. Operates from 1.8 V to 5.5 V (suitable for a 5 V rechargeable supply).", "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D", "provider": "configurator", "attributes": {"voltage": "1.8 V - 5.5 V (operating); target 5 V", "current": "I/O source/sink rated for typical 20 mA per pin (observe absolute max limits); low-power modes supported", "power": "Low-power MCU with sleep modes (active and sleep consumption depend on clock and supply)", "value": "1 KB Flash, 64 B SRAM, 4-channel ADC, 1 x 8-bit timer/PWM, internal RC oscillator", "package": "DIP-8 (through-hole)"}}

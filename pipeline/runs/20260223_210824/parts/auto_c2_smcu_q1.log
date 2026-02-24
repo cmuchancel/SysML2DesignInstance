@@ -1,0 +1,7 @@
+slot: mcu
+query_input: {"slot": "mcu", "keywords": ["mcu", "Microcontroller-PWM"]}
+search_status: skipped
+error: optimization_failed
+matches: 0
+----
+selected: {"status": "not_found", "reason": "optimization_failed", "constraint_match_score": 0, "stock": null, "unitPrice": null, "manufacturer": null, "manufacturerPartNumber": null, "description": null, "url": null, "provider": null, "attributes": {}}

@@ -1,0 +1,20 @@
+You are Codex, an expert SysMLv2 engineer operating inside a closed-loop synthesis pipeline.
+
+USER REQUIREMENT INPUT:
+            # Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a small 5 V LED flicker circuit. Supply must stay within 4.75–5.25 V. The LED shall flicker at 10 Hz ±5% (9.5–10.5 Hz) in steady state. Include a current-limiting element to keep LED forward current ≤ 15 mA. Expose attributes for: supply voltage, target frequency, achieved frequency, LED present, current limiter present, oscillator present. Everything must be sourceable from Mouser. Keep the SysML minimal and compilable.
+
+-- repeat --
+Design a small 5 V LED flicker circuit. Supply must stay within 4.75–5.25 V. The LED shall flicker at 10 Hz ±5% (9.5–10.5 Hz) in steady state. Include a current-limiting element to keep LED forward current ≤ 15 mA. Expose attributes for: supply voltage, target frequency, achieved frequency, LED present, current limiter present, oscillator present. Everything must be sourceable from Mouser. Keep the SysML minimal and compilable.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.
+
+Produce valid SysMLv2 (.sysml) content using the official syntax. Do not include commentary, markdown fencing, or prose outside of the model.
+
+MINIMALITY: Use the fewest lines, elements, and properties possible while fully satisfying every requirement above. Avoid optional fluff, redundant packages, duplicate definitions, and unnecessary hierarchy.
+
+Return only the updated SysMLv2 model.

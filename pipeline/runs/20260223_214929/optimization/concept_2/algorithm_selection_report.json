@@ -1,0 +1,42 @@
+{
+  "decision_note": "Selected NSGA-II (multi-objective gate (2 objectives, Pareto-front routing); n_obj=2, n_var=8, obj_type=linear, con_type=nonlinear, convex=unknown, grad=unknown, continuous, constrained).",
+  "input_path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_214929/optimization/concept_2/prompt.txt",
+  "meta": {
+    "con_type": "nonlinear",
+    "convexity_check_reason": "LLM refinement: performance_penalty contains (1440/(timing_resistor_kohm*timing_cap_uF)-10)^2 which is nonconvex in timing_resistor_kohm and timing_cap_uF.",
+    "eval_cost": "moderate",
+    "grad_available": "true",
+    "grad_check_reason": "LLM refinement: Objectives and constraints given analytically (e.g. total_cost_usd = 0.04*... + 0.4/efficiency_factor; performance_penalty uses blink_frequency_hz = 1440/(timing_resistor_kohm * timing_cap_uF)), differentiable on the positive domains.",
+    "has_constr": true,
+    "has_discrete": false,
+    "hess_available": "true",
+    "hessian_check_reason": "linear objective admits analytic second-order structure",
+    "is_convex": "false",
+    "is_smooth": "true",
+    "large_scale": false,
+    "llm_refinement_model": "gpt-5-mini",
+    "llm_refinement_note": "LLM refinement updated: grad_available, is_convex, is_smooth.",
+    "llm_refinement_updated": [
+      "grad_available",
+      "is_convex",
+      "is_smooth"
+    ],
+    "llm_refinement_used": true,
+    "n_obj": 2,
+    "n_var": 8,
+    "need_global": false,
+    "noisy_evals": "none",
+    "obj_is_black_box": false,
+    "obj_is_expectation": false,
+    "obj_type": "linear",
+    "scalarization_allowed": false,
+    "smoothness_check_reason": "LLM refinement: All expressions are analytic (rational and quadratic): blink_frequency = 1440/(...); total_cost includes 0.4/efficiency_factor; smooth on the positive variable ranges.",
+    "solver_hint": "",
+    "streaming_data": false
+  },
+  "selected_algo": "nsga2",
+  "selected_algo_label": "NSGA-II",
+  "selection_mode": "explicit",
+  "source": "optimizer_script_builder",
+  "timestamp_utc": "2026-02-24T02:52:45.293363+00:00"
+}

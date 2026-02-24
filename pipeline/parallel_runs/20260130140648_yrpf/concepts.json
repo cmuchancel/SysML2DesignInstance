@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Duty‑Cycled Ultra‑Low‑Power Handheld",
+    "approach": "Optimize runtime by combining low‑power sensors, aggressive duty‑cycling and an e‑ink/minimal display. Use a low‑power optical particle counter (diffusion or pulsed laser scattering) for PM2.5, a pulsed low‑power NDIR CO2 module with heater duty control, and MEMS temperature/humidity. BLE Low Energy runs continuously for live readings; Wi‑Fi is included but only used for periodic bulk sync (e.g., dock or user‑initiated). Sampling frequency and radio usage are configurable to meet the 8‑hour runtime target.",
+    "highlights": [
+      "Power strategy: sensor duty‑cycle + BLE for live telemetry, Wi‑Fi only for sync to cloud or when docked → reduces average power draw.",
+      "Estimated battery: single cell Li‑ion 3.7 V, 2,600–3,000 mAh (≈9.6–11.1 Wh) to guarantee ≥8 hours under typical sampling (sample every 30–60 s).",
+      "PM2.5 sensor: low‑power optical scattering sensor with algorithmic compensation for diffusion sampling; target detection limit ~1 µg/m3, typical response within sampling intervals.",
+      "CO2 sensor: pulsed low‑power NDIR (heater/pulse control) with temperature compensation; target accuracy ±50 ppm (manufacturer dependent).",
+      "UI: low‑power e‑ink or OLED sleep with wake button; minimal menus to reduce screen-on time.",
+      "Connectivity: BLE LE for continuous phone app updates; Wi‑Fi for large/scheduled uploads (user triggers or docked charging).",
+      "Form factor: pocketable (≈180 g), single‑hand operation, USB‑C charging, magnetic charging/dock recommended for auto‑sync.",
+      "Calibration & maintenance: app‑guided zero/field checks; replaceable inlet mesh; firmware OTA via BLE or Wi‑Fi."
+    ]
+  },
+  {
+    "name": "Research‑Grade Continuous‑Sampling Field Monitor",
+    "approach": "Prioritize measurement fidelity over absolute lowest power: continuous active sampling using a small pump and high‑sensitivity sensors. Use a high‑quality laser optical particle counter (OPC) for PM2.5, a dual‑beam NDIR CO2 sensor for stability and accuracy, and accurate MEMS temperature/humidity. Continuous Wi‑Fi streaming and Bluetooth for local app access. Provide heavier battery and robust enclosure to guarantee 8+ hours of uninterrupted operation in field conditions.",
+    "highlights": [
+      "Sampling: continuous pumped flow (miniature diaphragm pump) for high temporal fidelity and faster response (1 Hz or faster possible).",
+      "Sensors: research/calibration‑grade OPC (fine binning, 0.1 µg/m3 resolution) and dual‑beam NDIR CO2 (±20–30 ppm stability), integrated temp/humidity with chamber compensation.",
+      "Power & runtime: larger battery pack 5,000 mAh (or swappable twin 3,000 mAh cells) to deliver ≥8 hours continuous operation with pump and Wi‑Fi streaming.",
+      "Connectivity: simultaneous Wi‑Fi (real‑time cloud streaming) and Bluetooth for local control; onboard microSD logger for redundancy.",
+      "Form factor: ruggedized handheld (IP65), glove‑accessible buttons, color LCD for graphs and alerts; replaceable battery bay and serviceable inlet.",
+      "Calibration & QA: onboard calibration routines, gas calibration port for CO2, factory/field calibration certificates; diagnostics available via app.",
+      "Use cases: environmental research, occupational hygiene spot checks, professional field surveys where continuous, accurate data is required."
+    ]
+  },
+  {
+    "name": "Modular Cartridge Monitor with Smartphone‑First Sync",
+    "approach": "Handheld core houses power, MCU, BLE, display and basic temp/humidity sensors; PM2.5 and CO2 are provided in swappable cartridges. Cartridges allow balancing cost, lifetime and accuracy (consumer vs pro cartridges). Device primarily uses BLE to pair with a smartphone app for live data and cloud sync; optional Wi‑Fi docking accessory enables direct cloud uploads and charging. Modular approach reduces waste and lets users upgrade sensors without replacing the whole unit.",
+    "highlights": [
+      "Architecture: core handheld (battery, UI, BLE, temp/humidity) + replaceable sensor cartridges (PM2.5 OPC module, CO2 NDIR module).",
+      "Power management: only active cartridges are powered; smart sampling and low‑power MCU extend runtime. Target battery ~3,500 mAh to meet ≥8 hours with two active cartridges under typical use.",
+      "Connectivity model: BLE LE primary for phone app (live graphing, calibration, settings); Wi‑Fi provided by optional dock or an add‑on cartridge for direct uploads.",
+      "Upgradeability: swap in higher‑accuracy cartridges (research grade) or lower‑cost consumer cartridges; cartridge hot‑swap with secure connector and automatic detection.",
+      "User experience: smartphone app handles heavy tasks (map tagging, cloud sync, firmware updates), reducing device compute/commissions and saving battery.",
+      "Maintenance: replace cartridges when sensors age; cartridges include serial/calibration metadata for automatic calibration tracking in app.",
+      "Form factor & ergonomics: lightweight (~220–300 g), clip or wrist strap, simple LED bar for immediate exposure alert, USB‑C charging and Qi charging option with dock."
+    ]
+  }
+]

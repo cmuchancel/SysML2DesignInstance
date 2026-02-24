@@ -1,0 +1,6 @@
+{"ts": "2026-01-27T21:20:20.460917Z", "message": "requirements:start", "data": null}
+{"ts": "2026-01-27T21:20:39.473197Z", "message": "requirements:fallback_written", "data": {"path": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_162020/sysml/fallback_requirements.sysml"}}
+{"ts": "2026-01-27T21:20:39.473353Z", "message": "requirements:done", "data": null}
+{"ts": "2026-01-27T21:20:39.473900Z", "message": "concepts:start", "data": null}
+{"ts": "2026-01-27T21:21:08.428792Z", "message": "concepts:done", "data": {"count": 3}}
+{"ts": "2026-01-27T21:21:08.429193Z", "message": "parts:start", "data": null}

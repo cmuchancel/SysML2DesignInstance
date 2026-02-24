@@ -1,0 +1,9 @@
+slot: opamp
+query_input_original: {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "4.93535402V", "features": ["timer", "oscillator", "low power"]}
+query_input_used: {"slot": "opamp", "keywords": ["opamp"]}
+search_attempts: [{"source": "configurator_gemini", "input": {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "4.93535402V", "features": ["timer", "oscillator", "low power"]}, "status": "ok", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "4.93535402V", "features": ["timer", "oscillator", "low power"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic"}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "opamp", "keywords": ["opamp"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}]
+search_status: timeout
+error: timeout after 8s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 8s", "constraint_match_score": 0}

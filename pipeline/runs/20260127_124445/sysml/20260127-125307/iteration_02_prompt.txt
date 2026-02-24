@@ -1,0 +1,167 @@
+You are Codex, an expert SysMLv2 engineer operating inside a closed-loop synthesis pipeline.
+
+USER REQUIREMENT INPUT:
+            # Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a small 5 V LED flicker circuit. Supply must stay within 4.75–5.25 V. The LED shall flicker at 10 Hz ±5% (9.5–10.5 Hz) in steady state. Include a current-limiting element to keep LED forward current ≤ 15 mA. Expose attributes for: supply voltage, target frequency, achieved frequency, LED present, current limiter present, oscillator present. Everything must be sourceable from Mouser. Keep the SysML minimal and compilable.
+
+-- repeat --
+Design a small 5 V LED flicker circuit. Supply must stay within 4.75–5.25 V. The LED shall flicker at 10 Hz ±5% (9.5–10.5 Hz) in steady state. Include a current-limiting element to keep LED forward current ≤ 15 mA. Expose attributes for: supply voltage, target frequency, achieved frequency, LED present, current limiter present, oscillator present. Everything must be sourceable from Mouser. Keep the SysML minimal and compilable.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.
+
+Produce valid SysMLv2 (.sysml) content using the official syntax. Do not include commentary, markdown fencing, or prose outside of the model.
+
+MINIMALITY: Use the fewest lines, elements, and properties possible while fully satisfying every requirement above. Avoid optional fluff, redundant packages, duplicate definitions, and unnecessary hierarchy.
+
+PREVIOUS ATTEMPT (iteration 1):
+                package LEDFlickerModel {
+  // Assumption: astable timer (e.g., 555/CMOS) drives LED through a series resistor sized for <=15mA at max supply 5.25V.
+  block Supply {
+    attribute mouser: String[1] = "https://www.mouser.com/";
+  }
+  block LED {
+    attribute mouser: String[1] = "https://www.mouser.com/c/leds/indicator-leds/";
+    attribute Vf_V: Real[1] = 2.0;
+  }
+  block Resistor {
+    attribute mouser: String[1] = "https://www.mouser.com/passive-components/resistors/";
+    attribute resistance_Ohms: Real[1] = 220.0; // chosen standard value: (5.25-2.0)/220 <= 15mA
+  }
+  block Oscillator {
+    attribute mouser: String[1] = "https://www.mouser.com/electromechanical-switches/timers-timing/";
+    attribute nominalFrequency_Hz: Real[1] = 10.0;
+  }
+
+  block LEDFlickerSystem {
+    attribute supplyVoltage_V: Real[1] = 5.0;
+    attribute supplyVoltage_min_V: Real[1] = 4.75;
+    attribute supplyVoltage_max_V: Real[1] = 5.25;
+
+    attribute targetFrequency_Hz: Real[1] = 10.0;
+    attribute achievedFrequency_Hz: Real[1] = 10.0;
+    attribute achievedFrequency_min_Hz: Real[1] = 9.5;
+    attribute achievedFrequency_max_Hz: Real[1] = 10.5;
+
+    attribute ledPresent: Boolean[1] = true;
+    attribute currentLimiterPresent: Boolean[1] = true;
+    attribute oscillatorPresent: Boolean[1] = true;
+
+    part supply: Supply[1];
+    part led: LED[1];
+    part currentLimiter: Resistor[1];
+    part oscillator: Oscillator[1];
+  }
+}
+
+SYSIDE COMPILER FEEDBACK TO ADDRESS:
+                iteration_01.sysml:3:3: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    3 |   block Supply {
+      |   [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:6:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, did you mean 'end'?
+    6 |   block LED {
+      |         [38;2;220;080;080m^^^[0m
+
+iteration_01.sysml:10:3: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    10 |   block Resistor {
+       |   [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:14:3: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    14 |   block Oscillator {
+       |   [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:19:3: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    19 |   block LEDFlickerSystem {
+       |   [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:33:18: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    33 |     part supply: Supply[1];
+       |                  [38;2;204;204;057m^^^^^^[0m
+
+iteration_01.sysml:35:26: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    35 |     part currentLimiter: Resistor[1];
+       |                          [38;2;204;204;057m^^^^^^^^[0m
+
+iteration_01.sysml:36:22: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    36 |     part oscillator: Oscillator[1];
+       |                      [38;2;204;204;057m^^^^^^^^^^[0m
+
+iteration_01.sysml:4:23: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    4 |     attribute mouser: String[1] = "https://www.mouser.com/";
+      |                       [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:7:23: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    7 |     attribute mouser: String[1] = "https://www.mouser.com/c/leds/indicator-leds/";
+      |                       [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:8:21: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    8 |     attribute Vf_V: Real[1] = 2.0;
+      |                     [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:11:23: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    11 |     attribute mouser: String[1] = "https://www.mouser.com/passive-components/resistors/";
+       |                       [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:12:32: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    12 |     attribute resistance_Ohms: Real[1] = 220.0; // chosen standard value: (5.25-2.0)/220 <= 15mA
+       |                                [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:15:23: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    15 |     attribute mouser: String[1] = "https://www.mouser.com/electromechanical-switches/timers-timing/";
+       |                       [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:16:36: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    16 |     attribute nominalFrequency_Hz: Real[1] = 10.0;
+       |                                    [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:20:32: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    20 |     attribute supplyVoltage_V: Real[1] = 5.0;
+       |                                [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:21:36: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    21 |     attribute supplyVoltage_min_V: Real[1] = 4.75;
+       |                                    [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:22:36: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    22 |     attribute supplyVoltage_max_V: Real[1] = 5.25;
+       |                                    [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:24:35: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    24 |     attribute targetFrequency_Hz: Real[1] = 10.0;
+       |                                   [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:25:37: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    25 |     attribute achievedFrequency_Hz: Real[1] = 10.0;
+       |                                     [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:26:41: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    26 |     attribute achievedFrequency_min_Hz: Real[1] = 9.5;
+       |                                         [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:27:41: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    27 |     attribute achievedFrequency_max_Hz: Real[1] = 10.5;
+       |                                         [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:29:27: [38;2;220;080;080merror[0m (reference-error): No Type named 'Boolean' found.
+    29 |     attribute ledPresent: Boolean[1] = true;
+       |                           [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:30:38: [38;2;220;080;080merror[0m (reference-error): No Type named 'Boolean' found.
+    30 |     attribute currentLimiterPresent: Boolean[1] = true;
+       |                                      [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:31:34: [38;2;220;080;080merror[0m (reference-error): No Type named 'Boolean' found.
+    31 |     attribute oscillatorPresent: Boolean[1] = true;
+       |                                  [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:34:15: [38;2;220;080;080merror[0m (reference-error): No Type named 'LED' found.
+    34 |     part led: LED[1];
+       |               [38;2;220;080;080m^^^[0m
+
+Revise the earlier model to resolve the diagnostics without undoing correct structure.
+
+Return only the updated SysMLv2 model.

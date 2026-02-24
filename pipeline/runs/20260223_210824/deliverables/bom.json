@@ -1,0 +1,578 @@
+[
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "driver",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "driver",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "driver",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "mcu",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "mcu",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "mcu",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "opamp",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "opamp",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "opamp",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "led",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "resistor",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "supply",
+    "title": "optimization_failed",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  }
+]

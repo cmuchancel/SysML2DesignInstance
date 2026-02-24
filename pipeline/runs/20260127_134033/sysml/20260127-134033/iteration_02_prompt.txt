@@ -1,0 +1,118 @@
+You are Codex, an expert SysMLv2 engineer operating inside a closed-loop synthesis pipeline.
+
+USER REQUIREMENT INPUT:
+            # Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from Mouser.
+
+-- repeat --
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from Mouser.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.
+
+Produce valid SysMLv2 (.sysml) content using the official syntax. Do not include commentary, markdown fencing, or prose outside of the model.
+
+MINIMALITY: Use the fewest lines, elements, and properties possible while fully satisfying every requirement above. Avoid optional fluff, redundant packages, duplicate definitions, and unnecessary hierarchy.
+
+PREVIOUS ATTEMPT (iteration 1):
+                package LEDFlickerDesign {
+    /* Assumptions: LED forward voltage Vf = 2.0 V, target LED current If = 10 mA.
+       Timing implemented with an NE555 astable configured to ~10 Hz. Mouser
+       part numbers are example/sourceable references; verify availability on mouser.com. */
+    block Circuit {
+        property supplyVoltage: Real = 5.0; // V
+        property frequencyHz: Real = 10.0; // Hz
+        constraint FrequencyTolerance { bodyExpression = "frequencyHz >= 9.5 and frequencyHz <= 10.5"; }
+
+        property ledVf: Real = 2.0; // V (assumed)
+        property ledIf: Real = 0.01; // A (assumed target current)
+        property seriesResistorOhm: Real = 330.0; // chosen standard value to limit current ~9.1 mA
+
+        property timerMouserPN: String = "595-NE555P"; // example NE555 on Mouser
+        property resistorMouserPN: String = "710-330-R-ND"; // example 330 Ω resistor on Mouser
+        property ledMouserPN: String = "604-APTD1608"; // example LED on Mouser
+
+        constraint CurrentLimit { bodyExpression = "seriesResistorOhm >= (supplyVoltage - ledVf)/ledIf - 1e-6"; }
+    }
+}
+
+SYSIDE COMPILER FEEDBACK TO ADDRESS:
+                iteration_01.sysml:5:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    5 |     block Circuit {
+      |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:6:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    6 |         property supplyVoltage: Real = 5.0; // V
+      |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:7:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    7 |         property frequencyHz: Real = 10.0; // Hz
+      |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:10:18: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    10 |         property ledVf: Real = 2.0; // V (assumed)
+       |                  [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:11:18: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    11 |         property ledIf: Real = 0.01; // A (assumed target current)
+       |                  [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:12:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    12 |         property seriesResistorOhm: Real = 330.0; // chosen standard value to limit current ~9.1 mA
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:14:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    14 |         property timerMouserPN: String = "595-NE555P"; // example NE555 on Mouser
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:15:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    15 |         property resistorMouserPN: String = "710-330-R-ND"; // example 330 Ω resistor on Mouser
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:16:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    16 |         property ledMouserPN: String = "604-APTD1608"; // example LED on Mouser
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:11:9: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'property' shadows LEDFlickerDesign::Circuit::property
+│   11 |         property ledIf: Real = 0.01; // A (assumed target current)
+│      |         [38;2;204;204;057m^^^^^^^^[0m
+└── iteration_01.sysml:10:9: [38;2;255;255;255mnote[0m: First declared here
+
+iteration_01.sysml:6:33: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    6 |         property supplyVoltage: Real = 5.0; // V
+      |                                 [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:7:31: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    7 |         property frequencyHz: Real = 10.0; // Hz
+      |                               [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:10:25: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    10 |         property ledVf: Real = 2.0; // V (assumed)
+       |                         [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:11:25: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    11 |         property ledIf: Real = 0.01; // A (assumed target current)
+       |                         [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:12:37: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    12 |         property seriesResistorOhm: Real = 330.0; // chosen standard value to limit current ~9.1 mA
+       |                                     [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:14:33: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    14 |         property timerMouserPN: String = "595-NE555P"; // example NE555 on Mouser
+       |                                 [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:15:36: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    15 |         property resistorMouserPN: String = "710-330-R-ND"; // example 330 Ω resistor on Mouser
+       |                                    [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:16:31: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    16 |         property ledMouserPN: String = "604-APTD1608"; // example LED on Mouser
+       |                               [38;2;220;080;080m^^^^^^[0m
+
+Revise the earlier model to resolve the diagnostics without undoing correct structure.
+
+Return only the updated SysMLv2 model.

@@ -1,0 +1,52 @@
+Algorithm Selection Report
+==========================
+Timestamp (UTC): 2026-02-24T02:52:45.293363+00:00
+Source: optimizer_script_builder
+Selection mode: explicit
+Input path: /Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_214929/optimization/concept_2/prompt.txt
+
+Selected algorithm: nsga2
+Selected label: NSGA-II
+Decision note: Selected NSGA-II (multi-objective gate (2 objectives, Pareto-front routing); n_obj=2, n_var=8, obj_type=linear, con_type=nonlinear, convex=unknown, grad=unknown, continuous, constrained).
+
+Checks performed
+----------------
+- Gradient availability: true
+- Gradient evidence: LLM refinement: Objectives and constraints given analytically (e.g. total_cost_usd = 0.04*... + 0.4/efficiency_factor; performance_penalty uses blink_frequency_hz = 1440/(timing_resistor_kohm * timing_cap_uF)), differentiable on the positive domains.
+- Convexity: false
+- Convexity evidence: LLM refinement: performance_penalty contains (1440/(timing_resistor_kohm*timing_cap_uF)-10)^2 which is nonconvex in timing_resistor_kohm and timing_cap_uF.
+- Hessian availability: true
+- Hessian evidence: linear objective admits analytic second-order structure
+- Smoothness: true
+- Smoothness evidence: LLM refinement: All expressions are analytic (rational and quadratic): blink_frequency = 1440/(...); total_cost includes 0.4/efficiency_factor; smooth on the positive variable ranges.
+- Unknown-check refinement: LLM refinement updated: grad_available, is_convex, is_smooth.
+
+Extracted metadata
+------------------
+- n_obj: 2
+- n_var: 8
+- has_constr: True
+- has_discrete: False
+- obj_type: linear
+- con_type: nonlinear
+- is_smooth: true
+- grad_available: true
+- hess_available: true
+- is_convex: false
+- obj_is_black_box: False
+- obj_is_expectation: False
+- streaming_data: False
+- noisy_evals: none
+- eval_cost: moderate
+- need_global: False
+- scalarization_allowed: False
+- large_scale: False
+- solver_hint: 
+- grad_check_reason: LLM refinement: Objectives and constraints given analytically (e.g. total_cost_usd = 0.04*... + 0.4/efficiency_factor; performance_penalty uses blink_frequency_hz = 1440/(timing_resistor_kohm * timing_cap_uF)), differentiable on the positive domains.
+- convexity_check_reason: LLM refinement: performance_penalty contains (1440/(timing_resistor_kohm*timing_cap_uF)-10)^2 which is nonconvex in timing_resistor_kohm and timing_cap_uF.
+- smoothness_check_reason: LLM refinement: All expressions are analytic (rational and quadratic): blink_frequency = 1440/(...); total_cost includes 0.4/efficiency_factor; smooth on the positive variable ranges.
+- hessian_check_reason: linear objective admits analytic second-order structure
+- llm_refinement_used: True
+- llm_refinement_model: gpt-5-mini
+- llm_refinement_updated: ['grad_available', 'is_convex', 'is_smooth']
+- llm_refinement_note: LLM refinement updated: grad_available, is_convex, is_smooth.

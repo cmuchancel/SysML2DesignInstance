@@ -1,0 +1,7 @@
+slot: resistor
+query_input: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+search_status: timeout
+error: timeout after 20s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 20s", "constraint_match_score": 0}

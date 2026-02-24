@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Pocket Low-Power Monitor",
+    "approach": "Compact, low-power handheld tuned for all-day personal use. Uses energy-efficient NDIR CO2 and a low-power optical PM2.5 sensor with aggressive power management (duty-cycled sampling, radio sleep). Primary connectivity is Bluetooth Low Energy for continuous phone-linked logging; Wi‑Fi is available only for occasional direct cloud sync (radio powered on on demand). 2.9–3.7\" e‑ink or low-power OLED display for minimal screen draw. Rechargeable single-cell Li‑ion battery sized for multi-day standby and at least 8 hours active use.",
+    "highlights": [
+      "Sensors: low-power NDIR CO2 (accurate CO2 measurement), compact laser-scattering PM2.5 module, integrated digital temperature & humidity (one SMD combo sensor).",
+      "Power: 3.7 V single-cell Li‑ion, nominal capacity 3500–4500 mAh (user-configurable sampling profile to guarantee >=8 hours active operation).",
+      "Connectivity: BLE 5.0 for continuous sync to smartphone app; 2.4 GHz Wi‑Fi (power-gated) for direct cloud upload when placed on charging dock or on user request.",
+      "Microcontroller: ultra-low-power MCU (Cortex‑M0+/M4) with hardware sleep modes; radio wake scheduling and peripheral power gates.",
+      "Display & UI: low-power e‑ink (update-on-change) or low-brightness OLED + tactile buttons; simple LED status for battery/comm alerts.",
+      "Data: onboard flash for local buffering (days of data), smartphone app does long-term storage and analytics, OTA firmware updates via phone or Wi‑Fi.",
+      "Calibration & maintenance: field-replaceable PM inlet mesh and CO2 sensor module with simple auto-zero / baseline routine when outdoors.",
+      "Use case: personal exposure monitoring, commuters, home/office spot checks where long battery life and portability matter."
+    ]
+  },
+  {
+    "name": "Field-Pro Surveyor",
+    "approach": "Rugged, higher-accuracy handheld targeted at professionals and environmental technicians. Uses precision NDIR CO2 with temperature compensation, pumped optical PM2.5 sensor (constant flow for stable mass-equivalent readings), high-accuracy humidity/temperature sensor. Always-available dual-mode wireless (Wi‑Fi + BLE) for direct cloud sync, local SD logging, and optional GPS for geotagged measurements. Larger rechargeable battery designed to sustain continuous sampling and pump operation for an entire shift.",
+    "highlights": [
+      "Sensors: high-accuracy NDIR CO2 with automatic span/zero correction, active-pump PM2.5 optical sensor (controlled flow), industrial-grade temp/humidity sensor (±0.1–0.3°C / ±1–2% RH).",
+      "Power: swappable rechargeable pack (2× 3.7 V cells or a multi-cell pack) with 8000–12000 mAh capacity to deliver >=8 hours even with continuous pump and Wi‑Fi use.",
+      "Connectivity: persistent dual-mode comms (BLE for local quick view + 2.4/5 GHz Wi‑Fi for direct cloud sync and large dataset uplink); support for FTP/MQTT/HTTPS uploads.",
+      "Ruggedization: IP54 or better enclosure, dedicated inlet with particulate pre-filter, protected display with glove-friendly buttons.",
+      "Data & features: onboard SD card (removable), encrypted data storage, real-time graphs on color TFT, GPS for location tagging, USB-C fast charging and data.",
+      "Calibration & traceability: support for field calibration procedures, calibration certificates, vendor-replaceable CO2 calibration cells/supplies.",
+      "Power management: pump duty cycling (continuous for survey mode, intermittent for spot-check mode) to extend battery life when needed.",
+      "Use case: professional air-quality surveys, building commissioning, environmental health inspections where accuracy and continuous sampling are required."
+    ]
+  },
+  {
+    "name": "Modular Open-IoT Monitor",
+    "approach": "Modular, developer-friendly handheld platform that supports swappable sensor cartridges (CO2, PM2.5, VOC, etc.). Open firmware and hardware interfaces for community-driven extensions. Connectivity is flexible: built-in BLE for mobile-first workflows and an optional Wi‑Fi/BLE comm module that can be attached or detached. Designed for education, makers, and rapid prototyping while meeting the core requirements for 8-hour runtime and rechargeable operation.",
+    "highlights": [
+      "Modularity: hot-swappable sensor cartridges (plug-and-play), allowing users to upgrade from a basic optical PM module to a higher-precision PM or add alternative CO2 modules (NDIR cartridges).",
+      "Open design: documented APIs, open-source firmware (OTA capable), standard connectors (I2C/SPI/UART) for third-party sensor modules and expansion hats.",
+      "Power: internal rechargeable pack (nominal 3.7 V, 4000–6000 mAh) with user-replaceable battery bay or external battery-pack support to ensure >=8 hours depending on module config.",
+      "Connectivity: BLE as default for low-power continuous logging; optional Wi‑Fi module (user-installed) for direct cloud connections; bridge mode to use a phone or local gateway.",
+      "Form factor & UI: compact handheld chassis with front port for cartridge, monochrome LCD or low-power OLED, simple touchscreen or rotary encoder for menu navigation.",
+      "Data: MQTT/WebSocket/REST client examples provided; local logging to internal flash and microSD; community dashboards and integrations (Home Assistant, ThingSpeak, custom cloud).",
+      "Customization & scaling: enterprise or school kits include multiple batteries, docking/charging station, and preconfigured cloud endpoints; supports scripted sampling schedules to meet power/runtime tradeoffs.",
+      "Use case: research prototypes, classroom demos, community air-quality networks, and organizations that want customizable hardware and firmware while satisfying measurement, runtime, and connectivity requirements."
+    ]
+  }
+]

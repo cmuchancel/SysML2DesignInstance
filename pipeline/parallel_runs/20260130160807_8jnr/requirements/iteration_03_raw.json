@@ -1,0 +1,81 @@
+{
+  "requestMessages": [
+    {
+      "role": "system",
+      "content": "You are the Requirements Agent. Convert the natural-language brief into a fully decomposed, design-agnostic SysMLv2 requirements package with explicit quantitative constraints.\n- Use package RequirementsOnly with public import ScalarValues::*.\n- Decompose every atomic NL clause into its own requirement def (RQ_001, RQ_002, ...). Keep the text field, but also expose structured attributes.\n- For each requirement, derive numeric/boolean/string properties and pair it with at least one constraint def capturing bounds/ranges/budgets/interfaces (e.g., PM2.5 measurement range, CO2 range, temperature/humidity range, runtime hours, Wi-Fi/BLE presence, handheld size/weight, rechargeable battery, storage/logging if implied).\n- Avoid concrete parts or vendor names; no instances. Keep concise but complete; ensure every NL requirement is represented structurally, not just as text."
+    },
+    {
+      "role": "user",
+      "content": "Natural-language brief:\nDesign a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\n\nEmit concise requirements + constraint defs with numeric bounds. Avoid concrete design decisions."
+    },
+    {
+      "role": "system",
+      "content": "syside feedback:\nEmpty response from model, regenerate with full SysMLv2 requirements and constraints.\nFix issues and resend the entire model."
+    }
+  ],
+  "completion": {
+    "id": "resp_0d87d204d315c97f00697cd7e841d88190b00db32aaac5de4f",
+    "object": "response",
+    "created_at": 1769789416,
+    "status": "incomplete",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": null,
+    "error": null,
+    "frequency_penalty": 0,
+    "incomplete_details": {
+      "reason": "max_output_tokens"
+    },
+    "instructions": null,
+    "max_output_tokens": 1800,
+    "max_tool_calls": null,
+    "model": "gpt-5-mini-2025-08-07",
+    "output": [
+      {
+        "id": "rs_0d87d204d315c97f00697cd7e880748190a7a371c4edca1397",
+        "type": "reasoning",
+        "summary": []
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": null,
+    "reasoning": {
+      "effort": "medium",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 280,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 1792,
+      "output_tokens_details": {
+        "reasoning_tokens": 1792
+      },
+      "total_tokens": 2072
+    },
+    "user": null,
+    "metadata": {},
+    "output_text": ""
+  }
+}

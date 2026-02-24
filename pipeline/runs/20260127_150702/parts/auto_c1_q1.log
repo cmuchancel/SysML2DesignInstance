@@ -1,0 +1,67 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'Timer IC',
+  manufacturer: 'various/generic',
+  partNumber: 'NE555',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V (supply)',
+  current: undefined,
+  package: 'DIP-8 / SOIC-8',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'astable oscillator',
+    'LED flasher',
+    '5V operation',
+    'can source/sink up to ~200mA'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    target_frequency: '10 Hz',
+    frequency_formula: 'f = 1.44 / ((R1 + 2*R2) * C)',
+    example_values: 'R1=1kΩ, R2=47kΩ, C=330nF → ≈10 Hz',
+    supply_voltage_range: '~4.5–16 V (NE555)',
+    output_current: 'up to ~200 mA peak (device dependent)',
+    led_and_resistor: 'LED + ~330Ω for ~10 mA at 5V (example)',
+    decoupling: '0.1µF ceramic across Vcc-GND, optional 10µF electrolytic',
+    recommended_variants: 'CMOS versions for low power (e.g., LMC555/NE7555/TLC555)',
+    parts_needed: 'NE555 IC, R1, R2, timing C, LED, LED resistor, 0.1µF decoupling cap, optional power cap, 5V supply, protoboard/wires'
+  }
+}
+Source: live | Query: "NE555 various/generic Timer IC 5V (supply) volt DIP-8 / SOIC-8 astable oscillator LED flasher 5V operation can source/sink up to ~200mA NE555 555 timer astable target_frequency 10 Hz frequency_formula f = 1.44 / ((R1 + 2*R2) * C) example_values R1=1kΩ, R2=47kΩ, C=330nF → ≈10 Hz supply_voltage_range ~4.5–16 V (NE555) output_current up to ~200 mA peak (device dependent) led_and_resistor LED + ~330Ω for ~10 mA at 5V (example) decoupling 0.1µF ceramic across Vcc-GND, optional 10µF electrolytic recommended_variants CMOS versions for low power (e.g., LMC555/NE7555/TLC555) parts_needed NE555 IC, R1, R2, timing C, LED, LED resistor, 0.1µF decoupling cap, optional power cap, 5V supply, protoboard/wires" | Matches: 5
+------------------------------------------------------------------------
+NE555P (Texas Instruments)
+  Mouser #: 595-NE555P
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 17535
+  URL: https://www.mouser.com/ProductDetail/595-NE555P
+------------------------------------------------------------------------
+NE555PSR (Texas Instruments)
+  Mouser #: 595-NE555PSR
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 7315
+  URL: https://www.mouser.com/ProductDetail/595-NE555PSR
+------------------------------------------------------------------------
+NE555PS (Texas Instruments)
+  Mouser #: 595-NE555PS
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1164
+  URL: https://www.mouser.com/ProductDetail/595-NE555PS
+------------------------------------------------------------------------
+NE555DR1G4 (Texas Instruments)
+  Mouser #: 595-NE555DR1G4
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1049
+  URL: https://www.mouser.com/ProductDetail/595-NE555DR1G4
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

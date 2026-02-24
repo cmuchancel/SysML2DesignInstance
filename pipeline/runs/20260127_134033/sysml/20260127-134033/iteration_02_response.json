@@ -1,0 +1,82 @@
+{
+  "id": "resp_04b8b91beec6a4c300697906dc47b481908470e8e2c54900de",
+  "created_at": 1769539292.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_04b8b91beec6a4c300697906dca6d08190aa0929143a9da724",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_04b8b91beec6a4c30069790700a274819096ee1235a7ca5732",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDFlickerDesign {\n    // Assumptions: LED Vf \u2248 2.0 V, target LED current \u2248 10 mA; NE555-based astable used for ~10 Hz.\n    import { Real, String } from sysml::types;\n\n    block Circuit {\n        property supplyVoltage: Real = 5.0;\n        property frequencyHz: Real = 10.0;\n        property frequencyHzMin: Real = 9.5;\n        property frequencyHzMax: Real = 10.5;\n\n        property ledVf: Real = 2.0;\n        property ledIf: Real = 0.01;\n        property seriesResistorOhm: Real = 330.0;\n\n        property timerMouserPN: String = \"595-NE555P\";\n        property resistorMouserPN: String = \"710-330-R-ND\";\n        property ledMouserPN: String = \"604-APTD1608\";\n    }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769539331.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3073,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2644,
+    "output_tokens_details": {
+      "reasoning_tokens": 2368
+    },
+    "total_tokens": 5717
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

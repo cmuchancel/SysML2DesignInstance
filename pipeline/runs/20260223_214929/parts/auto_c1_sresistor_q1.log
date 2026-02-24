@@ -1,0 +1,13 @@
+slot: resistor
+query_input_original: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "NE555-astable", "resistor"], "category": "resistor", "value": "607 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+query_input_used: {"slot": "resistor", "keywords": ["resistor"]}
+search_attempts: [{"input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "NE555-astable", "resistor"], "category": "resistor", "value": "607 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "NE555-astable", "resistor"], "category": "resistor"}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "resistor", "keywords": ["resistor"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+RC0603FR-0710KL (Yageo)
+Stock: 125000
+Unit price: 0.012
+URL: https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385
+----
+selected: {"status": "selected", "constraint_match_score": 6, "stock": 125000, "unitPrice": 0.012, "manufacturer": "Yageo", "manufacturerPartNumber": "RC0603FR-0710KL", "description": "RES SMD 10K OHM 1% 1/10W 0603", "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385", "provider": "mock", "attributes": {"category": "resistor", "value": "10 kOhms", "tolerance": "\u00b11%", "power": "0.1W", "package": "0603 (1608 Metric)", "material": "Thick Film"}}

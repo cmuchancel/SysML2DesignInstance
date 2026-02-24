@@ -1,0 +1,36 @@
+Search timed out after 20s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web --limit 1 --nl NE555 timer 5V astable
+
+LLM parsed query: {
+  category: 'Timer IC',
+  manufacturer: 'multiple (TI, ON Semiconductor, ST, etc.)',
+  partNumber: 'NE555',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: 'DIP-8 (common)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'astable operation',
+    'monostable operation',
+    'adjustable frequency/duty cycle',
+    'TTL-compatible inputs'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    requestedSupplyVoltage: '5V',
+    supplyVoltageRange: '4.5-16V',
+    operatingMode: 'astable',
+    pinCount: '8',
+    packageOptions: 'DIP-8, SOIC-8',
+    typicalApplications: 'astable oscillators, pulse generation, timers',
+    triggerThresholdLevels: '1/3 Vcc (trigger), 2/3 Vcc (threshold)',
+    notes: 'frequency set by external resistors and capacitor; common through-hole package DIP-8'
+  }
+}

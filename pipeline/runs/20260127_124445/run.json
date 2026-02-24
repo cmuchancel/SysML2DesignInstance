@@ -1,0 +1,11 @@
+{
+  "brief": "Design a small 5 V LED flicker circuit. Supply must stay within 4.75\u20135.25 V. The LED shall flicker at 10 Hz \u00b15% (9.5\u201310.5 Hz) in steady state. Include a current-limiting element to keep LED forward current \u2264 15 mA. Expose attributes for: supply voltage, target frequency, achieved frequency, LED present, current limiter present, oscillator present. Everything must be sourceable from Mouser. Keep the SysML minimal and compilable.",
+  "created": "20260127_124445",
+  "paths": {
+    "prompt": "pipeline/runs/20260127_124445/prompt.txt",
+    "questions": "pipeline/runs/20260127_124445/questions.md",
+    "concepts": "pipeline/runs/20260127_124445/concepts",
+    "parts": "pipeline/runs/20260127_124445/parts",
+    "sysml": "pipeline/runs/20260127_124445/sysml"
+  }
+}

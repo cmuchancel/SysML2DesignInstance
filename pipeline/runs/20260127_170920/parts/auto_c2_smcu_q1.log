@@ -1,0 +1,5 @@
+Search timed out after 12s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web --limit 1 --nl ATTINY13A 5V microcontroller
+

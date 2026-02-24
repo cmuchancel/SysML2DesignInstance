@@ -1,0 +1,61 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'integrated circuit',
+  manufacturer: 'generic/compatible',
+  partNumber: 'NE555',
+  value: 'timer IC',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5 V',
+  current: undefined,
+  package: 'DIP-8 or SOIC-8',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'astable operation', 'LED flasher', '5V operation', 'timer' ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    frequency: '10 Hz',
+    circuitMode: 'astable',
+    supplyVoltage: '5 V regulated',
+    recommendedParts: 'NE555 (DIP-8/SOIC-8), R_A = 4.7kΩ, R_B = 4.7kΩ, C = 10µF (timing), LED, R_LED ≈ 330Ω (adjust for desired LED current), 0.1µF decoupling capacitor, 5V power supply',
+    timingFormula: 'f = 1.44 / ((R_A + 2*R_B) * C)',
+    exampleValuesNote: 'R_A=4.7k, R_B=4.7k, C=10µF → ≈10.2 Hz (tune R or C to adjust)',
+    outputDriveNote: 'NE555 can source/sink tens of mA; verify datasheet or use CMOS 7555 for lower power/rail-to-rail output',
+    assemblyNotes: 'Place 0.1µF decoupling cap close to VCC-GND pins; include current-limiting resistor for LED'
+  }
+}
+Source: live | Query: "NE555 generic/compatible integrated circuit timer IC 5 V volt DIP-8 or SOIC-8 astable operation LED flasher 5V operation timer NE555 555 timer astable frequency 10 Hz circuitMode astable supplyVoltage 5 V regulated recommendedParts NE555 (DIP-8/SOIC-8), R_A = 4.7kΩ, R_B = 4.7kΩ, C = 10µF (timing), LED, R_LED ≈ 330Ω (adjust for desired LED current), 0.1µF decoupling capacitor, 5V power supply timingFormula f = 1.44 / ((R_A + 2*R_B) * C) exampleValuesNote R_A=4.7k, R_B=4.7k, C=10µF → ≈10.2 Hz (tune R or C to adjust) outputDriveNote NE555 can source/sink tens of mA; verify datasheet or use CMOS 7555 for lower power/rail-to-rail output assemblyNotes Place 0.1µF decoupling cap close to VCC-GND pins; include current-limiting resistor for LED" | Matches: 5
+------------------------------------------------------------------------
+NE555P (Texas Instruments)
+  Mouser #: 595-NE555P
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 17535
+  URL: https://www.mouser.com/ProductDetail/595-NE555P
+------------------------------------------------------------------------
+NE555PSR (Texas Instruments)
+  Mouser #: 595-NE555PSR
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 7315
+  URL: https://www.mouser.com/ProductDetail/595-NE555PSR
+------------------------------------------------------------------------
+NE555PS (Texas Instruments)
+  Mouser #: 595-NE555PS
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1164
+  URL: https://www.mouser.com/ProductDetail/595-NE555PS
+------------------------------------------------------------------------
+NE555DR1G4 (Texas Instruments)
+  Mouser #: 595-NE555DR1G4
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1049
+  URL: https://www.mouser.com/ProductDetail/595-NE555DR1G4
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

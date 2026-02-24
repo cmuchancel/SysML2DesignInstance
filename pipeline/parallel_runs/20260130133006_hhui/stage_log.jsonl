@@ -1,0 +1,9 @@
+{"ts":"2026-01-30T13:30:06.799Z","msg":"requirements: attempt 1"}
+{"ts":"2026-01-30T13:30:27.596Z","stage":"requirements","attempt":1,"success":true,"stdout":"Checks passed!","stderr":""}
+{"ts":"2026-01-30T13:30:27.597Z","msg":"concept generation started"}
+{"ts":"2026-01-30T13:30:57.575Z","msg":"concept_1: start"}
+{"ts":"2026-01-30T13:30:57.576Z","msg":"concept_2: start"}
+{"ts":"2026-01-30T13:30:57.578Z","msg":"concept_3: start"}
+{"ts":"2026-01-30T13:31:19.721Z","stage":"concept_2","attempt":1,"success":true,"stdout":"Checks passed!","stderr":""}
+{"ts":"2026-01-30T13:31:19.722Z","stage":"concept_3","attempt":1,"success":true,"stdout":"Checks passed!","stderr":""}
+{"ts":"2026-01-30T13:31:19.752Z","stage":"concept_1","attempt":1,"success":true,"stdout":"Checks passed!","stderr":""}

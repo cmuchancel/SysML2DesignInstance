@@ -1,0 +1,2 @@
+{"ts":"2026-01-30T13:27:40.361Z","msg":"requirements: attempt 1"}
+{"ts":"2026-01-30T13:27:41.202Z","msg":"400 Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead."}

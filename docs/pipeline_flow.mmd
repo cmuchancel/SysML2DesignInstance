@@ -1,0 +1,62 @@
+%% SysML Studio end-to-end pipeline
+%% Render with: npx @mermaid-js/mermaid-cli@10.9.0 -i docs/pipeline_flow.mmd -o docs/pipeline_flow.png
+
+flowchart LR
+  subgraph UserSide["User / UI"]
+    U["User prompt or file drop"]
+    GUI["SysML Studio GUI<br/>(progress, logs, toggles)"]
+    U --> GUI
+  end
+
+  subgraph ReqLoop["Requirements loop (iterative)"]
+    RGen["Requirements agent<br/>(NL → SysML requirements + constraints)"]
+    RSysml["RequirementsOnly.sysml"]
+    RChk["Translation checker<br/>(NL vs SysML coverage)"]
+    SysChkReq["SysIDE check"]
+    RGen -->|writes| RSysml --> RChk
+    RChk -->|coverage ok| ReqDone[Requirements approved]
+    RChk -->|missing/weak| RGen
+    RSysml --> SysChkReq
+    SysChkReq -->|errors| RGen
+    SysChkReq -->|pass| ReqDone
+  end
+
+  subgraph Concepts["Concept generation + realization (parallel)"]
+    CG["Concept generator<br/>(NL → ≥3 distinct concepts JSON)"]
+    CG --> CList[concepts.json]
+    CList --> C1["Concept 1 realizer<br/>(SysML design + SysIDE loop)"]
+    CList --> C2["Concept 2 realizer<br/>(SysML design + SysIDE loop)"]
+    CList --> C3["Concept 3 realizer<br/>(SysML design + SysIDE loop)"]
+
+    subgraph C1Loop["Concept 1 loop"]
+      C1Gen["LLM writes concept_1 sysml"]
+      C1Check["SysIDE check"]
+      C1Gen --> C1Sys["concept_1/iteration_k.sysml"]
+      C1Sys --> C1Check
+      C1Check -->|fail| C1Gen
+      C1Check -->|pass| C1Done[Concept 1 ready]
+    end
+    subgraph C2Loop["Concept 2 loop"]
+      C2Gen["LLM writes concept_2 sysml"]
+      C2Check["SysIDE check"]
+      C2Gen --> C2Sys["concept_2/iteration_k.sysml"]
+      C2Sys --> C2Check
+      C2Check -->|fail| C2Gen
+      C2Check -->|pass| C2Done[Concept 2 ready]
+    end
+    subgraph C3Loop["Concept 3 loop"]
+      C3Gen["LLM writes concept_3 sysml"]
+      C3Check["SysIDE check"]
+      C3Gen --> C3Sys["concept_3/iteration_k.sysml"]
+      C3Sys --> C3Check
+      C3Check -->|fail| C3Gen
+      C3Check -->|pass| C3Done[Concept 3 ready]
+    end
+  end
+
+  GUI -->|kick off| RGen
+  ReqDone --> CG
+  C1Done & C2Done & C3Done --> GUI
+
+  classDef loop fill:#0f1a32,stroke:#1e2c4f,stroke-width:1px,color:#e9f2ff;
+  class ReqLoop,Concepts,C1Loop,C2Loop,C3Loop loop;

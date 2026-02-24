@@ -1,0 +1,21 @@
+[
+  {
+    "iteration": 1,
+    "iteration_start": "2026-01-27T22:32:34.445542Z",
+    "iteration_end": "2026-01-27T22:32:55.512331Z",
+    "iteration_duration_seconds": 21.066345125087537,
+    "sysml_path": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_173233/sysml/20260127-173234/iteration_01.sysml",
+    "prompt_path": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_173233/sysml/20260127-173234/iteration_01_prompt.txt",
+    "response_path": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_173233/sysml/20260127-173234/iteration_01_response.json",
+    "success": true,
+    "compiler_stdout": "Checks passed!",
+    "compiler_stderr": "",
+    "return_code": 0,
+    "tokens_used_this_iter": {
+      "input_tokens": 539,
+      "output_tokens": 1325,
+      "total_tokens": 1864
+    },
+    "tokens_used_total": 1864
+  }
+]

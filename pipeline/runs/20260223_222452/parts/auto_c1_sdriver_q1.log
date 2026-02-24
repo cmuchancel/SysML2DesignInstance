@@ -1,0 +1,13 @@
+slot: driver
+query_input_original: {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic", "voltage": "5.01836478V", "features": ["timer", "oscillator", "low power"]}
+query_input_used: {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic", "voltage": "5.01836478V", "features": ["timer", "oscillator", "low power"]}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic", "voltage": "5.01836478V", "features": ["timer", "oscillator", "low power"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+NE555P (Texas Instruments)
+Stock: 28591
+Unit price: 0.5
+URL: https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 4, "stock": 28591, "unitPrice": 0.5, "manufacturer": "Texas Instruments", "manufacturerPartNumber": "NE555P", "description": "Single precision timer/oscillator IC (555), 4.5V to 16V supply, TTL output, PDIP-8; suitable for 5V astable LED flasher designs.", "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D", "provider": "configurator", "attributes": {"voltage": "4.5V to 16V supply (supports 5V)", "current": "2 mA operating supply current (typ, per Mouser listing); output drive up to 200 mA (source/sink listing)", "power": "", "value": "timer/oscillator (555)", "package": "PDIP-8 (through-hole)"}}

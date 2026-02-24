@@ -1,0 +1,82 @@
+{
+  "id": "resp_01b8c9de25b9adf5006978fbb318bc819398e00269f9bf48e2",
+  "created_at": 1769536435.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_01b8c9de25b9adf5006978fbb3679c8193ade3515b19628cd3",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_01b8c9de25b9adf5006978fbd63df48193bb901a16cbfc06b9",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDFlickerModel {\n  datatype String;\n  datatype Real;\n  datatype Boolean;\n\n  block Supply {\n    attribute mouser: String = \"https://www.mouser.com/\";\n  }\n\n  block LED {\n    attribute mouser: String = \"https://www.mouser.com/c/leds/indicator-leds/\";\n    attribute Vf_V: Real = 2.0;\n  }\n\n  block Resistor {\n    attribute mouser: String = \"https://www.mouser.com/passive-components/resistors/\";\n    attribute resistance_Ohms: Real = 220.0;\n  }\n\n  block Oscillator {\n    attribute mouser: String = \"https://www.mouser.com/electromechanical-switches/timers-timing/\";\n    attribute nominalFrequency_Hz: Real = 10.0;\n  }\n\n  block LEDFlickerSystem {\n    attribute supplyVoltage_V: Real = 5.0;\n    attribute supplyVoltage_min_V: Real = 4.75;\n    attribute supplyVoltage_max_V: Real = 5.25;\n\n    attribute targetFrequency_Hz: Real = 10.0;\n    attribute achievedFrequency_Hz: Real = 10.0;\n    attribute achievedFrequency_min_Hz: Real = 9.5;\n    attribute achievedFrequency_max_Hz: Real = 10.5;\n\n    attribute ledPresent: Boolean = true;\n    attribute currentLimiterPresent: Boolean = true;\n    attribute oscillatorPresent: Boolean = true;\n\n    part supply: Supply[1];\n    part led: LED[1];\n    part currentLimiter: Resistor[1];\n    part oscillator: Oscillator[1];\n  }\n} end LEDFlickerModel",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769536478.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3562,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2505,
+    "output_tokens_details": {
+      "reasoning_tokens": 2112
+    },
+    "total_tokens": 6067
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

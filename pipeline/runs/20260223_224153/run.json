@@ -1,0 +1,11 @@
+{
+  "brief": "Design a 5V rechargeable LED flasher that blinks at 10 Hz \u00b15%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts.",
+  "created": "20260223_224153",
+  "paths": {
+    "prompt": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_224153/prompt.txt",
+    "questions": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_224153/questions.md",
+    "concepts": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_224153/concepts",
+    "parts": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_224153/parts",
+    "sysml": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_224153/sysml"
+  }
+}

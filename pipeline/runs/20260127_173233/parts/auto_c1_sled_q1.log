@@ -1,0 +1,32 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser mock --limit 1 --nl 5mm indicator LED 5V 20mA
+
+LLM parsed query: {
+  category: 'LED',
+  manufacturer: undefined,
+  partNumber: undefined,
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: '20mA',
+  package: '5mm',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'indicator' ],
+  quantity: undefined,
+  keywords: [ '5mm', 'LED', 'indicator' ],
+  specs: {
+    diameter: '5mm',
+    description: '5mm indicator LED intended for 5V operation at 20mA'
+  }
+}
+Source: live | Query: "LED 5V volt 20mA amp 5mm indicator 5mm LED indicator diameter 5mm description 5mm indicator LED intended for 5V operation at 20mA" | Matches: 1
+------------------------------------------------------------------------
+4302H1-5V (VCC)
+  Mouser #: 606-4302H1-5V
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 14883
+  URL: https://www.mouser.com/ProductDetail/606-4302H1-5V
+------------------------------------------------------------------------

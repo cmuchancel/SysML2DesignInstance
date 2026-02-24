@@ -1,0 +1,33 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser mock --limit 1 --nl ATTINY13A 5V microcontroller
+
+LLM parsed query: {
+  category: 'microcontroller',
+  manufacturer: 'Microchip (formerly Atmel)',
+  partNumber: 'ATTINY13A',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: '8-pin',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    '8-bit AVR core',
+    'Flash memory MCU',
+    'Internal oscillator',
+    'Low-power'
+  ],
+  quantity: undefined,
+  keywords: [ 'ATTINY13A', 'ATtiny13A', 'tinyAVR' ],
+  specs: { pins: '8', architecture: 'AVR 8-bit', operatingVoltage: '5V' }
+}
+Source: live | Query: "ATTINY13A Microchip (formerly Atmel) microcontroller 5V volt 8-pin 8-bit AVR core Flash memory MCU Internal oscillator Low-power ATTINY13A ATtiny13A tinyAVR pins 8 architecture AVR 8-bit operatingVoltage 5V" | Matches: 1
+------------------------------------------------------------------------
+ATTINY13A (Microchip Technology)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

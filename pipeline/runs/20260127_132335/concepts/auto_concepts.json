@@ -1,0 +1,9 @@
+[
+  {
+    "name": "fallback-concept",
+    "approach": "[\n  {\n    \"name\": \"NE555 astable (discrete RC)\",\n    \"approach\": \"Use an NE555 (or CMOS LMC555) in the standard astable configuration with Ra = 22 k\u03a9, Rb = 62 k\u03a9 and C = 1 \u00b5F to produce ~9.9 Hz; drive",
+    "search_queries": [
+      "[\n  {\n    \"name\": \"NE555 astable (discrete RC)\",\n    \"approach\": \"Use an NE555 (or CMOS LMC555) in the standard astable configuration with Ra = 22 k\u03a9, Rb = 62 k\u03a9 and C = 1 \u00b5F to produce ~9.9 Hz; drive"
+    ]
+  }
+]

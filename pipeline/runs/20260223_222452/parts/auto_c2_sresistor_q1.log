@@ -1,0 +1,13 @@
+slot: resistor
+query_input_original: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "Microcontroller-PWM", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+query_input_used: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "Microcontroller-PWM", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "Microcontroller-PWM", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+MFR-25FRF52-100R (YAGEO)
+Stock: 34767
+Unit price: 0.12
+URL: https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R
+----
+selected: {"status": "selected", "constraint_match_score": 9, "stock": 34767, "unitPrice": 0.12, "manufacturer": "YAGEO", "manufacturerPartNumber": "MFR-25FRF52-100R", "description": "100 \u03a9, 1% tolerance, 0.25 W power rating, metal film through-hole (axial) resistor; 250 V rating; AEC-Q200 qualified.", "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R", "provider": "configurator", "attributes": {"voltage": "250 V", "current": "50 mA (\u221a(P/R) = \u221a(0.25W/100\u03a9))", "power": "0.25 W", "value": "100 \u03a9", "package": "Through-hole (axial)"}}

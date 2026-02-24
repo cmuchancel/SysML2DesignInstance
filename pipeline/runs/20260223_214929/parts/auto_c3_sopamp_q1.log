@@ -1,0 +1,8 @@
+slot: opamp
+query_input_original: {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "4.93535402V", "features": ["timer", "oscillator", "low power"]}
+query_input_used: {"slot": "opamp", "keywords": ["opamp"]}
+search_attempts: [{"input": {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "4.93535402V", "features": ["timer", "oscillator", "low power"]}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic"}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "opamp", "keywords": ["opamp"]}, "status": "ok", "count": 0, "error": null}]
+search_status: ok
+matches: 0
+----
+selected: {"status": "not_found", "reason": "no_results", "constraint_match_score": 0}

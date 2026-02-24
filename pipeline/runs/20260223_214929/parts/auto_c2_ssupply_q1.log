@@ -1,0 +1,8 @@
+slot: supply
+query_input_original: {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "5.23447499V", "current": "0.05A", "features": ["rechargeable", "regulated"]}
+query_input_used: {"slot": "supply", "keywords": ["supply"]}
+search_attempts: [{"input": {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "5.23447499V", "current": "0.05A", "features": ["rechargeable", "regulated"]}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply"}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "supply", "keywords": ["supply"]}, "status": "ok", "count": 0, "error": null}]
+search_status: ok
+matches: 0
+----
+selected: {"status": "not_found", "reason": "no_results", "constraint_match_score": 0}

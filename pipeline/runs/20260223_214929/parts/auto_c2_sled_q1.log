@@ -1,0 +1,9 @@
+slot: led
+query_input_original: {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "Microcontroller-PWM", "led"], "category": "led", "current": "12.44115236mA", "voltage": "5.23447499V", "features": ["indicator", "visible"]}
+query_input_used: {"slot": "led", "keywords": ["led"]}
+search_attempts: [{"input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "Microcontroller-PWM", "led"], "category": "led", "current": "12.44115236mA", "voltage": "5.23447499V", "features": ["indicator", "visible"]}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "Microcontroller-PWM", "led"], "category": "led"}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "led", "keywords": ["led"]}, "status": "timeout", "count": 0, "error": "timeout after 10s"}]
+search_status: timeout
+error: timeout after 10s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 10s", "constraint_match_score": 0}

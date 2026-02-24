@@ -1,0 +1,11 @@
+{
+  "brief": "Design a small 5 V logic I/O module with a microcontroller, a momentary pushbutton input, and a status LED with series resistor. Allow different MCU families (8-bit AVR or 32-bit ARM Cortex-M). Everything must be sourced from Mouser. The board should run from a regulated 5 V rail (4.75\u20135.25 V tolerance). Provide attributes to note whether the MCU, LED+resistor, and button are present. Keep the SysML minimal but compilable.",
+  "created": "20260127_124100",
+  "paths": {
+    "prompt": "pipeline/runs/20260127_124100/prompt.txt",
+    "questions": "pipeline/runs/20260127_124100/questions.md",
+    "concepts": "pipeline/runs/20260127_124100/concepts",
+    "parts": "pipeline/runs/20260127_124100/parts",
+    "sysml": "pipeline/runs/20260127_124100/sysml"
+  }
+}

@@ -1,0 +1,45 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser mock --limit 1 --nl NE555 timer 5V astable
+
+LLM parsed query: {
+  category: 'timer IC',
+  manufacturer: undefined,
+  partNumber: 'NE555',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V (typical supply for this request)',
+  current: undefined,
+  package: 'DIP-8, SOIC-8 (common)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'astable mode (oscillator)',
+    'monostable mode (one-shot)',
+    'reset pin',
+    'discharge transistor',
+    'TTL-compatible inputs'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555', 'timer' ],
+  specs: {
+    function: 'timer / oscillator IC',
+    supplyVoltageRange: '~4.5V to 16V',
+    recommendedSupplyVoltage: '5V',
+    pins: '8',
+    typicalOutputCurrent: 'up to ~200mA (source/sink capability)',
+    operatingModes: 'astable, monostable',
+    packageOptions: 'DIP-8, SOIC-8, TSSOP-8 (varies by manufacturer)',
+    frequency: 'depends on external R and C (user-defined for astable)',
+    usage: 'astable multivibrator (square-wave oscillator)',
+    notes: 'actual electrical characteristics vary by manufacturer and variant; consult datasheet for timing equations and limits'
+  }
+}
+Source: live | Query: "NE555 timer IC 5V (typical supply for this request) volt DIP-8, SOIC-8 (common) astable mode (oscillator) monostable mode (one-shot) reset pin discharge transistor TTL-compatible inputs NE555 555 timer function timer / oscillator IC supplyVoltageRange ~4.5V to 16V recommendedSupplyVoltage 5V pins 8 typicalOutputCurrent up to ~200mA (source/sink capability) operatingModes astable, monostable packageOptions DIP-8, SOIC-8, TSSOP-8 (varies by manufacturer) frequency depends on external R and C (user-defined for astable) usage astable multivibrator (square-wave oscillator) notes actual electrical characteristics vary by manufacturer and variant; consult datasheet for timing equations and limits" | Matches: 1
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

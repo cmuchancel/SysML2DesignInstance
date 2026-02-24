@@ -1,0 +1,33 @@
+{
+  "id": "20260130155718_aulv",
+  "nl": "Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.",
+  "createdAt": "2026-01-30T15:57:18.295Z",
+  "status": "running",
+  "runDir": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130155718_aulv",
+  "log": [],
+  "outputs": {},
+  "stages": {
+    "requirements": {
+      "status": "running",
+      "startedAt": "2026-01-30T15:57:18.296Z",
+      "message": "Generating requirements SysML"
+    },
+    "concepts": {
+      "status": "queued"
+    },
+    "conceptsExpansion": [
+      {
+        "status": "queued",
+        "index": 0
+      },
+      {
+        "status": "queued",
+        "index": 1
+      },
+      {
+        "status": "queued",
+        "index": 2
+      }
+    ]
+  }
+}

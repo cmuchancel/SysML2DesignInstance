@@ -1,0 +1,82 @@
+{
+  "id": "resp_04de579278ae2dc4006979025738b4819793697325e671ec32",
+  "created_at": 1769538135.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_04de579278ae2dc400697902579a208197a26c52e77fad514e",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_04de579278ae2dc40069790276bbd081978679e776edc37177",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package FlickerLED;\nimport standard::library::*;\nrequirement FlickerFrequency {\n  property minHz: Real = 9.5;\n  property nominalHz: Real = 10.0;\n  property maxHz: Real = 10.5;\n  text = \"LED flicker frequency 10 Hz \u00b15%\";\n}\nblock PowerSupply {\n  property voltage: Real = 5.0;\n}\nblock NE555 {\n  property frequency: Real = 10.0;\n  property vendor: String = \"Texas Instruments\";\n  property partNumber: String = \"NE555P\";\n}\nblock Resistor {\n  property resistance: Real = 330.0;\n  property power_W: Real = 0.25;\n  property vendor: String = \"Vishay\";\n  property partNumber: String = \"CRCW330R\";\n}\nblock LED {\n  property Vf: Real = 2.0;\n  property If_mA: Real = 10.0;\n  property vendor: String = \"Kingbright\";\n  property partNumber: String = \"WP7113ID\";\n}\nblock Circuit {\n  part supply: PowerSupply;\n  part timer: NE555;\n  part r_limit: Resistor;\n  part led: LED;\n}\nend FlickerLED",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769538170.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 8912,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2092,
+    "output_tokens_details": {
+      "reasoning_tokens": 1792
+    },
+    "total_tokens": 11004
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

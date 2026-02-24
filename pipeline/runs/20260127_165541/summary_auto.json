@@ -1,0 +1,12 @@
+{
+  "prompt": "# Natural-language brief (echoed twice per Sysmlgeneration guidance)\nDesign a circuit whose LED flickers at 10 Hz \u00b15% from a 5 V supply; include current limiting and make it sourceable from Mouser.\n\n-- repeat --\nDesign a circuit whose LED flickers at 10 Hz \u00b15% from a 5 V supply; include current limiting and make it sourceable from Mouser.\n\n# Instructions to the model (keep in prompt for refine_sysml.py)\n- Emit the minimal SysMLv2 that satisfies the brief.\n- Avoid redundant packages/properties; be concise.\n- Conform to SysIDE; model must pass `syside check`.\n- If uncertain, make the best assumption and note it in a comment.",
+  "sysml": "iteration_01.sysml",
+  "concepts_file": "concepts/auto_concepts.json",
+  "parts_logs": [
+    "auto_c1_q1.log",
+    "auto_c2_q1.log",
+    "auto_c3_q1.log"
+  ],
+  "design_instances": "deliverables/design_instances.sysml",
+  "bom_rows": "deliverables/bom.json"
+}

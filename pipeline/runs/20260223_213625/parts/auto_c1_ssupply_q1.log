@@ -1,0 +1,7 @@
+slot: supply
+query_input: {"slot": "supply", "keywords": ["5V DC wall adapter", "NE555-astable", "supply"], "category": "power supply", "voltage": "5.19020172V", "current": "0.05A", "features": ["rechargeable", "regulated"]}
+search_status: timeout
+error: timeout after 20s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 20s", "constraint_match_score": 0}

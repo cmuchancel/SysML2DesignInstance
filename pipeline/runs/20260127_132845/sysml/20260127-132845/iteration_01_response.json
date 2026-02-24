@@ -1,0 +1,82 @@
+{
+  "id": "resp_0cc58f70c54907d500697903de3e1481948651e70726ff81ef",
+  "created_at": 1769538526.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0cc58f70c54907d500697903de7c4081948422851259ec6eaf",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0cc58f70c54907d500697904025e9c81949d63f80edcdd51a0",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDFlicker {\n\n  // Assumption: use NE555 in astable mode; target 10 Hz \u00b15% from 5 V supply.\n  block Resistor {\n    property resistance: Real[1];\n    property manufacturers: String[*];\n  }\n  block Capacitor {\n    property capacitance: Real[1];\n    property manufacturers: String[*];\n  }\n  block TimerIC {\n    property partNumber: String[1];\n    property manufacturers: String[*];\n  }\n  block LED {\n    property vf: Real[1]; // forward voltage (V)\n    property manufacturers: String[*];\n  }\n\n  system LEDFlickerCircuit {\n    property supplyVoltage: Real[1] = 5.0;\n    property freqNominal: Real[1] = 10.0;\n    property freqTolPct: Real[1] = 5.0;\n    property freqMin: Real[1] = 9.5;\n    property freqMax: Real[1] = 10.5;\n\n    part U1: TimerIC { partNumber = \"NE555\"; manufacturers = {\"Texas Instruments\",\"STMicroelectronics\",\"ON Semiconductor\"} }\n    part RtimA: Resistor { resistance = 220000.0; manufacturers = {\"Yageo\",\"Vishay\"} } // R_A\n    part RtimB: Resistor { resistance = 620000.0; manufacturers = {\"Yageo\",\"Vishay\"} } // R_B\n    part Ctim: Capacitor { capacitance = 100e-9; manufacturers = {\"Murata\",\"Kemet\"} } // C\n    part LED1: LED { vf = 2.0; manufacturers = {\"Kingbright\",\"OSRAM\",\"Lite-On\"} }\n    part Rlim: Resistor { resistance = 330.0; manufacturers = {\"Yageo\",\"Vishay\"} } // current-limiting resistor\n\n    // Astable 555 nominal frequency with chosen values: f = 1.44 / ((R_A + 2*R_B)*C)\n    property computedFreq: Real[1] = 1.44 / ((RtimA.resistance + 2.0 * RtimB.resistance) * Ctim.capacitance);\n\n    // Verification that chosen components meet the requirement 10 Hz \u00b15%\n    property withinSpec: Boolean[1] = (computedFreq >= freqMin) and (computedFreq <= freqMax);\n\n    // LED current approx: (Vcc - Vf) / Rlim\n    property ledCurrentA: Real[1] = (supplyVoltage - LED1.vf) / Rlim.resistance;\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769538570.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2906,
+    "output_tokens_details": {
+      "reasoning_tokens": 2304
+    },
+    "total_tokens": 3166
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

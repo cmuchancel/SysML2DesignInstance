@@ -1,483 +1,426 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Component Finder</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: radial-gradient(circle at 20% 20%, #243949, #0f1215 40%),
-          radial-gradient(circle at 80% 0%, #1a3c5c, transparent 45%);
-        --card: rgba(18, 22, 28, 0.9);
-        --accent: #5eead4;
-        --muted: #9fb1c4;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family: "Space Grotesk", system-ui, sans-serif;
-        background: var(--bg);
-        color: #e8eef5;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-      }
-      .shell {
-        width: min(1000px, 100%);
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      }
-      h1 {
-        margin: 0 0 8px 0;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-      }
-      p.desc {
-        margin: 0 0 20px 0;
-        color: var(--muted);
-      }
-      form {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-      label {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        font-size: 13px;
-        color: var(--muted);
-      }
-      input {
-        background: #0f1319;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #e8eef5;
-        border-radius: 10px;
-        padding: 10px 12px;
-        font-size: 14px;
-        transition: border 0.15s ease, transform 0.15s ease;
-      }
-      input:focus {
-        border-color: var(--accent);
-        outline: none;
-        transform: translateY(-1px);
-      }
-      button {
-        background: linear-gradient(120deg, #1dd1a1, #48dbfb);
-        color: #0c1016;
-        border: none;
-        padding: 12px 16px;
-        border-radius: 12px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 14px;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-      button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 12px 30px rgba(72, 219, 251, 0.3);
-      }
-      .actions {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        flex-wrap: wrap;
-        margin: 8px 0 18px 0;
-      }
-      .results {
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding-top: 12px;
-        display: grid;
-        gap: 12px;
-      }
-      .card {
-        padding: 12px;
-        border-radius: 12px;
-        background: #0f1319;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      .card h3 {
-        margin: 0 0 6px 0;
-        font-size: 16px;
-      }
-      .card .meta {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        color: var(--muted);
-        font-size: 13px;
-      }
-      .chips {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        margin-top: 6px;
-      }
-      .chip {
-        padding: 4px 8px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        color: #c8d3df;
-        font-size: 12px;
-      }
-      .error {
-        color: #f87171;
-        margin: 4px 0 0 0;
-        font-size: 13px;
-      }
-      .pill {
-        padding: 4px 8px;
-        border-radius: 999px;
-        background: rgba(94, 234, 212, 0.12);
-        color: var(--accent);
-        font-size: 12px;
-      }
-      .tabs {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 12px;
-      }
-      .tab {
-        background: #0f1319;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #e8eef5;
-        border-radius: 10px;
-        padding: 10px 14px;
-        cursor: pointer;
-      }
-      .tab.active {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="shell">
-      <h1>Component Finder</h1>
-      <p class="desc">
-        Describe any electronic component; the app searches web + supplier APIs when available and falls back to mock data if needed.
-      </p>
-      <div class="tabs">
-        <button class="tab active" data-tab="chat">Chatbot</button>
-        <button class="tab" data-tab="form">Component Lookup</button>
-      </div>
-      <div id="chat-panel">
-        <div style="margin-bottom: 12px">
-          <label style="display:block;margin-bottom:6px;color:var(--muted)">
-            Chat prompt (uses OpenAI if configured)
-          </label>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <input
-              id="nl-input"
-              placeholder="e.g., need a 10uF 6.3V 0603 X5R cap or a micro USB right-angle connector"
-              style="flex:1 1 320px"
-            />
-            <button id="submit-nl" type="button">Ask & Search</button>
-          </div>
-        </div>
-      </div>
-      <form id="search-form" style="display:none">
-        <label>
-          Category
-          <input name="category" placeholder="resistor, capacitor, ic, connector" />
-        </label>
-        <label>
-          Manufacturer
-          <input name="manufacturer" placeholder="TI, Murata, Amphenol" />
-        </label>
-        <label>
-          Part number
-          <input name="partNumber" placeholder="OPA333AIDBVR, GRM188R60J106ME47D" />
-        </label>
-        <label>
-          Value
-          <input name="value" placeholder="10k, 10uF, 3.3V reg" />
-        </label>
-        <label>
-          Package
-          <input name="package" placeholder="0603, QFN48, SOT-23-5" />
-        </label>
-        <label>
-          Voltage
-          <input name="voltage" placeholder="6.3V, 30V, 1.8V-5.5V" />
-        </label>
-        <label>
-          Current
-          <input name="current" placeholder="1A, 10mA" />
-        </label>
-        <label>
-          Power
-          <input name="power" placeholder="0.1W, 2W, 10W" />
-        </label>
-        <label>
-          Tolerance
-          <input name="tolerance" placeholder="1%, 5%" />
-        </label>
-        <label>
-          Features
-          <input name="features" placeholder="low-noise, shielded, waterproof" />
-        </label>
-        <label>
-          Extra keywords
-          <input name="keywords" placeholder="automotive, AEC-Q200, medical" />
-        </label>
-        <label>
-          Limit
-          <input name="limit" type="number" min="1" max="30" value="12" />
-        </label>
-        <label>
-          Providers (optional override)
-          <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:#c8d3df">
-            <label style="display:flex;align-items:center;gap:4px">
-              <input type="checkbox" name="providers" value="web" /> Web
-            </label>
-            <label style="display:flex;align-items:center;gap:4px">
-              <input type="checkbox" name="providers" value="mouser" /> Mouser
-            </label>
-            <label style="display:flex;align-items:center;gap:4px">
-              <input type="checkbox" name="providers" value="octopart" /> Octopart
-            </label>
-            <label style="display:flex;align-items:center;gap:4px">
-              <input type="checkbox" name="providers" value="digikey" /> Digi-Key
-            </label>
-            <label style="display:flex;align-items:center;gap:4px">
-              <input type="checkbox" name="providers" value="mock" /> Mock
-            </label>
-          </div>
-        </label>
-      </form>
-      <div class="actions">
-        <button id="submit">Search</button>
-        <span id="status" class="pill">Idle</span>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button id="copy-json" type="button" style="background:#0f1319;border:1px solid rgba(255,255,255,0.08);color:#e8eef5">
-            Copy JSON
-          </button>
-          <button id="download-csv" type="button" style="background:#0f1319;border:1px solid rgba(255,255,255,0.08);color:#e8eef5">
-            Download CSV
-          </button>
-        </div>
-      </div>
-      <div id="error" class="error"></div>
-      <div class="results" id="results"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SysML Studio</title>
+  <style>
+    :root {
+      --bg: #050915;
+      --panel: #0c1428;
+      --panel-2: #101c38;
+      --border: #1e2c4f;
+      --text: #e9f2ff;
+      --muted: #9bb0d9;
+      --accent: #5df0c2;
+      --accent-2: #7ba7ff;
+      --danger: #ff6b6b;
+      --warn: #f7c948;
+    }
+    * { box-sizing: border-box; font-family: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif; }
+    body { margin: 0; background: radial-gradient(1200px 900px at 25% 0%, rgba(93,240,194,0.18), transparent), radial-gradient(1400px 1000px at 80% 10%, rgba(123,167,255,0.14), transparent), var(--bg); color: var(--text); overflow-x: hidden; }
+    header { padding: 26px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 10; background: rgba(5,9,21,0.85); }
+    h1 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+    .sub { color: var(--muted); margin-top: 6px; font-size: 14px; }
+    main { width: calc(100% - 32px); max-width: 1180px; margin: 0 auto; padding: 22px 24px 80px; display: grid; gap: 18px; grid-template-columns: 2fr 1.2fr; }
+    .full { grid-column: 1 / -1; }
+    .card { background: linear-gradient(145deg, var(--panel), var(--panel-2)); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.28); }
+    textarea { width: 100%; min-height: 160px; border-radius: 12px; border: 1px solid var(--border); background: #0a1224; color: var(--text); padding: 12px; resize: vertical; }
+    button { border: none; border-radius: 12px; padding: 12px 16px; font-weight: 700; cursor: pointer; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #04101f; box-shadow: 0 8px 30px rgba(93,240,194,0.25); }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .chip { padding: 6px 10px; border-radius: 10px; border: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+    .drop { border: 1px dashed var(--border); border-radius: 12px; padding: 12px; color: var(--muted); text-align: center; cursor: pointer; background: #0a1224; }
+    .progress { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 8px; }
+    .pill { padding: 10px 8px; border-radius: 10px; text-align: center; font-size: 12px; border: 1px solid var(--border); background: #0a1224; color: var(--muted); }
+    .pill.running { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 1px rgba(93,240,194,0.2); }
+    .pill.success { border-color: var(--accent-2); color: var(--text); background: rgba(123,167,255,0.08); }
+    .pill.error { border-color: var(--danger); color: var(--danger); }
+    .meter { height: 6px; border-radius: 999px; background: #0a1224; border: 1px solid var(--border); overflow: hidden; }
+    .meter > div { height: 100%; width: 0%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); transition: width 0.3s ease; }
+    pre { background: #0a1224; border: 1px solid var(--border); border-radius: 12px; padding: 12px; color: #cfe2ff; overflow: auto; max-height: 360px; white-space: pre-wrap; word-break: break-word; }
+    .log { max-height: 240px; white-space: pre-wrap; }
+    .badge { padding: 4px 8px; border-radius: 8px; font-size: 11px; background: #0f1a32; border: 1px solid var(--border); color: var(--muted); }
+    .flex { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .section-title { margin: 0 0 6px; font-size: 15px; letter-spacing: -0.01em; }
+    @media (max-width: 1200px) {
+      main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>SysML Studio · NL → SysML → Concepts</h1>
+      <div class="sub">Drop a brief or type it. Watch requirements, concepts, and each concept realizer update live.</div>
     </div>
-    <script>
-      const form = document.getElementById("search-form");
-      const nlInput = document.getElementById("nl-input");
-      const chatPanel = document.getElementById("chat-panel");
-      const tabs = Array.from(document.querySelectorAll(".tab"));
-      const resultsEl = document.getElementById("results");
-      const statusEl = document.getElementById("status");
-      const errorEl = document.getElementById("error");
-      const copyBtn = document.getElementById("copy-json");
-      const downloadCsvBtn = document.getElementById("download-csv");
-      let latestPayload = null;
+    <div class="chip" id="runIdChip">No run yet</div>
+  </header>
 
-      const setStatus = (text, color) => {
-        statusEl.textContent = text;
-        statusEl.style.color = color || "#0c1016";
-      };
+  <main>
+    <div class="card full">
+      <div class="section-title">Prompt</div>
+      <div class="row">
+        <div style="flex:1;">
+          <textarea id="nl" placeholder="Describe the system you want..."></textarea>
+          <div class="row" style="margin-top:8px; justify-content: space-between;">
+            <div class="flex">
+              <div class="drop" id="dropZone">Drop a .txt/.md/.html file or click to select</div>
+              <input type="file" id="fileInput" accept=".txt,.md,.html" style="display:none;">
+              <span class="sub" id="charCount">0 chars</span>
+            </div>
+            <div class="flex">
+              <label class="sub">Concepts:</label>
+              <select id="conceptCount" style="background:#0a1224;color:var(--text);border:1px solid var(--border);border-radius:10px;padding:8px;">
+                <option value="3">3</option>
+              </select>
+              <button id="runBtn">Run pipeline</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:12px;">
+        <div class="meter" style="flex:1;"><div id="meterFill"></div></div>
+        <span class="sub" id="statusText">Idle</span>
+      </div>
+      <div class="progress" style="margin-top:10px;">
+        <div class="pill" id="pill-req">Requirements</div>
+        <div class="pill" id="pill-concepts">Concept Gen</div>
+        <div class="pill" id="pill-c1">Concept 1</div>
+        <div class="pill" id="pill-c2">Concept 2</div>
+        <div class="pill" id="pill-c3">Concept 3</div>
+      </div>
+    </div>
 
-      const renderResults = (payload) => {
-        latestPayload = payload;
-        resultsEl.innerHTML = "";
-        const { results, query, source, providersTried } = payload;
-        const heading = document.createElement("div");
-        heading.className = "pill";
-        heading.textContent = `Query: ${query} • Source: ${source}` + (providersTried?.length ? ` • Tried: ${providersTried.join(", ")}` : "");
-        resultsEl.appendChild(heading);
+    <div class="card">
+      <div class="section-title">Requirements SysML (live)</div>
+      <pre id="reqSysml">Waiting...</pre>
+    </div>
 
-        if (!results.length) {
-          const msg = document.createElement("p");
-          msg.textContent = "No results found. Try relaxing the filters.";
-          msg.style.color = "#9fb1c4";
-          resultsEl.appendChild(msg);
-          return;
-        }
+    <div class="card">
+      <div class="section-title">Concepts (NL summaries)</div>
+      <pre id="conceptsOut">Waiting...</pre>
+    </div>
 
-        results.forEach((item) => {
-          const card = document.createElement("div");
-          card.className = "card";
-          const title = document.createElement("h3");
-          title.textContent = `${item.manufacturerPartNumber} — ${item.manufacturer}`;
-          card.appendChild(title);
+    <div class="card">
+      <div class="section-title">Concept SysML</div>
+      <div id="conceptSwitch" class="row" style="margin-bottom:8px; flex-wrap: wrap;"></div>
+      <pre id="conceptSysml">Waiting...</pre>
+    </div>
 
-          const provider = document.createElement("div");
-          provider.className = "pill";
-          provider.style.display = "inline-block";
-          provider.style.marginBottom = "8px";
-          provider.textContent = (item.provider || "unknown").toUpperCase();
-          card.appendChild(provider);
+    <div class="card">
+      <div class="section-title">Logs</div>
+      <pre id="log" class="log">Waiting...</pre>
+    </div>
+  </main>
 
-          if (item.description) {
-            const desc = document.createElement("div");
-            desc.textContent = item.description;
-            desc.style.color = "#c8d3df";
-            desc.style.marginBottom = "8px";
-            card.appendChild(desc);
-          }
+  <script>
+    const runBtn = document.getElementById("runBtn");
+    const nlInput = document.getElementById("nl");
+    const statusText = document.getElementById("statusText");
+    const meterFill = document.getElementById("meterFill");
+    const reqSysmlEl = document.getElementById("reqSysml");
+    const conceptSysmlEl = document.getElementById("conceptSysml");
+    const conceptsOut = document.getElementById("conceptsOut");
+    const conceptSwitch = document.getElementById("conceptSwitch");
+    const logEl = document.getElementById("log");
+    const runChip = document.getElementById("runIdChip");
+    const conceptCountSel = document.getElementById("conceptCount");
+    const dropZone = document.getElementById("dropZone");
+    const fileInput = document.getElementById("fileInput");
+    const charCount = document.getElementById("charCount");
+    const pastRunSelect = document.createElement("select");
+    const pastRunBtn = document.createElement("button");
+    const pastRunRefresh = document.createElement("button");
+    const pills = {
+      req: document.getElementById("pill-req"),
+      concepts: document.getElementById("pill-concepts"),
+      c1: document.getElementById("pill-c1"),
+      c2: document.getElementById("pill-c2"),
+      c3: document.getElementById("pill-c3"),
+    };
 
-          const meta = document.createElement("div");
-          meta.className = "meta";
-          if (item.digiKeyPartNumber)
-            meta.innerHTML += `<span>Digi-Key #: ${item.digiKeyPartNumber}</span>`;
-          if (item.stock !== undefined) meta.innerHTML += `<span>Stock: ${item.stock}</span>`;
-          if (item.unitPrice !== undefined)
-            meta.innerHTML += `<span>$${Number(item.unitPrice).toFixed(4)} ea</span>`;
-          if (item.attributes && item.attributes.category)
-            meta.innerHTML += `<span>${item.attributes.category}</span>`;
-          card.appendChild(meta);
+    let eventSource = null;
+    let runsLoaded = false;
 
-          if (item.attributes && Object.keys(item.attributes).length) {
-            const chips = document.createElement("div");
-            chips.className = "chips";
-            Object.entries(item.attributes).forEach(([k, v]) => {
-              if (!v) return;
-              const chip = document.createElement("div");
-              chip.className = "chip";
-              chip.textContent = `${k}: ${v}`;
-              chips.appendChild(chip);
-            });
-            card.appendChild(chips);
-          }
+    const setPill = (el, status) => {
+      el.classList.remove("running", "success", "error");
+      if (status === "running") el.classList.add("running");
+      if (status === "success") el.classList.add("success");
+      if (status === "error") el.classList.add("error");
+    };
 
-          if (item.url) {
-            const link = document.createElement("a");
-            link.href = item.url;
-            link.textContent = "View part";
-            link.style.display = "inline-block";
-            link.style.marginTop = "8px";
-            link.style.color = "#5eead4";
-            link.target = "_blank";
-            card.appendChild(link);
-          }
+    const updateMeter = (state) => {
+      const stages = [
+        state.stages?.requirements?.status,
+        state.stages?.concepts?.status,
+        state.stages?.conceptsExpansion?.[0]?.status,
+        state.stages?.conceptsExpansion?.[1]?.status,
+        state.stages?.conceptsExpansion?.[2]?.status,
+      ];
+      const doneCount = stages.filter((s) => s === "success").length;
+      const pct = Math.round((doneCount / stages.length) * 100);
+      meterFill.style.width = pct + "%";
+    };
 
-          resultsEl.appendChild(card);
+    const log = (msg) => {
+      const ts = new Date().toLocaleTimeString();
+      logEl.textContent += `[${ts}] ${msg}\n`;
+      logEl.scrollTop = logEl.scrollHeight;
+    };
+
+    const loadRuns = async () => {
+      try {
+        const resp = await fetch("/api/simple/runs?limit=20");
+        const data = await resp.json();
+        const runs = data.runs || [];
+        pastRunSelect.innerHTML = "";
+        runs.forEach((r) => {
+          const opt = document.createElement("option");
+          opt.value = r;
+          opt.textContent = r;
+          pastRunSelect.appendChild(opt);
         });
-      };
+        if (runs.length === 0) {
+          const opt = document.createElement("option");
+          opt.textContent = "No past runs";
+          pastRunSelect.appendChild(opt);
+        }
+        runsLoaded = true;
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
-      const runSearch = async () => {
-        errorEl.textContent = "";
-        setStatus("Searching...", "#0c1016");
-        const formData = new FormData(form);
-        const payload = {};
-        const nlVal = nlInput.value.trim();
-        if (nlVal) payload["nl"] = nlVal;
-        formData.forEach((value, key) => {
-          const trimmed = value.trim();
-          if (trimmed) {
-            if (key === "keywords" || key === "features") {
-              payload[key] = trimmed.split(/[,;]/).map((v) => v.trim());
-            } else if (key === "limit") {
-              payload[key] = Number(trimmed);
-            } else {
-              payload[key] = trimmed;
+    pastRunBtn.textContent = "Load past run";
+    pastRunBtn.style.padding = "8px 12px";
+    pastRunBtn.style.borderRadius = "10px";
+    pastRunBtn.style.border = "1px solid var(--border)";
+    pastRunBtn.style.background = "#0a1224";
+    pastRunBtn.style.color = "var(--text)";
+    pastRunBtn.style.cursor = "pointer";
+    pastRunBtn.addEventListener("click", async () => {
+      const id = pastRunSelect.value;
+      if (!id || id === "No past runs") return;
+      try {
+        const resp = await fetch(`/api/simple/state/${id}`);
+        const data = await resp.json();
+        if (data.state) {
+          renderState(data.state);
+          log(`Loaded past run ${id}`);
+        } else {
+          log(`Run ${id} not found`);
+        }
+      } catch (err) {
+        log(`Error loading run ${id}: ${err.message}`);
+      }
+    });
+
+    pastRunRefresh.textContent = "↻";
+    pastRunRefresh.style.padding = "8px 10px";
+    pastRunRefresh.style.borderRadius = "10px";
+    pastRunRefresh.style.border = "1px solid var(--border)";
+    pastRunRefresh.style.background = "#0a1224";
+    pastRunRefresh.style.color = "var(--text)";
+    pastRunRefresh.style.cursor = "pointer";
+    pastRunRefresh.addEventListener("click", () => loadRuns());
+
+    pastRunSelect.style.background = "#0a1224";
+    pastRunSelect.style.color = "var(--text)";
+    pastRunSelect.style.border = "1px solid var(--border)";
+    pastRunSelect.style.borderRadius = "10px";
+    pastRunSelect.style.padding = "8px";
+
+    nlInput.addEventListener("input", () => {
+      charCount.textContent = `${nlInput.value.length} chars`;
+    });
+
+    const readFile = (file) =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          let text = reader.result || "";
+          const name = (file.name || "").toLowerCase();
+          const type = (file.type || "").toLowerCase();
+          const looksHtml = name.endsWith(".html") || type.includes("html");
+          if (looksHtml) {
+            try {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(String(text), "text/html");
+              text = doc.body ? doc.body.textContent || "" : String(text);
+              text = text.replace(/\s+/g, " ").trim();
+            } catch {
+              /* fall back to raw text */
             }
           }
-        });
+          resolve(text);
+        };
+        reader.onerror = reject;
+        reader.readAsText(file);
+      });
 
-        const providerChecks = Array.from(
-          document.querySelectorAll('input[name="providers"]:checked'),
-        ) as HTMLInputElement[];
-        if (providerChecks.length) {
-          payload["providers"] = providerChecks.map((c) => c.value);
-        }
+    dropZone.addEventListener("click", () => fileInput.click());
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.style.borderColor = "var(--accent)";
+    });
+    dropZone.addEventListener("dragleave", () => {
+      dropZone.style.borderColor = "var(--border)";
+    });
+    dropZone.addEventListener("drop", async (e) => {
+      e.preventDefault();
+      dropZone.style.borderColor = "var(--border)";
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        const text = await readFile(file);
+        nlInput.value = text;
+        charCount.textContent = `${text.length} chars (from file)`;
+      }
+    });
+    fileInput.addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const text = await readFile(file);
+        nlInput.value = text;
+        charCount.textContent = `${text.length} chars (from file)`;
+      }
+    });
 
+    const startStream = (runId) => {
+      if (eventSource) eventSource.close();
+      eventSource = new EventSource(`/api/simple/stream/${runId}`);
+      eventSource.onmessage = (ev) => {
         try {
-          const res = await fetch("/api/search/parts", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-          if (!res.ok) {
-            const text = await res.text();
-            throw new Error(text || res.statusText);
-          }
-          const data = await res.json();
-          renderResults(data);
-          setStatus("Done", "#0c1016");
+          const payload = JSON.parse(ev.data);
+          const state = payload.state || payload;
+          renderState(state);
         } catch (err) {
-          errorEl.textContent = err.message || "Request failed";
-          setStatus("Error", "#f87171");
+          console.error(err);
         }
       };
+      eventSource.onerror = () => {
+        statusText.textContent = "Stream disconnected";
+      };
+    };
 
-      document.getElementById("submit").addEventListener("click", runSearch);
-      document.getElementById("submit-nl").addEventListener("click", runSearch);
-      nlInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          runSearch();
-        }
-      });
+    const renderState = (state) => {
+      runChip.textContent = state.id || "run";
+      statusText.textContent = state.status || "running";
+      updateMeter(state);
+      setPill(pills.req, state.stages?.requirements?.status);
+      setPill(pills.concepts, state.stages?.concepts?.status);
+      setPill(pills.c1, state.stages?.conceptsExpansion?.[0]?.status);
+      setPill(pills.c2, state.stages?.conceptsExpansion?.[1]?.status);
+      setPill(pills.c3, state.stages?.conceptsExpansion?.[2]?.status);
 
-      copyBtn.addEventListener("click", async () => {
-        if (!latestPayload) {
-          errorEl.textContent = "No results to copy yet.";
-          return;
-        }
-        try {
-          await navigator.clipboard.writeText(JSON.stringify(latestPayload, null, 2));
-          setStatus("Copied JSON", "#0c1016");
-          setTimeout(() => setStatus("Idle"), 1200);
-        } catch (err) {
-          errorEl.textContent = "Copy failed";
-        }
-      });
-
-      downloadCsvBtn.addEventListener("click", () => {
-        if (!latestPayload || !latestPayload.results?.length) {
-          errorEl.textContent = "No results to download yet.";
-          return;
-        }
-        const rows = [
-          ["manufacturer", "mpn", "provider", "description", "stock", "unitPrice", "url"],
-          ...latestPayload.results.map((r) => [
-            r.manufacturer || "",
-            r.manufacturerPartNumber || "",
-            r.provider || "",
-            (r.description || "").replace(/,/g, ";"),
-            r.stock ?? "",
-            r.unitPrice ?? "",
-            r.url || "",
-          ]),
-        ];
-        const csv = rows.map((row) => row.join(",")).join("\n");
-        const blob = new Blob([csv], { type: "text/csv" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "component-results.csv";
-        a.click();
-        URL.revokeObjectURL(url);
-      });
-
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          tabs.forEach((t) => t.classList.remove("active"));
-          tab.classList.add("active");
-          const target = tab.dataset.tab;
-          if (target === "chat") {
-            chatPanel.style.display = "block";
-            form.style.display = "none";
-          } else {
-            chatPanel.style.display = "none";
-            form.style.display = "grid";
-          }
+      if (state.outputs?.requirementsSysml) {
+        reqSysmlEl.textContent = state.outputs.requirementsSysml;
+      }
+      if (state.outputs?.concepts) {
+        conceptsOut.textContent = JSON.stringify(state.outputs.concepts, null, 2);
+      }
+      const conceptModels = state.outputs?.conceptSysml || [];
+      const conceptNames = (state.outputs?.concepts || []).map((c, i) => c?.name || `Concept ${i + 1}`);
+      conceptSwitch.innerHTML = "";
+      if (conceptModels.length) {
+        conceptModels.forEach((c, i) => {
+          const btn = document.createElement("button");
+          const label = conceptNames[i] || `Concept ${i + 1}`;
+          btn.textContent = label;
+          btn.style.padding = "12px 14px";
+          btn.style.borderRadius = "12px";
+          btn.style.border = "1px solid var(--border)";
+          btn.style.background = "#0f162a";
+          btn.style.color = "var(--text)";
+          btn.style.cursor = "pointer";
+          btn.style.minWidth = "160px";
+          btn.style.boxShadow = "0 8px 24px rgba(0,0,0,0.25)";
+          btn.style.fontWeight = "700";
+          btn.style.transition = "transform 0.1s ease, border-color 0.2s ease";
+          btn.onmouseenter = () => btn.style.transform = "translateY(-1px)";
+          btn.onmouseleave = () => btn.style.transform = "translateY(0)";
+          btn.addEventListener("click", () => {
+            conceptSysmlEl.textContent = c?.sysml || "(no sysml available)";
+            conceptSwitch.querySelectorAll("button").forEach(b => {
+              b.style.borderColor = "var(--border)";
+              b.style.background = "#0f162a";
+            });
+            btn.style.borderColor = "var(--accent)";
+            btn.style.background = "linear-gradient(135deg, rgba(93,240,194,0.12), rgba(123,167,255,0.10))";
+          });
+          conceptSwitch.appendChild(btn);
         });
-      });
-    </script>
-  </body>
+        // default display first available
+        const firstIdx = conceptModels.findIndex((c) => c.status === "success");
+        const idxToShow = firstIdx >= 0 ? firstIdx : 0;
+        const first = conceptModels[idxToShow];
+        conceptSysmlEl.textContent = first?.sysml || "(concept sysml pending)";
+        const btnToHighlight = conceptSwitch.querySelectorAll("button")[idxToShow];
+        if (btnToHighlight) {
+          btnToHighlight.style.borderColor = "var(--accent)";
+          btnToHighlight.style.background = "linear-gradient(135deg, rgba(93,240,194,0.12), rgba(123,167,255,0.10))";
+        }
+      } else {
+        conceptSysmlEl.textContent = "Waiting...";
+      }
+      if (Array.isArray(state.log)) {
+        logEl.textContent = state.log.join("\n");
+        logEl.scrollTop = logEl.scrollHeight;
+      }
+      if (state.status === "done" || state.status === "error") {
+        runBtn.disabled = false;
+      }
+    };
+
+    runBtn.addEventListener("click", async () => {
+      const nl = nlInput.value.trim();
+      if (!nl) {
+        alert("Please enter a prompt or drop a file.");
+        return;
+      }
+      runBtn.disabled = true;
+      statusText.textContent = "Starting…";
+      reqSysmlEl.textContent = "Waiting for requirements...";
+      conceptSysmlEl.textContent = "Waiting for concepts...";
+      conceptsOut.textContent = "Waiting for concept summaries...";
+      logEl.textContent = "";
+      meterFill.style.width = "5%";
+      Object.values(pills).forEach((p) => setPill(p, "queued"));
+      const concepts = Number(conceptCountSel.value || 3);
+      try {
+        const resp = await fetch("/api/simple/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nl, concepts }),
+        });
+        if (!resp.ok) {
+          const err = await resp.json().catch(() => ({}));
+          throw new Error(err.error || resp.statusText);
+        }
+        const data = await resp.json();
+        log(`Run started: ${data.runId}`);
+        runChip.textContent = data.runId;
+        startStream(data.runId);
+        if (!runsLoaded) loadRuns();
+      } catch (err) {
+        statusText.textContent = "Error starting run";
+        log(`Error: ${err.message}`);
+        runBtn.disabled = false;
+      }
+    });
+
+    // Inject past runs controls into header right side
+    (function attachPastRuns() {
+      const header = document.querySelector("header");
+      const right = document.createElement("div");
+      right.className = "flex";
+      right.style.gap = "8px";
+      right.appendChild(pastRunSelect);
+      right.appendChild(pastRunRefresh);
+      right.appendChild(pastRunBtn);
+      header.appendChild(right);
+      loadRuns();
+    })();
+  </script>
+</body>
 </html>

@@ -1,0 +1,82 @@
+{
+  "id": "resp_064447e46417f16300697920acc6dc81948bf7cd82792a07ee",
+  "created_at": 1769545900.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_064447e46417f16300697920ad32dc8194ba09db85723d5689",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_064447e46417f16300697920c8e17481948b66921fcd8d50d7",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDFlickerModel\n{\n    requirement REQ_Flicker\n    {\n        id = \"REQ-1\"\n        text = \"LED flickers at 10 Hz \u00b15% when powered from a 5 V supply.\"\n    }\n\n    requirement REQ_CurrentLimit\n    {\n        id = \"REQ-2\"\n        text = \"Circuit shall include current limiting to protect the LED.\"\n    }\n\n    requirement REQ_Sourceable\n    {\n        id = \"REQ-3\"\n        text = \"All discrete components shall be commercially available from Mouser.\"\n    }\n\n    constraintdef C_FrequencyRange\n    {\n        parameter freq: Real\n        expression = \"9.5 <= freq <= 10.5\"\n        comment = \"Enforces 10 Hz \u00b15% requirement (units: Hz).\"\n    }\n\n    block PowerSupply\n    {\n        property voltage: Real\n        comment = \"Abstract 5 V source (value specified downstream).\"\n    }\n\n    block LED\n    {\n        property nominalForwardVoltage: Real\n        property maxContinuousCurrent: Real\n        port anode: ElectricalPort\n        port cathode: ElectricalPort\n        comment = \"Abstract LED device properties; specific part selected downstream.\"\n    }\n\n    block CurrentLimiter\n    {\n        property targetCurrentLimit: Real\n        port in: ElectricalPort\n        port out: ElectricalPort\n        comment = \"Abstract current-limiting element (resistive or active).\"\n    }\n\n    block Oscillator\n    {\n        property targetFrequency: Real\n        port output: DigitalSignalPort\n        comment = \"Abstract flicker/timing source; implements frequency constrained by C_FrequencyRange.\"\n    }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769545934.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 337,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 1906,
+    "output_tokens_details": {
+      "reasoning_tokens": 1536
+    },
+    "total_tokens": 2243
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

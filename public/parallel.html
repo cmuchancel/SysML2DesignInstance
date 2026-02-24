@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel SysML Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c111a;
+      --panel: #111827;
+      --accent: #f97316;
+      --accent-2: #12b3a8;
+      --muted: #8ca3c2;
+      --text: #e8eef9;
+      --border: #1f2937;
+      --success: #34d399;
+      --error: #f87171;
+      --running: #facc15;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(120% 120% at 10% 20%, #122038, #0c111a 60%), var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(12, 17, 26, 0.8);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    h1 { margin: 0; font-size: 22px; letter-spacing: -0.02em; }
+    .sub { color: var(--muted); margin: 4px 0 0; font-size: 14px; }
+    main { max-width: 1200px; margin: 0 auto; padding: 20px 24px 80px; display: flex; flex-direction: column; gap: 16px; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+    }
+    textarea, input, button {
+      font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    }
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 12px;
+      background: #0b1424;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      resize: vertical;
+      font-size: 14px;
+    }
+    button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0a0f18;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+    .stage-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #0d1729;
+    }
+    .stage-title { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+    .pill {
+      height: 10px; width: 10px; border-radius: 999px; display: inline-block;
+      background: var(--muted);
+    }
+    .pill.running { background: var(--running); }
+    .pill.success { background: var(--success); }
+    .pill.error { background: var(--error); }
+    .stage-msg { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    pre {
+      background: #0b1424;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      overflow-x: auto;
+      color: #dbeafe;
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      font-size: 13px;
+    }
+    .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .tag { display: inline-block; padding: 4px 8px; border-radius: 10px; background: #162034; color: var(--muted); margin: 4px 4px 0 0; font-size: 12px; }
+    details { border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; background: #0d1729; }
+    summary { cursor: pointer; font-weight: 600; }
+    .log {
+      min-height: 100px;
+      max-height: 240px;
+      overflow-y: auto;
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      background: #0b1424;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px;
+      color: #c7d7f4;
+      white-space: pre-wrap;
+    }
+    @media (max-width: 720px) {
+      header { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Parallel SysML Builder</h1>
+    <p class="sub">Fast path: NL prompt → requirements → concepts → 3 concept-specific SysML files with live syside checks.</p>
+  </header>
+  <main>
+    <section class="panel">
+      <div class="row">
+        <div style="flex:1;">
+          <label for="nl">Natural-language prompt</label>
+          <textarea id="nl" placeholder="e.g., Design a compact 1 kg inspection drone that fits inside a 30 cm cube, operates 20 minutes, and uses replaceable battery packs."></textarea>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px; align-items: center;">
+        <button id="startBtn">Launch parallel pipeline</button>
+        <span id="runMeta" class="sub"></span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="row" style="justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-weight:700;">Stages</div>
+          <div class="sub">Tracks requirements + concepts + 3 parallel concept fills.</div>
+        </div>
+        <div class="sub" id="statusBadge"></div>
+      </div>
+      <div class="stage-grid" id="stageGrid"></div>
+    </section>
+
+    <section class="panel">
+      <div style="font-weight:700; margin-bottom:8px;">Outputs</div>
+      <div class="columns">
+        <div>
+          <div style="font-weight:600;">Requirements SysML</div>
+          <pre id="reqOut">Run a pipeline to see content.</pre>
+        </div>
+        <div>
+          <div style="font-weight:600;">Concepts</div>
+          <div id="conceptList" class="sub">No concepts yet.</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;">
+        <div style="font-weight:600;">Concept SysML files</div>
+        <div id="conceptSysml"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div style="font-weight:700; margin-bottom:6px;">Activity log</div>
+      <div id="log" class="log"></div>
+    </section>
+  </main>
+
+  <script>
+    const startBtn = document.getElementById("startBtn");
+    const nlInput = document.getElementById("nl");
+    const stageGrid = document.getElementById("stageGrid");
+    const reqOut = document.getElementById("reqOut");
+    const conceptList = document.getElementById("conceptList");
+    const conceptSysml = document.getElementById("conceptSysml");
+    const logEl = document.getElementById("log");
+    const runMeta = document.getElementById("runMeta");
+    const statusBadge = document.getElementById("statusBadge");
+
+    let currentRun = null;
+    let es = null;
+
+    const statusPillClass = (status) => {
+      if (status === "success" || status === "done") return "pill success";
+      if (status === "error") return "pill error";
+      if (status === "running") return "pill running";
+      return "pill";
+    };
+
+    const renderStages = (state) => {
+      const cards = [];
+      const base = [
+        { title: "Requirements", data: state.stages.requirements },
+        { title: "Concepts", data: state.stages.concepts },
+      ];
+      base.forEach((item) => {
+        cards.push(`
+          <div class="stage-card">
+            <div class="stage-title"><span class="${statusPillClass(item.data.status)}"></span>${item.title}</div>
+            <div class="stage-msg">${item.data.message || item.data.status || "queued"}</div>
+          </div>
+        `);
+      });
+      (state.stages.conceptsExpansion || []).forEach((c, idx) => {
+        cards.push(`
+          <div class="stage-card">
+            <div class="stage-title"><span class="${statusPillClass(c.status)}"></span>Concept ${idx + 1}</div>
+            <div class="stage-msg">${c.message || c.status || "queued"}</div>
+          </div>
+        `);
+      });
+      stageGrid.innerHTML = cards.join("");
+    };
+
+    const renderConcepts = (concepts = []) => {
+      if (!concepts.length) {
+        conceptList.textContent = "No concepts generated yet.";
+        return;
+      }
+      conceptList.innerHTML = concepts
+        .map(
+          (c, idx) => `
+            <div style="margin-bottom:10px;">
+              <div style="font-weight:600;">${idx + 1}. ${c.name || "Concept"}</div>
+              <div class="sub">${c.approach || ""}</div>
+              ${
+                c.highlights && c.highlights.length
+                  ? c.highlights.map((h) => `<span class="tag">${h}</span>`).join("")
+                  : ""
+              }
+            </div>
+          `,
+        )
+        .join("");
+    };
+
+    const renderConceptSysml = (conceptStages = []) => {
+      if (!conceptStages.length) {
+        conceptSysml.textContent = "No concept SysML generated yet.";
+        return;
+      }
+      conceptSysml.innerHTML = conceptStages
+        .map(
+          (c, idx) => `
+            <details ${c.status === "success" ? "open" : ""} style="margin-top:8px;">
+              <summary>Concept ${idx + 1}${c.concept?.name ? ` — ${c.concept.name}` : ""} (${c.status})</summary>
+              <div class="sub" style="margin:6px 0;">${c.message || ""}${c.sysmlPath ? `<br><code>${c.sysmlPath}</code>` : ""}</div>
+              <pre>${c.sysml || "pending..."}</pre>
+            </details>
+          `,
+        )
+        .join("");
+    };
+
+    const renderLog = (entries = []) => {
+      logEl.textContent = entries.map((e) => `• ${e}`).join("\n");
+      logEl.scrollTop = logEl.scrollHeight;
+    };
+
+    const renderState = (state) => {
+      if (!state) return;
+      renderStages(state);
+      reqOut.textContent = state.outputs.requirementsSysml || "Waiting for requirements SysML...";
+      renderConcepts(state.outputs.concepts || []);
+      renderConceptSysml(state.stages.conceptsExpansion || []);
+      renderLog(state.log || []);
+      runMeta.textContent = `Run ${state.id} — ${state.status}`;
+      statusBadge.textContent = state.status === "done" ? "Complete" : state.status === "error" ? "Error" : "Running";
+    };
+
+    const connectStream = (runId) => {
+      if (es) es.close();
+      es = new EventSource(`/api/simple/stream/${runId}`);
+      es.onmessage = (ev) => {
+        try {
+          const data = JSON.parse(ev.data);
+          renderState(data.state);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      es.onerror = () => {
+        // keep quiet; stream may close once done
+      };
+    };
+
+    startBtn.addEventListener("click", async () => {
+      const nl = nlInput.value.trim();
+      if (!nl) {
+        alert("Please enter a natural-language prompt.");
+        return;
+      }
+      startBtn.disabled = true;
+      runMeta.textContent = "Starting…";
+      statusBadge.textContent = "";
+      try {
+        const resp = await fetch("/api/simple/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nl }),
+        });
+        if (!resp.ok) {
+          const err = await resp.json().catch(() => ({}));
+          throw new Error(err.error || resp.statusText);
+        }
+        const data = await resp.json();
+        currentRun = data.runId;
+        renderState(data.state);
+        connectStream(currentRun);
+      } catch (err) {
+        alert(err.message || "Failed to start run");
+      } finally {
+        startBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

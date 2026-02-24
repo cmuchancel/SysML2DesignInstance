@@ -1,0 +1,578 @@
+[
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "driver",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "driver",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "driver",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "led",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "led",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "led",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c1",
+    "slot": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "1",
+    "slot": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "c1",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "1",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "mcu",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "mcu",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "mcu",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "led",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "led",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "led",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "resistor",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "resistor",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "resistor",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "2",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c2",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "opamp",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "opamp",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "opamp",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "led",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "led",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "led",
+    "title": "timeout after 10s",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "c3",
+    "slot": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "3",
+    "slot": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "status": "selected",
+    "stock": "125000"
+  },
+  {
+    "concept": "c3",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "supply",
+    "title": "no_results",
+    "url": "",
+    "status": "not_found",
+    "stock": ""
+  }
+]

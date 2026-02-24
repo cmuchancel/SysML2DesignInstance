@@ -1,0 +1,13 @@
+slot: supply
+query_input_original: {"slot": "supply", "keywords": ["5V DC wall adapter", "OpAmp-Relaxation", "supply"], "category": "power supply", "voltage": "5.01836478V", "current": "0.05A", "features": ["rechargeable", "regulated"]}
+query_input_used: {"slot": "supply", "keywords": ["5V DC wall adapter", "OpAmp-Relaxation", "supply"], "category": "power supply", "voltage": "5.01836478V", "current": "0.05A", "features": ["rechargeable", "regulated"]}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "supply", "keywords": ["5V DC wall adapter", "OpAmp-Relaxation", "supply"], "category": "power supply", "voltage": "5.01836478V", "current": "0.05A", "features": ["rechargeable", "regulated"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+T7633ST (Cicor)
+Stock: 0
+Unit price: 0
+URL: https://ro.mouser.com/new/cicor/stadium-charging-power-bank/
+----
+selected: {"status": "selected", "constraint_match_score": 2, "stock": 0, "unitPrice": 0, "manufacturer": "Cicor", "manufacturerPartNumber": "T7633ST", "description": "Portable rechargeable power bank with 6700mAh battery, multiple 5V USB outputs (up to 5V/3A on Type-C; 2x 5V/2.4A on USB-A), includes interchangeable AC heads for worldwide use; regulated 5V USB output suitable as a 5V rechargeable supply.", "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/", "provider": "configurator", "attributes": {"voltage": "5V (USB output)", "current": "up to 3A (Type-C), 2.4A (USB-A)", "power": "15W (max on AC charger); USB output up to 5V*3A = 15W", "value": "6700mAh", "package": "portable power bank / USB outputs, interchangeable AC heads"}}

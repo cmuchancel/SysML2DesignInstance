@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Elastic-Cam Tossbox",
+    "approach": "A low-cost, foldable frame houses a replaceable elastic-band powered launch arm driven through selectable cam profiles. Balls are gravity-fed from a small hopper into a single-ball gate; an adjustable mechanical escapement times releases. Variation is achieved by swapping cam inserts and changing arm pre-load and release geometry; simple electronics provide a user-settable mechanical trigger pulse and status LEDs for feedback.",
+    "highlights": [
+      "Purely mechanical energy storage (elastic bands) for very low-cost and lightweight design",
+      "Interchangeable cams and preload adjustment produce discrete, repeatable toss patterns",
+      "Gravity-fed single-ball gate minimizes double-feeds and simplifies jam clearing",
+      "Foldable, tool-free setup and minimal electronics (timer + status LEDs) for portability"
+    ]
+  },
+  {
+    "name": "Dual-Wheel Brushless Pitcher",
+    "approach": "Two counter-rotating brushless wheels accelerate a ball between them; varying wheel speeds controls toss speed while a yaw/tilt gimbal steers direction. A simple single-ball feed gate and microcontroller coordinate wheel spin-up and feed timing to produce consistent, repeatable tosses or randomized sequences stored in profiles. System runs on a rechargeable battery pack; mesh enclosure and quick-release handles support transport and outdoor use.",
+    "highlights": [
+      "Electromechanical wheel launch gives fine continuous control of speed and horizontal/vertical bias",
+      "Microcontroller profiles enable repeatability, randomized training sequences, and live interval adjustment",
+      "Rechargeable battery and motor controllers support sustained cycle rates with thermal protection",
+      "Robust shrouding and pivoting throw head for aiming and user safety"
+    ]
+  },
+  {
+    "name": "Compressed-Air Soft-Toss Pod",
+    "approach": "A sealed pressure reservoir charged by a hand pump or small electric pump delivers a short solenoid-valve pulse to a launch chamber, expelling a ball along an adjustable-angled nozzle. Toss speed and height vary by changing reservoir pressure and valve timing; nozzle articulation and a swivel mount adjust lateral aim. Pressure and flow sensors provide closed-loop control to ensure consistent toss energy and detect misfires.",
+    "highlights": [
+      "Pneumatic energy storage separates charging and launch phases for consistent shot energy",
+      "Continuous pressure control and sensors enable closed-loop repeatability and variation modes",
+      "Simple single-shot feed pocket and purge procedures reduce double-feed risk",
+      "Rugged sealed enclosure and hand-pump option for battery-constrained field use"
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Closed-loop Dual-Wheel Launcher with Pan-Tilt Aiming",
+    "approach": "A compact, battery-powered system feeds a single ball into a pair of counter-rotating wheels whose speed and relative tilt impart velocity and vertical/lateral direction. A small pan-tilt stage adjusts aim between cycles. Closed-loop control uses wheel encoders and an optical ball sensor to guarantee speed and detect misfeeds. Toss variation is produced by coordinated changes to wheel speeds, tilt angle, and timing under microcontroller sequencing.",
+    "highlights": [
+      "Active, motor-driven launch for precise speed control and good repeatability",
+      "Closed-loop sensing (encoders + optical) to detect misfires and ensure consistency",
+      "Pan-tilt aiming stage enables programmable direction/angle across target region",
+      "Rechargeable battery pack and lightweight molded enclosure for portability",
+      "Software-defined variation profiles for repeatable and randomized modes"
+    ]
+  },
+  {
+    "name": "Mechanical Cam-Spring Sequencer (Battery-free Operation)",
+    "approach": "A low-cost mechanical machine stores energy in a hand- or crank-wound torsion/compression spring and uses a rotating cam drum with multiple lobes to fire a lever arm that performs soft tosses. Different cam profiles and selectable stops change height, speed, and horizontal release angle without electronics. A gravity-fed single-ball magazine and mechanical interlocks prevent double feeds and clear jams, delivering varied, repeatable toss patterns purely mechanically.",
+    "highlights": [
+      "No electrical power required for launches — energy from wound springs or manual crank",
+      "Mechanical cam profiles produce distinct, repeatable toss variations with simple changeover",
+      "Simple gravity feed with mechanical anti-double-feed and jam-clearing access",
+      "Very low parts cost and easy manufacturability for $150–$300 target",
+      "Rugged, weather-tolerant design with minimal electronics to fail in outdoor use"
+    ]
+  },
+  {
+    "name": "Pneumatic Pulse Launcher with Servo Aiming",
+    "approach": "A compact pneumatic reservoir (small compressor or replaceable CO2 cartridge) delivers short pressure pulses to a launch tube; pulse magnitude and valve timing set toss speed and height. A servo-controlled nozzle or swivel mount adjusts launch angle laterally and vertically. Ball is positioned by a single-ball clamp/release and optical detection prevents double feeds. A microcontroller orchestrates pressure control, aims, and variation profiles with fault detection.",
+    "highlights": [
+      "Air-pressure actuation provides wide, smooth speed range and easy height control",
+      "Fast cycle rates possible with regulated pressure and solenoid valves",
+      "Aim variability via servo-swivel nozzle supports targeting across a strike zone",
+      "Sensors for feed verification and pressure monitoring enable safe responses to faults",
+      "Hybrid power: small compressor battery or CO2 option for lightweight portability"
+    ]
+  }
+]

@@ -2,7 +2,7 @@ import * as cheerio from "cheerio";
 import { PartResult } from "../types.js";
 import { extractSpecs, specsToAttributes } from "../specExtractor.js";
 import { fetchWithTimeout } from "../http.js";
-import { renderPage } from "../headless.js";
+import { renderPage, renderPageAndGetLinks } from "../headless.js";
 
 export const scrapeMcMasterSearch = async (query: string, limit = 6): Promise<PartResult[]> => {
   const url = `https://www.mcmaster.com/catalog/psearch/?searchText=${encodeURIComponent(query)}`;
@@ -48,6 +48,27 @@ export const scrapeMcMasterSearch = async (query: string, limit = 6): Promise<Pa
   // Keep category results and note product links for callers
   if (productLinks.length) {
     results[0] = { ...results[0], attributes: { ...(results[0]?.attributes || {}), productLinks: productLinks.join(",") } };
+    return results;
   }
+
+  // Fallback: try headless grab of links when none parsed
+  try {
+    const links = await renderPageAndGetLinks(url, ".ps-item a.ps-link", limit, 12000);
+    if (links.length) {
+      return [
+        {
+          manufacturer: "McMaster-Carr",
+          manufacturerPartNumber: "Category",
+          description: "Category page",
+          url,
+          attributes: { productLinks: links.join(","), vendor: "mcmaster" },
+          provider: "web",
+        },
+      ];
+    }
+  } catch {
+    // ignore
+  }
+
   return results;
 };

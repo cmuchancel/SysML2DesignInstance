@@ -1,0 +1,32 @@
+[
+  {
+    "concept_index": 1,
+    "status": "fail",
+    "evaluated": 5,
+    "passed": 4,
+    "failed": 1,
+    "reason": null,
+    "validation_model_path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_220759/validation/concept_1/validation_model.sysml",
+    "validation_output_path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_220759/validation/concept_1/constraint_validation.json"
+  },
+  {
+    "concept_index": 2,
+    "status": "fail",
+    "evaluated": 5,
+    "passed": 4,
+    "failed": 1,
+    "reason": null,
+    "validation_model_path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_220759/validation/concept_2/validation_model.sysml",
+    "validation_output_path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_220759/validation/concept_2/constraint_validation.json"
+  },
+  {
+    "concept_index": 3,
+    "status": "fail",
+    "evaluated": 5,
+    "passed": 4,
+    "failed": 1,
+    "reason": null,
+    "validation_model_path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_220759/validation/concept_3/validation_model.sysml",
+    "validation_output_path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_220759/validation/concept_3/constraint_validation.json"
+  }
+]

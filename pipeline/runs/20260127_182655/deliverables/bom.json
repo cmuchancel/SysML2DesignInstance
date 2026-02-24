@@ -1,0 +1,146 @@
+[
+  {
+    "concept": "1",
+    "slot": "driver",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "c1",
+    "slot": "driver",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "driver",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "led",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "led",
+    "title": "package: '5mm (T-1 3/4) through-hole',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "c1",
+    "slot": "led",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "c1",
+    "slot": "led",
+    "title": "package: '5mm (T-1 3/4) through-hole',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "1",
+    "slot": "led",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "1",
+    "slot": "led",
+    "title": "package: '5mm (T-1 3/4) through-hole',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "resistor",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "1",
+    "slot": "resistor",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "c1",
+    "slot": "resistor",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "1",
+    "slot": "supply",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "c1",
+    "slot": "supply",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "supply",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  }
+]

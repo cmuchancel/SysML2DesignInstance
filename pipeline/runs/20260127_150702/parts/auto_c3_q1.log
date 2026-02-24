@@ -1,0 +1,57 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl MCP6001 rail to rail op amp 5V
+
+LLM parsed query: {
+  category: 'Operational amplifier',
+  manufacturer: 'Microchip Technology',
+  partNumber: 'MCP6001',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: undefined,
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'rail-to-rail input', 'rail-to-rail output', 'single-supply' ],
+  quantity: undefined,
+  keywords: [ 'MCP6001', 'rail-to-rail', 'op amp' ],
+  specs: {
+    supplyVoltage: '5V',
+    railToRail: 'input and output',
+    device: 'op amp'
+  }
+}
+Source: live | Query: "MCP6001 Microchip Technology Operational amplifier 5V volt rail-to-rail input rail-to-rail output single-supply MCP6001 rail-to-rail op amp supplyVoltage 5V railToRail input and output device op amp" | Matches: 5
+------------------------------------------------------------------------
+MCP6001UT-I/OT (Microchip Technology)
+  Mouser #: 579-MCP6001UT-I/OT
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 41808
+  URL: https://www.mouser.com/ProductDetail/579-MCP6001UT-I%2FOT
+------------------------------------------------------------------------
+MCP6001T-E/OT (Microchip Technology)
+  Mouser #: 579-MCP6001T-E/OT
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 33738
+  URL: https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOT
+------------------------------------------------------------------------
+MCP6001RT-E/OT (Microchip Technology)
+  Mouser #: 579-MCP6001RT-E/OT
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 6027
+  URL: https://www.mouser.com/ProductDetail/579-MCP6001RT-E%2FOT
+------------------------------------------------------------------------
+MCP6001T-E/OTVAO (Microchip Technology)
+  Mouser #: 579-MCP6001T-E/OTVAO
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 6000
+  URL: https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOTVAO
+------------------------------------------------------------------------
+MCP6001T-E/LTVAO (Microchip Technology)
+  Mouser #: 579-MCP6001T-E/LTVAO
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 3000
+  URL: https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FLTVAO
+------------------------------------------------------------------------

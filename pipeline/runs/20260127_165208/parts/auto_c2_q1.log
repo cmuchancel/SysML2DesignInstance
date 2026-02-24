@@ -1,0 +1,34 @@
+Search timed out after 60s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web mouser --limit 1 --nl ATTINY13A 5V microcontroller
+
+LLM parsed query: {
+  category: 'microcontroller',
+  manufacturer: 'Microchip (formerly Atmel)',
+  partNumber: 'ATTINY13A',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: '8-pin',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    '8-bit AVR core',
+    'Flash microcontroller',
+    'Internal oscillator',
+    'Low-power modes',
+    'Multiple programmable I/O lines'
+  ],
+  quantity: undefined,
+  keywords: [ 'ATTINY13A', 'ATtiny13A', '5V' ],
+  specs: { pinCount: '8', ioCount: '6', architecture: 'AVR 8-bit' }
+}
+Source: live | Query: "ATTINY13A Microchip (formerly Atmel) microcontroller 5V volt 8-pin 8-bit AVR core Flash microcontroller Internal oscillator Low-power modes Multiple programmable I/O lines ATTINY13A ATtiny13A 5V pinCount 8 ioCount 6 architecture AVR 8-bit" | Matches: 1
+------------------------------------------------------------------------
+Find the ideal Stainless Steel Compression Spring in 3 easy (thespringstore.com)
+  Buy stainless steel compression springs easily at The Spring Store. Use our Spring Finder to find durable, customizable options for industrial and DIY needs.
+  URL: https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html
+------------------------------------------------------------------------

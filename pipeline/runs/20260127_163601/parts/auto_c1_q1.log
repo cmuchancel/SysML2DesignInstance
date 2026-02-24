@@ -1,0 +1,57 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'Timer IC',
+  manufacturer: undefined,
+  partNumber: 'NE555',
+  value: '10 Hz',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5 V',
+  current: undefined,
+  package: 'DIP-8',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'astable operation', 'LED flasher' ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    mode: 'astable',
+    application: 'LED flasher',
+    targetFrequency: '10 Hz',
+    supplyVoltage: '5 V'
+  }
+}
+Source: live | Query: "NE555 Timer IC 10 Hz 5 V volt DIP-8 astable operation LED flasher NE555 555 timer astable mode astable application LED flasher targetFrequency 10 Hz supplyVoltage 5 V" | Matches: 5
+------------------------------------------------------------------------
+NE555P (Texas Instruments)
+  Mouser #: 595-NE555P
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 17535
+  URL: https://www.mouser.com/ProductDetail/595-NE555P
+------------------------------------------------------------------------
+NE555PSR (Texas Instruments)
+  Mouser #: 595-NE555PSR
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 7315
+  URL: https://www.mouser.com/ProductDetail/595-NE555PSR
+------------------------------------------------------------------------
+NE555PS (Texas Instruments)
+  Mouser #: 595-NE555PS
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1164
+  URL: https://www.mouser.com/ProductDetail/595-NE555PS
+------------------------------------------------------------------------
+NE555DR1G4 (Texas Instruments)
+  Mouser #: 595-NE555DR1G4
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1049
+  URL: https://www.mouser.com/ProductDetail/595-NE555DR1G4
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

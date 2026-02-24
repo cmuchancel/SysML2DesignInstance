@@ -16,6 +16,7 @@ type MouserPart = {
   Availability?: string;
   UnitPrice?: string;
   DataSheetUrl?: string;
+  ProductDetailUrl?: string;
   RohsStatus?: string;
   Category?: string;
 };
@@ -28,21 +29,33 @@ const parseAvailability = (availability?: string): number | undefined => {
 
 const mapParts = (parts: MouserPart[]): PartResult[] =>
   parts
-    ?.map((p) => ({
-      manufacturer: p.Manufacturer || "Unknown",
-      manufacturerPartNumber: p.ManufacturerPartNumber || "",
-      digiKeyPartNumber: undefined,
-      description: p.Description,
-      stock: parseAvailability(p.Availability),
-      unitPrice: p.UnitPrice ? Number(p.UnitPrice) : undefined,
-      url: p.DataSheetUrl,
-      attributes: {
-        category: p.Category || "",
-        rohs: p.RohsStatus || "",
-        mouserPartNumber: p.MouserPartNumber || "",
-      },
-      provider: "mouser" as const,
-    }))
+    ?.map((p) => {
+      const mpn = p.MouserPartNumber || "";
+      const manuMpn = p.ManufacturerPartNumber || "";
+      const manu = p.Manufacturer || "";
+      const productUrl =
+        mpn ? `https://www.mouser.com/ProductDetail/${encodeURIComponent(mpn)}` : undefined;
+      const manuUrl =
+        manu && manuMpn
+          ? `https://www.mouser.com/ProductDetail/${encodeURIComponent(manu)}/${encodeURIComponent(manuMpn)}`
+          : undefined;
+      return {
+        manufacturer: p.Manufacturer || "Unknown",
+        manufacturerPartNumber: p.ManufacturerPartNumber || "",
+        digiKeyPartNumber: undefined,
+        description: p.Description,
+        stock: parseAvailability(p.Availability),
+        unitPrice: p.UnitPrice ? Number(p.UnitPrice) : undefined,
+        url: productUrl || manuUrl || p.ProductDetailUrl || p.DataSheetUrl,
+        attributes: {
+          category: p.Category || "",
+          rohs: p.RohsStatus || "",
+          mouserPartNumber: mpn,
+          datasheet: p.DataSheetUrl || "",
+        },
+        provider: "mouser" as const,
+      };
+    })
     .filter((r) => r.manufacturerPartNumber);
 
 export const mouserSearch = async (
@@ -50,7 +63,15 @@ export const mouserSearch = async (
   limit = 8,
 ): Promise<PartResult[]> => {
   if (!apiKey) throw new Error("Mouser API key missing.");
-  const keyword = buildKeywordQuery(input);
+  let keyword = input.partNumber?.trim() || buildKeywordQuery(input);
+  // Mouser keyword endpoint performs better with concise queries; trim to first few terms.
+  const tokens = keyword.split(/\s+/).filter(Boolean);
+  if (tokens.length > 8) {
+    keyword = tokens.slice(0, 8).join(" ");
+  }
+  if (keyword.length > 120) {
+    keyword = keyword.slice(0, 120);
+  }
   if (!keyword) throw new Error("Provide at least one search term or keyword for Mouser search.");
 
   const payload = {

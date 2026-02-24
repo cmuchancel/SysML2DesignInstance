@@ -1,0 +1,9 @@
+slot: led
+query_input_original: {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.43623983mA", "voltage": "4.87324082V", "features": ["indicator", "visible"]}
+query_input_used: {"slot": "led", "keywords": ["led"]}
+search_attempts: [{"source": "configurator_gemini", "input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.43623983mA", "voltage": "4.87324082V", "features": ["indicator", "visible"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.43623983mA", "voltage": "4.87324082V", "features": ["indicator", "visible"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led"}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "led", "keywords": ["led"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}]
+search_status: timeout
+error: timeout after 8s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 8s", "constraint_match_score": 0}

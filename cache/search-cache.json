@@ -1,1019 +1,1187 @@
 [
   {
     "provider": "mouser",
-    "query": "5k resistor 1% tol 0.1W power 0603 SMD chip resistor",
+    "query": "resistor 100 ohm 1% 0.25W through-hole or 0805 330 ohm resistor 0.25W OpAmp-Relaxation resistor",
     "results": [
       {
-        "manufacturer": "SEI Stackpole",
-        "manufacturerPartNumber": "RMCF0603FG274R",
-        "description": "Thick Film Resistors - SMD 274Ohms 0603 0.1W 1% Std Power AEC-Q200",
-        "stock": 28785,
-        "url": "https://www.mouser.com/datasheet/3/1099/1/SEI_RMCF_RMCP.pdf",
+        "manufacturer": "Panasonic",
+        "manufacturerPartNumber": "ERJ-U6QFR82V",
+        "description": "Thick Film Resistors - SMD 0805 0.25W 1% .82ohms AEC-Q200",
+        "url": "https://www.mouser.com/ProductDetail/667-ERJ-U6QFR82V",
         "attributes": {
           "category": "Thick Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "708-RMCF0603FG274R"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRGH0603F5K6",
-        "description": "Thick Film Resistors - SMD CRGH0603 1% 5K6 0.2W",
-        "stock": 27076,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRGH0603F5K6"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / AMP",
-        "manufacturerPartNumber": "CRG0603F5K49",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 5K49",
-        "stock": 10000,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F5K49"
-        }
-      },
-      {
-        "manufacturer": "Vishay / Draloric",
-        "manufacturerPartNumber": "RCS06035K11FKEA",
-        "description": "Thick Film Resistors - SMD RCS0603 100 5K11 1% ET1 e3",
-        "stock": 4260,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "71-RCS06035K11FKEA"
-        }
-      },
-      {
-        "manufacturer": "Vishay / Draloric",
-        "manufacturerPartNumber": "RCS06035K60FKEA",
-        "description": "Thick Film Resistors - SMD 0.25watt 5.6Kohms 1% 100ppm",
-        "stock": 16947,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "71-RCS06035K60FKEA"
-        }
-      },
-      {
-        "manufacturer": "Vishay / Draloric",
-        "manufacturerPartNumber": "RCS06035K10FKEA",
-        "description": "Thick Film Resistors - SMD 0.25watt 5.1Kohms 1% 100ppm",
-        "stock": 33050,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "71-RCS06035K10FKEA"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F75R",
-        "description": "Thick Film Resistors - SMD Thick Film General Purpose Resistor 75Ohm, 1%, 0603, 0.1W",
-        "stock": 17628,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F75R"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F5K1",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 5K1",
-        "stock": 11009,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F5K1"
-        }
-      },
-      {
-        "manufacturer": "Vishay",
-        "manufacturerPartNumber": "CRCW06035K60FKEAHP",
-        "description": "Thick Film Resistors - SMD 0.33W 5.6Kohms 1% High Power AEC-Q200",
-        "stock": 14040,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "71-CRCW06035K60FKEAH"
-        }
-      },
-      {
-        "manufacturer": "Vishay",
-        "manufacturerPartNumber": "CRCW06035K10FKEAHP",
-        "description": "Thick Film Resistors - SMD 0.33W 5.1Kohms 1% High Power AEC-Q200",
-        "stock": 8931,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "71-CRCW06035K10FKEAH"
-        }
+          "mouserPartNumber": "667-ERJ-U6QFR82V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       }
     ],
-    "timestamp": 1769205897692
+    "timestamp": 1771904867255
   },
   {
     "provider": "mouser",
-    "query": "10k resistor 1% tol 0.1w power 0603",
+    "query": "resistor 100 ohm 1% 0.25W through-hole or 0805 330 ohm resistor 0.25W Microcontroller-PWM resistor",
     "results": [
       {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F1M0/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
-        "stock": 20000,
-        "url": "",
+        "manufacturer": "Panasonic",
+        "manufacturerPartNumber": "ERJ-U6QFR82V",
+        "description": "Thick Film Resistors - SMD 0805 0.25W 1% .82ohms AEC-Q200",
+        "url": "https://www.mouser.com/ProductDetail/667-ERJ-U6QFR82V",
         "attributes": {
           "category": "Thick Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "279-CRG0603F1M0/10"
-        }
-      },
-      {
-        "manufacturer": "SEI Stackpole",
-        "manufacturerPartNumber": "RMCF0603FG274R",
-        "description": "Thick Film Resistors - SMD 274Ohms 0603 0.1W 1% Std Power AEC-Q200",
-        "stock": 28785,
-        "url": "https://www.mouser.com/datasheet/3/1099/1/SEI_RMCF_RMCP.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "708-RMCF0603FG274R"
-        }
-      },
-      {
-        "manufacturer": "KOA Speer",
-        "manufacturerPartNumber": "HV731JRTTD1002F",
-        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
-        "stock": 20876,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "660-HV731JRTTD1002F"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "PWR8030W1002FE",
-        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
-        "stock": 500,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
-        "attributes": {
-          "category": "Wirewound Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-PWR8030W1002FE"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F22K/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
-        "stock": 37629,
-        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F22K/10"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
-        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
-        "stock": 10442,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CMP0603-FX-1002L"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F75R",
-        "description": "Thick Film Resistors - SMD Thick Film General Purpose Resistor 75Ohm, 1%, 0603, 0.1W",
-        "stock": 17628,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F75R"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CMP0603AFX-1002ELF",
-        "description": "Thick Film Resistors - SMD 10K   OHM   1%",
-        "stock": 28511,
-        "url": "https://www.mouser.com/datasheet/3/40/1/cmp_a.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CMP0603AFX-1002L"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CHP0603AFX-1002ELF",
-        "description": "Thick Film Resistors - SMD 10K   OHM   1% 1/3W",
-        "stock": 10875,
-        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CHP0603AFX1002EL"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CHP0603AFX-1003ELF",
-        "description": "Thick Film Resistors - SMD ResHighPowerA 0603 100k 1% 1/3W TC100",
-        "stock": 19572,
-        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CHP0603AFX1003EL"
-        }
+          "mouserPartNumber": "667-ERJ-U6QFR82V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       }
     ],
-    "timestamp": 1769205533559
+    "timestamp": 1771904787359
   },
   {
     "provider": "mouser",
-    "query": "10k resistor 1% tol 0.1W power 0603 10k 1% 0603 0.1W SMD resistor",
+    "query": "resistor 100 ohm 1% 0.25W through-hole or 0805 330 ohm resistor 0.25W NE555-astable resistor",
     "results": [
       {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F1M0/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
-        "stock": 20000,
-        "url": "",
+        "manufacturer": "Panasonic",
+        "manufacturerPartNumber": "ERJ-U6QFR82V",
+        "description": "Thick Film Resistors - SMD 0805 0.25W 1% .82ohms AEC-Q200",
+        "url": "https://www.mouser.com/ProductDetail/667-ERJ-U6QFR82V",
         "attributes": {
           "category": "Thick Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "279-CRG0603F1M0/10"
-        }
-      },
-      {
-        "manufacturer": "Vishay",
-        "manufacturerPartNumber": "CRCW0603910KFKEAHP",
-        "description": "Thick Film Resistors - SMD Thick Film Resistors - SMD",
-        "stock": 14489,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "71-CRCW0603910KFKEAH"
-        }
-      },
-      {
-        "manufacturer": "YAGEO",
-        "manufacturerPartNumber": "AC0603FRE0710KL",
-        "description": "Thick Film Resistors - SMD 10 kOhms 100 mW 0603  1% AEC-Q200 Standard Power Version",
-        "stock": 9715,
-        "url": "https://www.mouser.com/datasheet/3/508/1/PYu-AC_51_RoHS_L_11.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "603-AC0603FRE0710KL"
-        }
-      },
-      {
-        "manufacturer": "SEI Stackpole",
-        "manufacturerPartNumber": "RMCA0603FT10K0-HP",
-        "description": "Thick Film Resistors - SMD 10KOhms 0603 0.125W 1% Hi Power AEC-Q200",
-        "stock": 19700,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "708-RMCA0603FT10K0HP"
-        }
-      },
-      {
-        "manufacturer": "KOA Speer",
-        "manufacturerPartNumber": "HV731JRTTD1002F",
-        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
-        "stock": 20876,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "660-HV731JRTTD1002F"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F22K/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
-        "stock": 37629,
-        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F22K/10"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
-        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
-        "stock": 10442,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CMP0603-FX-1002L"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "PWR8030W1002FE",
-        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
-        "stock": 500,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
-        "attributes": {
-          "category": "Wirewound Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-PWR8030W1002FE"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CHP0603AFX-1002ELF",
-        "description": "Thick Film Resistors - SMD 10K   OHM   1% 1/3W",
-        "stock": 10875,
-        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CHP0603AFX1002EL"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CMP0603AFX-1002ELF",
-        "description": "Thick Film Resistors - SMD 10K   OHM   1%",
-        "stock": 28511,
-        "url": "https://www.mouser.com/datasheet/3/40/1/cmp_a.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CMP0603AFX-1002L"
-        }
+          "mouserPartNumber": "667-ERJ-U6QFR82V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       }
     ],
-    "timestamp": 1769204535871
+    "timestamp": 1771903852702
   },
   {
     "provider": "mouser",
-    "query": "10k resistor 1% tol 0.1W power 0603 10k 1% 0603 0.1W",
+    "query": "power supply 5V DC wall adapter OpAmp-Relaxation supply",
     "results": [
       {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F1M0/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
-        "stock": 20000,
-        "url": "",
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "120W IT ADAPTER 24V 5A DC JACK 2.5",
+        "description": "Wall Mount AC Adapters Dimension: 167x67x35mm,Input Voltage: 100-240Vac,Output Voltage: 24Vdc,Output Current: 5A,Frequency: 50-60Hz,Efficiency: 89.5%(DOE VI, Erp Lot7)",
+        "url": "https://www.mouser.com/ProductDetail/976-120WIT24V5ADC",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Wall Mount AC Adapters",
           "rohs": "",
-          "mouserPartNumber": "279-CRG0603F1M0/10"
-        }
+          "mouserPartNumber": "976-120WIT24V5ADC",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "Vishay",
-        "manufacturerPartNumber": "CRCW0603910KFKEAHP",
-        "description": "Thick Film Resistors - SMD Thick Film Resistors - SMD",
-        "stock": 14489,
-        "url": "",
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "450W, Redundant, AC to DC or HVDC to DC",
+        "description": "Wall Mount AC Adapters Dimension: 220x50.5x40mm(1U),Input Voltage: 100-240Vac or 190V-310V HVDC,Output Voltage: 12V/5Vsb,Frequency: 50-60Hz,Efficiency: >90%(Platinum), EMI/EMC===> Clase B",
+        "url": "https://www.mouser.com/ProductDetail/976-450WREDUNDANTACT",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Wall Mount AC Adapters",
           "rohs": "",
-          "mouserPartNumber": "71-CRCW0603910KFKEAH"
-        }
+          "mouserPartNumber": "976-450WREDUNDANTACT",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "YAGEO",
-        "manufacturerPartNumber": "AC0603FRE0710KL",
-        "description": "Thick Film Resistors - SMD 10 kOhms 100 mW 0603  1% AEC-Q200 Standard Power Version",
-        "stock": 9715,
-        "url": "https://www.mouser.com/datasheet/3/508/1/PYu-AC_51_RoHS_L_11.pdf",
+        "manufacturer": "Amphenol ProLabs",
+        "manufacturerPartNumber": "USAC22USB5V34A-C",
+        "description": "Wall Mount AC Adapters Wall Plug to 2x USB 5v 3.4A for US Black",
+        "stock": 15,
+        "url": "https://www.mouser.com/ProductDetail/46-USAC22USB5V34A-C",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Wall Mount AC Adapters",
           "rohs": "",
-          "mouserPartNumber": "603-AC0603FRE0710KL"
-        }
+          "mouserPartNumber": "46-USAC22USB5V34A-C",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "SEI Stackpole",
-        "manufacturerPartNumber": "RMCA0603FT10K0-HP",
-        "description": "Thick Film Resistors - SMD 10KOhms 0603 0.125W 1% Hi Power AEC-Q200",
-        "stock": 19700,
-        "url": "",
+        "manufacturer": "Adafruit",
+        "manufacturerPartNumber": "501",
+        "description": "Adafruit Accessories 5V 1A USB Port Power Supply",
+        "stock": 2907,
+        "url": "https://www.mouser.com/ProductDetail/485-501",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Adafruit Accessories",
           "rohs": "",
-          "mouserPartNumber": "708-RMCA0603FT10K0HP"
-        }
-      },
-      {
-        "manufacturer": "KOA Speer",
-        "manufacturerPartNumber": "HV731JRTTD1002F",
-        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
-        "stock": 20876,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "660-HV731JRTTD1002F"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F22K/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
-        "stock": 37629,
-        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F22K/10"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
-        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
-        "stock": 10442,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CMP0603-FX-1002L"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "PWR8030W1002FE",
-        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
-        "stock": 500,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
-        "attributes": {
-          "category": "Wirewound Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-PWR8030W1002FE"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CHP0603AFX-1002ELF",
-        "description": "Thick Film Resistors - SMD 10K   OHM   1% 1/3W",
-        "stock": 10875,
-        "url": "https://www.mouser.com/datasheet/3/40/1/chp_a.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CHP0603AFX1002EL"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CMP0603AFX-1002ELF",
-        "description": "Thick Film Resistors - SMD 10K   OHM   1%",
-        "stock": 28511,
-        "url": "https://www.mouser.com/datasheet/3/40/1/cmp_a.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CMP0603AFX-1002L"
-        }
+          "mouserPartNumber": "485-501",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       }
     ],
-    "timestamp": 1769200282202
+    "timestamp": 1771903070002
   },
   {
     "provider": "mouser",
-    "query": "10k resistor 1% tol 0.1W power 0603 10k 1%",
+    "query": "resistor 330 ohm resistor 0.25W OpAmp-Relaxation resistor",
     "results": [
       {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F1M0/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
-        "stock": 20000,
-        "url": "",
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RNAN0805BKE330R",
+        "description": "Thin Film Resistors - SMD 330Ohms 0805 25ppm Tol 0.1% High Power Alum Nitride",
+        "stock": 700,
+        "url": "https://www.mouser.com/ProductDetail/708-RNAN0805BKE330R",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Thin Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "279-CRG0603F1M0/10"
-        }
-      },
-      {
-        "manufacturer": "Vishay",
-        "manufacturerPartNumber": "CRCW0603910KFKEAHP",
-        "description": "Thick Film Resistors - SMD Thick Film Resistors - SMD",
-        "stock": 14489,
-        "url": "",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "71-CRCW0603910KFKEAH"
-        }
-      },
-      {
-        "manufacturer": "YAGEO",
-        "manufacturerPartNumber": "AC0603FRE0710KL",
-        "description": "Thick Film Resistors - SMD 10 kOhms 100 mW 0603  1% AEC-Q200 Standard Power Version",
-        "stock": 9715,
-        "url": "https://www.mouser.com/datasheet/3/508/1/PYu-AC_51_RoHS_L_11.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "603-AC0603FRE0710KL"
-        }
+          "mouserPartNumber": "708-RNAN0805BKE330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
         "manufacturer": "SEI Stackpole",
-        "manufacturerPartNumber": "RMCA0603FT10K0-HP",
-        "description": "Thick Film Resistors - SMD 10KOhms 0603 0.125W 1% Hi Power AEC-Q200",
-        "stock": 19700,
-        "url": "",
+        "manufacturerPartNumber": "RMAN2512FT330R",
+        "description": "Thick Film Resistors - SMD 330Ohms 3.5W 2512 1% HiPow Alum Nitr Sub",
+        "stock": 2800,
+        "url": "https://www.mouser.com/ProductDetail/708-RMAN2512FT330R",
         "attributes": {
           "category": "Thick Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "708-RMCA0603FT10K0HP"
-        }
+          "mouserPartNumber": "708-RMAN2512FT330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "KOA Speer",
-        "manufacturerPartNumber": "HV731JRTTD1002F",
-        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
-        "stock": 20876,
-        "url": "",
+        "manufacturer": "TE Connectivity / CGS",
+        "manufacturerPartNumber": "BDSA2K330RK",
+        "description": "Planar Resistors - Chassis Mount BDS A 2000W 330R 10%",
+        "stock": 4,
+        "url": "https://www.mouser.com/ProductDetail/279-BDSA2K330RK",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Planar Resistors - Chassis Mount",
           "rohs": "",
-          "mouserPartNumber": "660-HV731JRTTD1002F"
-        }
+          "mouserPartNumber": "279-BDSA2K330RK",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F22K/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
-        "stock": 37629,
-        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RNAN1206BKE330R",
+        "description": "Thin Film Resistors - SMD 330Ohms 1206 25ppm Tol 0.1% High Power Alum Nitride",
+        "stock": 693,
+        "url": "https://www.mouser.com/ProductDetail/708-RNAN1206BKE330R",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Thin Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "279-CRG0603F22K/10"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "CMP0603-FX-1002ELF",
-        "description": "Thick Film Resistors - SMD ResHighPower 0603 10k 1% 1/4W TC100",
-        "stock": 10442,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_CMP_Datasheet_05.28.20.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-CMP0603-FX-1002L"
-        }
-      },
-      {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "PWR8030W1002FE",
-        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
-        "stock": 500,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
-        "attributes": {
-          "category": "Wirewound Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "652-PWR8030W1002FE"
-        }
+          "mouserPartNumber": "708-RNAN1206BKE330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       }
     ],
-    "timestamp": 1769200251677
+    "timestamp": 1771903030969
   },
   {
     "provider": "mouser",
-    "query": "10k resistor 1% tol 0.1W power 0603",
+    "query": "resistor 145 ohm 1% 0.25W through-hole or 0805 330 ohm resistor 0.25W OpAmp-Relaxation resistor",
     "results": [
       {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F1M0/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 1M0 10K RL",
-        "stock": 20000,
-        "url": "",
+        "manufacturer": "Panasonic",
+        "manufacturerPartNumber": "ERJ-U6QFR82V",
+        "description": "Thick Film Resistors - SMD 0805 0.25W 1% .82ohms AEC-Q200",
+        "url": "https://www.mouser.com/ProductDetail/667-ERJ-U6QFR82V",
         "attributes": {
           "category": "Thick Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "279-CRG0603F1M0/10"
-        }
+          "mouserPartNumber": "667-ERJ-U6QFR82V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771903023075
+  },
+  {
+    "provider": "mouser",
+    "query": "led 5mm indicator LED 5V 20mA OpAmp-Relaxation led",
+    "results": [
+      {
+        "manufacturer": "Bivar",
+        "manufacturerPartNumber": "ELM55MM3HD",
+        "description": "LED Circuit Board Indicators Vert LED Assembly 3mm HE Red 635 nm",
+        "stock": 100,
+        "url": "https://www.mouser.com/ProductDetail/749-ELM55MM3HD",
+        "attributes": {
+          "category": "LED Circuit Board Indicators",
+          "rohs": "",
+          "mouserPartNumber": "749-ELM55MM3HD",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3057-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Blue 5v",
+        "stock": 91,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3057-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3057-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3055-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Yellow 5v",
+        "stock": 93,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3055-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3055-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3056-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Red 5v",
+        "stock": 83,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3056-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3056-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902998284
+  },
+  {
+    "provider": "mouser",
+    "query": "opamp",
+    "results": [
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "OPAMPEVM-PDIP",
+        "description": "Amplifier IC Development Tools Univ EVM for Single/ Dual/Quad Op Amp",
+        "stock": 9,
+        "url": "https://www.mouser.com/ProductDetail/595-OPAMPEVM-PDIP",
+        "attributes": {
+          "category": "Amplifier IC Development Tools",
+          "rohs": "",
+          "mouserPartNumber": "595-OPAMPEVM-PDIP",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "OPAMPEVM-SOT23",
+        "description": "Amplifier IC Development Tools Univ EVM for Sgl/ Du al Op Amps",
+        "stock": 11,
+        "url": "https://www.mouser.com/ProductDetail/595-OPAMPEVM-SOT23",
+        "attributes": {
+          "category": "Amplifier IC Development Tools",
+          "rohs": "",
+          "mouserPartNumber": "595-OPAMPEVM-SOT23",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "OPAMPEVM-SOIC",
+        "description": "Amplifier IC Development Tools Univ EVM for Single/ Dual/Quad Op Amp",
+        "stock": 2,
+        "url": "https://www.mouser.com/ProductDetail/595-OPAMPEVM-SOIC",
+        "attributes": {
+          "category": "Amplifier IC Development Tools",
+          "rohs": "",
+          "mouserPartNumber": "595-OPAMPEVM-SOIC",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "OPAMPEVM-SOT23SHDN",
+        "description": "Amplifier IC Development Tools Univ EVM for Single/ Dual Op Amp",
+        "stock": 5,
+        "url": "https://www.mouser.com/ProductDetail/595-OPAMPVMSOT23SHDN",
+        "attributes": {
+          "category": "Amplifier IC Development Tools",
+          "rohs": "",
+          "mouserPartNumber": "595-OPAMPVMSOT23SHDN",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902967061
+  },
+  {
+    "provider": "mouser",
+    "query": "ic MCP6001 rail to rail op amp 5V OpAmp-Relaxation opamp",
+    "results": [
+      {
+        "manufacturer": "Analog Devices",
+        "manufacturerPartNumber": "MAX74821ARMZ-R7",
+        "description": "Operational Amplifiers - Op Amps 5V CMOS, Low Noise",
+        "stock": 772,
+        "url": "https://www.mouser.com/ProductDetail/584-MAX74821ARMZ-R7",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "584-MAX74821ARMZ-R7",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "OPA2364IDGKT",
+        "description": "Operational Amplifiers - Op Amps 1.8V High CMR RRIO O p Amp A 595-OPA2364 A 595-OPA2364IDGKR",
+        "stock": 7403,
+        "url": "https://www.mouser.com/ProductDetail/595-OPA2364IDGKT",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "595-OPA2364IDGKT",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "OPA364IDBVT",
+        "description": "Operational Amplifiers - Op Amps 1.8V High CMR RRIO O p Amp A 595-OPA364I A 595-OPA364IDBVR",
+        "stock": 9886,
+        "url": "https://www.mouser.com/ProductDetail/595-OPA364IDBVT",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "595-OPA364IDBVT",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Nisshinbo",
+        "manufacturerPartNumber": "NJU77903DL3",
+        "description": "Operational Amplifiers - Op Amps 40V 100mA 6.8 to 36V 9.5mA 100dV 200mA R",
+        "stock": 26920,
+        "url": "https://www.mouser.com/ProductDetail/513-NJU77903DL3",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "513-NJU77903DL3",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/njrc-s-a0001200248-1.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902959314
+  },
+  {
+    "provider": "mouser",
+    "query": "power supply 5V DC wall adapter Microcontroller-PWM supply",
+    "results": [
+      {
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "120W IT ADAPTER 24V 5A DC JACK 2.5",
+        "description": "Wall Mount AC Adapters Dimension: 167x67x35mm,Input Voltage: 100-240Vac,Output Voltage: 24Vdc,Output Current: 5A,Frequency: 50-60Hz,Efficiency: 89.5%(DOE VI, Erp Lot7)",
+        "url": "https://www.mouser.com/ProductDetail/976-120WIT24V5ADC",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "976-120WIT24V5ADC",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "450W, Redundant, AC to DC or HVDC to DC",
+        "description": "Wall Mount AC Adapters Dimension: 220x50.5x40mm(1U),Input Voltage: 100-240Vac or 190V-310V HVDC,Output Voltage: 12V/5Vsb,Frequency: 50-60Hz,Efficiency: >90%(Platinum), EMI/EMC===> Clase B",
+        "url": "https://www.mouser.com/ProductDetail/976-450WREDUNDANTACT",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "976-450WREDUNDANTACT",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Amphenol ProLabs",
+        "manufacturerPartNumber": "USAC22USB5V34A-C",
+        "description": "Wall Mount AC Adapters Wall Plug to 2x USB 5v 3.4A for US Black",
+        "stock": 15,
+        "url": "https://www.mouser.com/ProductDetail/46-USAC22USB5V34A-C",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "46-USAC22USB5V34A-C",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Adafruit",
+        "manufacturerPartNumber": "501",
+        "description": "Adafruit Accessories 5V 1A USB Port Power Supply",
+        "stock": 2907,
+        "url": "https://www.mouser.com/ProductDetail/485-501",
+        "attributes": {
+          "category": "Adafruit Accessories",
+          "rohs": "",
+          "mouserPartNumber": "485-501",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902922110
+  },
+  {
+    "provider": "mouser",
+    "query": "resistor 330 ohm resistor 0.25W Microcontroller-PWM resistor",
+    "results": [
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RNAN0805BKE330R",
+        "description": "Thin Film Resistors - SMD 330Ohms 0805 25ppm Tol 0.1% High Power Alum Nitride",
+        "stock": 700,
+        "url": "https://www.mouser.com/ProductDetail/708-RNAN0805BKE330R",
+        "attributes": {
+          "category": "Thin Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RNAN0805BKE330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
         "manufacturer": "SEI Stackpole",
-        "manufacturerPartNumber": "RMCF0603FG274R",
-        "description": "Thick Film Resistors - SMD 274Ohms 0603 0.1W 1% Std Power AEC-Q200",
-        "stock": 28785,
-        "url": "https://www.mouser.com/datasheet/3/1099/1/SEI_RMCF_RMCP.pdf",
+        "manufacturerPartNumber": "RMAN2512FT330R",
+        "description": "Thick Film Resistors - SMD 330Ohms 3.5W 2512 1% HiPow Alum Nitr Sub",
+        "stock": 2800,
+        "url": "https://www.mouser.com/ProductDetail/708-RMAN2512FT330R",
         "attributes": {
           "category": "Thick Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "708-RMCF0603FG274R"
-        }
+          "mouserPartNumber": "708-RMAN2512FT330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "KOA Speer",
-        "manufacturerPartNumber": "HV731JRTTD1002F",
-        "description": "Thick Film Resistors - SMD 0603 0.1W 10 kOhm 1%",
-        "stock": 20876,
-        "url": "",
+        "manufacturer": "TE Connectivity / CGS",
+        "manufacturerPartNumber": "BDSA2K330RK",
+        "description": "Planar Resistors - Chassis Mount BDS A 2000W 330R 10%",
+        "stock": 4,
+        "url": "https://www.mouser.com/ProductDetail/279-BDSA2K330RK",
         "attributes": {
-          "category": "Thick Film Resistors - SMD",
+          "category": "Planar Resistors - Chassis Mount",
           "rohs": "",
-          "mouserPartNumber": "660-HV731JRTTD1002F"
-        }
+          "mouserPartNumber": "279-BDSA2K330RK",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "Bourns",
-        "manufacturerPartNumber": "PWR8030W1002FE",
-        "description": "Wirewound Resistors - SMD SMD WireWound Resistors, 10Kohm , 5W, tolerance 1%,inductive version",
-        "stock": 500,
-        "url": "https://www.mouser.com/catalog/specsheets/Bourns_12-17-2024_PWR6927_8030_8937_A247_B053_Datasheet.pdf",
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RNAN1206BKE330R",
+        "description": "Thin Film Resistors - SMD 330Ohms 1206 25ppm Tol 0.1% High Power Alum Nitride",
+        "stock": 693,
+        "url": "https://www.mouser.com/ProductDetail/708-RNAN1206BKE330R",
         "attributes": {
-          "category": "Wirewound Resistors - SMD",
+          "category": "Thin Film Resistors - SMD",
           "rohs": "",
-          "mouserPartNumber": "652-PWR8030W1002FE"
-        }
-      },
-      {
-        "manufacturer": "TE Connectivity / Holsworthy",
-        "manufacturerPartNumber": "CRG0603F22K/10",
-        "description": "Thick Film Resistors - SMD CRG0603 1% 22K 10K RL",
-        "stock": 37629,
-        "url": "https://www.mouser.com/datasheet/3/80/5/ENG_CD_1622886_BA.pdf",
-        "attributes": {
-          "category": "Thick Film Resistors - SMD",
-          "rohs": "",
-          "mouserPartNumber": "279-CRG0603F22K/10"
-        }
+          "mouserPartNumber": "708-RNAN1206BKE330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       }
     ],
-    "timestamp": 1769199112704
+    "timestamp": 1771902883066
   },
   {
-    "provider": "octopart",
-    "query": "10k resistor 1% tol 0.1W power 0603",
+    "provider": "mouser",
+    "query": "resistor 528 ohm 1% 0.25W through-hole or 0805 330 ohm resistor 0.25W Microcontroller-PWM resistor",
     "results": [
       {
-        "manufacturer": "TE Connectivity",
-        "manufacturerPartNumber": "1622829-1",
-        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±100ppm/C Pad SMD T/R",
-        "url": "https://octopart.com/part/te-connectivity/1622829-1",
-        "stock": 645762,
-        "unitPrice": 0.01,
+        "manufacturer": "Panasonic",
+        "manufacturerPartNumber": "ERJ-U6QFR82V",
+        "description": "Thick Film Resistors - SMD 0805 0.25W 1% .82ohms AEC-Q200",
+        "url": "https://www.mouser.com/ProductDetail/667-ERJ-U6QFR82V",
         "attributes": {
-          "case_package": "0603",
-          "casecode_imperial_": "0603",
-          "casecode_metric_": "1608",
-          "china_rohs": "Non-Compliant",
-          "composition": "Thick Film",
-          "depth": "800 µm",
-          "elv": "Compliant",
-          "height": "450 µm",
-          "leadfree": "Lead Free",
-          "length": "1.6 mm",
-          "lifecyclestatus": "Production (Last Updated: 5 days ago)",
-          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 5 days ago)",
-          "maxoperatingtemperature": "125 °C",
-          "maxpowerdissipation": "100 mW",
-          "militarystandard": "Not",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofresistors": "1",
-          "numberofterminals": "2",
-          "numberofterminations": "2",
-          "operatingsupplyvoltage": "50 V",
-          "packaging": "TapeandReel",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "radiationhardening": "No",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "scheduleB": "8533100070, 8533100070|8533100070, 8533100070|8533100070|8533100070, 8533100070|8533100070|8533100070|8533100070",
-          "temperaturecoefficient": "100 ppm/°C",
-          "termination": "Solder",
-          "tolerance": "1 %",
-          "voltagerating": "50 V",
-          "voltagerating_dc_": "75 V",
-          "weight": "2.012816 mg",
-          "width": "800 µm",
-          "workingvoltage": "50 V"
-        }
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "667-ERJ-U6QFR82V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902875104
+  },
+  {
+    "provider": "mouser",
+    "query": "led 5mm indicator LED 5V 20mA Microcontroller-PWM led",
+    "results": [
+      {
+        "manufacturer": "Bivar",
+        "manufacturerPartNumber": "ELM55MM3HD",
+        "description": "LED Circuit Board Indicators Vert LED Assembly 3mm HE Red 635 nm",
+        "stock": 100,
+        "url": "https://www.mouser.com/ProductDetail/749-ELM55MM3HD",
+        "attributes": {
+          "category": "LED Circuit Board Indicators",
+          "rohs": "",
+          "mouserPartNumber": "749-ELM55MM3HD",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "TE Connectivity",
-        "manufacturerPartNumber": "1622829-2",
-        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±100ppm/C Pad SMD T/R",
-        "url": "https://octopart.com/part/te-connectivity/1622829-2",
-        "stock": 2786332,
-        "unitPrice": 0.01,
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3057-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Blue 5v",
+        "stock": 91,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3057-9907BI",
         "attributes": {
-          "case_package": "0603",
-          "casecode_imperial_": "0603",
-          "casecode_metric_": "1608",
-          "china_rohs": "Non-Compliant",
-          "composition": "Thick Film",
-          "depth": "800 µm",
-          "height": "450 µm",
-          "length": "1.6 mm",
-          "lifecyclestatus": "Production (Last Updated: 5 days ago)",
-          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 5 days ago)",
-          "maxoperatingtemperature": "155 °C",
-          "militarystandard": "Not",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofresistors": "1",
-          "numberofterminals": "2",
-          "numberofterminations": "2",
-          "operatingsupplyvoltage": "50 V",
-          "packaging": "Tape & Reel (TR)",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "temperaturecoefficient": "100 ppm/°C",
-          "termination": "Solder",
-          "tolerance": "1 %",
-          "voltagerating": "50 V",
-          "weight": "2.012816 mg",
-          "width": "800 µm",
-          "workingvoltage": "50 V"
-        }
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3057-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3055-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Yellow 5v",
+        "stock": 93,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3055-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3055-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3056-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Red 5v",
+        "stock": 83,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3056-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3056-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902843999
+  },
+  {
+    "provider": "mouser",
+    "query": "mcu",
+    "results": [
+      {
+        "manufacturer": "Silicon Labs",
+        "manufacturerPartNumber": "MCU",
+        "description": "Silicon Laboratories Microcontrollers",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "Silicon Laboratories",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Vishay / Beyschlag",
+        "manufacturerPartNumber": "MCU0805MD1504BP500",
+        "description": "Thin Film Resistors - SMD .2W 1.5Mohms .1% '0805 25ppm AEC-Q200",
+        "stock": 11452,
+        "url": "https://www.mouser.com/ProductDetail/594-MCU0805MD1504BP5",
+        "attributes": {
+          "category": "Thin Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "594-MCU0805MD1504BP5",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Vishay / Beyschlag",
+        "manufacturerPartNumber": "MCU0805PD1009DP500",
+        "description": "Thin Film Resistors - SMD .400W 10ohms .5% 0805 25ppm Hi Power",
+        "stock": 15591,
+        "url": "https://www.mouser.com/ProductDetail/594-MCU0805PD1009DP5",
+        "attributes": {
+          "category": "Thin Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "594-MCU0805PD1009DP5",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Vishay / Beyschlag",
+        "manufacturerPartNumber": "MCU08050C1009DP500",
+        "description": "Thin Film Resistors - SMD 10    OHM  .5%  50PPM   1/8W",
+        "stock": 4625,
+        "url": "https://www.mouser.com/ProductDetail/594-MCU08050C1009DP5",
+        "attributes": {
+          "category": "Thin Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "594-MCU08050C1009DP5",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902813030
+  },
+  {
+    "provider": "mouser",
+    "query": "ic ATTINY13A 5V microcontroller Microcontroller-PWM mcu",
+    "results": [
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SS7R",
+        "description": "8-bit Microcontrollers - MCU AVR 1KB FL 64B EE 64B SRAM JEDEC",
+        "stock": 4496,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SS7R",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SS7R",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SNR",
+        "description": "8-bit Microcontrollers - MCU AVR 1KB FL 64B EE 64B SRAM 20MHz GRN",
+        "stock": 1774,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SNR",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SNR",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SN",
+        "description": "8-bit Microcontrollers - MCU 1KB FLASH 64B EE 64B SRAM 20MHz",
+        "stock": 2844,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SN",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SN",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SF",
+        "description": "8-bit Microcontrollers - MCU AVR 1KB FLSH 64B EE 64B SRAM-20MHz+125C",
+        "stock": 4276,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SF",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SF",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902805203
+  },
+  {
+    "provider": "mouser",
+    "query": "supply",
+    "results": [
+      {
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "AI Camera Dev Kit & Type C power supply",
+        "description": "Camera Development Tools AI Camera Dev Kit & Type C power supply",
+        "stock": 1,
+        "url": "https://www.mouser.com/ProductDetail/976-AICAMERADEVKIT%26T",
+        "attributes": {
+          "category": "Camera Development Tools",
+          "rohs": "",
+          "mouserPartNumber": "976-AICAMERADEVKIT&T",
+          "datasheet": "https://www.mouser.com/datasheet/3/966/1/AI_Camera_Dev_Kit_datasheet_20221027.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Toradex",
+        "manufacturerPartNumber": "22111000PowerSupplyAdapter-TerminalBlock",
+        "description": "Circuit Board Hardware - PCB Toradex Power Supply Adapter For Terminal Block",
+        "stock": 2,
+        "url": "https://www.mouser.com/ProductDetail/145-2211",
+        "attributes": {
+          "category": "Circuit Board Hardware - PCB",
+          "rohs": "",
+          "mouserPartNumber": "145-2211",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Toradex",
+        "manufacturerPartNumber": "22071000 - AC/DC Power Supply 12V 30W",
+        "description": "Circuit Board Hardware - PCB AC/DC Power Supply 12V 30W",
+        "url": "https://www.mouser.com/ProductDetail/145-2207",
+        "attributes": {
+          "category": "Circuit Board Hardware - PCB",
+          "rohs": "",
+          "mouserPartNumber": "145-2207",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Hirschmann",
+        "manufacturerPartNumber": "PC150/110V/54V POWER SUPPLY",
+        "description": "Power Supplies - Chassis Mount DC/DC converter with  54 V power output",
+        "url": "https://www.mouser.com/ProductDetail/566-942242001",
+        "attributes": {
+          "category": "Power Supplies - Chassis Mount",
+          "rohs": "",
+          "mouserPartNumber": "566-942242001",
+          "datasheet": "https://www.mouser.com/datasheet/3/6/1/PC150110V54Vpowersupply_techdata.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902774133
+  },
+  {
+    "provider": "mouser",
+    "query": "power supply 5V DC wall adapter NE555-astable supply",
+    "results": [
+      {
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "120W IT ADAPTER 24V 5A DC JACK 2.5",
+        "description": "Wall Mount AC Adapters Dimension: 167x67x35mm,Input Voltage: 100-240Vac,Output Voltage: 24Vdc,Output Current: 5A,Frequency: 50-60Hz,Efficiency: 89.5%(DOE VI, Erp Lot7)",
+        "url": "https://www.mouser.com/ProductDetail/976-120WIT24V5ADC",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "976-120WIT24V5ADC",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "450W, Redundant, AC to DC or HVDC to DC",
+        "description": "Wall Mount AC Adapters Dimension: 220x50.5x40mm(1U),Input Voltage: 100-240Vac or 190V-310V HVDC,Output Voltage: 12V/5Vsb,Frequency: 50-60Hz,Efficiency: >90%(Platinum), EMI/EMC===> Clase B",
+        "url": "https://www.mouser.com/ProductDetail/976-450WREDUNDANTACT",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "976-450WREDUNDANTACT",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Amphenol ProLabs",
+        "manufacturerPartNumber": "USAC22USB5V34A-C",
+        "description": "Wall Mount AC Adapters Wall Plug to 2x USB 5v 3.4A for US Black",
+        "stock": 15,
+        "url": "https://www.mouser.com/ProductDetail/46-USAC22USB5V34A-C",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "46-USAC22USB5V34A-C",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Adafruit",
+        "manufacturerPartNumber": "501",
+        "description": "Adafruit Accessories 5V 1A USB Port Power Supply",
+        "stock": 2907,
+        "url": "https://www.mouser.com/ProductDetail/485-501",
+        "attributes": {
+          "category": "Adafruit Accessories",
+          "rohs": "",
+          "mouserPartNumber": "485-501",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902765943
+  },
+  {
+    "provider": "mouser",
+    "query": "resistor",
+    "results": [
+      {
+        "manufacturer": "Vishay / Beyschlag",
+        "manufacturerPartNumber": "MCS04020D1072BE500",
+        "description": "Thin Film Resistors - SMD MCS0402-250.1%E510K7",
+        "stock": 4745,
+        "url": "https://www.mouser.com/ProductDetail/594-MCS04020D1072BE5",
+        "attributes": {
+          "category": "Thin Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "594-MCS04020D1072BE5",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
         "manufacturer": "Vishay",
-        "manufacturerPartNumber": "RCA060310K0FKEA",
-        "description": "100mW Thick Film Resistors 75V ±1% ±100ppm/℃ 10kΩ 0603 Chip Resistor - Surface Mount ROHS",
-        "url": "https://octopart.com/part/vishay/RCA060310K0FKEA",
-        "stock": 100000,
-        "unitPrice": 0.01071,
+        "manufacturerPartNumber": "UXB0207ZFYYYYTCU95",
+        "description": "Metal Film Resistors - Through Hole",
+        "stock": 90,
+        "url": "https://www.mouser.com/ProductDetail/594-B0207ZFYYYYTCU95",
         "attributes": {
-          "case_package": "0603",
-          "casecode_imperial_": "0603",
-          "casecode_metric_": "1608",
-          "china_rohs": "Non-Compliant",
-          "composition": "Thick Film",
-          "contactplating": "Tin",
-          "depth": "850 µm",
-          "features": "Anti-Sulfur, Automotive AEC-Q200",
-          "height": "450 µm",
-          "length": "1.5494 mm",
-          "lifecyclestatus": "Production (Last Updated: 1 month ago)",
-          "maxoperatingtemperature": "155 °C",
-          "maxpowerdissipation": "100 mW",
-          "militarystandard": "Not",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofterminals": "2",
-          "numberofterminations": "2",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "radiationhardening": "No",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "scheduleB": "8533210045, 8533210045|8533210045|8533210045|8533210045|8533210045",
-          "temperaturecoefficient": "100 ppm/°C",
-          "tolerance": "1 %",
-          "voltagerating": "75 V",
-          "voltagerating_dc_": "75 V",
-          "width": "850 µm",
-          "workingvoltage": "75 V"
-        }
+          "category": "Metal Film Resistors - Through Hole",
+          "rohs": "",
+          "mouserPartNumber": "594-B0207ZFYYYYTCU95",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "TE Connectivity",
-        "manufacturerPartNumber": "CPG0603F10KC",
-        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±50ppm/C Pad SMD T/R",
-        "url": "https://octopart.com/part/te-connectivity/CPG0603F10KC",
-        "stock": 30927,
-        "unitPrice": 0.47,
+        "manufacturer": "Vishay",
+        "manufacturerPartNumber": "CMF55680K00FHEA",
+        "description": "Metal Film Resistors - Through Hole 680 kOhms Metal Film Resistor",
+        "stock": 4697,
+        "url": "https://www.mouser.com/ProductDetail/71-CMF55680K00FHEA",
         "attributes": {
-          "case_package": "0603",
-          "casecode_imperial_": "0603",
-          "casecode_metric_": "1608",
-          "china_rohs": "Non-Compliant",
-          "composition": "Thick Film",
-          "depth": "800 µm",
-          "elv": "Compliant",
-          "height": "450 µm",
-          "leadfree": "Lead Free",
-          "length": "1.6 mm",
-          "lifecyclestatus": "Production (Last Updated: 2 years ago)",
-          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 2 years ago)",
-          "maxoperatingtemperature": "155 °C",
-          "maxpowerdissipation": "63 mW",
-          "militarystandard": "Not",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofresistors": "1",
-          "numberofterminals": "2",
-          "numberofterminations": "2",
-          "packaging": "Tape & Reel (TR)",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "radiationhardening": "No",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "temperaturecoefficient": "50 ppm/°C",
-          "termination": "Solder",
-          "tolerance": "1 %",
-          "voltagerating_dc_": "75 V",
-          "weight": "2.012816 mg",
-          "width": "800 µm"
-        }
+          "category": "Metal Film Resistors - Through Hole",
+          "rohs": "",
+          "mouserPartNumber": "71-CMF55680K00FHEA",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       },
       {
-        "manufacturer": "TE Connectivity",
-        "manufacturerPartNumber": "CRGCQ0603F10K",
-        "description": "Res Thick Film 0603 10K Ohm 1% 0.1W(1/10W) ±100ppm/°C Pad SMD T/R Automotive AEC-Q200",
-        "url": "https://octopart.com/part/te-connectivity/CRGCQ0603F10K",
-        "stock": 1256275,
-        "unitPrice": 0.01,
+        "manufacturer": "Phoenix Contact",
+        "manufacturerPartNumber": "1642714",
+        "description": "Resistor Networks & Arrays FA MCR-FMR-22K-680-IP20-PT",
+        "stock": 15,
+        "url": "https://www.mouser.com/ProductDetail/651-1642714",
         "attributes": {
-          "ambienttemperaturerangehigh": "70 °C",
-          "case_package": "0603",
-          "china_rohs": "Non-Compliant",
-          "composition": "Thick Film",
-          "height": "450 µm",
-          "lifecyclestatus": "Production (Last Updated: 5 days ago)",
-          "manufacturerlifecyclestatus": "ACTIVE (Last Updated: 5 days ago)",
-          "maxoperatingtemperature": "155 °C",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofterminals": "2",
-          "operatingsupplyvoltage": "75 V",
-          "packaging": "Cut Tape",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "scheduleB": "8533210025|8533210025|8533210025|8533210025|8533210025",
-          "temperaturecoefficient": "100 ppm/°C",
-          "tolerance": "1 %",
-          "voltagerating": "75 V",
-          "voltagerating_dc_": "75 V",
-          "width": "800 µm",
-          "workingvoltage": "75 V"
-        }
-      },
-      {
-        "manufacturer": "KOA Speer",
-        "manufacturerPartNumber": "RK73H1JTTD1002F",
-        "description": "Resistor Thick Film 0603 10K Ohm 1% 1/10W ±100ppm/°C SMD Punched Paper Tape and Reel",
-        "url": "https://octopart.com/part/koa-speer/RK73H1JTTD1002F",
-        "stock": 17214,
-        "unitPrice": 0.006,
-        "attributes": {
-          "case_package": "0603",
-          "casecode_imperial_": "0603",
-          "casecode_metric_": "1608",
-          "china_rohs": "Non-Compliant",
-          "composition": "Thick Film",
-          "depth": "800 µm",
-          "height": "450 µm",
-          "leadfree": "Lead Free",
-          "length": "1.6 mm",
-          "lifecyclestatus": "Production (Last Updated: 3 weeks ago)",
-          "maxoperatingtemperature": "155 °C",
-          "militarystandard": "Not",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofpins": "2",
-          "numberofterminals": "2",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "scheduleB": "8533210045, 8533210045|8533210045|8533210045|8533210045|8533210045",
-          "temperaturecoefficient": "100 ppm/°C",
-          "termination": "SMD/SMT",
-          "tolerance": "1 %",
-          "voltagerating": "75 V",
-          "voltagerating_dc_": "50 V",
-          "width": "800 µm",
-          "workingvoltage": "75 V"
-        }
-      },
-      {
-        "manufacturer": "Yageo Group",
-        "manufacturerPartNumber": "RT0603FRE0710KL",
-        "description": "100mW Thin Film Resistor 75V ±50ppm/℃ ±1% 10kΩ 0603 Chip Resistor - Surface Mount ROHS",
-        "url": "https://octopart.com/part/yageo-group/RT0603FRE0710KL",
-        "stock": 2298,
-        "unitPrice": 0.103,
-        "attributes": {
-          "case_package": "0603",
-          "casecode_imperial_": "0603",
-          "china_rohs": "Non-Compliant",
-          "composition": "Thin Film",
-          "contactplating": "Lead, Tin",
-          "depth": "800 µm",
-          "features": "Moisture Resistant",
-          "height": "450 µm",
-          "leadfree": "Lead Free",
-          "length": "1.6002 mm",
-          "lifecyclestatus": "Production (Last Updated: 1 month ago)",
-          "maxoperatingtemperature": "155 °C",
-          "maxpowerdissipation": "100 mW",
-          "militarystandard": "Not",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofpins": "2",
-          "numberofterminals": "2",
-          "numberofterminations": "2",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "scheduleB": "8533210045, 8533210045|8533210045, 8533210045|8533210045|8533210045, 8533210045|8533210045|8533210045|8533210045",
-          "temperaturecoefficient": "50 ppm/°C",
-          "termination": "SMD/SMT",
-          "tolerance": "1 %",
-          "voltagerating": "75 V",
-          "voltagerating_dc_": "75 V",
-          "width": "800 µm",
-          "workingvoltage": "75 V"
-        }
-      },
-      {
-        "manufacturer": "Walsin Technologies",
-        "manufacturerPartNumber": "WR06X1002FTL",
-        "description": "100mW Thick Film Resistors 75V ±100ppm/℃ ±1% 10kΩ 0603 Chip Resistor - Surface Mount ROHS",
-        "url": "https://octopart.com/part/walsin-technologies/WR06X1002FTL",
-        "stock": 391796,
-        "unitPrice": 0.1,
-        "attributes": {
-          "case_package": "0603",
-          "casecode_imperial_": "0603",
-          "casecode_metric_": "1608",
-          "composition": "Thick Film",
-          "contactmaterial": "Tin",
-          "depth": "800 µm",
-          "height": "450 µm",
-          "leadfree": "Lead Free",
-          "length": "1.6 mm",
-          "lifecyclestatus": "Production (Last Updated: 3 weeks ago)",
-          "maxoperatingtemperature": "155 °C",
-          "militarystandard": "Not",
-          "minoperatingtemperature": "-55 °C",
-          "mount": "Surface Mount",
-          "numberofterminals": "2",
-          "numberofterminations": "2",
-          "packaging": "Cut Tape",
-          "powerdissipation": "100 mW",
-          "powerrating": "100 mW",
-          "reachsvhc": "Yes",
-          "resistance": "10 kΩ",
-          "rohs": "Compliant",
-          "temperaturecoefficient": "100 ppm/°C",
-          "termination": "SMD/SMT",
-          "tolerance": "1 %",
-          "voltagerating": "50 V",
-          "voltagerating_dc_": "75 V",
-          "width": "800 µm",
-          "workingvoltage": "50 V"
-        }
+          "category": "Resistor Networks & Arrays",
+          "rohs": "",
+          "mouserPartNumber": "651-1642714",
+          "datasheet": ""
+        },
+        "provider": "mouser"
       }
     ],
-    "timestamp": 1769198937867
+    "timestamp": 1771902735837
+  },
+  {
+    "provider": "mouser",
+    "query": "resistor 330 ohm resistor 0.25W NE555-astable resistor",
+    "results": [
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RNAN0805BKE330R",
+        "description": "Thin Film Resistors - SMD 330Ohms 0805 25ppm Tol 0.1% High Power Alum Nitride",
+        "stock": 700,
+        "url": "https://www.mouser.com/ProductDetail/708-RNAN0805BKE330R",
+        "attributes": {
+          "category": "Thin Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RNAN0805BKE330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RMAN2512FT330R",
+        "description": "Thick Film Resistors - SMD 330Ohms 3.5W 2512 1% HiPow Alum Nitr Sub",
+        "stock": 2800,
+        "url": "https://www.mouser.com/ProductDetail/708-RMAN2512FT330R",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RMAN2512FT330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "TE Connectivity / CGS",
+        "manufacturerPartNumber": "BDSA2K330RK",
+        "description": "Planar Resistors - Chassis Mount BDS A 2000W 330R 10%",
+        "stock": 4,
+        "url": "https://www.mouser.com/ProductDetail/279-BDSA2K330RK",
+        "attributes": {
+          "category": "Planar Resistors - Chassis Mount",
+          "rohs": "",
+          "mouserPartNumber": "279-BDSA2K330RK",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "SEI Stackpole",
+        "manufacturerPartNumber": "RNAN1206BKE330R",
+        "description": "Thin Film Resistors - SMD 330Ohms 1206 25ppm Tol 0.1% High Power Alum Nitride",
+        "stock": 693,
+        "url": "https://www.mouser.com/ProductDetail/708-RNAN1206BKE330R",
+        "attributes": {
+          "category": "Thin Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "708-RNAN1206BKE330R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902727125
+  },
+  {
+    "provider": "mouser",
+    "query": "resistor 607 ohm 1% 0.25W through-hole or 0805 330 ohm resistor 0.25W NE555-astable resistor",
+    "results": [
+      {
+        "manufacturer": "Panasonic",
+        "manufacturerPartNumber": "ERJ-U6QFR82V",
+        "description": "Thick Film Resistors - SMD 0805 0.25W 1% .82ohms AEC-Q200",
+        "url": "https://www.mouser.com/ProductDetail/667-ERJ-U6QFR82V",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "667-ERJ-U6QFR82V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902719079
+  },
+  {
+    "provider": "mouser",
+    "query": "led",
+    "results": [
+      {
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "LED",
+        "description": "LED Lighting Fixture Accessories LEDs CABLE L=300mm Shinintech_ST-1710011",
+        "url": "https://www.mouser.com/ProductDetail/976-LED",
+        "attributes": {
+          "category": "LED Lighting Fixture Accessories",
+          "rohs": "",
+          "mouserPartNumber": "976-LED",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "STMicroelectronics",
+        "manufacturerPartNumber": "LED1642GWPTR",
+        "description": "LED Lighting Driver ICs 16 CH LED DVR",
+        "stock": 5861,
+        "url": "https://www.mouser.com/ProductDetail/511-LED1642GWPTR",
+        "attributes": {
+          "category": "LED Lighting Driver ICs",
+          "rohs": "",
+          "mouserPartNumber": "511-LED1642GWPTR",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Banner Engineering",
+        "manufacturerPartNumber": "LEDILA145XD6-XQ",
+        "description": "Industrial Light Bars & Light Strips Vision Light - 145 mm Linear Array - IP50; 6 High Intensity IR LEDs - 24 V dc; Diffusing Plastic Window; Requires Cable MQDC20-xxx",
+        "stock": 5,
+        "url": "https://www.mouser.com/ProductDetail/778-LEDILA145XD6-XQ",
+        "attributes": {
+          "category": "Industrial Light Bars & Light Strips",
+          "rohs": "",
+          "mouserPartNumber": "778-LEDILA145XD6-XQ",
+          "datasheet": "https://www.mouser.com/datasheet/3/5945/1/151466.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "STMicroelectronics",
+        "manufacturerPartNumber": "LED7706TR",
+        "description": "LED Lighting Driver ICs LED driver with boost regulator, 6-rows 30 mA, for LCD panels backlight",
+        "stock": 5623,
+        "url": "https://www.mouser.com/ProductDetail/511-LED7706TR",
+        "attributes": {
+          "category": "LED Lighting Driver ICs",
+          "rohs": "",
+          "mouserPartNumber": "511-LED7706TR",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902697624
+  },
+  {
+    "provider": "mouser",
+    "query": "led 5mm indicator LED 5V 20mA NE555-astable led",
+    "results": [
+      {
+        "manufacturer": "Bivar",
+        "manufacturerPartNumber": "ELM55MM3HD",
+        "description": "LED Circuit Board Indicators Vert LED Assembly 3mm HE Red 635 nm",
+        "stock": 100,
+        "url": "https://www.mouser.com/ProductDetail/749-ELM55MM3HD",
+        "attributes": {
+          "category": "LED Circuit Board Indicators",
+          "rohs": "",
+          "mouserPartNumber": "749-ELM55MM3HD",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3057-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Blue 5v",
+        "stock": 91,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3057-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3057-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3055-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Yellow 5v",
+        "stock": 93,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3055-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3055-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "L6-1-3056-9907-B-I",
+        "description": "LED Panel Mount Indicators PMI Dia .250\" (6.35mm) Red 5v",
+        "stock": 83,
+        "url": "https://www.mouser.com/ProductDetail/593-L6-1-3056-9907BI",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "593-L6-1-3056-9907BI",
+          "datasheet": "https://www.mouser.com/catalog/specsheets/VCC_01172023_L6 Series Datasheet Rev 3 (1).pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902689433
+  },
+  {
+    "provider": "mouser",
+    "query": "driver",
+    "results": [
+      {
+        "manufacturer": "Innovative Sensor Technology",
+        "manufacturerPartNumber": "Driver Circuit Board DCB.S3.390",
+        "description": "RF Amplifier Driver Circuit Board DCB.S3.175 for IR emitter HIS20smd.   HISsmd series. WITHOUT IR emitter (has to be ordered separately)",
+        "stock": 1,
+        "url": "https://www.mouser.com/ProductDetail/916-DCBOARDDCB.S3.39",
+        "attributes": {
+          "category": "RF Amplifier",
+          "rohs": "",
+          "mouserPartNumber": "916-DCBOARDDCB.S3.39",
+          "datasheet": "https://www.mouser.com/datasheet/3/5934/1/HISsmd_series_technical_note_operating_mode__3_.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Innovative Sensor Technology",
+        "manufacturerPartNumber": "Driver Circuit Board DCB.39.700",
+        "description": "RF Amplifier Driver board DCB.39.700 for a quick evaluation of thermal IR emitters of the HISbasic  series WITHOUT IR emitter (has to be ordered separately)",
+        "stock": 2,
+        "url": "https://www.mouser.com/ProductDetail/916-DCBOARDDCB.39.70",
+        "attributes": {
+          "category": "RF Amplifier",
+          "rohs": "",
+          "mouserPartNumber": "916-DCBOARDDCB.39.70",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Innovative Sensor Technology",
+        "manufacturerPartNumber": "Driver Circuit Board DCB.8.2500 )",
+        "description": "RF Amplifier Driver board DCB.8.2500 for infrared radiation sources of the HISpowerSeries (TO-8)",
+        "stock": 2,
+        "url": "https://www.mouser.com/ProductDetail/916-DCBOARDDCB.8.250",
+        "attributes": {
+          "category": "RF Amplifier",
+          "rohs": "",
+          "mouserPartNumber": "916-DCBOARDDCB.8.250",
+          "datasheet": "https://www.mouser.com/datasheet/3/5934/1/HISpower-series-technical-note-operating-mode.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Innovative Sensor Technology",
+        "manufacturerPartNumber": "Driver Circuit Board DCB.S3.330",
+        "description": "RF Amplifier Driver Circuit Board DCB.S3.175 for IR emitter HIS20smd.   HISsmd series. WITHOUT IR emitter (has to be ordered separately)",
+        "url": "https://www.mouser.com/ProductDetail/916-DCBOARDDCB.S3.33",
+        "attributes": {
+          "category": "RF Amplifier",
+          "rohs": "",
+          "mouserPartNumber": "916-DCBOARDDCB.S3.33",
+          "datasheet": "https://www.mouser.com/datasheet/3/5934/1/HISsmd_series_technical_note_operating_mode__3_.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771902658314
   },
   {
     "provider": "mock",
-    "query": "10k resistor 1% tol 0.1W power 0603",
+    "query": "resistor",
     "results": [
       {
         "manufacturer": "Yageo",
@@ -1024,14 +1192,683 @@
         "unitPrice": 0.012,
         "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
         "attributes": {
-          "resistance": "10 kOhms",
+          "category": "resistor",
+          "value": "10 kOhms",
           "tolerance": "±1%",
           "power": "0.1W",
           "package": "0603 (1608 Metric)",
-          "composition": "Thick Film"
-        }
+          "material": "Thick Film"
+        },
+        "provider": "mock"
       }
     ],
-    "timestamp": 1769198517762
+    "timestamp": 1771901684679
+  },
+  {
+    "provider": "mouser",
+    "query": "resistor 2037 ohm 1% 0.25W through-hole or 0805 330 ohm resistor 0.25W NE555-astable resistor",
+    "results": [
+      {
+        "manufacturer": "Panasonic",
+        "manufacturerPartNumber": "ERJ-U6QFR82V",
+        "description": "Thick Film Resistors - SMD 0805 0.25W 1% .82ohms AEC-Q200",
+        "url": "https://www.mouser.com/ProductDetail/667-ERJ-U6QFR82V",
+        "attributes": {
+          "category": "Thick Film Resistors - SMD",
+          "rohs": "",
+          "mouserPartNumber": "667-ERJ-U6QFR82V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1771900975062
+  },
+  {
+    "provider": "web",
+    "query": "led 5.01836478V volt 13.98605827mA amp indicator visible 5mm indicator LED 5V 20mA NE555-astable led",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "Cookie Name": "Cookie Provider",
+          "specs": "Compression Springs | Extension Springs | Torsion Springs | Conical Springs | Spring Calculators\n                                    \n                                        \n                                    \n                                \n                                \n                                    \n                                        \n                                            \n                                            Spring Calculators                                        \n                                                                            \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculator 5.0\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculator 4.0\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculators\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculator Types | Spring Calculators | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Docs\n                                    \n                                        \n                                    \n                                \n                                \n                                    \n                                        \n                                            \n                                            Docs                                        \n                                                                            \n                                                                            \n                                            \n                                                \n                                                                                                W9 Form\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                ISO 9001:2015 Certified\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Credit Application\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                RoHs Certificate Compliance\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Reach Certificate\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                California Proposition 65 Declaration\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                California Resale Certificate\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Conflict Minerals Policy\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Conflict Minerals Report | Docs | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Tools\n                                    \n                                        \n                                    \n                                \n                                \n                                    \n                                        \n                                            \n                                            Tools                                        \n                                                                            \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                Instant Spring Quote\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                3D CAD Drawings\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                3D Blueprints\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                Spring Force Tester | Tools | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Spring Force Tester | Compression Springs | Extension Springs | Torsion Springs | Conical Springs | Spring Calculators                                \n                            \n                                                            \n                                    \n                                    \n                                        Show submenu for Spring Calculators category                                    \n                                \n                                                    \n                                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculator 5.0                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculator 4.0                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculators                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculator Types | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Docs                                \n                            \n                                                            \n                                    \n                                    \n                                        Show submenu for Docs category                                    \n                                \n                                                    \n                                                    \n                                                                    \n                                        \n                                            \n                                                                                        W9 Form                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        ISO 9001:2015 Certified                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Credit Application                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        RoHs Certificate Compliance                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Reach Certificate                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        California Proposition 65 Declaration                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        California Resale Certificate                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Conflict Minerals Policy                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Tools                                \n                            \n                                                            \n                                    \n                                    \n                                        Show submenu for Tools category                                    \n                                \n                                                    \n                                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        Instant Spring Quote                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        3D CAD Drawings                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        3D Blueprints                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Spring Force Tester | x \n                            \n                            \n                        \n                        \n                            \n                                \n                                    \n                                        \n                                            Sku | See order and shipping status | Track order history | Check out faster | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Compression Springs | Extension Springs | Torsion Springs | Conical Springs | Stock Spring Catalog - PDF | About us | Customers Testimonials | Work With Us | Site Map | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Address: 2225 E. Cooley Dr. Colton, CA 92324 | Phone: (951)276-2777 | Email: sales@compressionspring.com | Business Hours: Mon-Thu/7:00AM-5:00PM PST | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | The Spring Store | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | International Shipping | Free ground shipping on orders over $50.00 (in continental US) | Made in USA | ISO 9001:2015 certified"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1771899788524
+  },
+  {
+    "provider": "web",
+    "query": "ic 5.01836478V volt timer oscillator low power NE555 timer 5V astable NE555-astable driver",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "Cookie Name": "Cookie Provider",
+          "specs": "Compression Springs | Extension Springs | Torsion Springs | Conical Springs | Spring Calculators\n                                    \n                                        \n                                    \n                                \n                                \n                                    \n                                        \n                                            \n                                            Spring Calculators                                        \n                                                                            \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculator 5.0\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculator 4.0\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculators\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Spring Calculator Types | Spring Calculators | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Docs\n                                    \n                                        \n                                    \n                                \n                                \n                                    \n                                        \n                                            \n                                            Docs                                        \n                                                                            \n                                                                            \n                                            \n                                                \n                                                                                                W9 Form\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                ISO 9001:2015 Certified\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Credit Application\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                RoHs Certificate Compliance\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Reach Certificate\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                California Proposition 65 Declaration\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                California Resale Certificate\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Conflict Minerals Policy\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                Conflict Minerals Report | Docs | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Tools\n                                    \n                                        \n                                    \n                                \n                                \n                                    \n                                        \n                                            \n                                            Tools                                        \n                                                                            \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                Instant Spring Quote\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                3D CAD Drawings\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                3D Blueprints\n                                            \n                                        \n                                                                            \n                                            \n                                                \n                                                                                                    \n                                                                                                Spring Force Tester | Tools | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Spring Force Tester | Compression Springs | Extension Springs | Torsion Springs | Conical Springs | Spring Calculators                                \n                            \n                                                            \n                                    \n                                    \n                                        Show submenu for Spring Calculators category                                    \n                                \n                                                    \n                                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculator 5.0                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculator 4.0                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculators                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Spring Calculator Types | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Docs                                \n                            \n                                                            \n                                    \n                                    \n                                        Show submenu for Docs category                                    \n                                \n                                                    \n                                                    \n                                                                    \n                                        \n                                            \n                                                                                        W9 Form                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        ISO 9001:2015 Certified                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Credit Application                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        RoHs Certificate Compliance                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Reach Certificate                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        California Proposition 65 Declaration                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        California Resale Certificate                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Conflict Minerals Policy                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Tools                                \n                            \n                                                            \n                                    \n                                    \n                                        Show submenu for Tools category                                    \n                                \n                                                    \n                                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        Instant Spring Quote                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        3D CAD Drawings                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        3D Blueprints                                        \n                                    \n                                                                    \n                                        \n                                            \n                                                                                            \n                                                                                        Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Spring Force Tester | x \n                            \n                            \n                        \n                        \n                            \n                                \n                                    \n                                        \n                                            Sku | See order and shipping status | Track order history | Check out faster | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Compression Springs | Extension Springs | Torsion Springs | Conical Springs | Stock Spring Catalog - PDF | About us | Customers Testimonials | Work With Us | Site Map | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Address: 2225 E. Cooley Dr. Colton, CA 92324 | Phone: (951)276-2777 | Email: sales@compressionspring.com | Business Hours: Mon-Thu/7:00AM-5:00PM PST | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | The Spring Store | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | International Shipping | Free ground shipping on orders over $50.00 (in continental US) | Made in USA | ISO 9001:2015 certified"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1771899761076
+  },
+  {
+    "provider": "mouser",
+    "query": "ATTINY13A Microchip (formerly Atmel) microcontroller 5V volt 8-pin 8-bit AVR core Flash memory MCU Internal oscillator Low-power ATTINY13A ATtiny13A tinyAVR pins 8 architecture AVR 8-bit operatingVoltage 5V",
+    "results": [
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A",
+        "description": "8-bit Microcontrollers - MCU Root part:AVR, 1KB FLASH, 64B EE, 64B SR",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769553381588
+  },
+  {
+    "provider": "mouser",
+    "query": "power adapter 5V 5V DC volt wall adapter wall-mounted DC output AC-DC 5V DC wall adapter outputVoltage 5V DC input AC mains (unspecified voltage range) outputCurrent unspecified power unspecified connector unspecified polarity unspecified",
+    "results": [
+      {
+        "manufacturer": "ADLINK Technology",
+        "manufacturerPartNumber": "450W, Redundant, AC to DC or HVDC to DC",
+        "description": "Wall Mount AC Adapters Dimension: 220x50.5x40mm(1U),Input Voltage: 100-240Vac or 190V-310V HVDC,Output Voltage: 12V/5Vsb,Frequency: 50-60Hz,Efficiency: >90%(Platinum), EMI/EMC===> Clase B",
+        "url": "https://www.mouser.com/ProductDetail/976-450WREDUNDANTACT",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "976-450WREDUNDANTACT",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769553279725
+  },
+  {
+    "provider": "mouser",
+    "query": "LED 5V volt 20mA amp 5mm indicator 5mm LED indicator diameter 5mm description 5mm indicator LED intended for 5V operation at 20mA",
+    "results": [
+      {
+        "manufacturer": "VCC",
+        "manufacturerPartNumber": "4302H1-5V",
+        "description": "Single Color LEDs RED DIFFUSED 5 VOLT",
+        "stock": 14883,
+        "url": "https://www.mouser.com/ProductDetail/606-4302H1-5V",
+        "attributes": {
+          "category": "Single Color LEDs",
+          "rohs": "",
+          "mouserPartNumber": "606-4302H1-5V",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769553240046
+  },
+  {
+    "provider": "mouser",
+    "query": "NE555 timer IC 5V (typical supply for this request) volt DIP-8, SOIC-8 (common) astable mode (oscillator) monostable mode (one-shot) reset pin discharge transistor TTL-compatible inputs NE555 555 timer function timer / oscillator IC supplyVoltageRange ~4.5V to 16V recommendedSupplyVoltage 5V pins 8 typicalOutputCurrent up to ~200mA (source/sink capability) operatingModes astable, monostable packageOptions DIP-8, SOIC-8, TSSOP-8 (varies by manufacturer) frequency depends on external R and C (user-defined for astable) usage astable multivibrator (square-wave oscillator) notes actual electrical characteristics vary by manufacturer and variant; consult datasheet for timing equations and limits",
+    "results": [
+      {
+        "manufacturer": "Diodes Incorporated",
+        "manufacturerPartNumber": "NE555",
+        "description": "Timers & Support Products",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": "https://www.mouser.com/datasheet/3/175/1/NE555_SA555_NA555.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769553217307
+  },
+  {
+    "provider": "mouser",
+    "query": "ATTINY13A Microchip (Atmel) microcontroller 5V volt 8-pin (DIP/SOIC variants) 8-bit AVR core Flash memory Low-power modes Internal oscillator Programmable I/O ATTINY13A ATtiny13A AVR architecture AVR 8-bit pins 8 memory flash-based MCU typicalUse low-pin-count, low-power applications packageOptions DIP-8, SOIC-8, others",
+    "results": [
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A",
+        "description": "8-bit Microcontrollers - MCU Root part:AVR, 1KB FLASH, 64B EE, 64B SR",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769552979377
+  },
+  {
+    "provider": "mouser",
+    "query": "AC-DC wall adapter 5 V 5 V DC volt wall-mounted AC to DC conversion 5V 5 V DC output 5 V DC mount wall plug type AC to DC adapter",
+    "results": [
+      {
+        "manufacturer": "Phihong",
+        "manufacturerPartNumber": "AA10A-050A-R",
+        "description": "Wall Mount AC Adapters 10W 5V 2A US 2.1x5.5 DC output",
+        "stock": 310,
+        "url": "https://www.mouser.com/ProductDetail/552-AA10A-050A-R",
+        "attributes": {
+          "category": "Wall Mount AC Adapters",
+          "rohs": "",
+          "mouserPartNumber": "552-AA10A-050A-R",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769552951070
+  },
+  {
+    "provider": "web",
+    "query": "resistor 330 ohm 0.25W 330 ohm 330Ω 330R",
+    "results": [
+      {
+        "manufacturer": "digikey.com",
+        "manufacturerPartNumber": "www.digikey.com",
+        "description": "www.digikey.com",
+        "url": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-330R/1636",
+        "attributes": {},
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769552908651
+  },
+  {
+    "provider": "mouser",
+    "query": "Indicator LED 5V volt 20mA amp 5mm (through-hole) indicator through-hole 5mm LED indicator 5mm diameter 5mm mounting through-hole recommendedSupplyVoltage 5V typicalForwardCurrent 20mA ledType indicator",
+    "results": [
+      {
+        "manufacturer": "Dialight",
+        "manufacturerPartNumber": "249-7868-3331-504F",
+        "description": "LED Panel Mount Indicators LED PANEL IND",
+        "stock": 221,
+        "url": "https://www.mouser.com/ProductDetail/645-24978683331-504F",
+        "attributes": {
+          "category": "LED Panel Mount Indicators",
+          "rohs": "",
+          "mouserPartNumber": "645-24978683331-504F",
+          "datasheet": "https://www.mouser.com/datasheet/3/350/1/Dialight_datasheet_249_Front_Rear.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769552859210
+  },
+  {
+    "provider": "mouser",
+    "query": "NE555 Integrated Circuit (Timer) 5V (commonly used); supply range 4.5-16V volt DIP-8 (also available in SOIC-8) Astable (oscillator) operation Monostable (one-shot) operation Bistable operation Adjustable frequency and duty cycle with external R and C TTL-compatible inputs High output drive NE555 555 timer timing IC supply_voltage_range 4.5-16 V typical_supply_current ~10 mA (varies by manufacturer) output_drive Can source/sink up to ~200 mA (peak, device dependent) thresholds Trigger = 1/3 Vcc; Threshold = 2/3 Vcc common_packages DIP-8, SOIC-8 typical_applications Astable multivibrator/oscillator, monostable one-shot, pulse generation note This is the bipolar NE555 family; CMOS variants (e.g., LMC555) have different specs",
+    "results": [
+      {
+        "manufacturer": "Diodes Incorporated",
+        "manufacturerPartNumber": "NE555",
+        "description": "Timers & Support Products",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": "https://www.mouser.com/datasheet/3/175/1/NE555_SA555_NA555.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769552822338
+  },
+  {
+    "provider": "web",
+    "query": "resistor 330 ohm 0.25 W 330 ohm 0.25W 1/4W resistance 330 ohm powerRating 0.25 W",
+    "results": [
+      {
+        "manufacturer": "digikey.com",
+        "manufacturerPartNumber": "www.digikey.com",
+        "description": "www.digikey.com",
+        "url": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-330R/1636",
+        "attributes": {},
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769551847539
+  },
+  {
+    "provider": "web",
+    "query": "LED 5mm indicator LED 5V volt 20mA amp 5mm (T-1 3/4) through-hole indicator through-hole 5mm indicator LED 5V diameter 5mm mount through-hole typicalForwardCurrent 20mA recommendedDriveVoltage 5V",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "specs": "Compliance Docs\n        \n            \n                \n                    \n                        W9 Form\n                    \n                    \n                        ISO 9001:2015 Certified\n                    \n                    \n                        Credit Application\n                    \n                    \n                        RoHs Certificate Compliance\n                    \n                    \n                        Reach Certificate\n                    \n\n                    \n                        California Proposition 65 Declaration\n                    \n                    \n                        California Resale Certificate\n                    \n                    \n                        Conflict Minerals Policy\n                    \n                    \n                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Our Tools\n        \n            \n                \n\n                    \n                        Instant Spring Quote\n                    \n                    \n                        3D CAD Drawings\n                    \n                    \n                        3D Blueprints\n                    \n\n                    \n                        Online Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Online Spring Force Tester | Compare Products () | Sign In | Create an Account | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Compare Products () | Sign In | Create an Account | Home | Buy Stainless Steel Compression Springs Online | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Step #1Choose your spring type | Stock Compression  Springs | About us | Customers Testimonials | Work With Us | Site Map | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | The Spring Store Catalogs | Stock Compression Springs Catalog | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | Address:2225 E. Cooley Dr. Colton, CA 92324 | Phone:(951) 276-2777 | Email:sales@thespringstore.com | Working Days/Hours:Mon - Thu / 7:00AM - 5:00PM PST | /TheSpringStore | @TheSpringStore"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769551839791
+  },
+  {
+    "provider": "web",
+    "query": "ATTINY13A Microchip (Atmel) microcontroller 8-bit AVR microcontroller 5V volt 8-pin 8-bit AVR core Flash memory GPIO ADC PWM Internal oscillator Watchdog timer Low power ATTINY13A ATtiny13 microcontroller pinCount 8 core AVR 8-bit family ATtiny series ATtiny13A partType microcontroller operatingVoltage 5V",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "specs": "Compliance Docs\n        \n            \n                \n                    \n                        W9 Form\n                    \n                    \n                        ISO 9001:2015 Certified\n                    \n                    \n                        Credit Application\n                    \n                    \n                        RoHs Certificate Compliance\n                    \n                    \n                        Reach Certificate\n                    \n\n                    \n                        California Proposition 65 Declaration\n                    \n                    \n                        California Resale Certificate\n                    \n                    \n                        Conflict Minerals Policy\n                    \n                    \n                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Our Tools\n        \n            \n                \n\n                    \n                        Instant Spring Quote\n                    \n                    \n                        3D CAD Drawings\n                    \n                    \n                        3D Blueprints\n                    \n\n                    \n                        Online Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Online Spring Force Tester | Compare Products () | Sign In | Create an Account | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Compare Products () | Sign In | Create an Account | Home | Buy Stainless Steel Compression Springs Online | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Step #1Choose your spring type | Stock Compression  Springs | About us | Customers Testimonials | Work With Us | Site Map | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | The Spring Store Catalogs | Stock Compression Springs Catalog | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | Address:2225 E. Cooley Dr. Colton, CA 92324 | Phone:(951) 276-2777 | Email:sales@thespringstore.com | Working Days/Hours:Mon - Thu / 7:00AM - 5:00PM PST | /TheSpringStore | @TheSpringStore"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769551692164
+  },
+  {
+    "provider": "web",
+    "query": "power supply 5 V 5 V DC volt wall adapter (wall-wart) DC output mains powered wall-mount/plug-in 5V DC wall adapter AC adapter output 5 V DC type wall adapter formFactor wall plug (wall-wart) input mains AC (unspecified) outputType DC connector unspecified current unspecified power unspecified",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "specs": "Compliance Docs\n        \n            \n                \n                    \n                        W9 Form\n                    \n                    \n                        ISO 9001:2015 Certified\n                    \n                    \n                        Credit Application\n                    \n                    \n                        RoHs Certificate Compliance\n                    \n                    \n                        Reach Certificate\n                    \n\n                    \n                        California Proposition 65 Declaration\n                    \n                    \n                        California Resale Certificate\n                    \n                    \n                        Conflict Minerals Policy\n                    \n                    \n                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Our Tools\n        \n            \n                \n\n                    \n                        Instant Spring Quote\n                    \n                    \n                        3D CAD Drawings\n                    \n                    \n                        3D Blueprints\n                    \n\n                    \n                        Online Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Online Spring Force Tester | Compare Products () | Sign In | Create an Account | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Compare Products () | Sign In | Create an Account | Home | Buy Stainless Steel Compression Springs Online | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Step #1Choose your spring type | Stock Compression  Springs | About us | Customers Testimonials | Work With Us | Site Map | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | The Spring Store Catalogs | Stock Compression Springs Catalog | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | Address:2225 E. Cooley Dr. Colton, CA 92324 | Phone:(951) 276-2777 | Email:sales@thespringstore.com | Working Days/Hours:Mon - Thu / 7:00AM - 5:00PM PST | /TheSpringStore | @TheSpringStore"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769551666960
+  },
+  {
+    "provider": "web",
+    "query": "resistor 330 ohm 0.25W 330 ohm 0.25W 1/4W",
+    "results": [
+      {
+        "manufacturer": "digikey.com",
+        "manufacturerPartNumber": "www.digikey.com",
+        "description": "www.digikey.com",
+        "url": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF14JT330R/1741399",
+        "attributes": {},
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769551644550
+  },
+  {
+    "provider": "web",
+    "query": "Indicator LED 5mm indicator LED 5V volt 20mA amp 5mm indicator through-hole 5mm 5mm indicator LED LED diameter 5mm type indicator LED mounting through-hole typical_forward_current 20mA recommended_supply_voltage 5V",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "specs": "Compliance Docs\n        \n            \n                \n                    \n                        W9 Form\n                    \n                    \n                        ISO 9001:2015 Certified\n                    \n                    \n                        Credit Application\n                    \n                    \n                        RoHs Certificate Compliance\n                    \n                    \n                        Reach Certificate\n                    \n\n                    \n                        California Proposition 65 Declaration\n                    \n                    \n                        California Resale Certificate\n                    \n                    \n                        Conflict Minerals Policy\n                    \n                    \n                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Our Tools\n        \n            \n                \n\n                    \n                        Instant Spring Quote\n                    \n                    \n                        3D CAD Drawings\n                    \n                    \n                        3D Blueprints\n                    \n\n                    \n                        Online Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Online Spring Force Tester | Compare Products () | Sign In | Create an Account | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Compare Products () | Sign In | Create an Account | Home | Buy Stainless Steel Compression Springs Online | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Step #1Choose your spring type | Stock Compression  Springs | About us | Customers Testimonials | Work With Us | Site Map | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | The Spring Store Catalogs | Stock Compression Springs Catalog | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | Address:2225 E. Cooley Dr. Colton, CA 92324 | Phone:(951) 276-2777 | Email:sales@thespringstore.com | Working Days/Hours:Mon - Thu / 7:00AM - 5:00PM PST | /TheSpringStore | @TheSpringStore"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769551629638
+  },
+  {
+    "provider": "web",
+    "query": "ATTINY13A Microchip (Atmel) microcontroller 8-bit AVR microcontroller 5V volt 8-pin 8-bit AVR core 5V operation programmable flash memory low-power TinyAVR family ATTINY13A ATtiny13A TinyAVR family TinyAVR pinCount 8",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "specs": "Compliance Docs\n        \n            \n                \n                    \n                        W9 Form\n                    \n                    \n                        ISO 9001:2015 Certified\n                    \n                    \n                        Credit Application\n                    \n                    \n                        RoHs Certificate Compliance\n                    \n                    \n                        Reach Certificate\n                    \n\n                    \n                        California Proposition 65 Declaration\n                    \n                    \n                        California Resale Certificate\n                    \n                    \n                        Conflict Minerals Policy\n                    \n                    \n                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Our Tools\n        \n            \n                \n\n                    \n                        Instant Spring Quote\n                    \n                    \n                        3D CAD Drawings\n                    \n                    \n                        3D Blueprints\n                    \n\n                    \n                        Online Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Online Spring Force Tester | Compare Products () | Sign In | Create an Account | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Compare Products () | Sign In | Create an Account | Home | Buy Stainless Steel Compression Springs Online | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Step #1Choose your spring type | Stock Compression  Springs | About us | Customers Testimonials | Work With Us | Site Map | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | The Spring Store Catalogs | Stock Compression Springs Catalog | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | Address:2225 E. Cooley Dr. Colton, CA 92324 | Phone:(951) 276-2777 | Email:sales@thespringstore.com | Working Days/Hours:Mon - Thu / 7:00AM - 5:00PM PST | /TheSpringStore | @TheSpringStore"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769551035288
+  },
+  {
+    "provider": "web",
+    "query": "ATTINY13A Microchip (formerly Atmel) microcontroller 5V volt 8-pin 8-bit AVR core Flash microcontroller Internal oscillator Low-power modes Multiple programmable I/O lines ATTINY13A ATtiny13A 5V pinCount 8 ioCount 6 architecture AVR 8-bit",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "specs": "Compliance Docs\n        \n            \n                \n                    \n                        W9 Form\n                    \n                    \n                        ISO 9001:2015 Certified\n                    \n                    \n                        Credit Application\n                    \n                    \n                        RoHs Certificate Compliance\n                    \n                    \n                        Reach Certificate\n                    \n\n                    \n                        California Proposition 65 Declaration\n                    \n                    \n                        California Resale Certificate\n                    \n                    \n                        Conflict Minerals Policy\n                    \n                    \n                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Our Tools\n        \n            \n                \n\n                    \n                        Instant Spring Quote\n                    \n                    \n                        3D CAD Drawings\n                    \n                    \n                        3D Blueprints\n                    \n\n                    \n                        Online Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Online Spring Force Tester | Compare Products () | Sign In | Create an Account | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Compare Products () | Sign In | Create an Account | Home | Buy Stainless Steel Compression Springs Online | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Step #1Choose your spring type | Stock Compression  Springs | About us | Customers Testimonials | Work With Us | Site Map | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | The Spring Store Catalogs | Stock Compression Springs Catalog | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | Address:2225 E. Cooley Dr. Colton, CA 92324 | Phone:(951) 276-2777 | Email:sales@thespringstore.com | Working Days/Hours:Mon - Thu / 7:00AM - 5:00PM PST | /TheSpringStore | @TheSpringStore"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769550869215
+  },
+  {
+    "provider": "mouser",
+    "query": "NE555 NE555-compatible (various vendors) Timer IC / electronic components 5 V volt DIP-8 (common) astable multivibrator adjustable frequency (via R/C) single-supply operation suitable for LED driving with current limiting resistor NE555 555 timer astable mode astable (oscillator) targetFrequency 10 Hz timingFormula f = 1.44 / ((R1 + 2*R2) * C) exampleValues C = 0.1 uF, R1 = 1 kΩ, R2 ≈ 680 kΩ (gives ~10.6 Hz) — R2 ≈720 kΩ gives ~10.0 Hz expectedDutyCycle ~50% (with R1 << R2; calculated = (R1+R2)/(R1+2R2)) decouplingCap 0.1 uF between Vcc and GND recommended led standard LED (e.g., 5 mm) ledResistorCalculation R_LED ≈ (Vcc - V_f_LED) / I_LED exampleLedResistor for Vcc=5V and V_f≈2.0V: R ≈ 300 Ω for 10 mA, 470 Ω for ≈6.4 mA outputCurrent NE555 can typically source/sink up to ~200 mA peak (practical LED current typically 5–20 mA) recommendedPartsList 1× NE555 timer IC (DIP-8), 1× timing capacitor (0.1 µF), 1× R1 (1 kΩ), 1× R2 (680–720 kΩ), 1× LED, 1× R_LED (330–470 Ω), 1× 0.1 µF decoupling cap, optional 10 µF supply cap, hookup wires/breadboard notes Values given are typical starting points. Use the timing formula to adjust R and C for exact frequency; R values too low increase supply current and may stress the IC; keep timing resistor values within manufacturer recommendations.",
+    "results": [
+      {
+        "manufacturer": "Diodes Incorporated",
+        "manufacturerPartNumber": "NE555",
+        "description": "Timers & Support Products",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": "https://www.mouser.com/datasheet/3/175/1/NE555_SA555_NA555.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769550819588
+  },
+  {
+    "provider": "mouser",
+    "query": "MCP6001 Microchip operational amplifier 5V volt rail-to-rail input rail-to-rail output single-supply MCP6001 rail-to-rail op amp numberOfChannels 1 amplifierType single-supply rail-to-rail op amp supplyVoltageRange 1.8V-5.5V",
+    "results": [
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "MCP6001T-E/OT",
+        "description": "Operational Amplifiers - Op Amps Single 1.8V 1MHz",
+        "stock": 33738,
+        "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOT",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "579-MCP6001T-E/OT",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "MCP6001RT-E/OT",
+        "description": "Operational Amplifiers - Op Amps Single 1.8V 1MHz",
+        "stock": 6027,
+        "url": "https://www.mouser.com/ProductDetail/579-MCP6001RT-E%2FOT",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "579-MCP6001RT-E/OT",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "MCP6001T-E/OTVAO",
+        "description": "Operational Amplifiers - Op Amps Automotive, Single 1.8V 1MHz OP, E temp",
+        "stock": 6000,
+        "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOTVAO",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "579-MCP6001T-E/OTVAO",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "MCP6001UT-I/OT",
+        "description": "Operational Amplifiers - Op Amps Single 1.8V 1MHz",
+        "stock": 41808,
+        "url": "https://www.mouser.com/ProductDetail/579-MCP6001UT-I%2FOT",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "579-MCP6001UT-I/OT",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "MCP6001T-E/LTVAO",
+        "description": "Operational Amplifiers - Op Amps Automotive, Single 1.8V 1MHz OP, E temp",
+        "stock": 3000,
+        "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FLTVAO",
+        "attributes": {
+          "category": "Operational Amplifiers - Op Amps",
+          "rohs": "",
+          "mouserPartNumber": "579-MCP6001T-E/LTVAO",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769549909923
+  },
+  {
+    "provider": "mouser",
+    "query": "ATTINY13A Microchip (formerly Atmel) microcontroller 8-bit AVR microcontroller 5V volt 8-bit AVR core Flash program memory EEPROM SRAM Low-power modes 8-bit timer/counter Watchdog timer Analog-to-digital converter (ADC) Internal oscillator ATTINY13A ATtiny13 AVR flash 1 KB sram 64 bytes eeprom 64 bytes ioPins 6 maxClock 20 MHz operatingVoltageRange 2.7-5.5 V architecture AVR 8-bit",
+    "results": [
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A",
+        "description": "8-bit Microcontrollers - MCU Root part:AVR, 1KB FLASH, 64B EE, 64B SR",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SN",
+        "description": "8-bit Microcontrollers - MCU 1KB FLASH 64B EE 64B SRAM 20MHz",
+        "stock": 2844,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SN",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SN",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SNR",
+        "description": "8-bit Microcontrollers - MCU AVR 1KB FL 64B EE 64B SRAM 20MHz GRN",
+        "stock": 1824,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SNR",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SNR",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SSU",
+        "description": "8-bit Microcontrollers - MCU 1KB In-system Flash 20MHz 1.8V-5.5V",
+        "stock": 6093,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SSU",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SSU",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Microchip Technology",
+        "manufacturerPartNumber": "ATTINY13A-SF",
+        "description": "8-bit Microcontrollers - MCU AVR 1KB FLSH 64B EE 64B SRAM-20MHz+125C",
+        "stock": 4276,
+        "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SF",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "556-ATTINY13A-SF",
+          "datasheet": "https://www.mouser.com/datasheet/3/282/1/ATtiny13A_Data_Sheet_DS40002307A.pdf"
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769549856399
+  },
+  {
+    "provider": "mouser",
+    "query": "NE555 Timer IC 10 Hz 5 V volt DIP-8 astable operation LED flasher NE555 555 timer astable mode astable application LED flasher targetFrequency 10 Hz supplyVoltage 5 V",
+    "results": [
+      {
+        "manufacturer": "Diodes Incorporated",
+        "manufacturerPartNumber": "NE555",
+        "description": "Timers & Support Products",
+        "url": "https://www.mouser.com/ProductDetail/N%2FA",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "N/A",
+          "datasheet": "https://www.mouser.com/datasheet/3/175/1/NE555_SA555_NA555.pdf"
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "NE555P",
+        "description": "Timers & Support Products Precision",
+        "stock": 17535,
+        "url": "https://www.mouser.com/ProductDetail/595-NE555P",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "595-NE555P",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "NE555DR1G4",
+        "description": "Timers & Support Products Single Precision Tim er",
+        "stock": 1049,
+        "url": "https://www.mouser.com/ProductDetail/595-NE555DR1G4",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "595-NE555DR1G4",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "NE555PSR",
+        "description": "Timers & Support Products Precision A 595-NE55 5PSRG4 A 595-NE555PSRG4",
+        "stock": 7315,
+        "url": "https://www.mouser.com/ProductDetail/595-NE555PSR",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "595-NE555PSR",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "Texas Instruments",
+        "manufacturerPartNumber": "NE555PS",
+        "description": "Timers & Support Products Single Precision Tim er 8-SO A 595-NE555 A 595-NE555PSR",
+        "stock": 1164,
+        "url": "https://www.mouser.com/ProductDetail/595-NE555PS",
+        "attributes": {
+          "category": "Timers & Support Products",
+          "rohs": "",
+          "mouserPartNumber": "595-NE555PS",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769549822202
+  },
+  {
+    "provider": "web",
+    "query": "STM8S003F3P6 STMicroelectronics development board 5V volt STM8S003F3P6 STM8 dev board microcontroller STM8S003F3P6 logicLevel 5V boardType development board",
+    "results": [
+      {
+        "manufacturer": "thespringstore.com",
+        "manufacturerPartNumber": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "description": "Find the ideal Stainless Steel Compression Spring in 3 easy",
+        "url": "https://www.thespringstore.com/buy-stainless-steel-compression-springs-online.html",
+        "attributes": {
+          "specs": "Compliance Docs\n        \n            \n                \n                    \n                        W9 Form\n                    \n                    \n                        ISO 9001:2015 Certified\n                    \n                    \n                        Credit Application\n                    \n                    \n                        RoHs Certificate Compliance\n                    \n                    \n                        Reach Certificate\n                    \n\n                    \n                        California Proposition 65 Declaration\n                    \n                    \n                        California Resale Certificate\n                    \n                    \n                        Conflict Minerals Policy\n                    \n                    \n                        Conflict Minerals Report | W9 Form | ISO 9001:2015 Certified | Credit Application | RoHs Certificate Compliance | Reach Certificate | California Proposition 65 Declaration | California Resale Certificate | Conflict Minerals Policy | Conflict Minerals Report | Our Tools\n        \n            \n                \n\n                    \n                        Instant Spring Quote\n                    \n                    \n                        3D CAD Drawings\n                    \n                    \n                        3D Blueprints\n                    \n\n                    \n                        Online Spring Force Tester | Instant Spring Quote | 3D CAD Drawings | 3D Blueprints | Online Spring Force Tester | Compare Products () | Sign In | Create an Account | Spring Calculator 5.0 | Spring Calculator 4.0 | Spring Calculators | Spring Calculator Types | Home | Buy Stainless Steel Compression Springs Online | Stainless Steel AISI 302/304 ASTM A 313 | Stainless Steel AISI 316 ASTM A 313 (631) | Stainless Steel 17-7 PH ASTM A 313 (631) | Step #1Choose your spring type | Stock Compression  Springs | About us | Customers Testimonials | Work With Us | Site Map | Contact us | W9 Form | ISO Certification | RoHs | REACH | Terms and Conditions | The Spring Store Catalogs | Stock Compression Springs Catalog | FAQ’s | Get a Quote with Instant Spring Quote | Search with Spring Finder 5.0 | Design with Spring Creator 5.0 | Test with Online Spring Force Tester | Instant Spring Quote | Spring Creator 5.0 | Spring Creator 4.0 | Spring Finder 5.0 | Acxess Spring | Compression Spring | Stock Springs Catalog | Instant Spring Quote | Spring Creator 5.0 | Address:2225 E. Cooley Dr. Colton, CA 92324 | Phone:(951) 276-2777 | Email:sales@thespringstore.com | Working Days/Hours:Mon - Thu / 7:00AM - 5:00PM PST | /TheSpringStore | @TheSpringStore"
+        },
+        "provider": "web"
+      }
+    ],
+    "timestamp": 1769549660651
+  },
+  {
+    "provider": "mouser",
+    "query": "STM8S003F3P6 STMicroelectronics development board 5V volt STM8S003F3P6 STM8 dev board microcontroller STM8S003F3P6 logicLevel 5V boardType development board",
+    "results": [
+      {
+        "manufacturer": "STMicroelectronics",
+        "manufacturerPartNumber": "STM8S003F3P6",
+        "description": "8-bit Microcontrollers - MCU 8-bit MCU Value Line 16 MHz 8kb FL 128EE",
+        "stock": 130235,
+        "url": "https://www.mouser.com/ProductDetail/511-STM8S003F3P6",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "511-STM8S003F3P6",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      },
+      {
+        "manufacturer": "STMicroelectronics",
+        "manufacturerPartNumber": "STM8S003F3P6TR",
+        "description": "8-bit Microcontrollers - MCU 8-Bit MCU Value Line 8kB Flash 16MHz EE",
+        "stock": 56934,
+        "url": "https://www.mouser.com/ProductDetail/511-STM8S003F3P6TR",
+        "attributes": {
+          "category": "8-bit Microcontrollers - MCU",
+          "rohs": "",
+          "mouserPartNumber": "511-STM8S003F3P6TR",
+          "datasheet": ""
+        },
+        "provider": "mouser"
+      }
+    ],
+    "timestamp": 1769549652225
   }
 ]

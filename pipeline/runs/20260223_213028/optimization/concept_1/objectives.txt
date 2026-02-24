@@ -1,0 +1,2 @@
+- (minimize) total_cost_usd
+- (minimize) performance_penalty

@@ -1,0 +1,82 @@
+{
+  "id": "resp_0c72cbc79750972200697906a29dcc81978fbec812e9c0ba97",
+  "created_at": 1769539234.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0c72cbc79750972200697906a3277481978596f62686e7c3b2",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0c72cbc79750972200697906d540508197b3ecee409e9b529b",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDFlickerDesign {\n    /* Assumptions: LED forward voltage Vf = 2.0 V, target LED current If = 10 mA.\n       Timing implemented with an NE555 astable configured to ~10 Hz. Mouser\n       part numbers are example/sourceable references; verify availability on mouser.com. */\n    block Circuit {\n        property supplyVoltage: Real = 5.0; // V\n        property frequencyHz: Real = 10.0; // Hz\n        constraint FrequencyTolerance { bodyExpression = \"frequencyHz >= 9.5 and frequencyHz <= 10.5\"; }\n\n        property ledVf: Real = 2.0; // V (assumed)\n        property ledIf: Real = 0.01; // A (assumed target current)\n        property seriesResistorOhm: Real = 330.0; // chosen standard value to limit current ~9.1 mA\n\n        property timerMouserPN: String = \"595-NE555P\"; // example NE555 on Mouser\n        property resistorMouserPN: String = \"710-330-R-ND\"; // example 330 \u03a9 resistor on Mouser\n        property ledMouserPN: String = \"604-APTD1608\"; // example LED on Mouser\n\n        constraint CurrentLimit { bodyExpression = \"seriesResistorOhm >= (supplyVoltage - ledVf)/ledIf - 1e-6\"; }\n    }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769539291.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2369,
+    "output_tokens_details": {
+      "reasoning_tokens": 2048
+    },
+    "total_tokens": 2629
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

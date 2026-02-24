@@ -1,0 +1,65 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'Timer IC / Circuit',
+  manufacturer: undefined,
+  partNumber: 'NE555',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5 V',
+  current: undefined,
+  package: 'DIP-8',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'astable', 'LED flasher', '5 V operation' ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    targetFrequency: '10 Hz',
+    supplyVoltage: '5 V',
+    timingComponents: 'RA = 5.1 kΩ, RB = 4.7 kΩ, C = 10 µF (electrolytic) → f ≈ 10 Hz',
+    formula: 'f = 1.44 / ((RA + 2·RB)·C)',
+    dutyCycleApprox: '(RA+RB)/(RA+2RB) ≈ 68% (high)',
+    led: 'standard LED (e.g., red), Vf ≈ 2.0 V',
+    ledSeriesResistor: '330 Ω, 1/4 W (≈10 mA at 5 V)',
+    decoupling: '0.1 µF VCC–GND bypass; 0.01 µF control-pin (pin 5) to GND',
+    icPackageNotes: 'DIP-8 through-hole typical (SOIC-8 also possible)',
+    operatingRange: 'NE555 typical Vcc range ≈ 4.5–16 V (designed here for 5 V)',
+    optional: 'Add diode across RB for near-50% duty; add power supply decoupling and current-limiting for LED',
+    componentsList: 'NE555 IC, RA 5.1 kΩ, RB 4.7 kΩ, C 10 µF, LED, Rled 330 Ω, 0.1 µF bypass, 0.01 µF control bypass'
+  }
+}
+Source: live | Query: "NE555 Timer IC / Circuit 5 V volt DIP-8 astable LED flasher 5 V operation NE555 555 timer astable targetFrequency 10 Hz supplyVoltage 5 V timingComponents RA = 5.1 kΩ, RB = 4.7 kΩ, C = 10 µF (electrolytic) → f ≈ 10 Hz formula f = 1.44 / ((RA + 2·RB)·C) dutyCycleApprox (RA+RB)/(RA+2RB) ≈ 68% (high) led standard LED (e.g., red), Vf ≈ 2.0 V ledSeriesResistor 330 Ω, 1/4 W (≈10 mA at 5 V) decoupling 0.1 µF VCC–GND bypass; 0.01 µF control-pin (pin 5) to GND icPackageNotes DIP-8 through-hole typical (SOIC-8 also possible) operatingRange NE555 typical Vcc range ≈ 4.5–16 V (designed here for 5 V) optional Add diode across RB for near-50% duty; add power supply decoupling and current-limiting for LED componentsList NE555 IC, RA 5.1 kΩ, RB 4.7 kΩ, C 10 µF, LED, Rled 330 Ω, 0.1 µF bypass, 0.01 µF control bypass" | Matches: 5
+------------------------------------------------------------------------
+NE555P (Texas Instruments)
+  Mouser #: 595-NE555P
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 17535
+  URL: https://www.mouser.com/ProductDetail/595-NE555P
+------------------------------------------------------------------------
+NE555PSR (Texas Instruments)
+  Mouser #: 595-NE555PSR
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 7315
+  URL: https://www.mouser.com/ProductDetail/595-NE555PSR
+------------------------------------------------------------------------
+NE555PS (Texas Instruments)
+  Mouser #: 595-NE555PS
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1164
+  URL: https://www.mouser.com/ProductDetail/595-NE555PS
+------------------------------------------------------------------------
+NE555DR1G4 (Texas Instruments)
+  Mouser #: 595-NE555DR1G4
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1049
+  URL: https://www.mouser.com/ProductDetail/595-NE555DR1G4
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

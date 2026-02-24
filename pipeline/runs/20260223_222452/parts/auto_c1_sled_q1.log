@@ -1,0 +1,13 @@
+slot: led
+query_input_original: {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.98605827mA", "voltage": "5.01836478V", "features": ["indicator", "visible"]}
+query_input_used: {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.98605827mA", "voltage": "5.01836478V", "features": ["indicator", "visible"]}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.98605827mA", "voltage": "5.01836478V", "features": ["indicator", "visible"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+521-8714F (Dialight)
+Stock: 1410
+Unit price: 0.62
+URL: https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 5, "stock": 1410, "unitPrice": 0.62, "manufacturer": "Dialight", "manufacturerPartNumber": "521-8714F", "description": "5mm through-hole high-intensity red indicator LED, 630 nm, 20 mA forward current, Vf 2.4 V, clear lens, 15\u00b0 viewing angle.", "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D", "provider": "configurator", "attributes": {"voltage": "Vf 2.4 V (forward voltage)", "current": "If 20 mA (forward current)", "power": "\u224848 mW (Vf * If \u2248 2.4 V * 20 mA)", "value": "630 nm (red), 7500 mcd luminous intensity (typ at 20 mA)", "package": "5 mm through-hole (clear lens), 15\u00b0 viewing angle"}}

@@ -1,0 +1,8 @@
+slot: led
+query_input_original: {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.43623983mA", "voltage": "4.87324082V", "features": ["indicator", "visible"]}
+query_input_used: {"slot": "led", "keywords": ["led"]}
+search_attempts: [{"input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led", "current": "13.43623983mA", "voltage": "4.87324082V", "features": ["indicator", "visible"]}, "status": "timeout", "count": 0, "error": "timeout after 10s"}, {"input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "NE555-astable", "led"], "category": "led"}, "status": "ok", "count": 0, "error": null}, {"input": {"slot": "led", "keywords": ["led"]}, "status": "ok", "count": 0, "error": null}]
+search_status: ok
+matches: 0
+----
+selected: {"status": "not_found", "reason": "no_results", "constraint_match_score": 0}

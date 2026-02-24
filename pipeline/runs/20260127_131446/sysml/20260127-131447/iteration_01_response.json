@@ -1,0 +1,82 @@
+{
+  "id": "resp_09932898553833ac0069790097f23081958981c5d150c11750",
+  "created_at": 1769537687.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_09932898553833ac00697900985860819588f6fbe07681553e",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_09932898553833ac00697900b2c6fc8195b2637d7025bcfb10",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LED_Flicker_Circuit {\n  // Assumptions: LED Vf=2.0V, target If\u224810mA; NE555 in astable config. Standard vendor parts chosen.\n  block Circuit {\n    property supplyVoltage: Real = 5.0 /*V*/;\n    property timer: String = \"NE555 (e.g., TI NE555P)\";\n    property Ra: Real = 10_000.0 /*Ohm*/;\n    property Rb: Real = 68_000.0 /*Ohm*/;\n    property C: Real = 1e-6 /*F*/;\n    property Rled: Real = 330.0 /*Ohm*/;\n    property ledVf: Real = 2.0 /*V*/;\n    property ledIf: Real = 0.010 /*A*/;\n    // 555 astable frequency f = 1.44 / ((Ra + 2*Rb)*C)\n    derived property frequency: Real = 1.44 / ((Ra + 2.0 * Rb) * C) /*Hz*/;\n    constraint frequency_in_spec: Boolean = (frequency >= 9.5) and (frequency <= 10.5);\n    constraint led_current_check: Boolean = ((supplyVoltage - ledVf) / Rled) >= (0.009) and ((supplyVoltage - ledVf) / Rled) <= (0.020);\n    property vendor_notes: String = \"Parts sourceable from common vendors: NE555 (TI/ST/OnSemi), resistors/caps (Yageo/TDK/Murata), generic 5mm LED (Kingbright, Everlight)\";\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769537719.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2144,
+    "output_tokens_details": {
+      "reasoning_tokens": 1728
+    },
+    "total_tokens": 2404
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

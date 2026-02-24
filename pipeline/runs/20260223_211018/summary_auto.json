@@ -1,0 +1,63 @@
+{
+  "prompt": "# Natural-language brief (echoed twice per Sysmlgeneration guidance)\nDesign a 5V rechargeable LED flasher that blinks at 10 Hz \u00b15%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts.\n\n-- repeat --\nDesign a 5V rechargeable LED flasher that blinks at 10 Hz \u00b15%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts.\n\n# Instructions to the model (keep in prompt for refine_sysml.py)\n- Emit the minimal SysMLv2 that satisfies the brief.\n- Avoid redundant packages/properties; be concise.\n- Conform to SysIDE; model must pass `syside check`.\n- If uncertain, make the best assumption and note it in a comment.",
+  "sysml": "iteration_02.sysml",
+  "concepts_file": "concepts/auto_concepts.json",
+  "parts_logs": [
+    "auto_c1_sdriver_q1.log",
+    "auto_c1_sled_q1.log",
+    "auto_c1_sresistor_q1.log",
+    "auto_c1_ssupply_q1.log",
+    "auto_c2_sled_q1.log",
+    "auto_c2_smcu_q1.log",
+    "auto_c2_sresistor_q1.log",
+    "auto_c2_ssupply_q1.log",
+    "auto_c3_sled_q1.log",
+    "auto_c3_sopamp_q1.log",
+    "auto_c3_sresistor_q1.log",
+    "auto_c3_ssupply_q1.log"
+  ],
+  "design_instances": "deliverables/design_instances.sysml",
+  "bom_rows": "deliverables/bom.json",
+  "optimized_design_instances": "deliverables/design_instances_optimized.sysml",
+  "optimized_bom": "deliverables/bom_optimized.json",
+  "optimization_targets": {
+    "supply_voltage_v": 5.0,
+    "target_freq_hz": 10.0,
+    "freq_tol_pct": 5.0,
+    "current_min_ma": 8.0,
+    "current_max_ma": 20.0,
+    "runtime_min_h": 8.0
+  },
+  "concept_status": [
+    {
+      "concept_index": 1,
+      "concept": "NE555-astable",
+      "optimization_status": "error",
+      "parts_selected": 0,
+      "slots_total": 4,
+      "model_path": "optimization/concept_1/model.sysml",
+      "best_solution_path": "optimization/concept_1/best_solution.json",
+      "error": "syspipe failed with code 1"
+    },
+    {
+      "concept_index": 2,
+      "concept": "Microcontroller-PWM",
+      "optimization_status": "error",
+      "parts_selected": 0,
+      "slots_total": 4,
+      "model_path": "optimization/concept_2/model.sysml",
+      "best_solution_path": "optimization/concept_2/best_solution.json",
+      "error": "syspipe failed with code 1"
+    },
+    {
+      "concept_index": 3,
+      "concept": "OpAmp-Relaxation",
+      "optimization_status": "error",
+      "parts_selected": 0,
+      "slots_total": 4,
+      "model_path": "optimization/concept_3/model.sysml",
+      "best_solution_path": "optimization/concept_3/best_solution.json",
+      "error": "syspipe failed with code 1"
+    }
+  ]
+}

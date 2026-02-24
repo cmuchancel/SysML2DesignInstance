@@ -68,6 +68,11 @@ const mergePart = (base: PartResult, incoming: PartResult): PartResult => {
 const dedupeResults = (items: PartResult[]): PartResult[] => {
   const byKey = new Map<string, PartResult>();
   for (const item of items) {
+    // Fill missing Mouser product URL if we have MouserPartNumber attribute.
+    if (!item.url && item.attributes?.mouserPartNumber) {
+      const mpn = item.attributes.mouserPartNumber;
+      item.url = `https://www.mouser.com/ProductDetail/${encodeURIComponent(mpn)}`;
+    }
     const mpn = item.manufacturerPartNumber?.toLowerCase().replace(/\s+/g, "").trim();
     const url = item.url?.split("?")[0].toLowerCase();
     const key = mpn || url || `${item.manufacturer}-${Math.random()}`;

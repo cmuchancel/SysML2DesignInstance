@@ -1,0 +1,7 @@
+slot: mcu
+query_input: {"slot": "mcu", "keywords": ["ATTINY13A 5V microcontroller", "Microcontroller-PWM", "mcu"], "category": "ic", "voltage": "5.01034654V", "features": ["timer", "oscillator", "low power"]}
+search_status: timeout
+error: timeout after 20s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 20s", "constraint_match_score": 0}

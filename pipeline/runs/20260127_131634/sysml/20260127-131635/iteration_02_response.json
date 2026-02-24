@@ -1,0 +1,82 @@
+{
+  "id": "resp_0b93947ea3fea53b0069790149ba7c8193b671b7b774fb6169",
+  "created_at": 1769537865.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0b93947ea3fea53b006979014a26288193bf88d831f076bd2e",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0b93947ea3fea53b0069790168b78c8193bff4b005d2db4ef0",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LedFlicker {\n  requirement LED_Flicker {\n    short = \"LED flickers at 10 Hz \u00b15% from 5 V supply with current limiting and vendor-sourceable parts\"\n    text = \"Specification: LED blink frequency = 10 Hz \u00b15% (9.5\u201310.5 Hz) when powered from a 5.0 V supply. Include a series current-limiting resistor sized for typical LED forward voltage (assume Vf \u2248 2.0 V) and target current \u224810 mA \u2192 R \u2248 (5.0\u22122.0)/0.01 = 300 \u03a9 (use standard 330 \u03a9). Example vendor-sourceable parts: LED Kingbright WP710A10ID, Resistor Vishay CRCW0805330R (330 \u03a9), Timer NE555P (Texas Instruments) or equivalent microcontroller PWM source. Assumption: Vf \u2248 2.0 V and target LED current \u224810 mA unless specified otherwise.\"\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769537900.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 10849,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2025,
+    "output_tokens_details": {
+      "reasoning_tokens": 1792
+    },
+    "total_tokens": 12874
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

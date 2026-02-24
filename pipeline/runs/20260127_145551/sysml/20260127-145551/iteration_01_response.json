@@ -1,0 +1,82 @@
+{
+  "id": "resp_0864a95aa27b829100697918485460819386281d8f43445354",
+  "created_at": 1769543752.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0864a95aa27b82910069791848b0c88193b560f46f076632cc",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0864a95aa27b8291006979187a31148193a3cb903dbfabe7ba",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package BlinkDesign {\n  // Assumptions: LED Vf = 2.0 V, target If = 10 mA (not specified by user)\n  requirement REQ_FREQUENCY { text = \"LED flickers at 10 Hz \u00b15% from a 5 V supply.\"; }\n  requirement REQ_CURRENT_LIMIT { text = \"Include current limiting for the LED.\"; }\n  requirement REQ_SOURCEABLE { text = \"Parts must be sourceable from Mouser.\"; }\n\n  constraintDefinition FrequencyRange { expression = \"9.5 <= frequency and frequency <= 10.5\"; comment = \"Hz\" }\n  constraintDefinition ResistorOhms { expression = \"R = (Vcc - Vf) / If\"; comment = \"Ohms\" }\n\n  block LED {\n    property Vf: Real;    // V\n    property If: Real;    // A\n    property supplier: String?;\n    property partNumber: String?;\n    property supplierURL: String?;\n  }\n\n  block Resistor {\n    property R: Real;     // ohms\n    property power: Real; // W\n    property supplier: String?;\n    property partNumber: String?;\n    property supplierURL: String?;\n  }\n\n  block Timer555 {\n    property frequency: Real; // Hz\n    property supplier: String?;\n    property partNumber: String?;\n    property supplierURL: String?;\n  }\n\n  block BlinkCircuit {\n    property Vcc: Real;\n    property targetFreq: Real;\n    part timer: Timer555;\n    part led: LED;\n    part r: Resistor;\n  }\n\n  instance blink1: BlinkCircuit {\n    Vcc = 5.0;\n    targetFreq = 10.0;\n    // assumed LED params\n    led.Vf = 2.0;\n    led.If = 0.01;\n    // resistor computed per ResistorOhms: R = (5 - 2)/0.01 = 300 Ohm\n    r.R = 300.0;\n    r.power = 0.125; // 1/8 W selected (>= (Vdrop*I) = 0.03 W)\n    // timer nominal setting to meet FrequencyRange\n    timer.frequency = 10.0;\n    assert 9.5 <= timer.frequency and timer.frequency <= 10.5;\n\n    // BOM / source details (only in instance)\n    timer.supplier = \"Texas Instruments\";\n    timer.partNumber = \"NE555P\";\n    timer.supplierURL = \"https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P\";\n\n    led.supplier = \"Kingbright\";\n    led.partNumber = \"WP7113ID\"; // 5mm red LED example\n    led.supplierURL = \"https://www.mouser.com/ProductDetail/Kingbright/WP7113ID\";\n\n    r.supplier = \"Yageo\";\n    r.partNumber = \"RC0603JR-07300RL\"; // example 300 \u03a9 resistor\n    r.supplierURL = \"https://www.mouser.com\";\n\n    assert r.R > 0;\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769543810.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 337,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 3581,
+    "output_tokens_details": {
+      "reasoning_tokens": 2880
+    },
+    "total_tokens": 3918
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

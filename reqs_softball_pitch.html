@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pretend MBSE Requirements — Portable Variable Soft-Toss Training Machine</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#121b33;
+      --text:#eaf0ff;
+      --muted:#b8c2e6;
+      --border:#25345e;
+      --accent:#7aa7ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1100px 700px at 20% 0%, #162048 0%, var(--bg) 62%);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{
+      border-bottom:1px solid var(--border);
+      padding:26px 16px 14px;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 44px;
+    }
+    h1{margin:0 0 6px;font-size:1.55rem;letter-spacing:.2px}
+    .subtitle{margin:0;color:var(--muted);font-size:.98rem}
+    section{
+      background: rgba(18,27,51,.78);
+      border:1px solid var(--border);
+      border-radius:14px;
+      margin:14px 0;
+      padding:16px 16px 10px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.25);
+    }
+    h2{margin:0 0 10px;font-size:1.15rem;color:#f4f7ff}
+    .req{
+      padding:10px 12px;
+      margin:10px 0;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(11,16,32,.55);
+    }
+    .req strong{display:block;margin-bottom:4px;color:#fff}
+    .req p{margin:0;color:var(--text)}
+    .note{margin:6px 0 0;color:var(--muted);font-size:.92rem}
+    ul,ol{margin:10px 0 6px 18px}
+    li{margin:6px 0}
+    hr{border:0;border-top:1px solid var(--border);margin:12px 0 0}
+    footer{margin-top:16px;color:var(--muted);font-size:.9rem;padding: 6px 2px 0}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Pretend MBSE Requirements — Portable Variable Soft-Toss Training Machine</h1>
+      <p class="subtitle">
+        Solution-agnostic requirements and constraints intended to drive MBSE functional decomposition and concept exploration
+        for a softball/baseball soft-toss training machine that provides varied tosses rather than a single repeated toss.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section id="mission">
+      <h2>1) Mission and scope requirements</h2>
+
+      <div class="req">
+        <strong>R-MSN-001 (Primary objective)</strong>
+        <p>The system shall deliver a soft-toss ball to a batter to support batting practice.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-MSN-002 (Practice realism)</strong>
+        <p>The system shall provide a non-repetitive practice experience by varying toss outcomes rather than repeating a single fixed toss.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-MSN-003 (Stakeholders)</strong>
+        <p>The system shall support use by players and coaches during practice sessions.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-MSN-004 (Use environments)</strong>
+        <p>The system shall be operable in typical practice environments including grass/dirt fields, gymnasiums, and backyards.</p>
+      </div>
+    </section>
+
+    <section id="functional">
+      <h2>2) Top-level functional requirements</h2>
+
+      <div class="req">
+        <strong>R-FUNC-001 (Ball delivery)</strong>
+        <p>The system shall deliver a regulation softball (or equivalent practice ball) from a machine output location toward a batter’s hitting area.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-FUNC-002 (Varied toss parameters)</strong>
+        <p>The system shall be capable of varying toss <b>height</b>, <b>speed</b>, and <b>direction/angle</b> across successive tosses.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-FUNC-003 (Toss location variability)</strong>
+        <p>The system shall be capable of delivering tosses to different locations within a user-defined target region appropriate for batting drills.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-FUNC-004 (Timing control)</strong>
+        <p>The system shall provide a user-defined toss interval (time between tosses), including the ability to adjust the interval during practice.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-FUNC-005 (Consistency mode)</strong>
+        <p>The system shall support a repeatable mode where, for a given configuration, toss outcomes remain consistent within a defined tolerance for training drills.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-FUNC-006 (Misfire prevention)</strong>
+        <p>The system shall prevent or detect common feed/launch faults (e.g., no-toss events, weak tosses, or multiple balls entering the launch path at once) and shall respond in a safe, predictable manner.</p>
+      </div>
+    </section>
+
+    <section id="performance">
+      <h2>3) Performance requirements (measurable targets)</h2>
+
+      <div class="req">
+        <strong>R-PERF-001 (Targeting capability)</strong>
+        <p>The system shall be able to intentionally direct tosses to selected portions of a defined strike-zone-like region after a calibration/setup procedure.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-PERF-002 (Repeatability under controlled feed)</strong>
+        <p>When operated with a consistent ball feed condition, the system shall achieve shot-to-shot landing-location repeatability within a small tolerance band suitable for batting drills.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-PERF-003 (Useful operating distance)</strong>
+        <p>The system shall support an operating distance range suitable for soft-toss drills while maintaining practical accuracy in that range.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-PERF-004 (Cycle rate)</strong>
+        <p>The system shall support repeated toss cycles over a full practice session without performance degradation that prevents normal use.</p>
+      </div>
+    </section>
+
+    <section id="constraints">
+      <h2>4) Key constraints</h2>
+
+      <div class="req">
+        <strong>R-CNST-001 (Portability)</strong>
+        <p>The system shall be portable and lightweight enough for a single person to transport and set up for practice.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-CNST-002 (Environmental robustness)</strong>
+        <p>The system shall tolerate dust/dirt exposure and outdoor weather variability typical of practice environments.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-CNST-003 (Protective enclosure)</strong>
+        <p>The system shall include protective measures to shield internal components from field conditions and weather exposure.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-CNST-004 (Cost target)</strong>
+        <p>The system shall be designed to achieve a target end-user price range of <b>$150–$300</b>.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-CNST-005 (Manufacturability)</strong>
+        <p>The system shall be compatible with a simple, low-cost manufacturing approach suitable for repeat production.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-CNST-006 (Service life)</strong>
+        <p>The system shall be designed for a long service life under repeated use and typical handling/transport conditions.</p>
+      </div>
+    </section>
+
+    <section id="interfaces">
+      <h2>5) Interfaces and usability requirements</h2>
+
+      <div class="req">
+        <strong>R-INT-001 (User controls)</strong>
+        <p>The system shall provide user controls for: (a) enabling/disabling operation, (b) setting toss timing, and (c) selecting or enabling variation of toss outcomes.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-INT-002 (Ease of use)</strong>
+        <p>The system shall be easy to set up and operate by a coach or player with minimal training.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-INT-003 (User feedback)</strong>
+        <p>The system shall provide basic operational feedback (e.g., ready, active, fault/stop) that is understandable in a practice environment.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-INT-004 (Power source)</strong>
+        <p>The system shall support a reliable power source appropriate for field and indoor use and shall protect users from electrical hazards.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-INT-005 (Transport and storage)</strong>
+        <p>The system shall support convenient transport and storage (e.g., compact form, manageable handling features) without requiring disassembly beyond normal stow steps.</p>
+      </div>
+    </section>
+
+    <section id="safety">
+      <h2>6) Safety and assurance requirements</h2>
+
+      <div class="req">
+        <strong>R-SAFE-001 (Emergency stop)</strong>
+        <p>The system shall provide an emergency stop function that immediately transitions the system to a safe state.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-SAFE-002 (Guarding)</strong>
+        <p>The system shall prevent user contact with hazardous moving elements during normal operation and typical setup/maintenance actions.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-SAFE-003 (Safe fault response)</strong>
+        <p>In the presence of detected faults (e.g., jam, abnormal operation, control error), the system shall enter a safe state that prevents unintended ball launch or unsafe motion.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-SAFE-004 (Impact resistance)</strong>
+        <p>The system shall tolerate incidental impacts expected in a practice environment (e.g., stray ball contact) without creating unsafe conditions.</p>
+      </div>
+    </section>
+
+    <section id="ram">
+      <h2>7) Reliability, maintainability, and durability requirements</h2>
+
+      <div class="req">
+        <strong>R-RAM-001 (Practice-session reliability)</strong>
+        <p>The system shall operate reliably for an entire practice session without requiring frequent user intervention to restore normal function.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-RAM-002 (Maintenance accessibility)</strong>
+        <p>The system shall allow routine maintenance tasks (cleaning, inspection, simple adjustments) using common tools and without specialized equipment.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-RAM-003 (Dust/weather considerations)</strong>
+        <p>The design shall explicitly address environmental failure risks (dirt, weather exposure) through protective design and maintainable interfaces.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-RAM-004 (Wear and deformation control)</strong>
+        <p>The design shall control wear and deformation of high-use components such that performance remains within specified tolerances over the intended service life.</p>
+      </div>
+    </section>
+
+    <section id="verification">
+      <h2>8) Verification-oriented requirements</h2>
+
+      <div class="req">
+        <strong>R-VER-001 (Accuracy verification)</strong>
+        <p>The system shall be verifiable by a test demonstrating the ability to deliver balls to selected target sub-regions after setup/calibration.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-VER-002 (Repeatability verification)</strong>
+        <p>The system shall be verifiable by a repeatability test that measures shot-to-shot variability under a controlled feed condition.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-VER-003 (Variation verification)</strong>
+        <p>The system shall be verifiable by demonstrating measurable variation in toss height, speed, and direction across a defined sequence.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-VER-004 (Environmental verification)</strong>
+        <p>The system shall be verifiable by an exposure/ingress test representative of dust/dirt and light weather conditions expected during typical practice use.</p>
+      </div>
+
+      <div class="req">
+        <strong>R-VER-005 (Portability verification)</strong>
+        <p>The system shall be verifiable by demonstrating transport, setup, and stow operations by a single person using only integrated handling features.</p>
+      </div>
+    </section>
+
+    <section id="logical-breakdown">
+      <h2>Logical system breakdown (requirements-oriented functional “boxes”)</h2>
+
+      <ol>
+        <li><b>Ball Handling & Storage Subsystem</b>
+          <ul>
+            <li>Store practice balls for repeated cycles</li>
+            <li>Present a single ball per cycle to the feed interface</li>
+            <li>Prevent double-feeds and support clearing of jams</li>
+          </ul>
+        </li>
+
+        <li><b>Ball Feed Subsystem</b>
+          <ul>
+            <li>Transfer one ball per cycle into the delivery/launch path</li>
+            <li>Maintain consistent feed conditions across operating configurations</li>
+            <li>Support adjustable cycle timing / feed cadence</li>
+          </ul>
+        </li>
+
+        <li><b>Ball Delivery Subsystem</b>
+          <ul>
+            <li>Impart controlled motion to the ball to achieve a soft-toss trajectory</li>
+            <li>Support adjustable toss speed and usable range</li>
+            <li>Support consistent outcomes for a fixed configuration</li>
+          </ul>
+        </li>
+
+        <li><b>Aiming / Direction Control Subsystem</b>
+          <ul>
+            <li>Adjust toss direction to deliver balls to different target locations</li>
+            <li>Support variation across tosses without excessive setup burden</li>
+            <li>Provide a stable, repeatable aiming reference after setup</li>
+          </ul>
+        </li>
+
+        <li><b>Timing & Control Subsystem</b>
+          <ul>
+            <li>Coordinate feed, delivery, and aiming functions per cycle</li>
+            <li>Provide user-selectable toss interval and variation settings</li>
+            <li>Detect faults and command safe-state transitions</li>
+          </ul>
+        </li>
+
+        <li><b>Power & Electrical Protection Subsystem</b>
+          <ul>
+            <li>Provide reliable operational power in indoor/outdoor practice contexts</li>
+            <li>Provide electrical protection appropriate for user-facing equipment</li>
+            <li>Support safe power-up, power-down, and emergency stop behavior</li>
+          </ul>
+        </li>
+
+        <li><b>Structure, Enclosure & Environmental Protection Subsystem</b>
+          <ul>
+            <li>Provide a stable base and alignment for all functional subsystems</li>
+            <li>Protect internal components from dust/dirt and weather exposure</li>
+            <li>Support portability, handling, and storage constraints</li>
+          </ul>
+        </li>
+
+        <li><b>User Interface & Safety Subsystem</b>
+          <ul>
+            <li>Provide intuitive controls and operational feedback</li>
+            <li>Prevent user contact with hazards during operation</li>
+            <li>Provide emergency stop and safe fault response behavior</li>
+          </ul>
+        </li>
+      </ol>
+
+      <hr />
+      <p class="note">End of requirements set. (No solution concepts included.)</p>
+    </section>
+
+    <footer>
+      <p>Generated as a pretend MBSE requirements artifact to drive functional decomposition and concept exploration; not a final product specification.</p>
+    </footer>
+
+  </main>
+</body>
+</html>

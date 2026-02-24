@@ -1,0 +1,5 @@
+Search timed out after 30s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+

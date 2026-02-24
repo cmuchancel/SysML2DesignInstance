@@ -1,0 +1,58 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'integrated circuit',
+  manufacturer: 'generic',
+  partNumber: 'NE555',
+  value: '10 Hz',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: 'DIP-8 (common)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'astable mode',
+    'LED flasher',
+    'requires external timing resistors and capacitor'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    mode: 'astable',
+    supplyVoltage: '5V',
+    frequency: '10 Hz (target)',
+    typicalComponents: 'NE555 IC, 2x resistors (RA,RB), timing capacitor, LED, LED current-limiting resistor, 0.1µF decoupling capacitor, 5V supply',
+    exampleTimingValues: 'RA=10kΩ, RB=2.2kΩ, C=10µF (≈10Hz)',
+    timingFormula: 'f=1.44/((RA+2*RB)*C)',
+    recommendedLEDcurrent: '10-20mA',
+    recommendedLEDresistor: '≈330Ω for a 2V LED at 5V',
+    decoupling: '0.1µF between VCC and GND',
+    notes: 'use a transistor driver for higher LED currents or multiple LEDs'
+  }
+}
+Source: live | Query: "NE555 generic integrated circuit 10 Hz 5V volt DIP-8 (common) astable mode LED flasher requires external timing resistors and capacitor NE555 555 timer astable mode astable supplyVoltage 5V frequency 10 Hz (target) typicalComponents NE555 IC, 2x resistors (RA,RB), timing capacitor, LED, LED current-limiting resistor, 0.1µF decoupling capacitor, 5V supply exampleTimingValues RA=10kΩ, RB=2.2kΩ, C=10µF (≈10Hz) timingFormula f=1.44/((RA+2*RB)*C) recommendedLEDcurrent 10-20mA recommendedLEDresistor ≈330Ω for a 2V LED at 5V decoupling 0.1µF between VCC and GND notes use a transistor driver for higher LED currents or multiple LEDs" | Matches: 5
+------------------------------------------------------------------------
+NE555P (Texas Instruments)
+  Timers & Support Products Precision
+  Stock: 17535
+------------------------------------------------------------------------
+NE555PSR (Texas Instruments)
+  Timers & Support Products Precision A 595-NE55 5PSRG4 A 595-NE555PSRG4
+  Stock: 7315
+------------------------------------------------------------------------
+NE555PS (Texas Instruments)
+  Timers & Support Products Single Precision Tim er 8-SO A 595-NE555 A 595-NE555PSR
+  Stock: 1164
+------------------------------------------------------------------------
+NE555DR1G4 (Texas Instruments)
+  Timers & Support Products Single Precision Tim er
+  Stock: 1049
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/datasheet/3/175/1/NE555_SA555_NA555.pdf
+------------------------------------------------------------------------

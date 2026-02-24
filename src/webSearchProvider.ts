@@ -1,9 +1,14 @@
 import * as cheerio from "cheerio";
 import { buildKeywordQuery } from "./queryBuilder.js";
 import { PartResult, PartSearchInput } from "./types.js";
-import { scrapeAmazonSearch, scrapeAmazonDetail, scrapeMcMasterSearch, scrapeMcMasterDetail } from "./scrapers/index.js";
+import {
+  scrapeAmazonSearch,
+  amazonHeadlessSearch,
+  scrapeSimpleProduct,
+} from "./scrapers/index.js";
 import { fetchWithTimeout } from "./http.js";
 import { extractMultiplePages } from "./llmExtractor.js";
+import { pickUrlsWithLLM } from "./llmUrlPicker.js";
 
 const defaultUserAgent =
   process.env.WEB_SEARCH_USER_AGENT ||
@@ -12,6 +17,8 @@ const defaultUserAgent =
 const isDisabled = () => process.env.DISABLE_WEB_SEARCH === "1";
 
 export const webSearchAvailable = !isDisabled();
+const disableHeadless = process.env.DISABLE_HEADLESS === "1";
+const fastMode = process.env.FAST_MODE === "1";
 
 const decodeDuckDuckGoRedirect = (href: string | undefined): string | null => {
   if (!href) return null;
@@ -104,44 +111,79 @@ export const webSearch = async (
 
   const refined = input.category ? `${query} ${input.category}` : query;
 
-  // Prefer site-specific scrapes when a vendor is implied
-  if ((input.category || "").includes("spring") || query.includes("spring") || query.includes("mcmaster")) {
-    try {
-      const mcm = await scrapeMcMasterSearch(refined, limit);
-      if (mcm.length) {
-        // if we got product links, try detail scrape on first
-        const linksAttr = mcm[0]?.attributes?.productLinks;
-        const linkArr = linksAttr ? linksAttr.split(",").filter(Boolean) : [];
-        if (linkArr.length) {
-          const detailResults: PartResult[] = [];
-          for (const l of linkArr.slice(0, limit)) {
-            const detail = await scrapeMcMasterDetail(l, limit);
-            detailResults.push(...detail);
-            if (detailResults.length >= limit) break;
-          }
-          if (detailResults.length) return detailResults.slice(0, limit);
-        }
-        return mcm;
-      }
-    } catch {
-      // fall back
+  // FAST MODE: single-path, single-item, minimal LLM
+  if (fastMode) {
+    if (!disableHeadless) {
+      try {
+        const azHead = await amazonHeadlessSearch(refined, 1);
+        if (azHead.length) return azHead.slice(0, limit);
+      } catch {}
     }
+    try {
+      const searchUrl = `https://duckduckgo.com/html/?q=${encodeURIComponent(
+        `site:thespringstore.com ${refined}`,
+      )}`;
+      const res = await fetchWithTimeout(searchUrl, { headers: { "User-Agent": defaultUserAgent } });
+      if (res.ok) {
+        const html = await res.text();
+        const basic = parseResults(html, 3);
+        const first = basic.find((b) => b.url && b.url.includes("springstore"));
+        if (first?.url) {
+          const prod = await scrapeSimpleProduct(first.url);
+          if (prod) return [prod];
+        }
+      }
+    } catch {}
+    return [];
   }
-  if (query.includes("amazon")) {
+
+  // Amazon headless first
+  if (!disableHeadless) {
     try {
-      const az = await scrapeAmazonSearch(refined, limit);
-      if (az.length) {
-        const linksAttr = az[0]?.attributes?.productLinks;
-        const linkArr = linksAttr ? linksAttr.split(",").filter(Boolean) : [];
-        for (const l of linkArr.slice(0, limit)) {
-          const detail = await scrapeAmazonDetail(l);
-          if (detail) return [detail, ...az].slice(0, limit);
-        }
-        return az;
+      const azHead = await amazonHeadlessSearch(refined, 1);
+      if (azHead.length) return azHead.slice(0, limit);
+    } catch {}
+  }
+
+  // Amazon HTML (non-headless)
+  try {
+    const az = await scrapeAmazonSearch(refined, Math.max(1, limit));
+    if (az.length) return az.slice(0, limit);
+  } catch {}
+
+  // Simple suppliers (dynamic by keywords)
+  const isResistor = refined.toLowerCase().includes("resistor") || refined.toLowerCase().includes("ohm");
+  const preferSimple = isResistor
+    ? [
+        `site:digikey.com ${refined}`,
+        `site:lcsc.com ${refined}`,
+        `site:arrow.com ${refined}`,
+        refined,
+      ]
+    : [
+        "site:thespringstore.com stainless compression spring",
+        "site:centuryspring.com stainless compression spring",
+        refined,
+      ];
+  for (const q of preferSimple) {
+    try {
+      const searchUrl = `https://duckduckgo.com/html/?q=${encodeURIComponent(q)}`;
+      const res = await fetchWithTimeout(searchUrl, { headers: { "User-Agent": defaultUserAgent } });
+      if (!res.ok) continue;
+      const html = await res.text();
+      const basic = parseResults(html, 5);
+      const first = basic.find((b) =>
+        b.url
+          ? isResistor
+            ? b.url.includes("digikey.com") || b.url.includes("lcsc.com") || b.url.includes("arrow.com")
+            : b.url.includes("springstore") || b.url.includes("centuryspring")
+          : false,
+      );
+      if (first?.url) {
+        const prod = await scrapeSimpleProduct(first.url);
+        if (prod) return [prod];
       }
-    } catch {
-      // fall back
-    }
+    } catch {}
   }
 
   const searchUrls = [
@@ -161,6 +203,15 @@ export const webSearch = async (
       if (!res.ok) continue;
       const html = await res.text();
       basic = u.includes("lite") ? parseLiteResults(html, limit * 2) : parseResults(html, limit * 2);
+      if (isResistor) {
+        basic = basic.filter(
+          (b) =>
+            b.url &&
+            !b.url.includes("springstore") &&
+            !b.url.includes("centuryspring") &&
+            !b.url.includes("springs"),
+        );
+      }
       if (basic.length) break;
     } catch {
       continue;
@@ -168,17 +219,17 @@ export const webSearch = async (
   }
 
   // If we have no direct results yet, try LLM extraction on the first few product-like URLs
-  const urls = basic.map((b) => b.url).filter(Boolean) as string[];
+  let ordered = basic;
+  // Let LLM pick most relevant URLs if enabled (but cap to small set)
+  ordered = await pickUrlsWithLLM(refined, ordered, Math.max(2, limit));
+  const urls = ordered.map((b) => b.url).filter(Boolean) as string[];
 
   // Special-case: if a McMaster product page appears, try detail scrape
   const mcmUrl = urls.find((u) => u.includes("mcmaster.com"));
-  if (mcmUrl) {
-    const detail = await scrapeMcMasterDetail(mcmUrl, limit);
-    if (detail.length) return detail.slice(0, limit);
-  }
+  // McMaster detail removed in fast/general flow (API planned), so skip
 
-  const enriched = await extractMultiplePages(urls);
-  if (enriched.length) return enriched.slice(0, limit);
+  const enriched = disableHeadless ? [] : await extractMultiplePages(urls);
+  if (!disableHeadless && enriched.length) return enriched.slice(0, limit);
 
-  return basic.slice(0, limit);
+  return ordered.slice(0, limit);
 };

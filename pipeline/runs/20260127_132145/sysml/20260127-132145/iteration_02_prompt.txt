@@ -1,0 +1,248 @@
+You are Codex, an expert SysMLv2 engineer operating inside a closed-loop synthesis pipeline.
+
+USER REQUIREMENT INPUT:
+            # Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from common vendors.
+
+-- repeat --
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from common vendors.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.
+
+Produce valid SysMLv2 (.sysml) content using the official syntax. Do not include commentary, markdown fencing, or prose outside of the model.
+
+MINIMALITY: Use the fewest lines, elements, and properties possible while fully satisfying every requirement above. Avoid optional fluff, redundant packages, duplicate definitions, and unnecessary hierarchy.
+
+PREVIOUS ATTEMPT (iteration 1):
+                package FlickerLED {
+    /* Assumptions: numeric properties use Real (units conceptual: V, Hz, Ohm, W, mA). Vendor/partNumber as String. */
+    block Circuit {
+        part supply: PowerSupply
+        part timer: NE555
+        part r_limit: Resistor
+        part led: LED
+        constraint frequency_spec = (timer.frequency >= 9.5 and timer.frequency <= 10.5)
+    }
+    block PowerSupply { property voltage: Real = 5.0 }
+    block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+    block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+    block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+}
+
+SYSIDE COMPILER FEEDBACK TO ADDRESS:
+                iteration_01.sysml:3:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    3 |     block Circuit {
+      |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:4:22: [38;2;220;080;080merror[0m (internal-error): I don't know how to parse field 'heritage' for Namespace
+    4 |         part supply: PowerSupply
+      |                      [38;2;220;080;080m^^^^^^^^^^^[0m
+
+iteration_01.sysml:5:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    5 |         part timer: NE555
+      |         [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:5:21: [38;2;220;080;080merror[0m (internal-error): I don't know how to parse field 'heritage' for Namespace
+    5 |         part timer: NE555
+      |                     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:6:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    6 |         part r_limit: Resistor
+      |         [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:6:23: [38;2;220;080;080merror[0m (internal-error): I don't know how to parse field 'heritage' for Namespace
+    6 |         part r_limit: Resistor
+      |                       [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:7:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    7 |         part led: LED
+      |         [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:7:19: [38;2;220;080;080merror[0m (internal-error): I don't know how to parse field 'heritage' for Namespace
+    7 |         part led: LED
+      |                   [38;2;220;080;080m^^^[0m
+
+iteration_01.sysml:8:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    8 |         constraint frequency_spec = (timer.frequency >= 9.5 and timer.frequency <= 10.5)
+      |         [38;2;220;080;080m^^^^^^^^^^[0m
+
+iteration_01.sysml:8:35: [38;2;220;080;080merror[0m (internal-error): I don't know how to parse field 'value' for Namespace
+    8 |         constraint frequency_spec = (timer.frequency >= 9.5 and timer.frequency <= 10.5)
+      |                                   [38;2;220;080;080m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+
+iteration_01.sysml:10:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    10 |     block PowerSupply { property voltage: Real = 5.0 }
+       |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:10:34: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    10 |     block PowerSupply { property voltage: Real = 5.0 }
+       |                                  [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:10:43: [38;2;220;080;080merror[0m (internal-error): I don't know how to parse field 'heritage' for Namespace
+    10 |     block PowerSupply { property voltage: Real = 5.0 }
+       |                                           [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:10:48: [38;2;220;080;080merror[0m (internal-error): I don't know how to parse field 'value' for Namespace
+    10 |     block PowerSupply { property voltage: Real = 5.0 }
+       |                                                [38;2;220;080;080m^^^^^^^[0m
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       | [38;2;220;080;080m    ^^^^^[0m
+
+iteration_01.sysml:11:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["NAME", ";", "{", "all", "*", "if", "+", "-", "~", "not", "hastype", "istype", "@", "as", "(", "null", "new", "true", "false", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "DECIMAL_VALUE", "REAL_VALUE", "STRING_VALUE", "$", "Feature", "FeatureChaining", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "ParameterMembership", "Feature", "FeatureValue", "ParameterMembership", "Feature", "FeatureValue", "MetadataAccessExpression", "OperatorExpression", "FeatureValue", "Feature", "ParameterMembership", "FeatureValue", "Feature", "ParameterMembership", "OperatorExpression", "IndexExpression", "FeatureChainExpression", "CollectExpression", "SelectExpression", "InvocationExpression", "OwningMembership", "NullExpression", "FeatureReferenceExpression", "Membership", "MetadataAccessExpression", "Membership", "InvocationExpression", "ConstructorExpression", "Membership", "FeatureReferenceExpression", "FeatureMembership", "Expression", "LiteralBoolean", "LiteralString", "LiteralInteger", "LiteralRational", "LiteralInfinity", "ElementReference"].
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:11:11: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "::", "ElementReference_repeat1", "MULTILINE_NOTE", "*", ".", "?", "-", "==", "!=", "<", ">", "/", "@", "=", ";", "{", "}", "from", ",", "to", "**", "[", "]", "if", "else", "??", "implies", "or", "and", "+", "|", "&", "xor", "===", "!==", "<=", ">=", "..", "%", "^", "hastype", "istype", "as", "@@", "meta", "#", "(", ")", ".?", "->", "by", "then", "connect", "of", "action", "via", "parallel", "do"].
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |           [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:11:19: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |                   [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:11:61: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |                                                             [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:11:99: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |                                                                                                   [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:12:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "::", "ElementReference_repeat1", "MULTILINE_NOTE", "*", ".", "?", "-", "==", "!=", "<", ">", "/", "@", "=", ";", "{", "}", "from", ",", "to", "**", "[", "]", "if", "else", "??", "implies", "or", "and", "+", "|", "&", "xor", "===", "!==", "<=", ">=", "..", "%", "^", "hastype", "istype", "as", "@@", "meta", "#", "(", ")", ".?", "->", "by", "then", "connect", "of", "action", "via", "parallel", "do"].
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:12:11: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["NAME", ";", "{", "all", "*", "if", "+", "-", "~", "not", "hastype", "istype", "@", "as", "(", "null", "new", "true", "false", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "DECIMAL_VALUE", "REAL_VALUE", "STRING_VALUE", "$", "Feature", "FeatureChaining", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "ParameterMembership", "Feature", "FeatureValue", "ParameterMembership", "Feature", "FeatureValue", "MetadataAccessExpression", "OperatorExpression", "FeatureValue", "Feature", "ParameterMembership", "FeatureValue", "Feature", "ParameterMembership", "OperatorExpression", "IndexExpression", "FeatureChainExpression", "CollectExpression", "SelectExpression", "InvocationExpression", "OwningMembership", "NullExpression", "FeatureReferenceExpression", "Membership", "MetadataAccessExpression", "Membership", "InvocationExpression", "ConstructorExpression", "Membership", "FeatureReferenceExpression", "FeatureMembership", "Expression", "LiteralBoolean", "LiteralString", "LiteralInteger", "LiteralRational", "LiteralInfinity", "ElementReference"].
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |           [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:12:22: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                      [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:12:66: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                                                  [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:12:97: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                                                                                 [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:12:124: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                                                                                                            [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:13:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["NAME", ";", "{", "all", "*", "if", "+", "-", "~", "not", "hastype", "istype", "@", "as", "(", "null", "new", "true", "false", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "DECIMAL_VALUE", "REAL_VALUE", "STRING_VALUE", "$", "Feature", "FeatureChaining", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "OperatorExpression", "ParameterMembership", "Feature", "FeatureValue", "ParameterMembership", "Feature", "FeatureValue", "MetadataAccessExpression", "OperatorExpression", "FeatureValue", "Feature", "ParameterMembership", "FeatureValue", "Feature", "ParameterMembership", "OperatorExpression", "IndexExpression", "FeatureChainExpression", "CollectExpression", "SelectExpression", "InvocationExpression", "OwningMembership", "NullExpression", "FeatureReferenceExpression", "Membership", "MetadataAccessExpression", "Membership", "InvocationExpression", "ConstructorExpression", "Membership", "FeatureReferenceExpression", "FeatureMembership", "Expression", "LiteralBoolean", "LiteralString", "LiteralInteger", "LiteralRational", "LiteralInfinity", "ElementReference"].
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:13:11: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, did you mean 'end'?
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |           [38;2;220;080;080m^^^[0m
+
+iteration_01.sysml:13:26: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, did you mean 'false'?
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                          [38;2;220;080;080m^^[0m
+
+iteration_01.sysml:13:51: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                                                   [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:13:80: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                                                                                [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:13:111: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["end", "NAME", ";", "{", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "for", "import", "all", "*", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "if", "else", "+", "-", "<", "~", "not", "hastype", "istype", "@", "as", "#", "(", "null", "metadata", "new", "true", "false", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", "DECIMAL_VALUE", "REAL_VALUE", "STRING_VALUE", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "$", ":", "defined", "standard", "library", "package", "filter", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "merge", "decide", "join", "fork", "accept", "send", "assign", "terminate", "while", "loop", "state", "entry", "do", "exit", "exhibit", "transition", "calc", "return", "constraint", "assert", "requirement", "subject", "assume", "require", "frame", "concern", "actor", "stakeholder", "satisfy", "case", "objective", "analysis", "verification", "verify", "use", "include", "view", "render", "rendering", "expose", "viewpoint"].
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                                                                                                               [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:13:152: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "concern", "satisfy", "case", "analysis", "verification", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                                                                                                                                                        [38;2;220;080;080m^[0m
+
+iteration_01.sysml:10:50: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    10 |     block PowerSupply { property voltage: Real = 5.0 }
+       |                                                  [38;2;220;080;080m^^^[0m
+
+iteration_01.sysml:11:129: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |                                                                                                                                 [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:12:88: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'property' shadows partNumber::property
+│   12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+│      |                                                                                        [38;2;204;204;057m^^^^^^^^[0m
+└── iteration_01.sysml:12:57: [38;2;255;255;255mnote[0m: First declared here
+
+iteration_01.sysml:12:154: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                                                                                                                                          [38;2;220;080;080m^^^^^^^^^^[0m
+
+iteration_01.sysml:13:42: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'property' shadows partNumber::partNumber::property
+│   13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+│      |                                          [38;2;204;204;057m^^^^^^^^[0m
+└── iteration_01.sysml:13:17: [38;2;255;255;255mnote[0m: First declared here
+
+iteration_01.sysml:13:71: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'property' shadows partNumber::partNumber::property
+│   13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+│      |                                                                       [38;2;204;204;057m^^^^^^^^[0m
+└── iteration_01.sysml:13:17: [38;2;255;255;255mnote[0m: First declared here
+
+iteration_01.sysml:11:39: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |                                       [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:11:69: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |                                                                     [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:11:120: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    11 |     block NE555 { property frequency: Real = 10.0; property vendor: String = "Texas Instruments"; property partNumber: String = "NE555P" }
+       |                                                                                                                        [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:12:11: [38;2;220;080;080merror[0m (reference-error): No Feature named 'Resistor' found.
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |           [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:12:43: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                           [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:12:75: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                                                           [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:12:105: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                                                                                         [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:12:145: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    12 |     block Resistor { property resistance: Real = 330.0; property power_W: Real = 0.25; property vendor: String = "Vishay"; property partNumber: String = "CRCW330R" }
+       |                                                                                                                                                 [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:13:5: [38;2;220;080;080merror[0m (reference-error): No Feature named 'block' found.
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:13:30: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                              [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:13:58: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                                                          [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:13:88: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                                                                                        [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:13:132: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    13 |     block LED { property Vf: Real = 2.0; property If_mA: Real = 10.0; property vendor: String = "Kingbright"; property partNumber: String = "WP7113ID" }
+       |                                                                                                                                    [38;2;220;080;080m^^^^^^[0m
+
+Revise the earlier model to resolve the diagnostics without undoing correct structure.
+
+Return only the updated SysMLv2 model.

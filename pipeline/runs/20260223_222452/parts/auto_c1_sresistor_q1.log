@@ -1,0 +1,13 @@
+slot: resistor
+query_input_original: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "NE555-astable", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+query_input_used: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "NE555-astable", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "NE555-astable", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+MFR-25FBF52-100R (YAGEO)
+Stock: 2093
+Unit price: 0.17
+URL: https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 7, "stock": 2093, "unitPrice": 0.17, "manufacturer": "YAGEO", "manufacturerPartNumber": "MFR-25FBF52-100R", "description": "Metal film through-hole resistor, 100 \u03a9, 1% tolerance, 0.25 W power rating, axial leads, 250 V voltage rating.", "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D", "provider": "configurator", "attributes": {"voltage": "250 V", "current": "50 mA (I_max = sqrt(P/R))", "power": "0.25 W", "value": "100 \u03a9", "package": "Axial (through-hole)"}}

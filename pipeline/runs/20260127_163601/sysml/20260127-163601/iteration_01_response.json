@@ -1,0 +1,82 @@
+{
+  "id": "resp_0681b1fa0d400acb0069792fc228a481978287c7158f09f790",
+  "created_at": 1769549762.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0681b1fa0d400acb0069792fc280448197b4c68c43f2c38a55",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0681b1fa0d400acb0069792fcfb07481978f22a6c015f4aee0",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def Req_Freq { text = \"LED flickers at 10 Hz \u00b15%\"; }\n  requirement def Req_Supply { text = \"Operate from 5 V supply\"; }\n  requirement def Req_Current { text = \"Include current limiting for LED\"; }\n  requirement def Req_Sourcable { text = \"Make components sourceable from Mouser\"; }\n  constraint def C_Freq {\n    in f: Real;\n    (f >= 9.5) and (f <= 10.5)\n  }\n  constraint def C_Supply {\n    in V: Real;\n    (V = 5.0)\n  }\n  // Assumed maximum LED forward current for requirement validation; adjust if different\n  constraint def C_Current {\n    in i: Real;\n    (i > 0.0) and (i <= 0.03)\n  }\n  part def LED { }\n  part def Driver { }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769549781.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 506,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 1195,
+    "output_tokens_details": {
+      "reasoning_tokens": 960
+    },
+    "total_tokens": 1701
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

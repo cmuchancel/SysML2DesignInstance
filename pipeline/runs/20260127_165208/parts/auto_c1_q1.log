@@ -1,0 +1,47 @@
+Search timed out after 60s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web mouser --limit 1 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'Timer IC / electronic components',
+  manufacturer: 'NE555-compatible (various vendors)',
+  partNumber: 'NE555',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5 V',
+  current: undefined,
+  package: 'DIP-8 (common)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'astable multivibrator',
+    'adjustable frequency (via R/C)',
+    'single-supply operation',
+    'suitable for LED driving with current limiting resistor'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    mode: 'astable (oscillator)',
+    targetFrequency: '10 Hz',
+    timingFormula: 'f = 1.44 / ((R1 + 2*R2) * C)',
+    exampleValues: 'C = 0.1 uF, R1 = 1 kΩ, R2 ≈ 680 kΩ (gives ~10.6 Hz) — R2 ≈720 kΩ gives ~10.0 Hz',
+    expectedDutyCycle: '~50% (with R1 << R2; calculated = (R1+R2)/(R1+2R2))',
+    decouplingCap: '0.1 uF between Vcc and GND recommended',
+    led: 'standard LED (e.g., 5 mm)',
+    ledResistorCalculation: 'R_LED ≈ (Vcc - V_f_LED) / I_LED',
+    exampleLedResistor: 'for Vcc=5V and V_f≈2.0V: R ≈ 300 Ω for 10 mA, 470 Ω for ≈6.4 mA',
+    outputCurrent: 'NE555 can typically source/sink up to ~200 mA peak (practical LED current typically 5–20 mA)',
+    recommendedPartsList: '1× NE555 timer IC (DIP-8), 1× timing capacitor (0.1 µF), 1× R1 (1 kΩ), 1× R2 (680–720 kΩ), 1× LED, 1× R_LED (330–470 Ω), 1× 0.1 µF decoupling cap, optional 10 µF supply cap, hookup wires/breadboard',
+    notes: 'Values given are typical starting points. Use the timing formula to adjust R and C for exact frequency; R values too low increase supply current and may stress the IC; keep timing resistor values within manufacturer recommendations.'
+  }
+}
+Source: live | Query: "NE555 NE555-compatible (various vendors) Timer IC / electronic components 5 V volt DIP-8 (common) astable multivibrator adjustable frequency (via R/C) single-supply operation suitable for LED driving with current limiting resistor NE555 555 timer astable mode astable (oscillator) targetFrequency 10 Hz timingFormula f = 1.44 / ((R1 + 2*R2) * C) exampleValues C = 0.1 uF, R1 = 1 kΩ, R2 ≈ 680 kΩ (gives ~10.6 Hz) — R2 ≈720 kΩ gives ~10.0 Hz expectedDutyCycle ~50% (with R1 << R2; calculated = (R1+R2)/(R1+2R2)) decouplingCap 0.1 uF between Vcc and GND recommended led standard LED (e.g., 5 mm) ledResistorCalculation R_LED ≈ (Vcc - V_f_LED) / I_LED exampleLedResistor for Vcc=5V and V_f≈2.0V: R ≈ 300 Ω for 10 mA, 470 Ω for ≈6.4 mA outputCurrent NE555 can typically source/sink up to ~200 mA peak (practical LED current typically 5–20 mA) recommendedPartsList 1× NE555 timer IC (DIP-8), 1× timing capacitor (0.1 µF), 1× R1 (1 kΩ), 1× R2 (680–720 kΩ), 1× LED, 1× R_LED (330–470 Ω), 1× 0.1 µF decoupling cap, optional 10 µF supply cap, hookup wires/breadboard notes Values given are typical starting points. Use the timing formula to adjust R and C for exact frequency; R values too low increase supply current and may stress the IC; keep timing resistor values within manufacturer recommendations." | Matches: 1
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

@@ -1,0 +1,47 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 3 --nl LMC555 low power 5V timer 10Hz
+
+LLM parsed query: {
+  category: 'Timer IC',
+  manufacturer: 'Texas Instruments',
+  partNumber: 'LMC555',
+  value: '10Hz',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: undefined,
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'low power', 'CMOS', 'timer', '5V operation' ],
+  quantity: undefined,
+  keywords: [ 'LMC555', '555', 'low-power' ],
+  specs: {
+    function: 'low-power 555 timer IC',
+    supplyVoltage: '5V',
+    operatingFrequency: '10Hz (application-dependent)',
+    technology: 'CMOS',
+    note: 'frequency set by external resistor and capacitor; supports low-voltage operation'
+  }
+}
+Source: live | Query: "LMC555 Texas Instruments Timer IC 10Hz 5V volt low power CMOS timer 5V operation LMC555 555 low-power function low-power 555 timer IC supplyVoltage 5V operatingFrequency 10Hz (application-dependent) technology CMOS note frequency set by external resistor and capacitor; supports low-voltage operation" | Matches: 3
+------------------------------------------------------------------------
+LMC555CN/NOPB (Texas Instruments)
+  Mouser #: 926-LMC555CN/NOPB
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 4624
+  URL: https://www.mouser.com/ProductDetail/926-LMC555CN%2FNOPB
+------------------------------------------------------------------------
+LMC555CTP/NOPB (Texas Instruments)
+  Mouser #: 926-LMC555CTP/NOPB
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 4583
+  URL: https://www.mouser.com/ProductDetail/926-LMC555CTP%2FNOPB
+------------------------------------------------------------------------
+LMC555CTPX/NOPB (Texas Instruments)
+  Mouser #: 926-LMC555CTPX/NOPB
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 3990
+  URL: https://www.mouser.com/ProductDetail/926-LMC555CTPX%2FNOPB
+------------------------------------------------------------------------

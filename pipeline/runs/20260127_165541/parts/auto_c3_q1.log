@@ -1,0 +1,5 @@
+Search timed out after 20s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web mouser --limit 1 --nl MCP6001 rail to rail op amp 5V
+

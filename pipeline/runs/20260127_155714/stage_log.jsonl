@@ -1,0 +1,7 @@
+{"ts": "2026-01-27T20:57:14.990761Z", "message": "requirements:start", "data": null}
+{"ts": "2026-01-27T20:57:40.567243Z", "message": "requirements:done", "data": null}
+{"ts": "2026-01-27T20:57:40.568085Z", "message": "concepts:start", "data": null}
+{"ts": "2026-01-27T20:58:11.118919Z", "message": "concepts:done", "data": {"count": 3}}
+{"ts": "2026-01-27T20:58:11.119072Z", "message": "parts:start", "data": null}
+{"ts": "2026-01-27T20:59:40.697573Z", "message": "parts:done", "data": null}
+{"ts": "2026-01-27T20:59:40.699319Z", "message": "run:complete", "data": null}

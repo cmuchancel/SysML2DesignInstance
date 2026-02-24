@@ -1,0 +1,82 @@
+{
+  "id": "resp_0dbe87438218e3ff0069791e2a5f748190b86abd1f6c7c2533",
+  "created_at": 1769545258.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0dbe87438218e3ff0069791e2af518819098e3d97dc673aac3",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0dbe87438218e3ff0069791e490c9481908bc26d3764aff79e",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LedFlickerModel\n{\n    requirement FlickerRate\n    {\n        id = \"REQ-1\"\n        text = \"LED flickers at 10 Hz \u00b15% when powered from a 5 V supply.\"\n    }\n\n    requirement CurrentLimiting\n    {\n        id = \"REQ-2\"\n        text = \"Circuit provides current limiting to protect the LED and its driver.\"\n    }\n\n    requirement CommercialAvailability\n    {\n        id = \"REQ-3\"\n        text = \"Components shall be commercially available as COTS parts from major electronics distributors.\"\n    }\n\n    constraintDefinition FrequencyRange\n    {\n        id = \"C-1\"\n        expression = \"frequency >= 9.5 and frequency <= 10.5\"  // frequency in Hz\n    }\n\n    block BlinkController\n    {\n        description = \"Abstract driver producing a timed blink signal and providing LED drive interface.\"\n        property supplyVoltage: Real { default = 5.0 }  // V\n        property targetFrequency: Real { default = 10.0 }  // Hz\n        part led: LED\n        part currentLimiter: CurrentLimiter\n        constraint applyFrequency: FrequencyRange { bind frequency = targetFrequency }\n    }\n\n    block LED\n    {\n        description = \"Abstract LED element (specify forward voltage and allowable current in refinements).\"\n        property forwardVoltage: Real\n        property maxContinuousCurrent: Real  // A\n    }\n\n    block CurrentLimiter\n    {\n        description = \"Abstract current-limiting element (series resistor, constant-current driver, etc.).\"\n        property limitCurrent: Real  // A\n    }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769545294.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 337,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2220,
+    "output_tokens_details": {
+      "reasoning_tokens": 1856
+    },
+    "total_tokens": 2557
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

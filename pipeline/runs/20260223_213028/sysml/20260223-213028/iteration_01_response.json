@@ -1,0 +1,82 @@
+{
+  "id": "resp_0873789764ead31500699d0d4517a08194b99ee003c316b509",
+  "created_at": 1771900229.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0873789764ead31500699d0d459f988194aed97aec83828ef7",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0873789764ead31500699d0d55247c819483ecc58bc73c160b",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDFlasher {\n  public import ScalarValues::*;\n  requirement def R_Freq { text = \"LED blinks at 10 Hz \u00b15%\"; }\n  requirement def R_Supply { text = \"Operate from a 5 V rechargeable supply\"; }\n  requirement def R_Current { text = \"LED current maintained between 8 mA and 20 mA\"; }\n  requirement def R_Runtime { text = \"Run at least 8 hours per charge\"; }\n  requirement def R_OTS { text = \"Use sourceable off-the-shelf parts\"; }\n  constraint def C_Freq {\n    in f: Real;\n    (f >= 9.5) and (f <= 10.5)\n  }\n  constraint def C_Supply {\n    in V: Real;\n    (V >= 4.75) and (V <= 5.25)\n  }\n  constraint def C_Current {\n    in I: Real;\n    (I >= 0.008) and (I <= 0.020)\n  }\n  constraint def C_Runtime {\n    in t: Real;\n    (t >= 8.0)\n  }\n  part def LED { }\n  part def Driver { }\n  part def Battery { }\n  part def Charger { }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 577,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 1526,
+    "output_tokens_details": {
+      "reasoning_tokens": 1216
+    },
+    "total_tokens": 2103
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "completed_at": 1771900248,
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "prompt_cache_retention": null,
+  "store": true
+}

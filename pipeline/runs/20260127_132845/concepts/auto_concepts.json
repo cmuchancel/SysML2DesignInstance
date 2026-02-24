@@ -1,0 +1,11 @@
+[
+  {
+    "name": "NE555-astable",
+    "approach": "Use an NE555 in astable mode to blink an LED near 10 Hz from 5 V with RC timing and a series current-limiting resistor.",
+    "search_queries": [
+      "NE555 astable 10 Hz LED flasher 5V parts",
+      "LMC555 5V low power timer kit 10Hz",
+      "10 Hz LED flasher circuit resistor capacitor values"
+    ]
+  }
+]

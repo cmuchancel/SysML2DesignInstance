@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "evaluated": 5,
+  "passed": 5,
+  "failed": 0,
+  "output": "candidate_1 (Candidate) - 5 pass, 0 fail\n    - freqInRange: \u2705 PASS\n      expr: (1.44e3 / (timing_resistor_kohm * timing_cap_uF)) >= 9.5 and (1.44e3 / (timing_resistor_kohm * timing_cap_uF)) <= 10.5\n      vars: timing_cap_uF=7.16967517, timing_resistor_kohm=19.98165549\n    - currentInRange: \u2705 PASS\n      expr: led_current_mA >= 8 and led_current_mA <= 20\n      vars: led_current_mA=13.98605827\n    - runtimeMin: \u2705 PASS\n      expr: (battery_capacity_mAh / (driver_quiescent_mA + 0.5 * led_current_mA)) >= 8\n      vars: battery_capacity_mAh=500.00001299, driver_quiescent_mA=1.41583155, led_current_mA=13.98605827\n    - supplyInRange: \u2705 PASS\n      expr: supply_voltage_V >= 4.75 and supply_voltage_V <= 5.25\n      vars: supply_voltage_V=5.01836478\n    - partsAvailable: \u2705 PASS\n      expr: selected_slots > 0\n      vars: selected_slots=4.0\n\nSummary: 5 evaluated  |  5 pass, 0 fail"
+}

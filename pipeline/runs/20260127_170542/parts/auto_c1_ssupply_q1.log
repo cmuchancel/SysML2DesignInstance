@@ -1,0 +1,31 @@
+Search timed out after 20s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web --limit 1 --nl 5V DC wall adapter
+
+LLM parsed query: {
+  category: 'power supply',
+  manufacturer: undefined,
+  partNumber: undefined,
+  value: '5 V',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5 V DC',
+  current: undefined,
+  package: 'wall adapter (wall-wart)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'DC output', 'mains powered', 'wall-mount/plug-in' ],
+  quantity: undefined,
+  keywords: [ '5V DC', 'wall adapter', 'AC adapter' ],
+  specs: {
+    output: '5 V DC',
+    type: 'wall adapter',
+    formFactor: 'wall plug (wall-wart)',
+    input: 'mains AC (unspecified)',
+    outputType: 'DC',
+    connector: 'unspecified',
+    current: 'unspecified',
+    power: 'unspecified'
+  }
+}

@@ -1,0 +1,974 @@
+[
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "driver",
+    "slot_slug": "driver",
+    "title": "no_results",
+    "status": "not_found",
+    "reason": "no_results",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "driver",
+      "keywords": [
+        "NE555 timer 5V astable",
+        "NE555-astable",
+        "driver"
+      ],
+      "category": "ic",
+      "voltage": "4.87324082V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "query_input_used": {
+      "slot": "driver",
+      "keywords": [
+        "driver"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "driver",
+          "keywords": [
+            "NE555 timer 5V astable",
+            "NE555-astable",
+            "driver"
+          ],
+          "category": "ic",
+          "voltage": "4.87324082V",
+          "features": [
+            "timer",
+            "oscillator",
+            "low power"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "driver",
+          "keywords": [
+            "NE555 timer 5V astable",
+            "NE555-astable",
+            "driver"
+          ],
+          "category": "ic"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "driver",
+          "keywords": [
+            "driver"
+          ]
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "no_results",
+    "status": "not_found",
+    "reason": "no_results",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "NE555-astable",
+        "led"
+      ],
+      "category": "led",
+      "current": "13.43623983mA",
+      "voltage": "4.87324082V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "query_input_used": {
+      "slot": "led",
+      "keywords": [
+        "led"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "NE555-astable",
+            "led"
+          ],
+          "category": "led",
+          "current": "13.43623983mA",
+          "voltage": "4.87324082V",
+          "features": [
+            "indicator",
+            "visible"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "NE555-astable",
+            "led"
+          ],
+          "category": "led"
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      },
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "led"
+          ]
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "stock": 125000,
+    "unitPrice": 0.012,
+    "provider": "mock",
+    "constraint_match_score": 6,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "NE555-astable",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "607 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "query_input_used": {
+      "slot": "resistor",
+      "keywords": [
+        "resistor"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "NE555-astable",
+            "resistor"
+          ],
+          "category": "resistor",
+          "value": "607 ohm",
+          "power": "0.25W",
+          "tolerance": "1%",
+          "package": "through-hole or 0805"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "NE555-astable",
+            "resistor"
+          ],
+          "category": "resistor"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "resistor"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "no_results",
+    "status": "not_found",
+    "reason": "no_results",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "NE555-astable",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "4.87324082V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "query_input_used": {
+      "slot": "supply",
+      "keywords": [
+        "supply"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "NE555-astable",
+            "supply"
+          ],
+          "category": "power supply",
+          "voltage": "4.87324082V",
+          "current": "0.05A",
+          "features": [
+            "rechargeable",
+            "regulated"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "NE555-astable",
+            "supply"
+          ],
+          "category": "power supply"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "supply"
+          ]
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "mcu",
+    "slot_slug": "mcu",
+    "title": "timeout after 10s",
+    "status": "not_found",
+    "reason": "timeout after 10s",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "mcu",
+      "keywords": [
+        "ATTINY13A 5V microcontroller",
+        "Microcontroller-PWM",
+        "mcu"
+      ],
+      "category": "ic",
+      "voltage": "5.23447499V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "query_input_used": {
+      "slot": "mcu",
+      "keywords": [
+        "mcu"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "mcu",
+          "keywords": [
+            "ATTINY13A 5V microcontroller",
+            "Microcontroller-PWM",
+            "mcu"
+          ],
+          "category": "ic",
+          "voltage": "5.23447499V",
+          "features": [
+            "timer",
+            "oscillator",
+            "low power"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "mcu",
+          "keywords": [
+            "ATTINY13A 5V microcontroller",
+            "Microcontroller-PWM",
+            "mcu"
+          ],
+          "category": "ic"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "mcu",
+          "keywords": [
+            "mcu"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "timeout after 10s",
+    "status": "not_found",
+    "reason": "timeout after 10s",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "Microcontroller-PWM",
+        "led"
+      ],
+      "category": "led",
+      "current": "12.44115236mA",
+      "voltage": "5.23447499V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "query_input_used": {
+      "slot": "led",
+      "keywords": [
+        "led"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "Microcontroller-PWM",
+            "led"
+          ],
+          "category": "led",
+          "current": "12.44115236mA",
+          "voltage": "5.23447499V",
+          "features": [
+            "indicator",
+            "visible"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "Microcontroller-PWM",
+            "led"
+          ],
+          "category": "led"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "led"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "timeout after 10s",
+    "status": "not_found",
+    "reason": "timeout after 10s",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "Microcontroller-PWM",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "528 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "query_input_used": {
+      "slot": "resistor",
+      "keywords": [
+        "resistor"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "Microcontroller-PWM",
+            "resistor"
+          ],
+          "category": "resistor",
+          "value": "528 ohm",
+          "power": "0.25W",
+          "tolerance": "1%",
+          "package": "through-hole or 0805"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "Microcontroller-PWM",
+            "resistor"
+          ],
+          "category": "resistor"
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      },
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "resistor"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "no_results",
+    "status": "not_found",
+    "reason": "no_results",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "Microcontroller-PWM",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "5.23447499V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "query_input_used": {
+      "slot": "supply",
+      "keywords": [
+        "supply"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "Microcontroller-PWM",
+            "supply"
+          ],
+          "category": "power supply",
+          "voltage": "5.23447499V",
+          "current": "0.05A",
+          "features": [
+            "rechargeable",
+            "regulated"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "Microcontroller-PWM",
+            "supply"
+          ],
+          "category": "power supply"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "supply"
+          ]
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "opamp",
+    "slot_slug": "opamp",
+    "title": "no_results",
+    "status": "not_found",
+    "reason": "no_results",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "opamp",
+      "keywords": [
+        "MCP6001 rail to rail op amp 5V",
+        "OpAmp-Relaxation",
+        "opamp"
+      ],
+      "category": "ic",
+      "voltage": "4.93535402V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "query_input_used": {
+      "slot": "opamp",
+      "keywords": [
+        "opamp"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "opamp",
+          "keywords": [
+            "MCP6001 rail to rail op amp 5V",
+            "OpAmp-Relaxation",
+            "opamp"
+          ],
+          "category": "ic",
+          "voltage": "4.93535402V",
+          "features": [
+            "timer",
+            "oscillator",
+            "low power"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "opamp",
+          "keywords": [
+            "MCP6001 rail to rail op amp 5V",
+            "OpAmp-Relaxation",
+            "opamp"
+          ],
+          "category": "ic"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "opamp",
+          "keywords": [
+            "opamp"
+          ]
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "timeout after 10s",
+    "status": "not_found",
+    "reason": "timeout after 10s",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "OpAmp-Relaxation",
+        "led"
+      ],
+      "category": "led",
+      "current": "12.65277084mA",
+      "voltage": "4.93535402V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "query_input_used": {
+      "slot": "led",
+      "keywords": [
+        "led"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "OpAmp-Relaxation",
+            "led"
+          ],
+          "category": "led",
+          "current": "12.65277084mA",
+          "voltage": "4.93535402V",
+          "features": [
+            "indicator",
+            "visible"
+          ]
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      },
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "OpAmp-Relaxation",
+            "led"
+          ],
+          "category": "led"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "led"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "RC0603FR-0710KL (Yageo)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/727385",
+    "stock": 125000,
+    "unitPrice": 0.012,
+    "provider": "mock",
+    "constraint_match_score": 6,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "OpAmp-Relaxation",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "145 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "query_input_used": {
+      "slot": "resistor",
+      "keywords": [
+        "resistor"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "OpAmp-Relaxation",
+            "resistor"
+          ],
+          "category": "resistor",
+          "value": "145 ohm",
+          "power": "0.25W",
+          "tolerance": "1%",
+          "package": "through-hole or 0805"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "OpAmp-Relaxation",
+            "resistor"
+          ],
+          "category": "resistor"
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      },
+      {
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "resistor"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "no_results",
+    "status": "not_found",
+    "reason": "no_results",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "OpAmp-Relaxation",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "4.93535402V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "query_input_used": {
+      "slot": "supply",
+      "keywords": [
+        "supply"
+      ]
+    },
+    "search_attempts": [
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "OpAmp-Relaxation",
+            "supply"
+          ],
+          "category": "power supply",
+          "voltage": "4.93535402V",
+          "current": "0.05A",
+          "features": [
+            "rechargeable",
+            "regulated"
+          ]
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "OpAmp-Relaxation",
+            "supply"
+          ],
+          "category": "power supply"
+        },
+        "status": "timeout",
+        "count": 0,
+        "error": "timeout after 10s"
+      },
+      {
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "supply"
+          ]
+        },
+        "status": "ok",
+        "count": 0,
+        "error": null
+      }
+    ]
+  }
+]

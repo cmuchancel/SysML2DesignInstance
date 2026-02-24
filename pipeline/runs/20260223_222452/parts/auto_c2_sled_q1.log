@@ -1,0 +1,13 @@
+slot: led
+query_input_original: {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "Microcontroller-PWM", "led"], "category": "led", "current": "13.9966201mA", "voltage": "4.91971192V", "features": ["indicator", "visible"]}
+query_input_used: {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "Microcontroller-PWM", "led"], "category": "led", "current": "13.9966201mA", "voltage": "4.91971192V", "features": ["indicator", "visible"]}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "led", "keywords": ["5mm indicator LED 5V 20mA", "Microcontroller-PWM", "led"], "category": "led", "current": "13.9966201mA", "voltage": "4.91971192V", "features": ["indicator", "visible"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+WP7113ID5V (Kingbright)
+Stock: 1890
+Unit price: 0.378
+URL: https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 7, "stock": 1890, "unitPrice": 0.378, "manufacturer": "Kingbright", "manufacturerPartNumber": "WP7113ID5V", "description": "Through-hole T-1 3/4 (5mm) single-color red LED with built-in 5V resistor, 13mA forward current, diffused dome lens, ~617nm, 40mcd, 85mW.", "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D", "provider": "configurator", "attributes": {"voltage": "5 V (Vf, with internal resistor for 5V operation)", "current": "13 mA", "power": "85 mW", "value": "Red indicator LED, diffused, dome lens, ~617 nm, 40 mcd", "package": "T-1 3/4 (5 mm), through-hole"}}

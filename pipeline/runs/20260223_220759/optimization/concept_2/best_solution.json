@@ -1,0 +1,36 @@
+{
+  "concept_index": 2,
+  "status": "success",
+  "source_csv": "best_solution.csv",
+  "optimized_values": {
+    "timing_resistor_kohm": 60.251736565167654,
+    "timing_cap_uF": 2.290126958056355,
+    "resistor_ohm": 527.9488097230619,
+    "led_current_mA": 12.441152360978638,
+    "supply_voltage_V": 5.2344749948149305,
+    "driver_quiescent_mA": 1.1011551217579354,
+    "battery_capacity_mAh": 581.379145623429,
+    "efficiency_factor": 0.6134409303028218
+  },
+  "objective_values": {
+    "f1": 7.812535019562629,
+    "f2": 2.6200871691934022
+  },
+  "raw_row": {
+    "f1": "7.812535019562629302e+00",
+    "f2": "2.620087169193402232e+00",
+    "feasible": "1.0",
+    "x1": "6.025173656516765419e+01",
+    "x2": "2.290126958056355022e+00",
+    "x3": "5.279488097230619132e+02",
+    "x4": "1.244115236097863786e+01",
+    "x5": "5.234474994814930504e+00",
+    "x6": "1.101155121757935396e+00",
+    "x7": "5.813791456234290536e+02",
+    "x8": "6.134409303028217630e-01"
+  },
+  "recovered_from_syspipe_error": true,
+  "fallback_optimizer": "random_search_penalty",
+  "fallback_feasible": true,
+  "fallback_violation": 0.0
+}

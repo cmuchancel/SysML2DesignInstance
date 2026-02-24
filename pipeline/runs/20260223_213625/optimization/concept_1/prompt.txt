@@ -1,0 +1,36 @@
+Multi-objective optimization: concept_1_ne555_astable_optimization
+Variables:
+- timing_resistor_kohm in [1.0, 200.0] kΩ
+- timing_cap_uF in [0.01, 100.0] μF
+- resistor_ohm in [100.0, 2200.0] Ω
+- led_current_mA in [8, 20] mA
+- supply_voltage_V in [4.75, 5.25] V
+- driver_quiescent_mA in [0.2, 20.0] mA
+- battery_capacity_mAh in [500.0, 6000.0] mAh
+- efficiency_factor in [0.60, 0.98]
+- blink_frequency_hz in [9.5, 10.5] Hz (bound from requirements)
+- avg_current_mA in [4.2, 30.0] mA (inferred from driver_quiescent_mA ∈ [0.2,20] and led_current_mA ∈ [8,20]; min = 0.2+0.5*8=4.2, max = 20+0.5*20=30)
+- runtime_hours in [8, 1428.57] h (lower bound given; upper bound inferred using battery_capacity_mAh_max=6000 and avg_current_mA_min=4.2 → 6000/4.2 ≈ 1428.57)
+- total_cost_usd in [~3.30, ~56.57] USD (inferred from variable bounds; approx min and max)
+- performance_penalty in [0, 36.25] (inferred: max deviation occurs at led_current extremes and blink deviation 0.5 -> 6^2 + 0.5^2 = 36.25)
+
+Objectives (minimize unless stated):
+- (minimize) total_cost_usd
+- (minimize) performance_penalty
+Constraints:
+- blink_frequency_hz = 1440.0 / (timing_resistor_kohm * timing_cap_uF)  (Hz)  [equation derived from 1.44/((R_kΩ*1000)*(C_μF*1e-6))]
+- avg_current_mA = driver_quiescent_mA + 0.5 * led_current_mA  (mA)
+- runtime_hours = battery_capacity_mAh / avg_current_mA  (hours)
+- total_cost_usd = 0.04 * timing_resistor_kohm + 0.12 * timing_cap_uF + 0.0025 * resistor_ohm + 0.02 * led_current_mA + 0.005 * battery_capacity_mAh + 0.4 / efficiency_factor  (USD)
+- performance_penalty = (blink_frequency_hz - 10)^2 + (led_current_mA - 14)^2
+- timing_resistor_kohm ≥ 1.0; timing_resistor_kohm ≤ 200.0
+- timing_cap_uF ≥ 0.01; timing_cap_uF ≤ 100.0
+- resistor_ohm ≥ 100.0; resistor_ohm ≤ 2200.0
+- led_current_mA ≥ 8; led_current_mA ≤ 20
+- supply_voltage_V ≥ 4.75; supply_voltage_V ≤ 5.25
+- driver_quiescent_mA ≥ 0.2; driver_quiescent_mA ≤ 20.0
+- battery_capacity_mAh ≥ 500.0; battery_capacity_mAh ≤ 6000.0
+- efficiency_factor ≥ 0.60; efficiency_factor ≤ 0.98
+- blink_frequency_hz ≥ 9.5; blink_frequency_hz ≤ 10.5
+- runtime_hours ≥ 8
+- (All equalities and inequalities above are enforced; no unconstrained variables remain.)

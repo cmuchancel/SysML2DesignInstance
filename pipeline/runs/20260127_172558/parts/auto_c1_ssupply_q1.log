@@ -1,0 +1,29 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 1 --nl 5V DC wall adapter
+
+LLM parsed query: {
+  category: 'AC-DC wall adapter',
+  manufacturer: undefined,
+  partNumber: undefined,
+  value: '5 V',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5 V DC',
+  current: undefined,
+  package: undefined,
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'wall-mounted', 'AC to DC conversion' ],
+  quantity: undefined,
+  keywords: [ '5V', '5 V', 'DC' ],
+  specs: { output: '5 V DC', mount: 'wall plug', type: 'AC to DC adapter' }
+}
+Source: live | Query: "AC-DC wall adapter 5 V 5 V DC volt wall-mounted AC to DC conversion 5V 5 V DC output 5 V DC mount wall plug type AC to DC adapter" | Matches: 1
+------------------------------------------------------------------------
+AA10A-050A-R (Phihong)
+  Mouser #: 552-AA10A-050A-R
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 310
+  URL: https://www.mouser.com/ProductDetail/552-AA10A-050A-R
+------------------------------------------------------------------------

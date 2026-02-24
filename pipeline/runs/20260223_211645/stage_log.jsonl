@@ -1,0 +1,11 @@
+{"ts": "2026-02-24T02:16:45.472564Z", "message": "requirements:start", "data": null}
+{"ts": "2026-02-24T02:17:19.224621Z", "message": "requirements:done", "data": null}
+{"ts": "2026-02-24T02:17:19.225565Z", "message": "concepts:start", "data": null}
+{"ts": "2026-02-24T02:17:49.123786Z", "message": "concepts:done", "data": {"count": 3}}
+{"ts": "2026-02-24T02:17:49.125277Z", "message": "optimize:start", "data": null}
+{"ts": "2026-02-24T02:22:28.228975Z", "message": "optimize:done", "data": {"total": 3, "success": 1, "failed": 2}}
+{"ts": "2026-02-24T02:22:28.229959Z", "message": "parts:start", "data": null}
+{"ts": "2026-02-24T02:22:28.230015Z", "message": "part_select:start", "data": null}
+{"ts": "2026-02-24T02:24:28.310389Z", "message": "part_select:done", "data": {"searches": 4, "selected": 0, "not_found": 12}}
+{"ts": "2026-02-24T02:24:28.311024Z", "message": "parts:done", "data": {"searches": 4, "selected": 0}}
+{"ts": "2026-02-24T02:24:28.315021Z", "message": "run:complete", "data": null}

@@ -1,0 +1,21 @@
+[
+  {
+    "iteration": 1,
+    "iteration_start": "2026-01-27T21:36:01.617731Z",
+    "iteration_end": "2026-01-27T21:36:21.479186Z",
+    "iteration_duration_seconds": 19.861912374966778,
+    "sysml_path": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_163601/sysml/20260127-163601/iteration_01.sysml",
+    "prompt_path": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_163601/sysml/20260127-163601/iteration_01_prompt.txt",
+    "response_path": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_163601/sysml/20260127-163601/iteration_01_response.json",
+    "success": false,
+    "compiler_stdout": "",
+    "compiler_stderr": "iteration_01.sysml:13:10: \u001b[38;2;220;080;080merror\u001b[0m (parsing-error): Unexpected 'REAL_VALUE'.\n    13 |     (V = 5.0)\n       |          \u001b[38;2;220;080;080m^^^\u001b[0m",
+    "return_code": 1,
+    "tokens_used_this_iter": {
+      "input_tokens": 506,
+      "output_tokens": 1195,
+      "total_tokens": 1701
+    },
+    "tokens_used_total": 1701
+  }
+]

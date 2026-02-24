@@ -1,0 +1,74 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'electronic components / timer circuit parts',
+  manufacturer: 'Various (e.g., Texas Instruments, STMicroelectronics, ON Semiconductor)',
+  partNumber: 'NE555',
+  value: '10 Hz (astable)',
+  tolerance: '±5%',
+  power: undefined,
+  voltage: '5V',
+  current: '~10 mA (LED typical)',
+  package: 'DIP-8 (or SOIC-8)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'astable mode',
+    '10 Hz LED flasher',
+    'single-supply 5V operation',
+    'requires decoupling caps',
+    'common timer IC'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    mode: 'astable',
+    frequency: '10 Hz',
+    supplyVoltage: '5 V',
+    IC: 'NE555 (DIP-8 / SOIC-8)',
+    R1: '10 kΩ',
+    R2: '68 kΩ (use 67 kΩ/68 kΩ standard)',
+    C_timing: '1 µF (electrolytic or film)',
+    C_control: '0.01 µF (10 nF) from control pin to GND',
+    C_vcc: '0.1 µF decoupling across Vcc-GND',
+    R_LED: '330 Ω (current-limiting resistor for LED at ~10 mA)',
+    LED: 'standard 3mm/5mm LED (Vf ≈2 V typical for red)',
+    powerSupply: 'regulated 5 V (USB, battery pack, or regulator)',
+    optional: 'DIP-8 socket, breadboard, hookup wire, PCB',
+    calculationNote: 'f ≈ 1.44/((R1 + 2*R2)*C). Using R1=10k, R2=68k, C=1µF gives ≈10 Hz.',
+    usageNote: 'Adjust R or C to change frequency or duty cycle; add recommended decoupling for stability.'
+  }
+}
+Source: live | Query: "NE555 Various (e.g., Texas Instruments, STMicroelectronics, ON Semiconductor) electronic components / timer circuit parts 10 Hz (astable) ±5% 5V volt ~10 mA (LED typical) amp DIP-8 (or SOIC-8) astable mode 10 Hz LED flasher single-supply 5V operation requires decoupling caps common timer IC NE555 555 timer astable mode astable frequency 10 Hz supplyVoltage 5 V IC NE555 (DIP-8 / SOIC-8) R1 10 kΩ R2 68 kΩ (use 67 kΩ/68 kΩ standard) C_timing 1 µF (electrolytic or film) C_control 0.01 µF (10 nF) from control pin to GND C_vcc 0.1 µF decoupling across Vcc-GND R_LED 330 Ω (current-limiting resistor for LED at ~10 mA) LED standard 3mm/5mm LED (Vf ≈2 V typical for red) powerSupply regulated 5 V (USB, battery pack, or regulator) optional DIP-8 socket, breadboard, hookup wire, PCB calculationNote f ≈ 1.44/((R1 + 2*R2)*C). Using R1=10k, R2=68k, C=1µF gives ≈10 Hz. usageNote Adjust R or C to change frequency or duty cycle; add recommended decoupling for stability." | Matches: 5
+------------------------------------------------------------------------
+NE555P (Texas Instruments)
+  Mouser #: 595-NE555P
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 17535
+  URL: https://www.mouser.com/ProductDetail/595-NE555P
+------------------------------------------------------------------------
+NE555PSR (Texas Instruments)
+  Mouser #: 595-NE555PSR
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 7315
+  URL: https://www.mouser.com/ProductDetail/595-NE555PSR
+------------------------------------------------------------------------
+NE555PS (Texas Instruments)
+  Mouser #: 595-NE555PS
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1164
+  URL: https://www.mouser.com/ProductDetail/595-NE555PS
+------------------------------------------------------------------------
+NE555DR1G4 (Texas Instruments)
+  Mouser #: 595-NE555DR1G4
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1049
+  URL: https://www.mouser.com/ProductDetail/595-NE555DR1G4
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

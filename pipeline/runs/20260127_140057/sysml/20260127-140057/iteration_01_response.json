@@ -1,0 +1,82 @@
+{
+  "id": "resp_055839e02ac119e40069790b6ad4b48190b4ca831e9fc1075a",
+  "created_at": 1769540458.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_055839e02ac119e40069790b6b30e481908edd827b2cdaa483",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_055839e02ac119e40069790b8ea18c8190b94d9582b22219c1",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package FlickerCircuit {\n    model FlickerCircuitModel {\n        /* Assumptions: LED Vf \u2248 2.0 V, target LED current \u2248 10 mA. Timing uses standard NE555 astable formula f = 1.44/((Ra+2*Rb)*C). Mouser links provided as search queries to ensure sourceability. */\n        block PowerSupply { property V : Real = 5.0; }\n        block LED { property Vf : Real = 2.0; property If_target : Real = 0.01; property mouser_search : String = \"https://www.mouser.com/Search/Refine?Keyword=LED+3mm+or+5mm\"; }\n        block Resistor { property R : Real; property mouser_search : String; }\n        block Timer555 {\n            property Ra : Real; property Rb : Real; property C : Real;\n            property frequency : Real;\n            property mouser_search : String = \"https://www.mouser.com/Search/Refine?Keyword=NE555\";\n        }\n\n        part V5 : PowerSupply;\n        part led : LED;\n        part r_led : Resistor { R = 330.0; mouser_search = \"https://www.mouser.com/Search/Refine?Keyword=330+ohm+resistor\"; } /* 330 \u03a9 chosen (standard) for ~9.1 mA */\n        part tmr : Timer555 { Ra = 20000.0; Rb = 62000.0; C = 1.0e-6; } /* Ra=20k, Rb=62k, C=1\u00b5F => f \u2248 10 Hz */\n\n        constraint freqCalc inv tmr.frequency = 1.44 / ((tmr.Ra + 2.0 * tmr.Rb) * tmr.C);\n        constraint freqSpec inv tmr.frequency >= 9.5 and tmr.frequency <= 10.5;\n\n        constraint ledCurrentApprox inv ((V5.V - led.Vf) / r_led.R) >= 0.009 and ((V5.V - led.Vf) / r_led.R) <= 0.011; /* ensures ~10 mA with 330\u03a9 */\n    }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769540501.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2970,
+    "output_tokens_details": {
+      "reasoning_tokens": 2432
+    },
+    "total_tokens": 3230
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

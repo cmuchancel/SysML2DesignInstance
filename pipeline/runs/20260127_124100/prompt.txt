@@ -1,0 +1,11 @@
+# Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a small 5 V logic I/O module with a microcontroller, a momentary pushbutton input, and a status LED with series resistor. Allow different MCU families (8-bit AVR or 32-bit ARM Cortex-M). Everything must be sourced from Mouser. The board should run from a regulated 5 V rail (4.75–5.25 V tolerance). Provide attributes to note whether the MCU, LED+resistor, and button are present. Keep the SysML minimal but compilable.
+
+-- repeat --
+Design a small 5 V logic I/O module with a microcontroller, a momentary pushbutton input, and a status LED with series resistor. Allow different MCU families (8-bit AVR or 32-bit ARM Cortex-M). Everything must be sourced from Mouser. The board should run from a regulated 5 V rail (4.75–5.25 V tolerance). Provide attributes to note whether the MCU, LED+resistor, and button are present. Keep the SysML minimal but compilable.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.

@@ -1,0 +1,44 @@
+Search timed out after 45s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 1 --nl NE555 timer 5V astable
+
+LLM parsed query: {
+  category: 'Integrated Circuit (Timer)',
+  manufacturer: undefined,
+  partNumber: 'NE555',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V (commonly used); supply range 4.5-16V',
+  current: undefined,
+  package: 'DIP-8 (also available in SOIC-8)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'Astable (oscillator) operation',
+    'Monostable (one-shot) operation',
+    'Bistable operation',
+    'Adjustable frequency and duty cycle with external R and C',
+    'TTL-compatible inputs',
+    'High output drive'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'timing IC' ],
+  specs: {
+    supply_voltage_range: '4.5-16 V',
+    typical_supply_current: '~10 mA (varies by manufacturer)',
+    output_drive: 'Can source/sink up to ~200 mA (peak, device dependent)',
+    thresholds: 'Trigger = 1/3 Vcc; Threshold = 2/3 Vcc',
+    common_packages: 'DIP-8, SOIC-8',
+    typical_applications: 'Astable multivibrator/oscillator, monostable one-shot, pulse generation',
+    note: 'This is the bipolar NE555 family; CMOS variants (e.g., LMC555) have different specs'
+  }
+}
+Source: live | Query: "NE555 Integrated Circuit (Timer) 5V (commonly used); supply range 4.5-16V volt DIP-8 (also available in SOIC-8) Astable (oscillator) operation Monostable (one-shot) operation Bistable operation Adjustable frequency and duty cycle with external R and C TTL-compatible inputs High output drive NE555 555 timer timing IC supply_voltage_range 4.5-16 V typical_supply_current ~10 mA (varies by manufacturer) output_drive Can source/sink up to ~200 mA (peak, device dependent) thresholds Trigger = 1/3 Vcc; Threshold = 2/3 Vcc common_packages DIP-8, SOIC-8 typical_applications Astable multivibrator/oscillator, monostable one-shot, pulse generation note This is the bipolar NE555 family; CMOS variants (e.g., LMC555) have different specs" | Matches: 1
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

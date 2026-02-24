@@ -1,0 +1,9 @@
+slot: driver
+query_input_original: {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic", "voltage": "4.87324082V", "features": ["timer", "oscillator", "low power"]}
+query_input_used: {"slot": "driver", "keywords": ["driver"]}
+search_attempts: [{"source": "configurator_gemini", "input": {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic", "voltage": "4.87324082V", "features": ["timer", "oscillator", "low power"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic", "voltage": "4.87324082V", "features": ["timer", "oscillator", "low power"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic"}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "driver", "keywords": ["driver"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}]
+search_status: timeout
+error: timeout after 8s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 8s", "constraint_match_score": 0}

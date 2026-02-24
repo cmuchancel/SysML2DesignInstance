@@ -1,0 +1,13 @@
+{"ts": "2026-02-24T02:08:24.167935Z", "message": "requirements:start", "data": null}
+{"ts": "2026-02-24T02:08:25.925878Z", "message": "requirements:failed", "data": {"error": "Command '['/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/.venv/bin/python', '/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/refine_sysml.py', '--input', '/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_210824/prompt.txt', '--output-dir', '/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_210824/sysml', '--venv', '/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/.venv', '--max-iters', '4', '--max-total-tokens', '12000', '--model', 'gpt-4o-mini']' returned non-zero exit status 1."}}
+{"ts": "2026-02-24T02:08:25.926404Z", "message": "requirements:fallback_written", "data": {"path": "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_210824/sysml/fallback_requirements.sysml"}}
+{"ts": "2026-02-24T02:08:25.926626Z", "message": "requirements:done", "data": null}
+{"ts": "2026-02-24T02:08:25.927185Z", "message": "concepts:start", "data": null}
+{"ts": "2026-02-24T02:08:27.145943Z", "message": "concepts:done", "data": {"count": 3}}
+{"ts": "2026-02-24T02:08:27.147414Z", "message": "optimize:start", "data": null}
+{"ts": "2026-02-24T02:08:51.948140Z", "message": "optimize:done", "data": {"total": 3, "success": 0, "failed": 3}}
+{"ts": "2026-02-24T02:08:51.948514Z", "message": "parts:start", "data": null}
+{"ts": "2026-02-24T02:08:51.948612Z", "message": "part_select:start", "data": null}
+{"ts": "2026-02-24T02:08:51.950440Z", "message": "part_select:done", "data": {"searches": 0, "selected": 0, "not_found": 12}}
+{"ts": "2026-02-24T02:08:51.950495Z", "message": "parts:done", "data": {"searches": 0, "selected": 0}}
+{"ts": "2026-02-24T02:08:51.952111Z", "message": "run:complete", "data": null}

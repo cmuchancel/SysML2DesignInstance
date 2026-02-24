@@ -1,0 +1,82 @@
+{
+  "id": "resp_0fdf7a3a12af211800697901e255248197bf1d1a6fb85bd532",
+  "created_at": 1769538018.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0fdf7a3a12af211800697901e2b72c819799918891c1a784f6",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0fdf7a3a12af21180069790202df90819783ee4a141b2c4077",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package FlickerCircuit {\n  requirement FREQ {\n    id = \"REQ-001\";\n    text = \"NE555 astable on 5 V supply producing LED blink 10 Hz \u00b15% (9.5\u201310.5 Hz). Recommended design: NE555 (standard 8\u2011pin) astable with Ra = 20 k\u03a9, Rb = 62 k\u03a9 (or 50 k\u03a9 potentiometer + 12 k\u03a9 fixed), C = 1 \u03bcF. Frequency f \u2248 1.44 / ((Ra + 2\u00b7Rb)\u00b7C) \u2248 10 Hz. LED current limiting: LED Vf \u2248 2.0 V (red); R_led = 330 \u03a9 \u2192 I \u2248 (5 V \u2212 Vf)/R \u2248 9\u201310 mA. Parts sourceable from common vendors (e.g., NE555 / LM555 from TI/OnSemi via Digi-Key/Mouser, 1 \u03bcF MLCC/electrolytic from Murata/Vishay/TDK, standard resistors and 5 mm LEDs from Kingbright/OSRAM). Verification: measure blink frequency at 5 V and adjust Rb/pot to achieve 10 Hz \u00b15%.\";\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769538054.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 7941,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2123,
+    "output_tokens_details": {
+      "reasoning_tokens": 1856
+    },
+    "total_tokens": 10064
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

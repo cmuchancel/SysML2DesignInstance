@@ -1,0 +1,210 @@
+{
+  "id": "20260130142723_qa0u",
+  "nl": "Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.",
+  "createdAt": "2026-01-30T14:27:23.532Z",
+  "status": "done",
+  "runDir": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u",
+  "log": [
+    "requirements: attempt 1",
+    "concept generation started",
+    "concept_1: start",
+    "concept_2: start",
+    "concept_3: start"
+  ],
+  "outputs": {
+    "requirementsSysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}",
+    "requirementsPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u/requirements/iteration_01.sysml",
+    "concepts": [
+      {
+        "name": "Consumer Pocket Monitor",
+        "approach": "A compact, user-friendly handheld using proven off-the-shelf sensors and an ESP32 SoC for integrated Wi‑Fi + Bluetooth. Focus on ease-of-use, fast time-to-market, and reliable indoor air readings for consumers and light commercial users.",
+        "highlights": [
+          "Sensors: Sensirion SPS30 (PM2.5 optical), Sensirion SCD41 (NDIR CO2), Sensirion SHT40 (temp/humidity) — high accuracy, small footprint.",
+          "Connectivity: ESP32 provides dual-mode Wi‑Fi (2.4 GHz) + Bluetooth Low Energy for direct sync to cloud or smartphone app.",
+          "Power: 4000 mAh Li‑ion rechargeable battery with USB‑C charging and integrated fuel gauge; typical power budget sized for 8–12 hours continuous use at 1 sample/sec; user-selectable sample rates to extend runtime (e.g., 1/min for multi-day use).",
+          "UI: 2.4\" color capacitive display with simple icons, one-button operation, vibration alert for thresholds, and status LEDs for connectivity/battery.",
+          "Data handling: Internal circular buffer (16k samples) and automatic sync when connected; CSV export via app or Wi‑Fi; OTA firmware updates.",
+          "Form factor & ergonomics: 160×60×28 mm, ~200 g, soft-grip housing, single-handed operation.",
+          "Pros/cons: Fast development and lower BOM cost; sensor accuracy good for consumer/prosumer use but not calibrated to lab standards out of the box."
+        ]
+      },
+      {
+        "name": "Modular Pro Field Monitor",
+        "approach": "A rugged, modular handheld aimed at professionals (building inspectors, industrial hygienists). Core platform supports swappable sensor modules (high-accuracy particulate and CO2), enterprise-grade wireless, and advanced data logging/calibration features.",
+        "highlights": [
+          "Sensors: Modular bay supports Alphasense OPC-N3 (PM2.5) module and Senseair Sunrise or a high-precision NDIR CO2 module; integrated Bosch BME688 or Sensirion SHT4x for temp/humidity and IAQ inference.",
+          "Modularity: Hot-swappable sensor cartridges for field replacement and lab calibration; modular firmware automatically recognizes sensors and loads calibrations.",
+          "Connectivity: Dual-radio architecture — nRF52840 for Bluetooth 5.2 + ESP32 or cellular/NB IoT option for Wi‑Fi/cellular. Enterprise features: TLS, certificate-based auth, and local MQTT endpoint support.",
+          "Power: 5200 mAh smart Li‑ion battery with swappable option and fast USB‑C PD charging; power management supports active logging for 8+ hours even under continuous sampling and logging to onboard microSD.",
+          "Ruggedness & UI: IP54 housing, glove-friendly buttons, daylight-readable 3.5\" LCD, and optional external probe for remote sampling.",
+          "Data & calibration: On-device advanced logging (timestamped), local storage (up to 1 year at standard sample rates), PC calibration tool, and field calibration routines for CO2 and PM sensors.",
+          "Pros/cons: High accuracy, field-serviceable, and enterprise-grade features increase cost and weight but meet stringent measurement requirements."
+        ]
+      },
+      {
+        "name": "Ultra-Low-Power Patrol Clip",
+        "approach": "A lightweight, low-power wearable/clip-on monitor for first-responders and mobile workers. Prioritizes weight and battery life through duty-cycled sensing, BLE-first sync to smartphone, and optional Wi‑Fi docking for bulk uploads.",
+        "highlights": [
+          "Sensors: Plantower PMS5003-mini or Sensirion SPS30 for PM2.5 (optimized sampling bursts), Sensirion SCD41 low-power NDIR for CO2, combined temp/humidity sensor (SHTC3) for low power draw.",
+          "Power strategy: Aggressive duty cycling (sensor wake/sampling bursts every 30–60 seconds), deep-sleep MCU (Nordic nRF52840 or low-power STM32 + BLE), and e-ink or minimal LED indicators. A 2500–3500 mAh cell targeted for 8–24 hours depending on sampling profile.",
+          "Connectivity: BLE-first sync to smartphone app (real-time live view) with optional Wi‑Fi gateway/dock that bulk-uploads stored data when docked; OTA via phone or docking station.",
+          "Form factor: Lightweight clip (80–100 g), ruggedized polymer housing, single-button and multi-color LED for air-quality state, designed to be unobtrusive on clothing or gear.",
+          "Data handling: Local ring buffer with prioritized event logging (high PM/CO2 events saved at higher resolution), configurable sampling profiles via app.",
+          "User scenarios & trade-offs: Ideal for patrols and mobile workers needing long runtimes and low weight. Sacrifices continuous high-frequency sampling accuracy for extended battery life and portability.",
+          "Extras: Optional solar trickle-charge panel accessory for extended missions; magnetic docking station for Wi‑Fi sync and charging."
+        ]
+      }
+    ],
+    "conceptSysml": [
+      {
+        "status": "success",
+        "index": 0,
+        "startedAt": "2026-01-30T14:28:11.188Z",
+        "message": "Concept 1 passed syside",
+        "concept": {
+          "name": "Consumer Pocket Monitor",
+          "approach": "A compact, user-friendly handheld using proven off-the-shelf sensors and an ESP32 SoC for integrated Wi‑Fi + Bluetooth. Focus on ease-of-use, fast time-to-market, and reliable indoor air readings for consumers and light commercial users.",
+          "highlights": [
+            "Sensors: Sensirion SPS30 (PM2.5 optical), Sensirion SCD41 (NDIR CO2), Sensirion SHT40 (temp/humidity) — high accuracy, small footprint.",
+            "Connectivity: ESP32 provides dual-mode Wi‑Fi (2.4 GHz) + Bluetooth Low Energy for direct sync to cloud or smartphone app.",
+            "Power: 4000 mAh Li‑ion rechargeable battery with USB‑C charging and integrated fuel gauge; typical power budget sized for 8–12 hours continuous use at 1 sample/sec; user-selectable sample rates to extend runtime (e.g., 1/min for multi-day use).",
+            "UI: 2.4\" color capacitive display with simple icons, one-button operation, vibration alert for thresholds, and status LEDs for connectivity/battery.",
+            "Data handling: Internal circular buffer (16k samples) and automatic sync when connected; CSV export via app or Wi‑Fi; OTA firmware updates.",
+            "Form factor & ergonomics: 160×60×28 mm, ~200 g, soft-grip housing, single-handed operation.",
+            "Pros/cons: Fast development and lower BOM cost; sensor accuracy good for consumer/prosumer use but not calibrated to lab standards out of the box."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n  part def Component { }\n  port def AirPort { }\n  port def PowerPort { }\n  part def Consumer_Pocket_Monitor {\n    part sensorPM: Component { attribute airflow_LPM: Real; attribute pm25_range_ugm3: Real; }\n    part sensorCO2: Component { attribute range_ppm: Real; }\n    part sensorTH: Component { attribute temp_range_C: String; attribute humidity_range_pct: String; }\n    part mcu: Component { attribute flash_MB: Real; attribute ram_MB: Real; }\n    part battery: Component { attribute capacity_mAh: Real; attribute avg_power_W: Real; }\n    part radio: Component { attribute wifi: Boolean; attribute ble: Boolean; }\n    part storage: Component { attribute sd_present: Boolean; }\n    part ui: Component { attribute display_in: Real; }\n    part enclosure: Component { attribute ip_rating: String; }\n    port airIn: AirPort;\n    port airOut: AirPort;\n    port pwrIn: PowerPort;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n  constraint def C_airflow {\n    in q_lpm: Real;\n    (q_lpm >= 0.5)\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u/concept_1/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:28:33.139Z"
+      },
+      {
+        "status": "success",
+        "index": 1,
+        "startedAt": "2026-01-30T14:28:11.189Z",
+        "message": "Concept 2 passed syside",
+        "concept": {
+          "name": "Modular Pro Field Monitor",
+          "approach": "A rugged, modular handheld aimed at professionals (building inspectors, industrial hygienists). Core platform supports swappable sensor modules (high-accuracy particulate and CO2), enterprise-grade wireless, and advanced data logging/calibration features.",
+          "highlights": [
+            "Sensors: Modular bay supports Alphasense OPC-N3 (PM2.5) module and Senseair Sunrise or a high-precision NDIR CO2 module; integrated Bosch BME688 or Sensirion SHT4x for temp/humidity and IAQ inference.",
+            "Modularity: Hot-swappable sensor cartridges for field replacement and lab calibration; modular firmware automatically recognizes sensors and loads calibrations.",
+            "Connectivity: Dual-radio architecture — nRF52840 for Bluetooth 5.2 + ESP32 or cellular/NB IoT option for Wi‑Fi/cellular. Enterprise features: TLS, certificate-based auth, and local MQTT endpoint support.",
+            "Power: 5200 mAh smart Li‑ion battery with swappable option and fast USB‑C PD charging; power management supports active logging for 8+ hours even under continuous sampling and logging to onboard microSD.",
+            "Ruggedness & UI: IP54 housing, glove-friendly buttons, daylight-readable 3.5\" LCD, and optional external probe for remote sampling.",
+            "Data & calibration: On-device advanced logging (timestamped), local storage (up to 1 year at standard sample rates), PC calibration tool, and field calibration routines for CO2 and PM sensors.",
+            "Pros/cons: High accuracy, field-serviceable, and enterprise-grade features increase cost and weight but meet stringent measurement requirements."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n  part def Component { }\n  port def AirPort { }\n  port def PowerPort { }\n  part def Modular_Pro_Field_Monitor {\n    part sensorPM: Component { attribute airflow_LPM: Real; attribute pm25_range_ugm3: Real; }\n    part sensorCO2: Component { attribute range_ppm: Real; }\n    part sensorTH: Component { attribute temp_range_C: String; attribute humidity_range_pct: String; }\n    part mcu: Component { attribute flash_MB: Real; attribute ram_MB: Real; }\n    part battery: Component { attribute capacity_mAh: Real; attribute avg_power_W: Real; }\n    part radio: Component { attribute wifi: Boolean; attribute ble: Boolean; }\n    part storage: Component { attribute sd_present: Boolean; }\n    part ui: Component { attribute display_in: Real; }\n    part enclosure: Component { attribute ip_rating: String; }\n    port airIn: AirPort;\n    port airOut: AirPort;\n    port pwrIn: PowerPort;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n  constraint def C_airflow {\n    in q_lpm: Real;\n    (q_lpm >= 0.5)\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u/concept_2/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:28:32.593Z"
+      },
+      {
+        "status": "success",
+        "index": 2,
+        "startedAt": "2026-01-30T14:28:11.190Z",
+        "message": "Concept 3 passed syside",
+        "concept": {
+          "name": "Ultra-Low-Power Patrol Clip",
+          "approach": "A lightweight, low-power wearable/clip-on monitor for first-responders and mobile workers. Prioritizes weight and battery life through duty-cycled sensing, BLE-first sync to smartphone, and optional Wi‑Fi docking for bulk uploads.",
+          "highlights": [
+            "Sensors: Plantower PMS5003-mini or Sensirion SPS30 for PM2.5 (optimized sampling bursts), Sensirion SCD41 low-power NDIR for CO2, combined temp/humidity sensor (SHTC3) for low power draw.",
+            "Power strategy: Aggressive duty cycling (sensor wake/sampling bursts every 30–60 seconds), deep-sleep MCU (Nordic nRF52840 or low-power STM32 + BLE), and e-ink or minimal LED indicators. A 2500–3500 mAh cell targeted for 8–24 hours depending on sampling profile.",
+            "Connectivity: BLE-first sync to smartphone app (real-time live view) with optional Wi‑Fi gateway/dock that bulk-uploads stored data when docked; OTA via phone or docking station.",
+            "Form factor: Lightweight clip (80–100 g), ruggedized polymer housing, single-button and multi-color LED for air-quality state, designed to be unobtrusive on clothing or gear.",
+            "Data handling: Local ring buffer with prioritized event logging (high PM/CO2 events saved at higher resolution), configurable sampling profiles via app.",
+            "User scenarios & trade-offs: Ideal for patrols and mobile workers needing long runtimes and low weight. Sacrifices continuous high-frequency sampling accuracy for extended battery life and portability.",
+            "Extras: Optional solar trickle-charge panel accessory for extended missions; magnetic docking station for Wi‑Fi sync and charging."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n  part def Component { }\n  port def AirPort { }\n  port def PowerPort { }\n  part def Ultra_Low_Power_Patrol_Clip {\n    part sensorPM: Component { attribute airflow_LPM: Real; attribute pm25_range_ugm3: Real; }\n    part sensorCO2: Component { attribute range_ppm: Real; }\n    part sensorTH: Component { attribute temp_range_C: String; attribute humidity_range_pct: String; }\n    part mcu: Component { attribute flash_MB: Real; attribute ram_MB: Real; }\n    part battery: Component { attribute capacity_mAh: Real; attribute avg_power_W: Real; }\n    part radio: Component { attribute wifi: Boolean; attribute ble: Boolean; }\n    part storage: Component { attribute sd_present: Boolean; }\n    part ui: Component { attribute display_in: Real; }\n    part enclosure: Component { attribute ip_rating: String; }\n    port airIn: AirPort;\n    port airOut: AirPort;\n    port pwrIn: PowerPort;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n  constraint def C_airflow {\n    in q_lpm: Real;\n    (q_lpm >= 0.5)\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u/concept_3/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:28:33.400Z"
+      }
+    ]
+  },
+  "stages": {
+    "requirements": {
+      "status": "success",
+      "startedAt": "2026-01-30T14:27:23.532Z",
+      "message": "requirements ok (iter 1)",
+      "detail": "syside check passed",
+      "endedAt": "2026-01-30T14:27:43.809Z"
+    },
+    "concepts": {
+      "status": "success",
+      "startedAt": "2026-01-30T14:27:43.810Z",
+      "message": "Generated 3 concepts",
+      "endedAt": "2026-01-30T14:28:11.187Z"
+    },
+    "conceptsExpansion": [
+      {
+        "status": "success",
+        "index": 0,
+        "startedAt": "2026-01-30T14:28:11.188Z",
+        "message": "Concept 1 passed syside",
+        "concept": {
+          "name": "Consumer Pocket Monitor",
+          "approach": "A compact, user-friendly handheld using proven off-the-shelf sensors and an ESP32 SoC for integrated Wi‑Fi + Bluetooth. Focus on ease-of-use, fast time-to-market, and reliable indoor air readings for consumers and light commercial users.",
+          "highlights": [
+            "Sensors: Sensirion SPS30 (PM2.5 optical), Sensirion SCD41 (NDIR CO2), Sensirion SHT40 (temp/humidity) — high accuracy, small footprint.",
+            "Connectivity: ESP32 provides dual-mode Wi‑Fi (2.4 GHz) + Bluetooth Low Energy for direct sync to cloud or smartphone app.",
+            "Power: 4000 mAh Li‑ion rechargeable battery with USB‑C charging and integrated fuel gauge; typical power budget sized for 8–12 hours continuous use at 1 sample/sec; user-selectable sample rates to extend runtime (e.g., 1/min for multi-day use).",
+            "UI: 2.4\" color capacitive display with simple icons, one-button operation, vibration alert for thresholds, and status LEDs for connectivity/battery.",
+            "Data handling: Internal circular buffer (16k samples) and automatic sync when connected; CSV export via app or Wi‑Fi; OTA firmware updates.",
+            "Form factor & ergonomics: 160×60×28 mm, ~200 g, soft-grip housing, single-handed operation.",
+            "Pros/cons: Fast development and lower BOM cost; sensor accuracy good for consumer/prosumer use but not calibrated to lab standards out of the box."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n  part def Component { }\n  port def AirPort { }\n  port def PowerPort { }\n  part def Consumer_Pocket_Monitor {\n    part sensorPM: Component { attribute airflow_LPM: Real; attribute pm25_range_ugm3: Real; }\n    part sensorCO2: Component { attribute range_ppm: Real; }\n    part sensorTH: Component { attribute temp_range_C: String; attribute humidity_range_pct: String; }\n    part mcu: Component { attribute flash_MB: Real; attribute ram_MB: Real; }\n    part battery: Component { attribute capacity_mAh: Real; attribute avg_power_W: Real; }\n    part radio: Component { attribute wifi: Boolean; attribute ble: Boolean; }\n    part storage: Component { attribute sd_present: Boolean; }\n    part ui: Component { attribute display_in: Real; }\n    part enclosure: Component { attribute ip_rating: String; }\n    port airIn: AirPort;\n    port airOut: AirPort;\n    port pwrIn: PowerPort;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n  constraint def C_airflow {\n    in q_lpm: Real;\n    (q_lpm >= 0.5)\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u/concept_1/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:28:33.139Z"
+      },
+      {
+        "status": "success",
+        "index": 1,
+        "startedAt": "2026-01-30T14:28:11.189Z",
+        "message": "Concept 2 passed syside",
+        "concept": {
+          "name": "Modular Pro Field Monitor",
+          "approach": "A rugged, modular handheld aimed at professionals (building inspectors, industrial hygienists). Core platform supports swappable sensor modules (high-accuracy particulate and CO2), enterprise-grade wireless, and advanced data logging/calibration features.",
+          "highlights": [
+            "Sensors: Modular bay supports Alphasense OPC-N3 (PM2.5) module and Senseair Sunrise or a high-precision NDIR CO2 module; integrated Bosch BME688 or Sensirion SHT4x for temp/humidity and IAQ inference.",
+            "Modularity: Hot-swappable sensor cartridges for field replacement and lab calibration; modular firmware automatically recognizes sensors and loads calibrations.",
+            "Connectivity: Dual-radio architecture — nRF52840 for Bluetooth 5.2 + ESP32 or cellular/NB IoT option for Wi‑Fi/cellular. Enterprise features: TLS, certificate-based auth, and local MQTT endpoint support.",
+            "Power: 5200 mAh smart Li‑ion battery with swappable option and fast USB‑C PD charging; power management supports active logging for 8+ hours even under continuous sampling and logging to onboard microSD.",
+            "Ruggedness & UI: IP54 housing, glove-friendly buttons, daylight-readable 3.5\" LCD, and optional external probe for remote sampling.",
+            "Data & calibration: On-device advanced logging (timestamped), local storage (up to 1 year at standard sample rates), PC calibration tool, and field calibration routines for CO2 and PM sensors.",
+            "Pros/cons: High accuracy, field-serviceable, and enterprise-grade features increase cost and weight but meet stringent measurement requirements."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n  part def Component { }\n  port def AirPort { }\n  port def PowerPort { }\n  part def Modular_Pro_Field_Monitor {\n    part sensorPM: Component { attribute airflow_LPM: Real; attribute pm25_range_ugm3: Real; }\n    part sensorCO2: Component { attribute range_ppm: Real; }\n    part sensorTH: Component { attribute temp_range_C: String; attribute humidity_range_pct: String; }\n    part mcu: Component { attribute flash_MB: Real; attribute ram_MB: Real; }\n    part battery: Component { attribute capacity_mAh: Real; attribute avg_power_W: Real; }\n    part radio: Component { attribute wifi: Boolean; attribute ble: Boolean; }\n    part storage: Component { attribute sd_present: Boolean; }\n    part ui: Component { attribute display_in: Real; }\n    part enclosure: Component { attribute ip_rating: String; }\n    port airIn: AirPort;\n    port airOut: AirPort;\n    port pwrIn: PowerPort;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n  constraint def C_airflow {\n    in q_lpm: Real;\n    (q_lpm >= 0.5)\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u/concept_2/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:28:32.593Z"
+      },
+      {
+        "status": "success",
+        "index": 2,
+        "startedAt": "2026-01-30T14:28:11.190Z",
+        "message": "Concept 3 passed syside",
+        "concept": {
+          "name": "Ultra-Low-Power Patrol Clip",
+          "approach": "A lightweight, low-power wearable/clip-on monitor for first-responders and mobile workers. Prioritizes weight and battery life through duty-cycled sensing, BLE-first sync to smartphone, and optional Wi‑Fi docking for bulk uploads.",
+          "highlights": [
+            "Sensors: Plantower PMS5003-mini or Sensirion SPS30 for PM2.5 (optimized sampling bursts), Sensirion SCD41 low-power NDIR for CO2, combined temp/humidity sensor (SHTC3) for low power draw.",
+            "Power strategy: Aggressive duty cycling (sensor wake/sampling bursts every 30–60 seconds), deep-sleep MCU (Nordic nRF52840 or low-power STM32 + BLE), and e-ink or minimal LED indicators. A 2500–3500 mAh cell targeted for 8–24 hours depending on sampling profile.",
+            "Connectivity: BLE-first sync to smartphone app (real-time live view) with optional Wi‑Fi gateway/dock that bulk-uploads stored data when docked; OTA via phone or docking station.",
+            "Form factor: Lightweight clip (80–100 g), ruggedized polymer housing, single-button and multi-color LED for air-quality state, designed to be unobtrusive on clothing or gear.",
+            "Data handling: Local ring buffer with prioritized event logging (high PM/CO2 events saved at higher resolution), configurable sampling profiles via app.",
+            "User scenarios & trade-offs: Ideal for patrols and mobile workers needing long runtimes and low weight. Sacrifices continuous high-frequency sampling accuracy for extended battery life and portability.",
+            "Extras: Optional solar trickle-charge panel accessory for extended missions; magnetic docking station for Wi‑Fi sync and charging."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n  part def Component { }\n  port def AirPort { }\n  port def PowerPort { }\n  part def Ultra_Low_Power_Patrol_Clip {\n    part sensorPM: Component { attribute airflow_LPM: Real; attribute pm25_range_ugm3: Real; }\n    part sensorCO2: Component { attribute range_ppm: Real; }\n    part sensorTH: Component { attribute temp_range_C: String; attribute humidity_range_pct: String; }\n    part mcu: Component { attribute flash_MB: Real; attribute ram_MB: Real; }\n    part battery: Component { attribute capacity_mAh: Real; attribute avg_power_W: Real; }\n    part radio: Component { attribute wifi: Boolean; attribute ble: Boolean; }\n    part storage: Component { attribute sd_present: Boolean; }\n    part ui: Component { attribute display_in: Real; }\n    part enclosure: Component { attribute ip_rating: String; }\n    port airIn: AirPort;\n    port airOut: AirPort;\n    port pwrIn: PowerPort;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n  constraint def C_airflow {\n    in q_lpm: Real;\n    (q_lpm >= 0.5)\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130142723_qa0u/concept_3/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:28:33.400Z"
+      }
+    ]
+  }
+}

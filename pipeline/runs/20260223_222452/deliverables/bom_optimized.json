@@ -1,0 +1,788 @@
+[
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "driver",
+    "slot_slug": "driver",
+    "title": "NE555P (Texas Instruments)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+    "stock": 28591,
+    "unitPrice": 0.5,
+    "provider": "configurator",
+    "constraint_match_score": 4,
+    "query_input": {
+      "slot": "driver",
+      "keywords": [
+        "NE555 timer 5V astable",
+        "NE555-astable",
+        "driver"
+      ],
+      "category": "ic",
+      "voltage": "5.01836478V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "query_input_used": {
+      "slot": "driver",
+      "keywords": [
+        "NE555 timer 5V astable",
+        "NE555-astable",
+        "driver"
+      ],
+      "category": "ic",
+      "voltage": "5.01836478V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "driver",
+          "keywords": [
+            "NE555 timer 5V astable",
+            "NE555-astable",
+            "driver"
+          ],
+          "category": "ic",
+          "voltage": "5.01836478V",
+          "features": [
+            "timer",
+            "oscillator",
+            "low power"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "521-8714F (Dialight)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D",
+    "stock": 1410,
+    "unitPrice": 0.62,
+    "provider": "configurator",
+    "constraint_match_score": 5,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "NE555-astable",
+        "led"
+      ],
+      "category": "led",
+      "current": "13.98605827mA",
+      "voltage": "5.01836478V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "query_input_used": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "NE555-astable",
+        "led"
+      ],
+      "category": "led",
+      "current": "13.98605827mA",
+      "voltage": "5.01836478V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "NE555-astable",
+            "led"
+          ],
+          "category": "led",
+          "current": "13.98605827mA",
+          "voltage": "5.01836478V",
+          "features": [
+            "indicator",
+            "visible"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "MFR-25FBF52-100R (YAGEO)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D",
+    "stock": 2093,
+    "unitPrice": 0.17,
+    "provider": "configurator",
+    "constraint_match_score": 7,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "NE555-astable",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "100 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "query_input_used": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "NE555-astable",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "100 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "NE555-astable",
+            "resistor"
+          ],
+          "category": "resistor",
+          "value": "100 ohm",
+          "power": "0.25W",
+          "tolerance": "1%",
+          "package": "through-hole or 0805"
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "stock": 1856,
+    "unitPrice": 5.5,
+    "provider": "configurator",
+    "constraint_match_score": 5,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "NE555-astable",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "5.01836478V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "query_input_used": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "NE555-astable",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "5.01836478V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "NE555-astable",
+            "supply"
+          ],
+          "category": "power supply",
+          "voltage": "5.01836478V",
+          "current": "0.05A",
+          "features": [
+            "rechargeable",
+            "regulated"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "mcu",
+    "slot_slug": "mcu",
+    "title": "ATTINY13A-PU (Microchip Technology)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D",
+    "stock": 5529,
+    "unitPrice": 1.13,
+    "provider": "configurator",
+    "constraint_match_score": 4,
+    "query_input": {
+      "slot": "mcu",
+      "keywords": [
+        "ATTINY13A 5V microcontroller",
+        "Microcontroller-PWM",
+        "mcu"
+      ],
+      "category": "ic",
+      "voltage": "4.91971192V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "query_input_used": {
+      "slot": "mcu",
+      "keywords": [
+        "ATTINY13A 5V microcontroller",
+        "Microcontroller-PWM",
+        "mcu"
+      ],
+      "category": "ic",
+      "voltage": "4.91971192V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "mcu",
+          "keywords": [
+            "ATTINY13A 5V microcontroller",
+            "Microcontroller-PWM",
+            "mcu"
+          ],
+          "category": "ic",
+          "voltage": "4.91971192V",
+          "features": [
+            "timer",
+            "oscillator",
+            "low power"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "WP7113ID5V (Kingbright)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D",
+    "stock": 1890,
+    "unitPrice": 0.378,
+    "provider": "configurator",
+    "constraint_match_score": 7,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "Microcontroller-PWM",
+        "led"
+      ],
+      "category": "led",
+      "current": "13.9966201mA",
+      "voltage": "4.91971192V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "query_input_used": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "Microcontroller-PWM",
+        "led"
+      ],
+      "category": "led",
+      "current": "13.9966201mA",
+      "voltage": "4.91971192V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "Microcontroller-PWM",
+            "led"
+          ],
+          "category": "led",
+          "current": "13.9966201mA",
+          "voltage": "4.91971192V",
+          "features": [
+            "indicator",
+            "visible"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "MFR-25FRF52-100R (YAGEO)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R",
+    "stock": 34767,
+    "unitPrice": 0.12,
+    "provider": "configurator",
+    "constraint_match_score": 9,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "Microcontroller-PWM",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "100 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "query_input_used": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "Microcontroller-PWM",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "100 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "Microcontroller-PWM",
+            "resistor"
+          ],
+          "category": "resistor",
+          "value": "100 ohm",
+          "power": "0.25W",
+          "tolerance": "1%",
+          "package": "through-hole or 0805"
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "stock": 1856,
+    "unitPrice": 5.5,
+    "provider": "configurator",
+    "constraint_match_score": 2,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "Microcontroller-PWM",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "4.91971192V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "query_input_used": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "Microcontroller-PWM",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "4.91971192V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "Microcontroller-PWM",
+            "supply"
+          ],
+          "category": "power supply",
+          "voltage": "4.91971192V",
+          "current": "0.05A",
+          "features": [
+            "rechargeable",
+            "regulated"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "opamp",
+    "slot_slug": "opamp",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D",
+    "stock": 33303,
+    "unitPrice": 0.301,
+    "provider": "configurator",
+    "constraint_match_score": 6,
+    "query_input": {
+      "slot": "opamp",
+      "keywords": [
+        "MCP6001 rail to rail op amp 5V",
+        "OpAmp-Relaxation",
+        "opamp"
+      ],
+      "category": "ic",
+      "voltage": "5.01836478V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "query_input_used": {
+      "slot": "opamp",
+      "keywords": [
+        "MCP6001 rail to rail op amp 5V",
+        "OpAmp-Relaxation",
+        "opamp"
+      ],
+      "category": "ic",
+      "voltage": "5.01836478V",
+      "features": [
+        "timer",
+        "oscillator",
+        "low power"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "opamp",
+          "keywords": [
+            "MCP6001 rail to rail op amp 5V",
+            "OpAmp-Relaxation",
+            "opamp"
+          ],
+          "category": "ic",
+          "voltage": "5.01836478V",
+          "features": [
+            "timer",
+            "oscillator",
+            "low power"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "WP7113LYD (Kingbright)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://pt.mouser.com/ProductDetail/Kingbright/WP7113LYD?qs=58z0TXQGVST7mfYOZ14%2FqQ%3D%3D",
+    "stock": 3479,
+    "unitPrice": 0.215,
+    "provider": "configurator",
+    "constraint_match_score": 4,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "OpAmp-Relaxation",
+        "led"
+      ],
+      "category": "led",
+      "current": "13.98605827mA",
+      "voltage": "5.01836478V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "query_input_used": {
+      "slot": "led",
+      "keywords": [
+        "5mm indicator LED 5V 20mA",
+        "OpAmp-Relaxation",
+        "led"
+      ],
+      "category": "led",
+      "current": "13.98605827mA",
+      "voltage": "5.01836478V",
+      "features": [
+        "indicator",
+        "visible"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "led",
+          "keywords": [
+            "5mm indicator LED 5V 20mA",
+            "OpAmp-Relaxation",
+            "led"
+          ],
+          "category": "led",
+          "current": "13.98605827mA",
+          "voltage": "5.01836478V",
+          "features": [
+            "indicator",
+            "visible"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "RMCA0805FT100R-HP (SEI Stackpole)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D",
+    "stock": 14860,
+    "unitPrice": 0.12,
+    "provider": "configurator",
+    "constraint_match_score": 10,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "OpAmp-Relaxation",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "100 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "query_input_used": {
+      "slot": "resistor",
+      "keywords": [
+        "330 ohm resistor 0.25W",
+        "OpAmp-Relaxation",
+        "resistor"
+      ],
+      "category": "resistor",
+      "value": "100 ohm",
+      "power": "0.25W",
+      "tolerance": "1%",
+      "package": "through-hole or 0805"
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "resistor",
+          "keywords": [
+            "330 ohm resistor 0.25W",
+            "OpAmp-Relaxation",
+            "resistor"
+          ],
+          "category": "resistor",
+          "value": "100 ohm",
+          "power": "0.25W",
+          "tolerance": "1%",
+          "package": "through-hole or 0805"
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "T7633ST (Cicor)",
+    "status": "selected",
+    "reason": null,
+    "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/",
+    "stock": 0,
+    "unitPrice": 0,
+    "provider": "configurator",
+    "constraint_match_score": 2,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "OpAmp-Relaxation",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "5.01836478V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "query_input_used": {
+      "slot": "supply",
+      "keywords": [
+        "5V DC wall adapter",
+        "OpAmp-Relaxation",
+        "supply"
+      ],
+      "category": "power supply",
+      "voltage": "5.01836478V",
+      "current": "0.05A",
+      "features": [
+        "rechargeable",
+        "regulated"
+      ]
+    },
+    "search_attempts": [
+      {
+        "source": "configurator_chatgpt",
+        "input": {
+          "slot": "supply",
+          "keywords": [
+            "5V DC wall adapter",
+            "OpAmp-Relaxation",
+            "supply"
+          ],
+          "category": "power supply",
+          "voltage": "5.01836478V",
+          "current": "0.05A",
+          "features": [
+            "rechargeable",
+            "regulated"
+          ]
+        },
+        "status": "ok",
+        "count": 1,
+        "error": null
+      }
+    ]
+  }
+]

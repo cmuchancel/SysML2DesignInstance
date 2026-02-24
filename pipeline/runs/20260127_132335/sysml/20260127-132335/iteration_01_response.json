@@ -1,0 +1,82 @@
+{
+  "id": "resp_05cd55b588749cbd00697902a856108194bb3962a74bd58f57",
+  "created_at": 1769538216.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_05cd55b588749cbd00697902a89c8c819480ee25d7816fff49",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_05cd55b588749cbd00697902c598448194a407079daa6faee8",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package BlinkCircuit {\n    // Assumptions: LED Vf \u2248 2.0 V, target LED current 10 mA; 5 V supply; use NE555 in astable.\n    block BlinkCircuit {\n        property supplyVoltage: Real = 5.0;\n        property frequency_nominal: Real = 10.0;\n        property frequency_tolerance: Real = 0.05; // \u00b15%\n        property frequency_min: Real = 9.5;\n        property frequency_max: Real = 10.5;\n\n        // 555 astable components (f = 1.44/((Ra + 2*Rb)*C))\n        property Ra_ohm: Real = 22000.0;      // 22 k\u03a9\n        property Rb_ohm: Real = 62000.0;      // 62 k\u03a9 (standard)\n        property C_f: Real = 1.0e-6;          // 1 \u00b5F\n        property expected_frequency: Real = 9.86; // calculated ~9.86 Hz (within tolerance)\n\n        // LED and current limiting\n        property led_forward_voltage: Real = 2.0; // V (assumed)\n        property led_current: Real = 0.010;       // A (10 mA)\n        property R_led_ohm: Real = 330.0;         // (5 V - 2 V)/10 mA = 300 \u03a9 -> choose 330 \u03a9 standard\n\n        // Sourceable parts / vendors (common, widely available)\n        property timer_part: String = \"NE555 (e.g., TI NE555P, ON Semiconductor LM555)\";\n        property led_part: String = \"Generic LED 3\u20135 mm (e.g., Kingbright, Lumex)\";\n        property resistor_vendors: String = \"Vishay, Yageo, Stackpole (standard values)\";\n        property capacitor_vendors: String = \"Panasonic, Murata, Kemet (1 \u00b5F, electrolytic/tantalum/polymer as preferred)\";\n    }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769538250.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2500,
+    "output_tokens_details": {
+      "reasoning_tokens": 2048
+    },
+    "total_tokens": 2760
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

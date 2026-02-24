@@ -1,0 +1,5 @@
+Optimization method: NSGA-II
+Note: Selected NSGA-II (multi-objective gate (2 objectives, Pareto-front routing); n_obj=2, n_var=11, obj_type=linear, con_type=none, convex=true, grad=unknown, continuous, unconstrained).
+Problem: FlasherDesign
+Population: 100, Generations: 200, Seed: 42
+Total solutions: 1, Feasible: 1

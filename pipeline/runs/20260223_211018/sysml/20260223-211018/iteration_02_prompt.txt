@@ -1,0 +1,85 @@
+You are Codex, an expert SysMLv2 engineer operating inside a closed-loop synthesis pipeline.
+
+USER REQUIREMENT INPUT:
+            # Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a 5V rechargeable LED flasher that blinks at 10 Hz ±5%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts.
+
+-- repeat --
+Design a 5V rechargeable LED flasher that blinks at 10 Hz ±5%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.
+
+Produce valid SysMLv2 (.sysml) content using the official syntax. Do not include commentary, markdown fencing, or prose outside of the model.
+
+STRUCTURE RULES:
+- Keep requirements at the top level (use 'requirement def R {...}').
+- Constraints separate (use 'constraint def C { in x: Real; (expr) }'). NO semicolon after the expression.
+- Always use 'public import ScalarValues::*;' so Real is in scope.
+- Define only abstract/reusable design elements (blocks/parts/constraints). Do NOT emit any concrete design instances or BOM/source suggestions in this refinement stage.
+- No solution-specific values or part numbers; stay solution-agnostic.
+- Follow the TEMPLATE exactly if unsure.
+
+
+MINIMALITY: Use the fewest lines, elements, and properties possible while fully satisfying every requirement above. Avoid optional fluff, redundant packages, duplicate definitions, and unnecessary hierarchy.
+
+TEMPLATE (copy style):
+package RequirementsOnly {
+  public import ScalarValues::*;
+  requirement def Req_Freq { text = "LED flickers at 10 Hz ±5%"; }
+  requirement def Req_Supply { text = "Operate from 5 V supply"; }
+  requirement def Req_Current { text = "Include current limiting for LED"; }
+  constraint def C_Freq {
+    in f: Real;
+    (f >= 9.5) and (f <= 10.5)
+  }
+  constraint def C_Supply {
+    in V: Real;
+    (V >= 4.75) and (V <= 5.25)
+  }
+  // optional abstract blocks, no instances
+  part def LED { }
+  part def Driver { }
+}
+
+PREVIOUS ATTEMPT (iteration 1):
+                package RequirementsOnly {
+  public import ScalarValues::*;
+  requirement def Req_Brief1 { text = "Design a 5V rechargeable LED flasher that blinks at 10 Hz ±5%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts." }
+  requirement def Req_Brief2 { text = "Design a 5V rechargeable LED flasher that blinks at 10 Hz ±5%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts." }
+  constraint def C_Freq {
+    in f: Real;
+    (f >= 9.5) and (f <= 10.5)
+  }
+  constraint def C_Supply {
+    in V: Real;
+    (V >= 4.75) and (V <= 5.25)
+  }
+  constraint def C_Current {
+    in I: Real;
+    (I >= 0.008) and (I <= 0.02)
+  }
+  constraint def C_Runtime {
+    in t_h: Real;
+    (t_h >= 8)
+  }
+  part def LED { }
+  part def PowerSource { }
+  part def FlasherDriver { }
+}
+
+SYSIDE COMPILER FEEDBACK TO ADDRESS:
+                iteration_01.sysml:3:222: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "subject", "assume", "require", "frame", "concern", "actor", "stakeholder", "satisfy", "case", "analysis", "verification", "verify", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "SubjectMembership", "RequirementConstraintMembership", "RequirementConstraintKind", "FramedConcernMembership", "ActorMembership", "StakeholderMembership", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "RequirementVerificationMembership", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    3 |   requirement def Req_Brief1 { text = "Design a 5V rechargeable LED flasher that blinks at 10 Hz ±5%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts." }
+      |                                                                                                                                                                                                                             [38;2;220;080;080m^[0m
+
+iteration_01.sysml:4:222: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "subject", "assume", "require", "frame", "concern", "actor", "stakeholder", "satisfy", "case", "analysis", "verification", "verify", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "SubjectMembership", "RequirementConstraintMembership", "RequirementConstraintKind", "FramedConcernMembership", "ActorMembership", "StakeholderMembership", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "RequirementVerificationMembership", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    4 |   requirement def Req_Brief2 { text = "Design a 5V rechargeable LED flasher that blinks at 10 Hz ±5%, keeps LED current between 8 mA and 20 mA, runs at least 8 hours per charge, and uses sourceable off-the-shelf parts." }
+      |                                                                                                                                                                                                                             [38;2;220;080;080m^[0m
+
+Revise the earlier model to resolve the diagnostics without undoing correct structure.
+
+Return only the updated SysMLv2 model.

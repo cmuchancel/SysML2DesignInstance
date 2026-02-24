@@ -1,0 +1,242 @@
+[
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "driver",
+    "slot_slug": "driver",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "driver",
+      "keywords": [
+        "driver",
+        "NE555-astable"
+      ]
+    }
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "led",
+        "NE555-astable"
+      ]
+    }
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "resistor",
+        "NE555-astable"
+      ]
+    }
+  },
+  {
+    "concept_index": 1,
+    "concept": "NE555-astable",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "supply",
+        "NE555-astable"
+      ]
+    }
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "mcu",
+    "slot_slug": "mcu",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "mcu",
+      "keywords": [
+        "mcu",
+        "Microcontroller-PWM"
+      ]
+    }
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "led",
+        "Microcontroller-PWM"
+      ]
+    }
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "resistor",
+        "Microcontroller-PWM"
+      ]
+    }
+  },
+  {
+    "concept_index": 2,
+    "concept": "Microcontroller-PWM",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "supply",
+        "Microcontroller-PWM"
+      ]
+    }
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "opamp",
+    "slot_slug": "opamp",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "opamp",
+      "keywords": [
+        "opamp",
+        "OpAmp-Relaxation"
+      ]
+    }
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "led",
+    "slot_slug": "led",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "led",
+      "keywords": [
+        "led",
+        "OpAmp-Relaxation"
+      ]
+    }
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "resistor",
+    "slot_slug": "resistor",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "resistor",
+      "keywords": [
+        "resistor",
+        "OpAmp-Relaxation"
+      ]
+    }
+  },
+  {
+    "concept_index": 3,
+    "concept": "OpAmp-Relaxation",
+    "slot": "supply",
+    "slot_slug": "supply",
+    "title": "optimization_failed",
+    "status": "not_found",
+    "url": null,
+    "stock": null,
+    "unitPrice": null,
+    "provider": null,
+    "constraint_match_score": 0,
+    "query_input": {
+      "slot": "supply",
+      "keywords": [
+        "supply",
+        "OpAmp-Relaxation"
+      ]
+    }
+  }
+]

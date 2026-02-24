@@ -1,0 +1,82 @@
+{
+  "id": "resp_0cc5ba3066645a0800697909dc03a48194931fb7a85268a74b",
+  "created_at": 1769540060.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0cc5ba3066645a0800697909dc4370819498a3c30dbbeec5bc",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0cc5ba3066645a080069790a17a1bc81948b88d5e8f9909cae",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package FlickerCircuit\n{\n    /* Assumption: implement LED flicker with a 555 timer in astable mode.\n       Using RA=10k, RB=10k, C=4.7uF gives f \u2248 1.44/((10k+2*10k)*4.7e-6) \u2248 10.2 Hz (within \u00b15%).\n       Current-limiting resistor ~330 \u03a9 yields \u224810 mA for a 2.0 V LED from 5 V.\n       Mouser search links provided so parts are sourceable from Mouser. */\n    block BlinkCircuit\n    {\n        property supply_V: Real = 5.0;\n        property target_freq_Hz: Real = 10.0;\n        property freq_tolerance_pct: Real = 5.0;\n\n        property timer_type: String = \"NE555 astable\";\n        property ra_Ohm: Integer = 10000;\n        property rb_Ohm: Integer = 10000;\n        property c_uF: Real = 4.7;\n\n        property led_Vf_V: Real = 2.0;\n        property led_If_A: Real = 0.010;\n        property r_limit_Ohm: Integer = 330;\n\n        property mouser_timer_search: String = \"https://www.mouser.com/Search/Refine?Keyword=NE555\";\n        property mouser_led_search: String = \"https://www.mouser.com/Search/Refine?Keyword=5mm+red+LED\";\n        property mouser_resistor_search: String = \"https://www.mouser.com/Search/Refine?Keyword=through-hole+resistor\";\n        property mouser_capacitor_search: String = \"https://www.mouser.com/Search/Refine?Keyword=4.7uF+capacitor\";\n    }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769540125.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 4107,
+    "output_tokens_details": {
+      "reasoning_tokens": 3648
+    },
+    "total_tokens": 4367
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

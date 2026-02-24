@@ -1,0 +1,380 @@
+[
+  {
+    "concept": "c1",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555P",
+    "status": "found",
+    "stock": "17535"
+  },
+  {
+    "concept": "c1",
+    "title": "NE555PSR (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555PSR",
+    "status": "found",
+    "stock": "7315"
+  },
+  {
+    "concept": "c1",
+    "title": "NE555PS (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555PS",
+    "status": "found",
+    "stock": "1164"
+  },
+  {
+    "concept": "c1",
+    "title": "NE555DR1G4 (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555DR1G4",
+    "status": "found",
+    "stock": "1049"
+  },
+  {
+    "concept": "c1",
+    "title": "NE555 (Diodes Incorporated)",
+    "url": "https://www.mouser.com/ProductDetail/N%2FA",
+    "status": "found",
+    "stock": null
+  },
+  {
+    "concept": "1",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555P",
+    "status": "found",
+    "stock": "17535"
+  },
+  {
+    "concept": "1",
+    "title": "NE555PSR (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555PSR",
+    "status": "found",
+    "stock": "7315"
+  },
+  {
+    "concept": "1",
+    "title": "NE555PS (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555PS",
+    "status": "found",
+    "stock": "1164"
+  },
+  {
+    "concept": "1",
+    "title": "NE555DR1G4 (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555DR1G4",
+    "status": "found",
+    "stock": "1049"
+  },
+  {
+    "concept": "1",
+    "title": "NE555 (Diodes Incorporated)",
+    "url": "https://www.mouser.com/ProductDetail/N%2FA",
+    "status": "found",
+    "stock": null
+  },
+  {
+    "concept": "auto_c1",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555P",
+    "status": "found",
+    "stock": "17535"
+  },
+  {
+    "concept": "auto_c1",
+    "title": "NE555PSR (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555PSR",
+    "status": "found",
+    "stock": "7315"
+  },
+  {
+    "concept": "auto_c1",
+    "title": "NE555PS (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555PS",
+    "status": "found",
+    "stock": "1164"
+  },
+  {
+    "concept": "auto_c1",
+    "title": "NE555DR1G4 (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/595-NE555DR1G4",
+    "status": "found",
+    "stock": "1049"
+  },
+  {
+    "concept": "auto_c1",
+    "title": "NE555 (Diodes Incorporated)",
+    "url": "https://www.mouser.com/ProductDetail/N%2FA",
+    "status": "found",
+    "stock": null
+  },
+  {
+    "concept": "auto_c2",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "auto_c2",
+    "title": "manufacturer: 'Microchip (formerly Atmel)',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "auto_c2",
+    "title": "'Analog-to-digital converter (ADC)',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "auto_c2",
+    "title": "ATTINY13A-SSU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SSU",
+    "status": "found",
+    "stock": "6093"
+  },
+  {
+    "concept": "auto_c2",
+    "title": "ATTINY13A-SF (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SF",
+    "status": "found",
+    "stock": "4276"
+  },
+  {
+    "concept": "auto_c2",
+    "title": "ATTINY13A-SN (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SN",
+    "status": "found",
+    "stock": "2844"
+  },
+  {
+    "concept": "auto_c2",
+    "title": "ATTINY13A-SNR (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SNR",
+    "status": "found",
+    "stock": "1824"
+  },
+  {
+    "concept": "auto_c2",
+    "title": "ATTINY13A (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/N%2FA",
+    "status": "found",
+    "stock": null
+  },
+  {
+    "concept": "c2",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "c2",
+    "title": "manufacturer: 'Microchip (formerly Atmel)',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "c2",
+    "title": "'Analog-to-digital converter (ADC)',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "c2",
+    "title": "ATTINY13A-SSU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SSU",
+    "status": "found",
+    "stock": "6093"
+  },
+  {
+    "concept": "c2",
+    "title": "ATTINY13A-SF (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SF",
+    "status": "found",
+    "stock": "4276"
+  },
+  {
+    "concept": "c2",
+    "title": "ATTINY13A-SN (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SN",
+    "status": "found",
+    "stock": "2844"
+  },
+  {
+    "concept": "c2",
+    "title": "ATTINY13A-SNR (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SNR",
+    "status": "found",
+    "stock": "1824"
+  },
+  {
+    "concept": "c2",
+    "title": "ATTINY13A (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/N%2FA",
+    "status": "found",
+    "stock": null
+  },
+  {
+    "concept": "2",
+    "title": "timeout",
+    "url": null,
+    "status": "timeout",
+    "stock": null
+  },
+  {
+    "concept": "2",
+    "title": "manufacturer: 'Microchip (formerly Atmel)',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "2",
+    "title": "'Analog-to-digital converter (ADC)',",
+    "url": null,
+    "status": "pending",
+    "stock": null
+  },
+  {
+    "concept": "2",
+    "title": "ATTINY13A-SSU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SSU",
+    "status": "found",
+    "stock": "6093"
+  },
+  {
+    "concept": "2",
+    "title": "ATTINY13A-SF (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SF",
+    "status": "found",
+    "stock": "4276"
+  },
+  {
+    "concept": "2",
+    "title": "ATTINY13A-SN (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SN",
+    "status": "found",
+    "stock": "2844"
+  },
+  {
+    "concept": "2",
+    "title": "ATTINY13A-SNR (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/556-ATTINY13A-SNR",
+    "status": "found",
+    "stock": "1824"
+  },
+  {
+    "concept": "2",
+    "title": "ATTINY13A (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/N%2FA",
+    "status": "found",
+    "stock": null
+  },
+  {
+    "concept": "c3",
+    "title": "MCP6001UT-I/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001UT-I%2FOT",
+    "status": "found",
+    "stock": "41808"
+  },
+  {
+    "concept": "c3",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOT",
+    "status": "found",
+    "stock": "33738"
+  },
+  {
+    "concept": "c3",
+    "title": "MCP6001RT-E/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001RT-E%2FOT",
+    "status": "found",
+    "stock": "6027"
+  },
+  {
+    "concept": "c3",
+    "title": "MCP6001T-E/OTVAO (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOTVAO",
+    "status": "found",
+    "stock": "6000"
+  },
+  {
+    "concept": "c3",
+    "title": "MCP6001T-E/LTVAO (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FLTVAO",
+    "status": "found",
+    "stock": "3000"
+  },
+  {
+    "concept": "auto_c3",
+    "title": "MCP6001UT-I/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001UT-I%2FOT",
+    "status": "found",
+    "stock": "41808"
+  },
+  {
+    "concept": "auto_c3",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOT",
+    "status": "found",
+    "stock": "33738"
+  },
+  {
+    "concept": "auto_c3",
+    "title": "MCP6001RT-E/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001RT-E%2FOT",
+    "status": "found",
+    "stock": "6027"
+  },
+  {
+    "concept": "auto_c3",
+    "title": "MCP6001T-E/OTVAO (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOTVAO",
+    "status": "found",
+    "stock": "6000"
+  },
+  {
+    "concept": "auto_c3",
+    "title": "MCP6001T-E/LTVAO (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FLTVAO",
+    "status": "found",
+    "stock": "3000"
+  },
+  {
+    "concept": "3",
+    "title": "MCP6001UT-I/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001UT-I%2FOT",
+    "status": "found",
+    "stock": "41808"
+  },
+  {
+    "concept": "3",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOT",
+    "status": "found",
+    "stock": "33738"
+  },
+  {
+    "concept": "3",
+    "title": "MCP6001RT-E/OT (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001RT-E%2FOT",
+    "status": "found",
+    "stock": "6027"
+  },
+  {
+    "concept": "3",
+    "title": "MCP6001T-E/OTVAO (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FOTVAO",
+    "status": "found",
+    "stock": "6000"
+  },
+  {
+    "concept": "3",
+    "title": "MCP6001T-E/LTVAO (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/579-MCP6001T-E%2FLTVAO",
+    "status": "found",
+    "stock": "3000"
+  }
+]

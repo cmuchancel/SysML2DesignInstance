@@ -1,0 +1,82 @@
+{
+  "id": "resp_0f76f556658550ee006979040c5b7081969bb4b7c4d54482c2",
+  "created_at": 1769538572.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0f76f556658550ee006979040cc768819699d4496dec2fb783",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0f76f556658550ee0069790438abd48196a10083dc357f233f",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDFlicker {\n  import standard::*;\n\n  class Resistor {\n    attribute resistance: Real[1];\n    attribute manufacturers: String[*];\n  }\n\n  class Capacitor {\n    attribute capacitance: Real[1];\n    attribute manufacturers: String[*];\n  }\n\n  class TimerIC {\n    attribute partNumber: String[1];\n    attribute manufacturers: String[*];\n  }\n\n  class LED {\n    attribute vf: Real[1];\n    attribute manufacturers: String[*];\n  }\n\n  constant TimerIC_PN: String[1] = \"NE555\";\n  constant TimerIC_MFRs: String[*] = {\"Texas Instruments\", \"STMicroelectronics\", \"ON Semiconductor\"};\n  constant Resistor_MFRs: String[*] = {\"Yageo\", \"Vishay\"};\n  constant Capacitor_MFRs: String[*] = {\"Murata\", \"Kemet\"};\n  constant LED_MFRs: String[*] = {\"Kingbright\", \"OSRAM\", \"Lite-On\"};\n\n  system LEDFlickerCircuit {\n    attribute supplyVoltage: Real[1] = 5.0;\n    attribute freqNominal: Real[1] = 10.0;\n    attribute freqTolPct: Real[1] = 5.0;\n    attribute freqMin: Real[1] = 9.5;\n    attribute freqMax: Real[1] = 10.5;\n\n    part U1: TimerIC;\n    part RtimA: Resistor;\n    part RtimB: Resistor;\n    part Ctim: Capacitor;\n    part LED1: LED;\n    part Rlim: Resistor;\n\n    attribute computedFreq: Real[1] = 1.44 / ((RtimA.resistance + 2.0 * RtimB.resistance) * Ctim.capacitance);\n    attribute withinSpec: Boolean[1] = (computedFreq >= freqMin) and (computedFreq <= freqMax);\n    attribute ledCurrentA: Real[1] = (supplyVoltage - LED1.vf) / Rlim.resistance;\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769538623.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 13434,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 3102,
+    "output_tokens_details": {
+      "reasoning_tokens": 2624
+    },
+    "total_tokens": 16536
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

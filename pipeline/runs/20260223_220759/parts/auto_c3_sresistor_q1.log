@@ -1,0 +1,9 @@
+slot: resistor
+query_input_original: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor", "value": "145 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+query_input_used: {"slot": "resistor", "keywords": ["resistor"]}
+search_attempts: [{"source": "configurator_gemini", "input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor", "value": "145 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}, "status": "ok", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor", "value": "145 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor"}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "resistor", "keywords": ["resistor"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}]
+search_status: timeout
+error: timeout after 8s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 8s", "constraint_match_score": 0}

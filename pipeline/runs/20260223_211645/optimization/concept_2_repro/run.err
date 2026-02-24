@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py", line 54, in _wrapfunc
+    return bound(*args, **kwds)
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_211645/optimization/concept_2_repro/generated_auto.py", line 220, in <module>
+    run()
+    ~~~^^
+  File "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_211645/optimization/concept_2_repro/generated_auto.py", line 190, in run
+    print(f"[{i+1}] F = {np.round(fvec, 6).tolist()}  ({feas})")
+                         ~~~~~~~~^^^^^^^^^
+  File "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py", line 3674, in round
+    return _wrapfunc(a, 'round', decimals=decimals, out=out)
+  File "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py", line 63, in _wrapfunc
+    return _wrapit(obj, method, *args, **kwds)
+  File "/Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py", line 43, in _wrapit
+    result = getattr(arr, method)(*args, **kwds)
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'

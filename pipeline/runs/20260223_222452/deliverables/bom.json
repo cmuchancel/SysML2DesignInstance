@@ -1,0 +1,578 @@
+[
+  {
+    "concept": "1",
+    "slot": "driver",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+    "status": "selected",
+    "stock": "28591"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+    "status": "selected",
+    "stock": "28591"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "521-8714F (Dialight)",
+    "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D",
+    "status": "selected",
+    "stock": "1410"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "MFR-25FBF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D",
+    "status": "selected",
+    "stock": "2093"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+    "status": "selected",
+    "stock": "28591"
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "521-8714F (Dialight)",
+    "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D",
+    "status": "selected",
+    "stock": "1410"
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "MFR-25FBF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D",
+    "status": "selected",
+    "stock": "2093"
+  },
+  {
+    "concept": "c1",
+    "slot": "",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "c1",
+    "slot": "driver",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+    "status": "selected",
+    "stock": "28591"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "driver",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+    "status": "selected",
+    "stock": "28591"
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "NE555P (Texas Instruments)",
+    "url": "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+    "status": "selected",
+    "stock": "28591"
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "521-8714F (Dialight)",
+    "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D",
+    "status": "selected",
+    "stock": "1410"
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "MFR-25FBF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D",
+    "status": "selected",
+    "stock": "2093"
+  },
+  {
+    "concept": "1",
+    "slot": "",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "c1",
+    "slot": "led",
+    "title": "521-8714F (Dialight)",
+    "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D",
+    "status": "selected",
+    "stock": "1410"
+  },
+  {
+    "concept": "1",
+    "slot": "led",
+    "title": "521-8714F (Dialight)",
+    "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D",
+    "status": "selected",
+    "stock": "1410"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "led",
+    "title": "521-8714F (Dialight)",
+    "url": "https://www.mouser.com/ProductDetail/Dialight/521-8714F?qs=sGAEpiMZZMv0DJfhVcWlK8AiAHwfAGPKKNEjxXhf2%252B5DZFNd2R%252BhRA%3D%3D",
+    "status": "selected",
+    "stock": "1410"
+  },
+  {
+    "concept": "c1",
+    "slot": "resistor",
+    "title": "MFR-25FBF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D",
+    "status": "selected",
+    "stock": "2093"
+  },
+  {
+    "concept": "1",
+    "slot": "resistor",
+    "title": "MFR-25FBF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D",
+    "status": "selected",
+    "stock": "2093"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "resistor",
+    "title": "MFR-25FBF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-100R?qs=oAGoVhmvjhyaHXp7Uz6NEg%3D%3D",
+    "status": "selected",
+    "stock": "2093"
+  },
+  {
+    "concept": "auto_c1",
+    "slot": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "c1",
+    "slot": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "1",
+    "slot": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "ATTINY13A-PU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D",
+    "status": "selected",
+    "stock": "5529"
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "WP7113ID5V (Kingbright)",
+    "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D",
+    "status": "selected",
+    "stock": "1890"
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "MFR-25FRF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R",
+    "status": "selected",
+    "stock": "34767"
+  },
+  {
+    "concept": "c2",
+    "slot": "",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "c2",
+    "slot": "mcu",
+    "title": "ATTINY13A-PU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D",
+    "status": "selected",
+    "stock": "5529"
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "ATTINY13A-PU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D",
+    "status": "selected",
+    "stock": "5529"
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "WP7113ID5V (Kingbright)",
+    "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D",
+    "status": "selected",
+    "stock": "1890"
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "MFR-25FRF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R",
+    "status": "selected",
+    "stock": "34767"
+  },
+  {
+    "concept": "2",
+    "slot": "",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "2",
+    "slot": "mcu",
+    "title": "ATTINY13A-PU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D",
+    "status": "selected",
+    "stock": "5529"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "ATTINY13A-PU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D",
+    "status": "selected",
+    "stock": "5529"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "WP7113ID5V (Kingbright)",
+    "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D",
+    "status": "selected",
+    "stock": "1890"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "MFR-25FRF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R",
+    "status": "selected",
+    "stock": "34767"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "mcu",
+    "title": "ATTINY13A-PU (Microchip Technology)",
+    "url": "https://www.mouser.com/ProductDetail/Microchip-Technology/ATTINY13A-PU?qs=K8BHR703ZXiDNdm7IoCHTw%3D%3D",
+    "status": "selected",
+    "stock": "5529"
+  },
+  {
+    "concept": "c2",
+    "slot": "led",
+    "title": "WP7113ID5V (Kingbright)",
+    "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D",
+    "status": "selected",
+    "stock": "1890"
+  },
+  {
+    "concept": "2",
+    "slot": "led",
+    "title": "WP7113ID5V (Kingbright)",
+    "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D",
+    "status": "selected",
+    "stock": "1890"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "led",
+    "title": "WP7113ID5V (Kingbright)",
+    "url": "https://www.mouser.com/ProductDetail/Kingbright/WP7113ID5V?qs=58z0TXQGVSQgkIxR0kd%2F5Q%3D%3D",
+    "status": "selected",
+    "stock": "1890"
+  },
+  {
+    "concept": "c2",
+    "slot": "resistor",
+    "title": "MFR-25FRF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R",
+    "status": "selected",
+    "stock": "34767"
+  },
+  {
+    "concept": "2",
+    "slot": "resistor",
+    "title": "MFR-25FRF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R",
+    "status": "selected",
+    "stock": "34767"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "resistor",
+    "title": "MFR-25FRF52-100R (YAGEO)",
+    "url": "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-100R",
+    "status": "selected",
+    "stock": "34767"
+  },
+  {
+    "concept": "c2",
+    "slot": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "2",
+    "slot": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "auto_c2",
+    "slot": "supply",
+    "title": "SWI5-5-N-MUB (CUI Inc.)",
+    "url": "https://www.mouser.com/ProductDetail/CUI-Inc/SWI5-5-N-MUB?qs=68fdWXBrnHLK0P9XPmNDtw%3D%3D",
+    "status": "selected",
+    "stock": "1856"
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D",
+    "status": "selected",
+    "stock": "33303"
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "WP7113LYD (Kingbright)",
+    "url": "https://pt.mouser.com/ProductDetail/Kingbright/WP7113LYD?qs=58z0TXQGVST7mfYOZ14%2FqQ%3D%3D",
+    "status": "selected",
+    "stock": "3479"
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "RMCA0805FT100R-HP (SEI Stackpole)",
+    "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D",
+    "status": "selected",
+    "stock": "14860"
+  },
+  {
+    "concept": "c3",
+    "slot": "",
+    "title": "T7633ST (Cicor)",
+    "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/",
+    "status": "selected",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "opamp",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D",
+    "status": "selected",
+    "stock": "33303"
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D",
+    "status": "selected",
+    "stock": "33303"
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "WP7113LYD (Kingbright)",
+    "url": "https://pt.mouser.com/ProductDetail/Kingbright/WP7113LYD?qs=58z0TXQGVST7mfYOZ14%2FqQ%3D%3D",
+    "status": "selected",
+    "stock": "3479"
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "RMCA0805FT100R-HP (SEI Stackpole)",
+    "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D",
+    "status": "selected",
+    "stock": "14860"
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "",
+    "title": "T7633ST (Cicor)",
+    "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/",
+    "status": "selected",
+    "stock": ""
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D",
+    "status": "selected",
+    "stock": "33303"
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "WP7113LYD (Kingbright)",
+    "url": "https://pt.mouser.com/ProductDetail/Kingbright/WP7113LYD?qs=58z0TXQGVST7mfYOZ14%2FqQ%3D%3D",
+    "status": "selected",
+    "stock": "3479"
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "RMCA0805FT100R-HP (SEI Stackpole)",
+    "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D",
+    "status": "selected",
+    "stock": "14860"
+  },
+  {
+    "concept": "3",
+    "slot": "",
+    "title": "T7633ST (Cicor)",
+    "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/",
+    "status": "selected",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "opamp",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D",
+    "status": "selected",
+    "stock": "33303"
+  },
+  {
+    "concept": "c3",
+    "slot": "opamp",
+    "title": "MCP6001T-E/OT (Microchip Technology)",
+    "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D",
+    "status": "selected",
+    "stock": "33303"
+  },
+  {
+    "concept": "3",
+    "slot": "led",
+    "title": "WP7113LYD (Kingbright)",
+    "url": "https://pt.mouser.com/ProductDetail/Kingbright/WP7113LYD?qs=58z0TXQGVST7mfYOZ14%2FqQ%3D%3D",
+    "status": "selected",
+    "stock": "3479"
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "led",
+    "title": "WP7113LYD (Kingbright)",
+    "url": "https://pt.mouser.com/ProductDetail/Kingbright/WP7113LYD?qs=58z0TXQGVST7mfYOZ14%2FqQ%3D%3D",
+    "status": "selected",
+    "stock": "3479"
+  },
+  {
+    "concept": "c3",
+    "slot": "led",
+    "title": "WP7113LYD (Kingbright)",
+    "url": "https://pt.mouser.com/ProductDetail/Kingbright/WP7113LYD?qs=58z0TXQGVST7mfYOZ14%2FqQ%3D%3D",
+    "status": "selected",
+    "stock": "3479"
+  },
+  {
+    "concept": "c3",
+    "slot": "resistor",
+    "title": "RMCA0805FT100R-HP (SEI Stackpole)",
+    "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D",
+    "status": "selected",
+    "stock": "14860"
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "resistor",
+    "title": "RMCA0805FT100R-HP (SEI Stackpole)",
+    "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D",
+    "status": "selected",
+    "stock": "14860"
+  },
+  {
+    "concept": "3",
+    "slot": "resistor",
+    "title": "RMCA0805FT100R-HP (SEI Stackpole)",
+    "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D",
+    "status": "selected",
+    "stock": "14860"
+  },
+  {
+    "concept": "3",
+    "slot": "supply",
+    "title": "T7633ST (Cicor)",
+    "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/",
+    "status": "selected",
+    "stock": ""
+  },
+  {
+    "concept": "auto_c3",
+    "slot": "supply",
+    "title": "T7633ST (Cicor)",
+    "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/",
+    "status": "selected",
+    "stock": ""
+  },
+  {
+    "concept": "c3",
+    "slot": "supply",
+    "title": "T7633ST (Cicor)",
+    "url": "https://ro.mouser.com/new/cicor/stadium-charging-power-bank/",
+    "status": "selected",
+    "stock": ""
+  }
+]

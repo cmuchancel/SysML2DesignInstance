@@ -1,0 +1,5 @@
+{"ts": "2026-01-27T22:25:58.148823Z", "message": "requirements:start", "data": null}
+{"ts": "2026-01-27T22:26:16.120364Z", "message": "requirements:done", "data": null}
+{"ts": "2026-01-27T22:26:16.121252Z", "message": "concepts:start", "data": null}
+{"ts": "2026-01-27T22:26:43.749181Z", "message": "concepts:done", "data": {"count": 3}}
+{"ts": "2026-01-27T22:26:43.749747Z", "message": "parts:start", "data": null}

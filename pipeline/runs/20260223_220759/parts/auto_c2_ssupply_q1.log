@@ -1,0 +1,9 @@
+slot: supply
+query_input_original: {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "5.23447499V", "current": "0.05A", "features": ["rechargeable", "regulated"]}
+query_input_used: {"slot": "supply", "keywords": ["supply"]}
+search_attempts: [{"source": "configurator_gemini", "input": {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "5.23447499V", "current": "0.05A", "features": ["rechargeable", "regulated"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply", "voltage": "5.23447499V", "current": "0.05A", "features": ["rechargeable", "regulated"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "supply", "keywords": ["5V DC wall adapter", "Microcontroller-PWM", "supply"], "category": "power supply"}, "status": "timeout", "count": 0, "error": "timeout after 8s"}, {"source": "existing_picker_cli", "input": {"slot": "supply", "keywords": ["supply"]}, "status": "timeout", "count": 0, "error": "timeout after 8s"}]
+search_status: timeout
+error: timeout after 8s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 8s", "constraint_match_score": 0}

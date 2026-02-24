@@ -1,0 +1,60 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl NE555 astable 10 Hz LED flasher 5V parts
+
+LLM parsed query: {
+  category: 'Integrated Circuit (Timer)',
+  manufacturer: 'generic',
+  partNumber: 'NE555',
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5 V',
+  current: undefined,
+  package: 'DIP-8 (also available SOIC-8)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'astable multivibrator',
+    'LED flasher',
+    '10 Hz target',
+    '5 V operation',
+    'requires external timing resistors and capacitor'
+  ],
+  quantity: undefined,
+  keywords: [ 'NE555', '555 timer', 'astable' ],
+  specs: {
+    mode: 'astable',
+    frequency: '10 Hz (target)',
+    supplyVoltage: '5 V (typical operation 4.5–18 V)',
+    timingFormula: 'f = 1.44 / ((RA + 2·RB) · C)',
+    suggestedTimingComponents: 'RA = 5.1 kΩ, RB = 4.7 kΩ, C = 10 µF (gives ≈10 Hz)',
+    dutyCycle: '≈68% with suggested RA/RB (use diode across RB or change values for ~50%)',
+    ledDrive: 'LED with 330–470 Ω current‑limiting resistor for ~5–15 mA',
+    decoupling: '0.1 µF ceramic across VCC–GND recommended',
+    partsList: 'NE555 IC, 5.1 kΩ resistor, 4.7 kΩ resistor, 10 µF electrolytic capacitor, 0.1 µF ceramic capacitor, LED, 330–470 Ω resistor, (optional) DIP-8 socket, wires/breadboard',
+    note: 'Values shown are typical suggestions. Use the timing formula to adjust RA/RB/C for precise frequency; ensure LED current and power ratings are respected.'
+  }
+}
+Source: live | Query: "NE555 generic Integrated Circuit (Timer) 5 V volt DIP-8 (also available SOIC-8) astable multivibrator LED flasher 10 Hz target 5 V operation requires external timing resistors and capacitor NE555 555 timer astable mode astable frequency 10 Hz (target) supplyVoltage 5 V (typical operation 4.5–18 V) timingFormula f = 1.44 / ((RA + 2·RB) · C) suggestedTimingComponents RA = 5.1 kΩ, RB = 4.7 kΩ, C = 10 µF (gives ≈10 Hz) dutyCycle ≈68% with suggested RA/RB (use diode across RB or change values for ~50%) ledDrive LED with 330–470 Ω current‑limiting resistor for ~5–15 mA decoupling 0.1 µF ceramic across VCC–GND recommended partsList NE555 IC, 5.1 kΩ resistor, 4.7 kΩ resistor, 10 µF electrolytic capacitor, 0.1 µF ceramic capacitor, LED, 330–470 Ω resistor, (optional) DIP-8 socket, wires/breadboard note Values shown are typical suggestions. Use the timing formula to adjust RA/RB/C for precise frequency; ensure LED current and power ratings are respected." | Matches: 5
+------------------------------------------------------------------------
+NE555P (Texas Instruments)
+  Timers & Support Products Precision
+  Stock: 17535
+------------------------------------------------------------------------
+NE555PSR (Texas Instruments)
+  Timers & Support Products Precision A 595-NE55 5PSRG4 A 595-NE555PSRG4
+  Stock: 7315
+------------------------------------------------------------------------
+NE555PS (Texas Instruments)
+  Timers & Support Products Single Precision Tim er 8-SO A 595-NE555 A 595-NE555PSR
+  Stock: 1164
+------------------------------------------------------------------------
+NE555DR1G4 (Texas Instruments)
+  Timers & Support Products Single Precision Tim er
+  Stock: 1049
+------------------------------------------------------------------------
+NE555 (Diodes Incorporated)
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/datasheet/3/175/1/NE555_SA555_NA555.pdf
+------------------------------------------------------------------------

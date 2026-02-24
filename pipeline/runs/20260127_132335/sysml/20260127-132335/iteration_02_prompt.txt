@@ -1,0 +1,194 @@
+You are Codex, an expert SysMLv2 engineer operating inside a closed-loop synthesis pipeline.
+
+USER REQUIREMENT INPUT:
+            # Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from common vendors.
+
+-- repeat --
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from common vendors.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.
+
+Produce valid SysMLv2 (.sysml) content using the official syntax. Do not include commentary, markdown fencing, or prose outside of the model.
+
+MINIMALITY: Use the fewest lines, elements, and properties possible while fully satisfying every requirement above. Avoid optional fluff, redundant packages, duplicate definitions, and unnecessary hierarchy.
+
+PREVIOUS ATTEMPT (iteration 1):
+                package BlinkCircuit {
+    // Assumptions: LED Vf ≈ 2.0 V, target LED current 10 mA; 5 V supply; use NE555 in astable.
+    block BlinkCircuit {
+        property supplyVoltage: Real = 5.0;
+        property frequency_nominal: Real = 10.0;
+        property frequency_tolerance: Real = 0.05; // ±5%
+        property frequency_min: Real = 9.5;
+        property frequency_max: Real = 10.5;
+
+        // 555 astable components (f = 1.44/((Ra + 2*Rb)*C))
+        property Ra_ohm: Real = 22000.0;      // 22 kΩ
+        property Rb_ohm: Real = 62000.0;      // 62 kΩ (standard)
+        property C_f: Real = 1.0e-6;          // 1 µF
+        property expected_frequency: Real = 9.86; // calculated ~9.86 Hz (within tolerance)
+
+        // LED and current limiting
+        property led_forward_voltage: Real = 2.0; // V (assumed)
+        property led_current: Real = 0.010;       // A (10 mA)
+        property R_led_ohm: Real = 330.0;         // (5 V - 2 V)/10 mA = 300 Ω -> choose 330 Ω standard
+
+        // Sourceable parts / vendors (common, widely available)
+        property timer_part: String = "NE555 (e.g., TI NE555P, ON Semiconductor LM555)";
+        property led_part: String = "Generic LED 3–5 mm (e.g., Kingbright, Lumex)";
+        property resistor_vendors: String = "Vishay, Yageo, Stackpole (standard values)";
+        property capacitor_vendors: String = "Panasonic, Murata, Kemet (1 µF, electrolytic/tantalum/polymer as preferred)";
+    }
+}
+
+SYSIDE COMPILER FEEDBACK TO ADDRESS:
+                iteration_01.sysml:3:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    3 |     block BlinkCircuit {
+      |     [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:4:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    4 |         property supplyVoltage: Real = 5.0;
+      |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:5:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    5 |         property frequency_nominal: Real = 10.0;
+      |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:6:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    6 |         property frequency_tolerance: Real = 0.05; // ±5%
+      |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:7:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    7 |         property frequency_min: Real = 9.5;
+      |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:8:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    8 |         property frequency_max: Real = 10.5;
+      |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:11:18: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    11 |         property Ra_ohm: Real = 22000.0;      // 22 kΩ
+       |                  [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:12:18: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    12 |         property Rb_ohm: Real = 62000.0;      // 62 kΩ (standard)
+       |                  [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:13:18: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    13 |         property C_f: Real = 1.0e-6;          // 1 µF
+       |                  [38;2;220;080;080m^^^[0m
+
+iteration_01.sysml:14:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    14 |         property expected_frequency: Real = 9.86; // calculated ~9.86 Hz (within tolerance)
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:17:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    17 |         property led_forward_voltage: Real = 2.0; // V (assumed)
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:18:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    18 |         property led_current: Real = 0.010;       // A (10 mA)
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:19:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    19 |         property R_led_ohm: Real = 330.0;         // (5 V - 2 V)/10 mA = 300 Ω -> choose 330 Ω standard
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:22:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    22 |         property timer_part: String = "NE555 (e.g., TI NE555P, ON Semiconductor LM555)";
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:23:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    23 |         property led_part: String = "Generic LED 3–5 mm (e.g., Kingbright, Lumex)";
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:24:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    24 |         property resistor_vendors: String = "Vishay, Yageo, Stackpole (standard values)";
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:25:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    25 |         property capacitor_vendors: String = "Panasonic, Murata, Kemet (1 µF, electrolytic/tantalum/polymer as preferred)";
+       |         [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:12:9: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'property' shadows BlinkCircuit::BlinkCircuit::property
+│   12 |         property Rb_ohm: Real = 62000.0;      // 62 kΩ (standard)
+│      |         [38;2;204;204;057m^^^^^^^^[0m
+└── iteration_01.sysml:11:9: [38;2;255;255;255mnote[0m: First declared here
+
+iteration_01.sysml:13:9: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'property' shadows BlinkCircuit::BlinkCircuit::property
+│   13 |         property C_f: Real = 1.0e-6;          // 1 µF
+│      |         [38;2;204;204;057m^^^^^^^^[0m
+└── iteration_01.sysml:11:9: [38;2;255;255;255mnote[0m: First declared here
+
+iteration_01.sysml:4:33: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    4 |         property supplyVoltage: Real = 5.0;
+      |                                 [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:5:37: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    5 |         property frequency_nominal: Real = 10.0;
+      |                                     [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:6:39: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    6 |         property frequency_tolerance: Real = 0.05; // ±5%
+      |                                       [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:7:33: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    7 |         property frequency_min: Real = 9.5;
+      |                                 [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:8:33: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    8 |         property frequency_max: Real = 10.5;
+      |                                 [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:11:26: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    11 |         property Ra_ohm: Real = 22000.0;      // 22 kΩ
+       |                          [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:12:26: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    12 |         property Rb_ohm: Real = 62000.0;      // 62 kΩ (standard)
+       |                          [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:13:23: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    13 |         property C_f: Real = 1.0e-6;          // 1 µF
+       |                       [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:14:38: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    14 |         property expected_frequency: Real = 9.86; // calculated ~9.86 Hz (within tolerance)
+       |                                      [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:17:39: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    17 |         property led_forward_voltage: Real = 2.0; // V (assumed)
+       |                                       [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:18:31: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    18 |         property led_current: Real = 0.010;       // A (10 mA)
+       |                               [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:19:29: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    19 |         property R_led_ohm: Real = 330.0;         // (5 V - 2 V)/10 mA = 300 Ω -> choose 330 Ω standard
+       |                             [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:22:30: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    22 |         property timer_part: String = "NE555 (e.g., TI NE555P, ON Semiconductor LM555)";
+       |                              [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:23:28: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    23 |         property led_part: String = "Generic LED 3–5 mm (e.g., Kingbright, Lumex)";
+       |                            [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:24:36: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    24 |         property resistor_vendors: String = "Vishay, Yageo, Stackpole (standard values)";
+       |                                    [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:25:37: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    25 |         property capacitor_vendors: String = "Panasonic, Murata, Kemet (1 µF, electrolytic/tantalum/polymer as preferred)";
+       |                                     [38;2;220;080;080m^^^^^^[0m
+
+Revise the earlier model to resolve the diagnostics without undoing correct structure.
+
+Return only the updated SysMLv2 model.

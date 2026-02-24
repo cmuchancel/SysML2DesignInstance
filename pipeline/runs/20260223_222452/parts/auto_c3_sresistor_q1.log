@@ -1,0 +1,13 @@
+slot: resistor
+query_input_original: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+query_input_used: {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "resistor", "keywords": ["330 ohm resistor 0.25W", "OpAmp-Relaxation", "resistor"], "category": "resistor", "value": "100 ohm", "power": "0.25W", "tolerance": "1%", "package": "through-hole or 0805"}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+RMCA0805FT100R-HP (SEI Stackpole)
+Stock: 14860
+Unit price: 0.12
+URL: https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 10, "stock": 14860, "unitPrice": 0.12, "manufacturer": "SEI Stackpole", "manufacturerPartNumber": "RMCA0805FT100R-HP", "description": "100 Ohm thick film SMD resistor, 0805 (2012 metric), 0.25W (1/4W), 1% tolerance, AEC-Q200", "url": "https://www.mouser.com/ProductDetail/SEI-Stackpole/RMCA0805FT100R-HP?qs=PBDs2xEllI%252BBgu8rJP2glA%3D%3D", "provider": "configurator", "attributes": {"voltage": "Not listed on Mouser page", "current": "N/A (depends on application)", "power": "250 mW (1/4 W)", "value": "100 ohm", "package": "0805 (2012 metric) SMD/SMT"}}

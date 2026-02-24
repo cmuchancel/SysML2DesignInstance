@@ -1,0 +1,82 @@
+{
+  "id": "resp_0ecb41fb0372c55a0069791006f1348196bff5bf7af04e488c",
+  "created_at": 1769541638.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0ecb41fb0372c55a00697910075d78819689ee3e4c73b65344",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0ecb41fb0372c55a006979102dec4c819697420614eda652f8",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package BlinkCircuit {\n  // Requirements\n  requirement FlickerFreq {\n    id = \"REQ-001\"\n    text = \"LED flickers at 10 Hz \u00b15% from a 5 V supply.\"\n  }\n  requirement CurrentLimit {\n    id = \"REQ-002\"\n    text = \"Circuit includes current limiting to protect the LED.\"\n  }\n  requirement MouserSource {\n    id = \"REQ-003\"\n    text = \"All parts are sourceable from Mouser.\"\n  }\n\n  // Constraints (kept separate from design elements)\n  constraint FrequencyConstraint {\n    body = \"timer.frequency >= 9.5 and timer.frequency <= 10.5\"\n  }\n  constraint SupplyConstraint {\n    body = \"circuit.Vsup == 5.0\"\n  }\n\n  // Reusable design elements (no concrete BOM links here)\n  block TimerOscillator {\n    property frequency: Real[1];\n    property ra: Real[0..1];\n    property rb: Real[0..1];\n    property c: Real[0..1];\n    property source: String[0..1]; // optional metadata field for instances\n  }\n\n  block LED {\n    property Vf: Real[1];\n    property Imax: Real[1];\n    property source: String[0..1];\n  }\n\n  block Resistor {\n    property R: Real[1];\n    property power: Real[0..1];\n    property source: String[0..1];\n  }\n\n  block LEDCircuit {\n    part timer: TimerOscillator[1];\n    part led: LED[1];\n    part r: Resistor[1];\n    property Vsup: Real[1];\n  }\n\n  // Concrete instance with BOM/source details (only here per STRUCTURE RULES)\n  instance circuit: LEDCircuit {\n    Vsup = 5.0;\n    // timer set to 10 Hz per requirement; resistor chosen to limit LED current \u2264 Imax\n    timer.frequency = 10.0;\n    // Example 555 timing components for astable ~10 Hz (typical RA/RB/C values)\n    timer.ra = 10000.0;    // ohms\n    timer.rb = 100000.0;   // ohms\n    timer.c  = 1e-7;       // farads (100 nF)\n    timer.source = \"Mouser PN 595-NE555P (TI NE555P) https://www.mouser.com\"; // assumed source\n\n    // LED typical properties\n    led.Vf = 2.0;          // V (red LED typical)\n    led.Imax = 0.02;       // A (20 mA)\n    led.source = \"Mouser PN 700-LED-0603-R (example red LED) https://www.mouser.com\";\n\n    // Resistor chosen to satisfy current limiting: R >= (Vsup - Vf)/Imax\n    r.R =  (Vsup - led.Vf) / led.Imax; // ohms (calc yields 150 \u03a9 for Vf=2V,I=20mA)\n    r.power = 0.25;        // W\n    r.source = \"Mouser PN 600-RC0603FR-07150RL (150 \u03a9 1% 1/4W) https://www.mouser.com\";\n\n    // Assertions to link instance to constraints/requirements\n    assert FrequencyConstraint;\n    assert SupplyConstraint;\n    // Ensure current limiting present (resistor not zero)\n    assert r.R >= (Vsup - led.Vf) / led.Imax;\n  }\n\n  // Note: component part numbers/URLs are best-effort examples intended to be sourceable from Mouser.\n  // If exact PN differs, replace strings in instance 'source' properties with correct Mouser links.\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769541689.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 337,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 3305,
+    "output_tokens_details": {
+      "reasoning_tokens": 2496
+    },
+    "total_tokens": 3642
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

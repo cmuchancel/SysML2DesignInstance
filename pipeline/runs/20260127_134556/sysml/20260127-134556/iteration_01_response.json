@@ -1,0 +1,82 @@
+{
+  "id": "resp_0b8d3038c5c5f1ae00697907e4f34c81909e92f73158ee44df",
+  "created_at": 1769539556.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0b8d3038c5c5f1ae00697907e532b88190abb2162d7860a6ca",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0b8d3038c5c5f1ae00697908018834819088fb1d1d7fd9f523",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LED_Flashing {\n  // Assumptions: LED Vf \u2248 2.0 V; target LED current 15 mA; components obtainable from Mouser.\n  model LEDCircuitModel {\n    requirement REQ_FREQ \"LED flicker frequency\" {\n      id = \"REQ-1\"\n      text = \"LED flickers at 10 Hz \u00b15% (9.5 to 10.5 Hz) when powered from a 5 V supply.\"\n    }\n    requirement REQ_SUPPLY \"5V supply\" {\n      id = \"REQ-2\"\n      text = \"Operates from a 5 V DC supply.\"\n    }\n    requirement REQ_CURRENT \"Current limiting\" {\n      id = \"REQ-3\"\n      text = \"Provide current limiting to maintain LED current \u224815 mA and \u226420 mA.\"\n    }\n    requirement REQ_MOUSER \"Sourceable from Mouser\" {\n      id = \"REQ-4\"\n      text = \"Required discrete components (LED, series resistor, oscillator or MCU) must be sourceable from Mouser.\"\n    }\n    block LEDFlasher {\n      property Vcc: Real[1] { default = 5.0 }\n      property f_target: Real[1] { default = 10.0 }\n      constraint freq_tol { body = \"f_target >= 9.5 and f_target <= 10.5\" }\n      property LED_Vf: Real[1] { default = 2.0 }\n      property LED_I: Real[1] { default = 0.015 }\n      property R_series: Real[1] { derived = true; body = \"(Vcc - LED_Vf) / LED_I\" }\n    }\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769539590.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2426,
+    "output_tokens_details": {
+      "reasoning_tokens": 2048
+    },
+    "total_tokens": 2686
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

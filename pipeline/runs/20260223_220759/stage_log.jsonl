@@ -1,0 +1,13 @@
+{"ts": "2026-02-24T03:07:59.561885Z", "message": "requirements:start", "data": null}
+{"ts": "2026-02-24T03:08:27.240386Z", "message": "requirements:done", "data": null}
+{"ts": "2026-02-24T03:08:27.241581Z", "message": "concepts:start", "data": null}
+{"ts": "2026-02-24T03:08:54.843152Z", "message": "concepts:done", "data": {"count": 3}}
+{"ts": "2026-02-24T03:08:54.843754Z", "message": "optimize:start", "data": null}
+{"ts": "2026-02-24T03:10:25.678407Z", "message": "optimize:done", "data": {"total": 3, "success": 3, "failed": 0}}
+{"ts": "2026-02-24T03:10:25.679225Z", "message": "parts:start", "data": null}
+{"ts": "2026-02-24T03:10:25.679375Z", "message": "part_select:start", "data": null}
+{"ts": "2026-02-24T03:18:04.525108Z", "message": "part_select:done", "data": {"searches": 12, "selected": 0, "not_found": 12}}
+{"ts": "2026-02-24T03:18:04.526670Z", "message": "parts:done", "data": {"searches": 12, "selected": 0}}
+{"ts": "2026-02-24T03:18:04.527146Z", "message": "constraint_validate:start", "data": null}
+{"ts": "2026-02-24T03:18:04.648038Z", "message": "constraint_validate:done", "data": {"total": 3, "passed": 0, "failed": 3}}
+{"ts": "2026-02-24T03:18:04.650396Z", "message": "run:complete", "data": null}

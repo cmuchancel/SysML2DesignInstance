@@ -1,0 +1,50 @@
+Algorithm Selection Report
+==========================
+Timestamp (UTC): 2026-02-24T02:40:38.516773+00:00
+Source: syspipe_runner
+Selection mode: auto
+Input path: /Users/chancelavoie/Desktop/cmuchancel:vdel/SysMLtoDesignInstance/pipeline/runs/20260223_213625/optimization/concept_2/prompt.txt
+
+Selected algorithm: nsga2
+Selected label: NSGA-II
+Decision note: Selected NSGA-II (multi-objective gate (2 objectives, Pareto-front routing); n_obj=2, n_var=13, obj_type=linear, con_type=nonlinear, convex=unknown, grad=true, continuous, constrained).
+
+Checks performed
+----------------
+- Gradient availability: true
+- Gradient evidence: parsed objective/constraint expressions are analytic with recognized operators
+- Convexity: unknown
+- Convexity evidence: unable to certify convexity from parsed structure and prompt text
+- Hessian availability: true
+- Hessian evidence: linear objective admits analytic second-order structure
+- Smoothness: unknown
+- Smoothness evidence: insufficient signal to certify smoothness
+- Unknown-check refinement: Skipped LLM refinement: OPT_SELECTOR_LLM_REFINE disabled.
+
+Extracted metadata
+------------------
+- n_obj: 2
+- n_var: 13
+- has_constr: True
+- has_discrete: False
+- obj_type: linear
+- con_type: nonlinear
+- is_smooth: unknown
+- grad_available: true
+- hess_available: true
+- is_convex: unknown
+- obj_is_black_box: False
+- obj_is_expectation: False
+- streaming_data: False
+- noisy_evals: none
+- eval_cost: moderate
+- need_global: False
+- scalarization_allowed: False
+- large_scale: False
+- solver_hint: 
+- grad_check_reason: parsed objective/constraint expressions are analytic with recognized operators
+- convexity_check_reason: unable to certify convexity from parsed structure and prompt text
+- smoothness_check_reason: insufficient signal to certify smoothness
+- hessian_check_reason: linear objective admits analytic second-order structure
+- llm_refinement_used: False
+- llm_refinement_note: Skipped LLM refinement: OPT_SELECTOR_LLM_REFINE disabled.

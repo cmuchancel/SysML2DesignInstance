@@ -1,0 +1,210 @@
+{
+  "id": "20260130140351_td4f",
+  "nl": "Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.",
+  "createdAt": "2026-01-30T14:03:51.348Z",
+  "status": "done",
+  "runDir": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f",
+  "log": [
+    "requirements: attempt 1",
+    "concept generation started",
+    "concept_1: start",
+    "concept_2: start",
+    "concept_3: start"
+  ],
+  "outputs": {
+    "requirementsSysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}",
+    "requirementsPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f/requirements/iteration_01.sysml",
+    "concepts": [
+      {
+        "name": "High‑Accuracy Consumer Monitor",
+        "approach": "Integrate high‑accuracy sensing modules (NDIR CO2 and laser-scattering PM2.5) with an ESP32-based MCU for native Wi‑Fi + BLE; design power budget for continuous sampling and a single rechargeable Li‑ion pack sized to guarantee ≥8 hours runtime. Provide a simple color LCD, onboard logging, and mobile/cloud sync.",
+        "highlights": [
+          "Sensors: Sensirion SCD30 (NDIR CO2 + temp/humidity) or Senseair S8 for CO2; Sensirion SPS30 (laser scattering) for PM2.5; fallback SHT40 for redundancy.",
+          "Connectivity: ESP32-WROOM — simultaneous Wi‑Fi (cloud sync / firmware updates) and BLE (phone app + proximity sync).",
+          "Power: single 3.7V 4000 mAh Li‑ion (≈14.8 Wh). Estimated average draw with continuous sampling and display ~1.6–1.7 W → ~8.5–9.0 hours runtime; power‑management (sensor duty cycling, display timeout) extends battery life.",
+          "Sampling: continuous PM2.5 at 1 Hz averaged to 10 s and CO2 at 1 min (configurable); local ring buffer + timestamped JSON records.",
+          "UI: 2.8\" color TFT with simple menus, LED status, and one‑touch data sync button. Mobile app shows graphs, thresholds, and CSV export.",
+          "Enclosure: ergonomic handheld with front sensor intakes, replaceable filter pre‑screen, IP44 splash resistance.",
+          "Tradeoffs: highest accuracy and user convenience at moderate BOM cost and slightly larger battery envelope."
+        ]
+      },
+      {
+        "name": "Low‑Cost, Battery‑Optimized Portable",
+        "approach": "Minimize BOM cost and extend battery life by using lower‑power/low‑cost sensors and aggressive duty cycling. Primary wireless pairing via BLE to a smartphone (phone handles cloud uploads); optional periodic Wi‑Fi on a dock for bulk sync. Target compact form factor and >8 hour field use on a small battery.",
+        "highlights": [
+          "Sensors: low‑cost Plantower PMS5003 (PM2.5) or Sensirion SPS30 (cost option); CCS811 or SGPC3 for eCO2 estimates (VOC‑based CO2 proxy); BME280 / SHTC3 for temp & humidity.",
+          "Connectivity: Nordic nRF52840 (BLE LE native) and optional low‑power Wi‑Fi module that stays off except during scheduled dock syncs; phone as primary gateway.",
+          "Power: 3.7V 3000 mAh Li‑ion (≈11.1 Wh). With duty cycling (PM sampling bursts + CO2/VOC duty), typical average draw ~0.7–1.0 W → >8 hours runtime in normal use.",
+          "Sampling: intermittent bursts (e.g., PM every 10–30 s, VOC every 30–60 s) with onboard aggregation to reduce radio/wake time.",
+          "UI: compact OLED + single multifunction button; BLE advertising for quick readings; mobile app for real‑time view and cloud sync.",
+          "Cost/size: small, pocketable, low price point; CO2 values are estimated (eCO2) — less accurate than NDIR but acceptable for trend monitoring.",
+          "Tradeoffs: best for consumers prioritizing price and battery life; CO2 accuracy and absolute PM precision lower than NDIR/laser solutions."
+        ]
+      },
+      {
+        "name": "Modular Professional Field Monitor",
+        "approach": "Modular architecture with replaceable sensor cartridges and swappable battery pack for flexible missions (lab, industrial, long field trips). Use professional NDIR CO2, high‑end PM module with optional active sampling pump, STM32 low‑power MCU with separate comms module. Emphasize ruggedness, on‑device logging, calibration ports and configurable sync modes (BLE, Wi‑Fi, wired).",
+        "highlights": [
+          "Sensors as modules: pluggable NDIR CO2 module (Senseair/CO2Meter), independent PM2.5 module (with option for active pump), separate temp/humidity module (SHT4x/BME688).",
+          "Connectivity: dedicated communications module (ESP32 or cellular optional) for Wi‑Fi + BLE; physical USB-C for wired sync and power.",
+          "Power: dual 18650 swappable pack (2S) totalling 5000 mAh (~18.5 Wh). With active pump and continuous logging average draw ~2.0 W → >9 hours guaranteed; lower‑power configs run much longer.",
+          "Data handling: local circular logging (removable microSD), timestamped binary + JSON export, support for NTP and secure OTA updates, professional data formats (CSV, JSON, MQTT).",
+          "Field features: rugged IP54 enclosure, glove‑friendly buttons, replaceable inlet filters, calibration port (gas injection) and diagnostic UART for factory calibration.",
+          "Power management: hardware hot‑swap battery design and intelligent power profiles (continuous, duty cycle, or event‑driven); scheduled/conditional Wi‑Fi sync to conserve energy.",
+          "Tradeoffs: higher cost and larger size, designed for pros who need calibratable sensors, robust data integrity, and flexible power/sensor configurations."
+        ]
+      }
+    ],
+    "conceptSysml": [
+      {
+        "status": "success",
+        "index": 0,
+        "startedAt": "2026-01-30T14:04:59.381Z",
+        "message": "Concept 1 passed syside",
+        "concept": {
+          "name": "High‑Accuracy Consumer Monitor",
+          "approach": "Integrate high‑accuracy sensing modules (NDIR CO2 and laser-scattering PM2.5) with an ESP32-based MCU for native Wi‑Fi + BLE; design power budget for continuous sampling and a single rechargeable Li‑ion pack sized to guarantee ≥8 hours runtime. Provide a simple color LCD, onboard logging, and mobile/cloud sync.",
+          "highlights": [
+            "Sensors: Sensirion SCD30 (NDIR CO2 + temp/humidity) or Senseair S8 for CO2; Sensirion SPS30 (laser scattering) for PM2.5; fallback SHT40 for redundancy.",
+            "Connectivity: ESP32-WROOM — simultaneous Wi‑Fi (cloud sync / firmware updates) and BLE (phone app + proximity sync).",
+            "Power: single 3.7V 4000 mAh Li‑ion (≈14.8 Wh). Estimated average draw with continuous sampling and display ~1.6–1.7 W → ~8.5–9.0 hours runtime; power‑management (sensor duty cycling, display timeout) extends battery life.",
+            "Sampling: continuous PM2.5 at 1 Hz averaged to 10 s and CO2 at 1 min (configurable); local ring buffer + timestamped JSON records.",
+            "UI: 2.8\" color TFT with simple menus, LED status, and one‑touch data sync button. Mobile app shows graphs, thresholds, and CSV export.",
+            "Enclosure: ergonomic handheld with front sensor intakes, replaceable filter pre‑screen, IP44 splash resistance.",
+            "Tradeoffs: highest accuracy and user convenience at moderate BOM cost and slightly larger battery envelope."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n    part def Component { }\npart def High_Accuracy_Consumer_Monitor {\n    part sensorPM: Component;\n    part sensorCO2: Component;\n    part sensorTH: Component;\n    part mcu: Component;\n    part battery: Component { attribute capacity_mAh: Real; }\n    part wifiBle: Component;\n    part ui: Component;\n    part enclosure: Component;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f/concept_1/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:05:21.132Z"
+      },
+      {
+        "status": "success",
+        "index": 1,
+        "startedAt": "2026-01-30T14:04:59.383Z",
+        "message": "Concept 2 passed syside",
+        "concept": {
+          "name": "Low‑Cost, Battery‑Optimized Portable",
+          "approach": "Minimize BOM cost and extend battery life by using lower‑power/low‑cost sensors and aggressive duty cycling. Primary wireless pairing via BLE to a smartphone (phone handles cloud uploads); optional periodic Wi‑Fi on a dock for bulk sync. Target compact form factor and >8 hour field use on a small battery.",
+          "highlights": [
+            "Sensors: low‑cost Plantower PMS5003 (PM2.5) or Sensirion SPS30 (cost option); CCS811 or SGPC3 for eCO2 estimates (VOC‑based CO2 proxy); BME280 / SHTC3 for temp & humidity.",
+            "Connectivity: Nordic nRF52840 (BLE LE native) and optional low‑power Wi‑Fi module that stays off except during scheduled dock syncs; phone as primary gateway.",
+            "Power: 3.7V 3000 mAh Li‑ion (≈11.1 Wh). With duty cycling (PM sampling bursts + CO2/VOC duty), typical average draw ~0.7–1.0 W → >8 hours runtime in normal use.",
+            "Sampling: intermittent bursts (e.g., PM every 10–30 s, VOC every 30–60 s) with onboard aggregation to reduce radio/wake time.",
+            "UI: compact OLED + single multifunction button; BLE advertising for quick readings; mobile app for real‑time view and cloud sync.",
+            "Cost/size: small, pocketable, low price point; CO2 values are estimated (eCO2) — less accurate than NDIR but acceptable for trend monitoring.",
+            "Tradeoffs: best for consumers prioritizing price and battery life; CO2 accuracy and absolute PM precision lower than NDIR/laser solutions."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n    part def Component { }\npart def Low_Cost__Battery_Optimized_Portable {\n    part sensorPM: Component;\n    part sensorCO2: Component;\n    part sensorTH: Component;\n    part mcu: Component;\n    part battery: Component { attribute capacity_mAh: Real; }\n    part wifiBle: Component;\n    part ui: Component;\n    part enclosure: Component;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f/concept_2/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:05:21.120Z"
+      },
+      {
+        "status": "success",
+        "index": 2,
+        "startedAt": "2026-01-30T14:04:59.384Z",
+        "message": "Concept 3 passed syside",
+        "concept": {
+          "name": "Modular Professional Field Monitor",
+          "approach": "Modular architecture with replaceable sensor cartridges and swappable battery pack for flexible missions (lab, industrial, long field trips). Use professional NDIR CO2, high‑end PM module with optional active sampling pump, STM32 low‑power MCU with separate comms module. Emphasize ruggedness, on‑device logging, calibration ports and configurable sync modes (BLE, Wi‑Fi, wired).",
+          "highlights": [
+            "Sensors as modules: pluggable NDIR CO2 module (Senseair/CO2Meter), independent PM2.5 module (with option for active pump), separate temp/humidity module (SHT4x/BME688).",
+            "Connectivity: dedicated communications module (ESP32 or cellular optional) for Wi‑Fi + BLE; physical USB-C for wired sync and power.",
+            "Power: dual 18650 swappable pack (2S) totalling 5000 mAh (~18.5 Wh). With active pump and continuous logging average draw ~2.0 W → >9 hours guaranteed; lower‑power configs run much longer.",
+            "Data handling: local circular logging (removable microSD), timestamped binary + JSON export, support for NTP and secure OTA updates, professional data formats (CSV, JSON, MQTT).",
+            "Field features: rugged IP54 enclosure, glove‑friendly buttons, replaceable inlet filters, calibration port (gas injection) and diagnostic UART for factory calibration.",
+            "Power management: hardware hot‑swap battery design and intelligent power profiles (continuous, duty cycle, or event‑driven); scheduled/conditional Wi‑Fi sync to conserve energy.",
+            "Tradeoffs: higher cost and larger size, designed for pros who need calibratable sensors, robust data integrity, and flexible power/sensor configurations."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n    part def Component { }\npart def Modular_Professional_Field_Monitor {\n    part sensorPM: Component;\n    part sensorCO2: Component;\n    part sensorTH: Component;\n    part mcu: Component;\n    part battery: Component { attribute capacity_mAh: Real; }\n    part wifiBle: Component;\n    part ui: Component;\n    part enclosure: Component;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f/concept_3/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:05:21.119Z"
+      }
+    ]
+  },
+  "stages": {
+    "requirements": {
+      "status": "success",
+      "startedAt": "2026-01-30T14:03:51.349Z",
+      "message": "requirements ok (iter 1)",
+      "detail": "syside check passed",
+      "endedAt": "2026-01-30T14:04:11.502Z"
+    },
+    "concepts": {
+      "status": "success",
+      "startedAt": "2026-01-30T14:04:11.502Z",
+      "message": "Generated 3 concepts",
+      "endedAt": "2026-01-30T14:04:59.380Z"
+    },
+    "conceptsExpansion": [
+      {
+        "status": "success",
+        "index": 0,
+        "startedAt": "2026-01-30T14:04:59.381Z",
+        "message": "Concept 1 passed syside",
+        "concept": {
+          "name": "High‑Accuracy Consumer Monitor",
+          "approach": "Integrate high‑accuracy sensing modules (NDIR CO2 and laser-scattering PM2.5) with an ESP32-based MCU for native Wi‑Fi + BLE; design power budget for continuous sampling and a single rechargeable Li‑ion pack sized to guarantee ≥8 hours runtime. Provide a simple color LCD, onboard logging, and mobile/cloud sync.",
+          "highlights": [
+            "Sensors: Sensirion SCD30 (NDIR CO2 + temp/humidity) or Senseair S8 for CO2; Sensirion SPS30 (laser scattering) for PM2.5; fallback SHT40 for redundancy.",
+            "Connectivity: ESP32-WROOM — simultaneous Wi‑Fi (cloud sync / firmware updates) and BLE (phone app + proximity sync).",
+            "Power: single 3.7V 4000 mAh Li‑ion (≈14.8 Wh). Estimated average draw with continuous sampling and display ~1.6–1.7 W → ~8.5–9.0 hours runtime; power‑management (sensor duty cycling, display timeout) extends battery life.",
+            "Sampling: continuous PM2.5 at 1 Hz averaged to 10 s and CO2 at 1 min (configurable); local ring buffer + timestamped JSON records.",
+            "UI: 2.8\" color TFT with simple menus, LED status, and one‑touch data sync button. Mobile app shows graphs, thresholds, and CSV export.",
+            "Enclosure: ergonomic handheld with front sensor intakes, replaceable filter pre‑screen, IP44 splash resistance.",
+            "Tradeoffs: highest accuracy and user convenience at moderate BOM cost and slightly larger battery envelope."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n    part def Component { }\npart def High_Accuracy_Consumer_Monitor {\n    part sensorPM: Component;\n    part sensorCO2: Component;\n    part sensorTH: Component;\n    part mcu: Component;\n    part battery: Component { attribute capacity_mAh: Real; }\n    part wifiBle: Component;\n    part ui: Component;\n    part enclosure: Component;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f/concept_1/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:05:21.132Z"
+      },
+      {
+        "status": "success",
+        "index": 1,
+        "startedAt": "2026-01-30T14:04:59.383Z",
+        "message": "Concept 2 passed syside",
+        "concept": {
+          "name": "Low‑Cost, Battery‑Optimized Portable",
+          "approach": "Minimize BOM cost and extend battery life by using lower‑power/low‑cost sensors and aggressive duty cycling. Primary wireless pairing via BLE to a smartphone (phone handles cloud uploads); optional periodic Wi‑Fi on a dock for bulk sync. Target compact form factor and >8 hour field use on a small battery.",
+          "highlights": [
+            "Sensors: low‑cost Plantower PMS5003 (PM2.5) or Sensirion SPS30 (cost option); CCS811 or SGPC3 for eCO2 estimates (VOC‑based CO2 proxy); BME280 / SHTC3 for temp & humidity.",
+            "Connectivity: Nordic nRF52840 (BLE LE native) and optional low‑power Wi‑Fi module that stays off except during scheduled dock syncs; phone as primary gateway.",
+            "Power: 3.7V 3000 mAh Li‑ion (≈11.1 Wh). With duty cycling (PM sampling bursts + CO2/VOC duty), typical average draw ~0.7–1.0 W → >8 hours runtime in normal use.",
+            "Sampling: intermittent bursts (e.g., PM every 10–30 s, VOC every 30–60 s) with onboard aggregation to reduce radio/wake time.",
+            "UI: compact OLED + single multifunction button; BLE advertising for quick readings; mobile app for real‑time view and cloud sync.",
+            "Cost/size: small, pocketable, low price point; CO2 values are estimated (eCO2) — less accurate than NDIR but acceptable for trend monitoring.",
+            "Tradeoffs: best for consumers prioritizing price and battery life; CO2 accuracy and absolute PM precision lower than NDIR/laser solutions."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n    part def Component { }\npart def Low_Cost__Battery_Optimized_Portable {\n    part sensorPM: Component;\n    part sensorCO2: Component;\n    part sensorTH: Component;\n    part mcu: Component;\n    part battery: Component { attribute capacity_mAh: Real; }\n    part wifiBle: Component;\n    part ui: Component;\n    part enclosure: Component;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f/concept_2/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:05:21.120Z"
+      },
+      {
+        "status": "success",
+        "index": 2,
+        "startedAt": "2026-01-30T14:04:59.384Z",
+        "message": "Concept 3 passed syside",
+        "concept": {
+          "name": "Modular Professional Field Monitor",
+          "approach": "Modular architecture with replaceable sensor cartridges and swappable battery pack for flexible missions (lab, industrial, long field trips). Use professional NDIR CO2, high‑end PM module with optional active sampling pump, STM32 low‑power MCU with separate comms module. Emphasize ruggedness, on‑device logging, calibration ports and configurable sync modes (BLE, Wi‑Fi, wired).",
+          "highlights": [
+            "Sensors as modules: pluggable NDIR CO2 module (Senseair/CO2Meter), independent PM2.5 module (with option for active pump), separate temp/humidity module (SHT4x/BME688).",
+            "Connectivity: dedicated communications module (ESP32 or cellular optional) for Wi‑Fi + BLE; physical USB-C for wired sync and power.",
+            "Power: dual 18650 swappable pack (2S) totalling 5000 mAh (~18.5 Wh). With active pump and continuous logging average draw ~2.0 W → >9 hours guaranteed; lower‑power configs run much longer.",
+            "Data handling: local circular logging (removable microSD), timestamped binary + JSON export, support for NTP and secure OTA updates, professional data formats (CSV, JSON, MQTT).",
+            "Field features: rugged IP54 enclosure, glove‑friendly buttons, replaceable inlet filters, calibration port (gas injection) and diagnostic UART for factory calibration.",
+            "Power management: hardware hot‑swap battery design and intelligent power profiles (continuous, duty cycle, or event‑driven); scheduled/conditional Wi‑Fi sync to conserve energy.",
+            "Tradeoffs: higher cost and larger size, designed for pros who need calibratable sensors, robust data integrity, and flexible power/sensor configurations."
+          ]
+        },
+        "sysml": "package RequirementsOnly {\n  public import ScalarValues::*;\n  requirement def RQ_001 {\n    text = \"Design a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\";\n  }\n  constraint def C_runtime {\n    in runtime_hr: Real;\n    (runtime_hr >= 8.0)\n  }\n}\n\npackage ConceptDesign {\n  public import ScalarValues::*;\n  public import RequirementsOnly::*;\n    part def Component { }\npart def Modular_Professional_Field_Monitor {\n    part sensorPM: Component;\n    part sensorCO2: Component;\n    part sensorTH: Component;\n    part mcu: Component;\n    part battery: Component { attribute capacity_mAh: Real; }\n    part wifiBle: Component;\n    part ui: Component;\n    part enclosure: Component;\n  }\n  constraint def C_runtime {\n    in capacity_mAh: Real;\n    in avg_power_W: Real;\n    ((capacity_mAh * 3.7 / 1000) / avg_power_W) >= 8.0\n  }\n}\n",
+        "sysmlPath": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/parallel_runs/20260130140351_td4f/concept_3/iteration_01.sysml",
+        "endedAt": "2026-01-30T14:05:21.119Z"
+      }
+    ]
+  }
+}

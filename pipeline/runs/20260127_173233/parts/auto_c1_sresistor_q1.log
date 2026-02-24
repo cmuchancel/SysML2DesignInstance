@@ -1,0 +1,22 @@
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser mock --limit 1 --nl 330 ohm resistor 0.25W
+
+LLM parsed query: {
+  category: 'resistor',
+  manufacturer: undefined,
+  partNumber: undefined,
+  value: '330 ohm',
+  tolerance: undefined,
+  power: '0.25 W',
+  voltage: undefined,
+  current: undefined,
+  package: undefined,
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: undefined,
+  quantity: undefined,
+  keywords: [ '330 ohm', '330Ω', '330R' ],
+  specs: { resistance: '330 ohm', power_rating: '0.25 W' }
+}
+No results found. Adjust your query or relax filters.

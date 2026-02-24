@@ -1,0 +1,36 @@
+Search timed out after 90s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser mock --limit 1 --nl 5V DC wall adapter
+
+LLM parsed query: {
+  category: 'power adapter',
+  manufacturer: undefined,
+  partNumber: undefined,
+  value: '5V',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V DC',
+  current: undefined,
+  package: 'wall adapter',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'wall-mounted', 'DC output', 'AC-DC' ],
+  quantity: undefined,
+  keywords: [ '5V', 'DC', 'wall adapter' ],
+  specs: {
+    outputVoltage: '5V DC',
+    input: 'AC mains (unspecified voltage range)',
+    outputCurrent: 'unspecified',
+    power: 'unspecified',
+    connector: 'unspecified',
+    polarity: 'unspecified'
+  }
+}
+Source: live | Query: "power adapter 5V 5V DC volt wall adapter wall-mounted DC output AC-DC 5V DC wall adapter outputVoltage 5V DC input AC mains (unspecified voltage range) outputCurrent unspecified power unspecified connector unspecified polarity unspecified" | Matches: 1
+------------------------------------------------------------------------
+450W, Redundant, AC to DC or HVDC to DC (ADLINK Technology)
+  Mouser #: 976-450WREDUNDANTACT
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/976-450WREDUNDANTACT
+------------------------------------------------------------------------

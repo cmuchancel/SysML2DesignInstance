@@ -1,0 +1,29 @@
+[
+  {
+    "name": "NE555-astable",
+    "approach": "Use an NE555 in astable mode to blink an LED near 10 Hz from 5 V with RC timing and a series current-limiting resistor.",
+    "search_queries": [
+      "NE555 astable 10 Hz LED flasher 5V parts",
+      "LMC555 low power 5V timer 10Hz",
+      "10 Hz LED flasher resistor capacitor values"
+    ]
+  },
+  {
+    "name": "Microcontroller-PWM",
+    "approach": "Use a low-cost 8-bit MCU (e.g., ATtiny/STM8) running a 10 Hz toggle to drive the LED via a series resistor.",
+    "search_queries": [
+      "ATTINY13A 5V microcontroller",
+      "STM8S003F3P6 dev board 5V",
+      "5mm LED 330 ohm resistor kit"
+    ]
+  },
+  {
+    "name": "OpAmp-Relaxation",
+    "approach": "Use a rail-to-rail op-amp Schmitt-trigger relaxation oscillator set to ~10 Hz, feeding the LED through a resistor.",
+    "search_queries": [
+      "MCP6001 rail to rail op amp 5V",
+      "10 Hz relaxation oscillator op amp",
+      "330 ohm resistor 5mm LED"
+    ]
+  }
+]

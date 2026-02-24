@@ -1,0 +1,77 @@
+{
+  "requestMessages": [
+    {
+      "role": "system",
+      "content": "Return ONLY SysMLv2 code. No prose."
+    },
+    {
+      "role": "user",
+      "content": "system: You are the Requirements Agent. Convert the natural-language brief into a fully decomposed, design-agnostic SysMLv2 requirements package with explicit quantitative constraints.\n- Use package RequirementsOnly with public import ScalarValues::*.\n- Decompose every atomic NL clause into its own requirement def (RQ_001, RQ_002, ...). Keep the text field, but also expose structured attributes.\n- For each requirement, derive numeric/boolean/string properties and pair it with at least one constraint def capturing bounds/ranges/budgets/interfaces (e.g., PM2.5 measurement range, CO2 range, temperature/humidity range, runtime hours, Wi-Fi/BLE presence, handheld size/weight, rechargeable battery, storage/logging if implied).\n- Avoid concrete parts or vendor names; no instances. Keep concise but complete; ensure every NL requirement is represented structurally, not just as text.\n\nuser: Natural-language brief:\nDesign a handheld environmental monitor that measures PM2.5, CO2, temperature, and humidity, runs 8 hours on a rechargeable battery, and syncs data via Wi-Fi or Bluetooth.\n\nEmit concise requirements + constraint defs with numeric bounds. Avoid concrete design decisions."
+    }
+  ],
+  "completion": {
+    "id": "resp_00784c2c84771a3100697cd789dc9481949f4abac09d360422",
+    "object": "response",
+    "created_at": 1769789321,
+    "status": "incomplete",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": null,
+    "error": null,
+    "frequency_penalty": 0,
+    "incomplete_details": {
+      "reason": "max_output_tokens"
+    },
+    "instructions": null,
+    "max_output_tokens": 1800,
+    "max_tool_calls": null,
+    "model": "gpt-5-mini-2025-08-07",
+    "output": [
+      {
+        "id": "rs_00784c2c84771a3100697cd78a210881949200c57673c71225",
+        "type": "reasoning",
+        "summary": []
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": null,
+    "reasoning": {
+      "effort": "medium",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 263,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 1792,
+      "output_tokens_details": {
+        "reasoning_tokens": 1792
+      },
+      "total_tokens": 2055
+    },
+    "user": null,
+    "metadata": {},
+    "output_text": ""
+  }
+}

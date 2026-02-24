@@ -1,0 +1,9 @@
+[
+  {
+    "name": "fallback-concept",
+    "approach": "[\n  {\n    \"name\": \"NE555 astable timer\",\n    \"approach\": \"Use an NE555 in astable configuration to produce ~10 Hz square wave, drive the LED through a current-limiting resistor; simple, low-part-count",
+    "search_queries": [
+      "[\n  {\n    \"name\": \"NE555 astable timer\",\n    \"approach\": \"Use an NE555 in astable configuration to produce ~10 Hz square wave, drive the LED through a current-limiting resistor; simple, low-part-count"
+    ]
+  }
+]

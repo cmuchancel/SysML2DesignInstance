@@ -1,0 +1,7 @@
+slot: driver
+query_input: {"slot": "driver", "keywords": ["NE555 timer 5V astable", "NE555-astable", "driver"], "category": "ic", "voltage": "5.19020172V", "features": ["timer", "oscillator", "low power"]}
+search_status: timeout
+error: timeout after 20s
+matches: 0
+----
+selected: {"status": "not_found", "reason": "timeout after 20s", "constraint_match_score": 0}

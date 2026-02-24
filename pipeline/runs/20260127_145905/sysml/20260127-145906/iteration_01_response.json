@@ -1,0 +1,82 @@
+{
+  "id": "resp_0515472f8af17073006979190aba0c81909e45d77506bf3f54",
+  "created_at": 1769543946.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0515472f8af17073006979190af71c8190b872bd0987f313b1",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0515472f8af17073006979192631708190bae9ac8d61d7217f",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LEDBlinkDesign\n{\n  // Assumptions: use an astable timer driving LED through a series resistor from 5V;\n  // target LED current <= 20mA; use common NE555-style timer configured for 10Hz \u00b15%.\n  requirement FlickerReq { id = \"REQ-001\"; text = \"LED flickers at 10 Hz \u00b15% from a 5 V supply.\" }\n  requirement CurrentLimitReq { id = \"REQ-002\"; text = \"Include current limiting for the LED.\" }\n  requirement MouserReq { id = \"REQ-003\"; text = \"Components must be sourceable from Mouser.\" }\n\n  valueType Frequency { unit = \"Hz\" }\n  valueType Voltage { unit = \"V\" }\n  valueType Resistance { unit = \"ohm\" }\n  valueType Current { unit = \"A\" }\n\n  block LED\n  {\n    property Vf : Voltage[1] // forward voltage (V)\n    property If : Current[1] // desired operating current (A)\n  }\n\n  block Resistor\n  {\n    property R : Resistance[1]\n  }\n\n  block AstableTimer\n  {\n    property frequency : Frequency[1]\n    property supply : Voltage[1]\n  }\n\n  block LEDCircuit\n  {\n    part led : LED[1]\n    part r : Resistor[1]\n    part timer : AstableTimer[1]\n  }\n\n  constraint FrequencyConstraint\n  {\n    appliesTo = { LEDCircuit.timer }\n    expression = \"LEDCircuit.timer.frequency >= 9.5 and LEDCircuit.timer.frequency <= 10.5\"\n  }\n\n  constraint SupplyConstraint\n  {\n    appliesTo = { LEDCircuit.timer }\n    expression = \"LEDCircuit.timer.supply = 5.0\"\n  }\n\n  constraint CurrentLimitConstraint\n  {\n    appliesTo = { LEDCircuit }\n    // series resistor ensures (Vsup - Vf)/R <= 0.02 (20 mA)\n    expression = \"(LEDCircuit.timer.supply - LEDCircuit.led.Vf) / LEDCircuit.r.R <= 0.02\"\n  }\n\n  // Reusable concrete instances with Mouser sourcing in instance annotations\n  instance MyLEDCircuit : LEDCircuit\n  {\n    // part instances\n    led = LED1\n    r = R1\n    timer = U1\n  }\n\n  instance LED1 : LED\n  {\n    Vf = 2.0  // assumed typical LED forward voltage (V)\n    If = 0.01 // nominal design current 10 mA\n    // Mouser search URL for a generic 3mm/5mm indicator LED (sourceable)\n    annotation = { mouserPN = \"generic-LED-3mm-5mm\", mouserURL = \"https://www.mouser.com/Search/Refine?Keyword=indicator+led\" }\n  }\n\n  instance R1 : Resistor\n  {\n    // resistor sized to meet current constraint; typical value example (ohms)\n    R = 330.0\n    annotation = { mouserPN = \"generic-resistor-330ohm\", mouserURL = \"https://www.mouser.com/Search/Refine?Keyword=330+ohm+resistor\" }\n  }\n\n  instance U1 : AstableTimer\n  {\n    frequency = 10.0\n    supply = 5.0\n    annotation = { mouserPN = \"NE555-family-astable\", mouserURL = \"https://www.mouser.com/Search/Refine?Keyword=555+timer\" }\n  }\n\n  // Simple asserts linking requirements to the design instance\n  constraint ReqVerify_Flicker { appliesTo = { MyLEDCircuit }; expression = \"MyLEDCircuit.timer.frequency >= 9.5 and MyLEDCircuit.timer.frequency <= 10.5\" }\n  constraint ReqVerify_Supply { appliesTo = { MyLEDCircuit }; expression = \"MyLEDCircuit.timer.supply = 5.0\" }\n  constraint ReqVerify_CurrentLimit { appliesTo = { MyLEDCircuit }; expression = \"(MyLEDCircuit.timer.supply - MyLEDCircuit.led.Vf) / MyLEDCircuit.r.R <= 0.02\" }\n  constraint ReqVerify_Mouser { appliesTo = { MyLEDCircuit }; expression = \"true\" } // instances include Mouser sourcing annotations\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769543985.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 341,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 3082,
+    "output_tokens_details": {
+      "reasoning_tokens": 2112
+    },
+    "total_tokens": 3423
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

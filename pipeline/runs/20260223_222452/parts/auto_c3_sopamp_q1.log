@@ -1,0 +1,13 @@
+slot: opamp
+query_input_original: {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "5.01836478V", "features": ["timer", "oscillator", "low power"]}
+query_input_used: {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "5.01836478V", "features": ["timer", "oscillator", "low power"]}
+search_attempts: [{"source": "configurator_chatgpt", "input": {"slot": "opamp", "keywords": ["MCP6001 rail to rail op amp 5V", "OpAmp-Relaxation", "opamp"], "category": "ic", "voltage": "5.01836478V", "features": ["timer", "oscillator", "low power"]}, "status": "ok", "count": 1, "error": null}]
+search_status: ok
+matches: 1
+----
+MCP6001T-E/OT (Microchip Technology)
+Stock: 33303
+Unit price: 0.301
+URL: https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D
+----
+selected: {"status": "selected", "constraint_match_score": 6, "stock": 33303, "unitPrice": 0.301, "manufacturer": "Microchip Technology", "manufacturerPartNumber": "MCP6001T-E/OT", "description": "Single-supply, rail-to-rail input/output op amp; supply 1.8 V to 6.0 V (suitable for 5 V systems); low power (IQ \u2248 100 \u00b5A); 1 MHz GBP; SOT-23-5.", "url": "https://pt.mouser.com/ProductDetail/Microchip-Technology/MCP6001T-E-OT?qs=npqfqDPP3%2FwkX3GgGH%252BE4A%3D%3D", "provider": "configurator", "attributes": {"voltage": "1.8 V to 6.0 V (operating)", "current": "Quiescent \u2248 100 \u00b5A; output drive up to ~23 mA", "power": "Low-power CMOS (IQ \u2248100 \u00b5A at VDD=5.5V)", "value": "Gain bandwidth 1 MHz, slew rate 0.6 V/\u00b5s", "package": "SOT-23-5 (SC-74A)"}}

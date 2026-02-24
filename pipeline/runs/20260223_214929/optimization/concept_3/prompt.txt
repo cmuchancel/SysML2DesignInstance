@@ -1,0 +1,33 @@
+Multi-objective optimization: FlasherDesign
+Variables:
+- timing_resistor_kohm in [1.0, 200.0]
+- timing_cap_uF in [0.01, 100.0]
+- resistor_ohm in [100.0, 2200.0]
+- led_current_mA in [8.0, 20.0]
+- supply_voltage_V in [4.75, 5.25]
+- driver_quiescent_mA in [0.2, 20.0]
+- battery_capacity_mAh in [500.0, 6000.0]
+- efficiency_factor in [0.60, 0.98]
+
+Derived variables (with inferred bounds where not explicitly provided):
+- blink_frequency_hz in [9.5, 10.5] (requirement)
+- avg_current_mA in [4.2, 30.0] (inferred from driver_quiescent_mA ∈ [0.2,20] and led_current_mA ∈ [8,20]; avg = driver_quiescent + 0.5*led_current)
+- runtime_hours in [8.0, 1428.6] (lower bound given 8 h; upper bound inferred as battery_capacity_mAh_max / avg_current_mA_min = 6000 / 4.2 ≈ 1428.6)
+- total_cost_usd in [≈3.36, ≈56.0] (bounds inferred from min/max of decision variable bounds and cost formula)
+- performance_penalty in [0.0, 36.25] (min 0 at targets; max inferred using blink_frequency_hz ∈ [9.5,10.5] and led_current_mA ∈ [8,20])
+
+Objectives (minimize unless stated):
+- (minimize) total_cost_usd
+- (minimize) performance_penalty
+Constraints:
+- blink_frequency_hz = 1440 / (timing_resistor_kohm * timing_cap_uF)   (since 1.44 / (R_kohm*1000 * C_uF*1e-6) = 1440 / (R_kohm*C_uF))
+- avg_current_mA = driver_quiescent_mA + 0.5 * led_current_mA
+- runtime_hours = battery_capacity_mAh / avg_current_mA
+- total_cost_usd = 0.04*timing_resistor_kohm + 0.12*timing_cap_uF + 0.0025*resistor_ohm + 0.02*led_current_mA + 0.005*battery_capacity_mAh + 0.4/efficiency_factor
+- performance_penalty = (blink_frequency_hz - 10)^2 + (led_current_mA - 14)^2
+- 9.5 ≤ blink_frequency_hz ≤ 10.5
+- 8.0 ≤ led_current_mA ≤ 20.0
+- runtime_hours ≥ 8.0
+- 4.75 ≤ supply_voltage_V ≤ 5.25
+
+(Variable bounds listed above are also constraints.)

@@ -1,0 +1,5 @@
+Search timed out after 20s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mock --limit 1 --nl NE555 timer 5V astable
+

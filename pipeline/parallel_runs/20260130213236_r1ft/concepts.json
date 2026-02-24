@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Dual-Flywheel Soft-Toss",
+    "approach": "Electric dual-flywheel launcher with variable wheel speed and adjustable chute angle. Gravity-fed ball stack with singulation gate; microcontroller sets RPM to control arc. Internal Li-ion pack powers motors and control; BLE used for drills and tempo selection.",
+    "highlights": [
+      "dual flywheel",
+      "adjustable chute angle",
+      "BLE drill control",
+      "gravity feed gate"
+    ]
+  },
+  {
+    "name": "Pneumatic Plunger Tosser",
+    "approach": "Low-pressure air cylinder drives a padded plunger to soft-toss balls along a short guide tube. Onboard compressor with small accumulator; solenoid valve meters shot energy. Rotary magazine indexes balls; Wi-Fi tablet interface sets pressure and cadence.",
+    "highlights": [
+      "pneumatic plunger",
+      "air accumulator",
+      "rotary magazine",
+      "Wi‑Fi control"
+    ]
+  },
+  {
+    "name": "Spring-Arm Cam Pitcher",
+    "approach": "Cam-driven spring arm flicks balls upward for soft toss. Brushless motor winds cam; mechanical clutch releases at set angle for repeatable trajectory. Hopper with escapement feeds one ball per cycle. LCD + buttons for cadence and angle presets.",
+    "highlights": [
+      "cam + spring arm",
+      "mechanical release",
+      "hopper escapement",
+      "local LCD controls"
+    ]
+  }
+]

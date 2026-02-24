@@ -1,0 +1,36 @@
+Search timed out after 45s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 1 --nl 5mm indicator LED 5V 20mA
+
+LLM parsed query: {
+  category: 'Indicator LED',
+  manufacturer: undefined,
+  partNumber: undefined,
+  value: undefined,
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: '20mA',
+  package: '5mm (through-hole)',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'indicator', 'through-hole', '5mm' ],
+  quantity: undefined,
+  keywords: [ 'LED', 'indicator', '5mm' ],
+  specs: {
+    diameter: '5mm',
+    mounting: 'through-hole',
+    recommendedSupplyVoltage: '5V',
+    typicalForwardCurrent: '20mA',
+    ledType: 'indicator'
+  }
+}
+Source: live | Query: "Indicator LED 5V volt 20mA amp 5mm (through-hole) indicator through-hole 5mm LED indicator 5mm diameter 5mm mounting through-hole recommendedSupplyVoltage 5V typicalForwardCurrent 20mA ledType indicator" | Matches: 1
+------------------------------------------------------------------------
+249-7868-3331-504F (Dialight)
+  Mouser #: 645-24978683331-504F
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 221
+  URL: https://www.mouser.com/ProductDetail/645-24978683331-504F
+------------------------------------------------------------------------

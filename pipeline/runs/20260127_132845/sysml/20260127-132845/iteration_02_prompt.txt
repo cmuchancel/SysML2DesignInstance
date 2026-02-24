@@ -1,0 +1,352 @@
+You are Codex, an expert SysMLv2 engineer operating inside a closed-loop synthesis pipeline.
+
+USER REQUIREMENT INPUT:
+            # Natural-language brief (echoed twice per Sysmlgeneration guidance)
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from common vendors.
+
+-- repeat --
+Design a circuit whose LED flickers at 10 Hz ±5% from a 5 V supply; include current limiting and make it sourceable from common vendors.
+
+# Instructions to the model (keep in prompt for refine_sysml.py)
+- Emit the minimal SysMLv2 that satisfies the brief.
+- Avoid redundant packages/properties; be concise.
+- Conform to SysIDE; model must pass `syside check`.
+- If uncertain, make the best assumption and note it in a comment.
+
+Produce valid SysMLv2 (.sysml) content using the official syntax. Do not include commentary, markdown fencing, or prose outside of the model.
+
+MINIMALITY: Use the fewest lines, elements, and properties possible while fully satisfying every requirement above. Avoid optional fluff, redundant packages, duplicate definitions, and unnecessary hierarchy.
+
+PREVIOUS ATTEMPT (iteration 1):
+                package LEDFlicker {
+
+  // Assumption: use NE555 in astable mode; target 10 Hz ±5% from 5 V supply.
+  block Resistor {
+    property resistance: Real[1];
+    property manufacturers: String[*];
+  }
+  block Capacitor {
+    property capacitance: Real[1];
+    property manufacturers: String[*];
+  }
+  block TimerIC {
+    property partNumber: String[1];
+    property manufacturers: String[*];
+  }
+  block LED {
+    property vf: Real[1]; // forward voltage (V)
+    property manufacturers: String[*];
+  }
+
+  system LEDFlickerCircuit {
+    property supplyVoltage: Real[1] = 5.0;
+    property freqNominal: Real[1] = 10.0;
+    property freqTolPct: Real[1] = 5.0;
+    property freqMin: Real[1] = 9.5;
+    property freqMax: Real[1] = 10.5;
+
+    part U1: TimerIC { partNumber = "NE555"; manufacturers = {"Texas Instruments","STMicroelectronics","ON Semiconductor"} }
+    part RtimA: Resistor { resistance = 220000.0; manufacturers = {"Yageo","Vishay"} } // R_A
+    part RtimB: Resistor { resistance = 620000.0; manufacturers = {"Yageo","Vishay"} } // R_B
+    part Ctim: Capacitor { capacitance = 100e-9; manufacturers = {"Murata","Kemet"} } // C
+    part LED1: LED { vf = 2.0; manufacturers = {"Kingbright","OSRAM","Lite-On"} }
+    part Rlim: Resistor { resistance = 330.0; manufacturers = {"Yageo","Vishay"} } // current-limiting resistor
+
+    // Astable 555 nominal frequency with chosen values: f = 1.44 / ((R_A + 2*R_B)*C)
+    property computedFreq: Real[1] = 1.44 / ((RtimA.resistance + 2.0 * RtimB.resistance) * Ctim.capacitance);
+
+    // Verification that chosen components meet the requirement 10 Hz ±5%
+    property withinSpec: Boolean[1] = (computedFreq >= freqMin) and (computedFreq <= freqMax);
+
+    // LED current approx: (Vcc - Vf) / Rlim
+    property ledCurrentA: Real[1] = (supplyVoltage - LED1.vf) / Rlim.resistance;
+  }
+}
+
+SYSIDE COMPILER FEEDBACK TO ADDRESS:
+                iteration_01.sysml:4:3: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    4 |   block Resistor {
+      |   [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:5:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    5 |     property resistance: Real[1];
+      |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:6:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    6 |     property manufacturers: String[*];
+      |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:8:3: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    8 |   block Capacitor {
+      |   [38;2;220;080;080m^^^^^[0m
+
+iteration_01.sysml:9:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    9 |     property capacitance: Real[1];
+      |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:10:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    10 |     property manufacturers: String[*];
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:12:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, did you mean 'timeslice'?
+    12 |   block TimerIC {
+       |         [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:13:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    13 |     property partNumber: String[1];
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:14:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    14 |     property manufacturers: String[*];
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:16:9: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, did you mean 'end'?
+    16 |   block LED {
+       |         [38;2;220;080;080m^^^[0m
+
+iteration_01.sysml:17:14: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, did you mean 'false'?
+    17 |     property vf: Real[1]; // forward voltage (V)
+       |              [38;2;220;080;080m^^[0m
+
+iteration_01.sysml:18:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    18 |     property manufacturers: String[*];
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:21:3: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    21 |   system LEDFlickerCircuit {
+       |   [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:22:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    22 |     property supplyVoltage: Real[1] = 5.0;
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:23:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    23 |     property freqNominal: Real[1] = 10.0;
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:24:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    24 |     property freqTolPct: Real[1] = 5.0;
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:25:14: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    25 |     property freqMin: Real[1] = 9.5;
+       |              [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:26:14: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier.
+    26 |     property freqMax: Real[1] = 10.5;
+       |              [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:28:104: [38;2;220;080;080merror[0m (parsing-error): Unexpected 'STRING_VALUE'.
+    28 |     part U1: TimerIC { partNumber = "NE555"; manufacturers = {"Texas Instruments","STMicroelectronics","ON Semiconductor"} }
+       |                                                                                                        [38;2;220;080;080m^^^^^^^^^^^^^^^^^^[0m
+
+iteration_01.sysml:28:124: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "concern", "satisfy", "case", "analysis", "verification", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    28 |     part U1: TimerIC { partNumber = "NE555"; manufacturers = {"Texas Instruments","STMicroelectronics","ON Semiconductor"} }
+       |                                                                                                                            [38;2;220;080;080m^[0m
+
+iteration_01.sysml:29:76: [38;2;220;080;080merror[0m (parsing-error): Unexpected 'STRING_VALUE'.
+    29 |     part RtimA: Resistor { resistance = 220000.0; manufacturers = {"Yageo","Vishay"} } // R_A
+       |                                                                            [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:29:86: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "concern", "satisfy", "case", "analysis", "verification", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    29 |     part RtimA: Resistor { resistance = 220000.0; manufacturers = {"Yageo","Vishay"} } // R_A
+       |                                                                                      [38;2;220;080;080m^[0m
+
+iteration_01.sysml:30:76: [38;2;220;080;080merror[0m (parsing-error): Unexpected 'STRING_VALUE'.
+    30 |     part RtimB: Resistor { resistance = 620000.0; manufacturers = {"Yageo","Vishay"} } // R_B
+       |                                                                            [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:30:86: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "concern", "satisfy", "case", "analysis", "verification", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    30 |     part RtimB: Resistor { resistance = 620000.0; manufacturers = {"Yageo","Vishay"} } // R_B
+       |                                                                                      [38;2;220;080;080m^[0m
+
+iteration_01.sysml:31:76: [38;2;220;080;080merror[0m (parsing-error): Unexpected 'STRING_VALUE'.
+    31 |     part Ctim: Capacitor { capacitance = 100e-9; manufacturers = {"Murata","Kemet"} } // C
+       |                                                                            [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:31:85: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "concern", "satisfy", "case", "analysis", "verification", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    31 |     part Ctim: Capacitor { capacitance = 100e-9; manufacturers = {"Murata","Kemet"} } // C
+       |                                                                                     [38;2;220;080;080m^[0m
+
+iteration_01.sysml:32:62: [38;2;220;080;080merror[0m (parsing-error): Unexpected 'STRING_VALUE'.
+    32 |     part LED1: LED { vf = 2.0; manufacturers = {"Kingbright","OSRAM","Lite-On"} }
+       |                                                              [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:32:81: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "concern", "satisfy", "case", "analysis", "verification", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    32 |     part LED1: LED { vf = 2.0; manufacturers = {"Kingbright","OSRAM","Lite-On"} }
+       |                                                                                 [38;2;220;080;080m^[0m
+
+iteration_01.sysml:33:72: [38;2;220;080;080merror[0m (parsing-error): Unexpected 'STRING_VALUE'.
+    33 |     part Rlim: Resistor { resistance = 330.0; manufacturers = {"Yageo","Vishay"} } // current-limiting resistor
+       |                                                                        [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:33:82: [38;2;220;080;080merror[0m (parsing-error): Unexpected '}', expected one of ["NAME", "}", "dependency", "locale", "comment", "doc", "rep", "language", "private", "protected", "public", "alias", "import", "[", "abstract", "in", "inout", "out", "derived", "end", "ordered", "nonunique", "<", "not", "@", "#", "metadata", "SINGLE_LINE_NOTE", "MULTILINE_NOTE", "REGULAR_COMMENT", ":>", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", ":", "defined", "standard", "library", "package", "variation", "variant", "constant", "ref", "attribute", "enum", "occurrence", "individual", "timeslice", "snapshot", "event", "then", "item", "part", "port", "connection", "connect", "binding", "bind", "succession", "first", "flow", "message", "interface", "allocation", "allocate", "action", "perform", "state", "exhibit", "calc", "constraint", "assert", "requirement", "concern", "satisfy", "case", "analysis", "verification", "use", "include", "view", "rendering", "viewpoint", "Dependency", "Comment", "Documentation", "TextualRepresentation", "VisibilityKind", "Membership", "MembershipImport", "NamespaceImport", "FeatureDirectionKind", "OwningMembership", "MultiplicityRange", "Annotation", "OwningMembership", "Package", "LibraryPackage", "OwningMembership", "VariantMembership", "FeatureMembership", "FeatureMembership", "ReferenceUsage", "ReferenceUsage", "AttributeDefinition", "AttributeUsage", "EnumerationDefinition", "EnumerationUsage", "OccurrenceDefinition", "OccurrenceDefinition", "OccurrenceUsage", "OccurrenceUsage", "OccurrenceUsage", "PortionKind", "EventOccurrenceUsage", "FeatureMembership", "SuccessionAsUsage", "ItemDefinition", "ItemUsage", "PartDefinition", "PartUsage", "PortDefinition", "PortUsage", "ConnectionDefinition", "ConnectionUsage", "BindingConnectorAsUsage", "SuccessionAsUsage", "FlowDefinition", "FlowUsage", "FlowUsage", "SuccessionFlowUsage", "InterfaceDefinition", "InterfaceUsage", "AllocationDefinition", "AllocationUsage", "ActionDefinition", "ActionUsage", "PerformActionUsage", "StateDefinition", "StateUsage", "ExhibitStateUsage", "CalculationDefinition", "CalculationUsage", "ConstraintDefinition", "ConstraintUsage", "AssertConstraintUsage", "RequirementDefinition", "RequirementUsage", "SatisfyRequirementUsage", "ConcernDefinition", "ConcernUsage", "CaseDefinition", "CaseUsage", "AnalysisCaseDefinition", "AnalysisCaseUsage", "VerificationCaseDefinition", "VerificationCaseUsage", "UseCaseDefinition", "UseCaseUsage", "IncludeUseCaseUsage", "ViewDefinition", "ViewUsage", "ViewpointDefinition", "ViewpointUsage", "RenderingDefinition", "RenderingUsage", "MetadataDefinition", "MetadataUsage", "MetadataUsage", "Definition", "Usage", "Dependency_repeat1"].
+    33 |     part Rlim: Resistor { resistance = 330.0; manufacturers = {"Yageo","Vishay"} } // current-limiting resistor
+       |                                                                                  [38;2;220;080;080m^[0m
+
+iteration_01.sysml:36:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    36 |     property computedFreq: Real[1] = 1.44 / ((RtimA.resistance + 2.0 * RtimB.resistance) * Ctim.capacitance);
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:39:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    39 |     property withinSpec: Boolean[1] = (computedFreq >= freqMin) and (computedFreq <= freqMax);
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:42:5: [38;2;220;080;080merror[0m (parsing-error): Unexpected identifier, expected one of ["SINGLE_LINE_NOTE", "MULTILINE_NOTE", "=", ":>", ":", ";", "{", "from", "locale", "about", "language", "for", "[", "ordered", "nonunique", "if", ":=", "default", "REGULAR_COMMENT", "specializes", "subsets", "::>", "references", "=>", "crosses", ":>>", "redefines", "defined", "by", "then", "connect", "of", "accept", "send", "assign", "terminate", "while", "loop", "parallel"].
+    42 |     property ledCurrentA: Real[1] = (supplyVoltage - LED1.vf) / Rlim.resistance;
+       |     [38;2;220;080;080m^^^^^^^^[0m
+
+iteration_01.sysml:26:5: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'property' shadows LEDFlicker::LEDFlickerCircuit::property
+│   26 |     property freqMax: Real[1] = 10.5;
+│      |     [38;2;204;204;057m^^^^^^^^[0m
+└── iteration_01.sysml:25:5: [38;2;255;255;255mnote[0m: First declared here
+
+iteration_01.sysml:28:14: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    28 |     part U1: TimerIC { partNumber = "NE555"; manufacturers = {"Texas Instruments","STMicroelectronics","ON Semiconductor"} }
+       |              [38;2;204;204;057m^^^^^^^[0m
+
+iteration_01.sysml:28:24: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'partNumber' shadows LEDFlicker::TimerIC::partNumber
+│   28 |     part U1: TimerIC { partNumber = "NE555"; manufacturers = {"Texas Instruments","STMicroelectronics","ON Semiconductor"} }
+│      |                        [38;2;204;204;057m^^^^^^^^^^[0m
+└── iteration_01.sysml:13:14: [38;2;255;255;255mnote[0m: Inherited from here
+    └── iteration_01.sysml:28:14: [38;2;255;255;255mnote[0m: Because LEDFlicker::TimerIC is specialized through FeatureTyping
+
+iteration_01.sysml:28:63: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    28 |     part U1: TimerIC { partNumber = "NE555"; manufacturers = {"Texas Instruments","STMicroelectronics","ON Semiconductor"} }
+       |                                                               [38;2;220;080;080m^^^^^^^^^^^^^^^^^^^[0m
+
+iteration_01.sysml:28:83: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    28 |     part U1: TimerIC { partNumber = "NE555"; manufacturers = {"Texas Instruments","STMicroelectronics","ON Semiconductor"} }
+       |                                                                                   [38;2;220;080;080m^^^^^^^^^^^^^^^^^^^^[0m
+
+iteration_01.sysml:29:17: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    29 |     part RtimA: Resistor { resistance = 220000.0; manufacturers = {"Yageo","Vishay"} } // R_A
+       |                 [38;2;204;204;057m^^^^^^^^[0m
+
+iteration_01.sysml:29:28: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'resistance' shadows LEDFlicker::Resistor::resistance
+│   29 |     part RtimA: Resistor { resistance = 220000.0; manufacturers = {"Yageo","Vishay"} } // R_A
+│      |                            [38;2;204;204;057m^^^^^^^^^^[0m
+└── iteration_01.sysml:5:14: [38;2;255;255;255mnote[0m: Inherited from here
+    └── iteration_01.sysml:29:17: [38;2;255;255;255mnote[0m: Because LEDFlicker::Resistor is specialized through FeatureTyping
+
+iteration_01.sysml:29:68: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    29 |     part RtimA: Resistor { resistance = 220000.0; manufacturers = {"Yageo","Vishay"} } // R_A
+       |                                                                    [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:30:17: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    30 |     part RtimB: Resistor { resistance = 620000.0; manufacturers = {"Yageo","Vishay"} } // R_B
+       |                 [38;2;204;204;057m^^^^^^^^[0m
+
+iteration_01.sysml:30:28: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'resistance' shadows LEDFlicker::Resistor::resistance
+│   30 |     part RtimB: Resistor { resistance = 620000.0; manufacturers = {"Yageo","Vishay"} } // R_B
+│      |                            [38;2;204;204;057m^^^^^^^^^^[0m
+└── iteration_01.sysml:5:14: [38;2;255;255;255mnote[0m: Inherited from here
+    └── iteration_01.sysml:30:17: [38;2;255;255;255mnote[0m: Because LEDFlicker::Resistor is specialized through FeatureTyping
+
+iteration_01.sysml:30:68: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    30 |     part RtimB: Resistor { resistance = 620000.0; manufacturers = {"Yageo","Vishay"} } // R_B
+       |                                                                    [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:31:16: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    31 |     part Ctim: Capacitor { capacitance = 100e-9; manufacturers = {"Murata","Kemet"} } // C
+       |                [38;2;204;204;057m^^^^^^^^^[0m
+
+iteration_01.sysml:31:28: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'capacitance' shadows LEDFlicker::Capacitor::capacitance
+│   31 |     part Ctim: Capacitor { capacitance = 100e-9; manufacturers = {"Murata","Kemet"} } // C
+│      |                            [38;2;204;204;057m^^^^^^^^^^^[0m
+└── iteration_01.sysml:9:14: [38;2;255;255;255mnote[0m: Inherited from here
+    └── iteration_01.sysml:31:16: [38;2;255;255;255mnote[0m: Because LEDFlicker::Capacitor is specialized through FeatureTyping
+
+iteration_01.sysml:33:16: [38;2;204;204;057mwarning[0m (usage-feature-typing): Usages should only be typed by Classifiers, this will be upgraded to error in Syside v0.9
+    33 |     part Rlim: Resistor { resistance = 330.0; manufacturers = {"Yageo","Vishay"} } // current-limiting resistor
+       |                [38;2;204;204;057m^^^^^^^^[0m
+
+iteration_01.sysml:33:27: [38;2;204;204;057mwarning[0m (namespace-distinguishability): Member name 'resistance' shadows LEDFlicker::Resistor::resistance
+│   33 |     part Rlim: Resistor { resistance = 330.0; manufacturers = {"Yageo","Vishay"} } // current-limiting resistor
+│      |                           [38;2;204;204;057m^^^^^^^^^^[0m
+└── iteration_01.sysml:5:14: [38;2;255;255;255mnote[0m: Inherited from here
+    └── iteration_01.sysml:33:16: [38;2;255;255;255mnote[0m: Because LEDFlicker::Resistor is specialized through FeatureTyping
+
+iteration_01.sysml:33:64: [38;2;220;080;080merror[0m (parameter-membership-owning-type): A parameter may only be owned by a behavior, step, or constructor expression return parameter
+    33 |     part Rlim: Resistor { resistance = 330.0; manufacturers = {"Yageo","Vishay"} } // current-limiting resistor
+       |                                                                [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:5:26: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    5 |     property resistance: Real[1];
+      |                          [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:6:29: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    6 |     property manufacturers: String[*];
+      |                             [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:9:27: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    9 |     property capacitance: Real[1];
+      |                           [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:10:29: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    10 |     property manufacturers: String[*];
+       |                             [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:13:26: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    13 |     property partNumber: String[1];
+       |                          [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:14:29: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    14 |     property manufacturers: String[*];
+       |                             [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:17:18: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    17 |     property vf: Real[1]; // forward voltage (V)
+       |                  [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:18:29: [38;2;220;080;080merror[0m (reference-error): No Type named 'String' found.
+    18 |     property manufacturers: String[*];
+       |                             [38;2;220;080;080m^^^^^^[0m
+
+iteration_01.sysml:22:29: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    22 |     property supplyVoltage: Real[1] = 5.0;
+       |                             [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:23:27: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    23 |     property freqNominal: Real[1] = 10.0;
+       |                           [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:24:26: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    24 |     property freqTolPct: Real[1] = 5.0;
+       |                          [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:25:23: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    25 |     property freqMin: Real[1] = 9.5;
+       |                       [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:26:23: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    26 |     property freqMax: Real[1] = 10.5;
+       |                       [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:32:16: [38;2;220;080;080merror[0m (reference-error): No Type named 'LED' found.
+    32 |     part LED1: LED { vf = 2.0; manufacturers = {"Kingbright","OSRAM","Lite-On"} }
+       |                [38;2;220;080;080m^^^[0m
+
+iteration_01.sysml:36:28: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    36 |     property computedFreq: Real[1] = 1.44 / ((RtimA.resistance + 2.0 * RtimB.resistance) * Ctim.capacitance);
+       |                            [38;2;220;080;080m^^^^[0m
+
+iteration_01.sysml:39:26: [38;2;220;080;080merror[0m (reference-error): No Type named 'Boolean' found.
+    39 |     property withinSpec: Boolean[1] = (computedFreq >= freqMin) and (computedFreq <= freqMax);
+       |                          [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:39:56: [38;2;220;080;080merror[0m (reference-error): No Feature named 'freqMin' found.
+    39 |     property withinSpec: Boolean[1] = (computedFreq >= freqMin) and (computedFreq <= freqMax);
+       |                                                        [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:39:86: [38;2;220;080;080merror[0m (reference-error): No Feature named 'freqMax' found.
+    39 |     property withinSpec: Boolean[1] = (computedFreq >= freqMin) and (computedFreq <= freqMax);
+       |                                                                                      [38;2;220;080;080m^^^^^^^[0m
+
+iteration_01.sysml:42:27: [38;2;220;080;080merror[0m (reference-error): No Type named 'Real' found.
+    42 |     property ledCurrentA: Real[1] = (supplyVoltage - LED1.vf) / Rlim.resistance;
+       |                           [38;2;220;080;080m^^^^[0m
+
+Revise the earlier model to resolve the diagnostics without undoing correct structure.
+
+Return only the updated SysMLv2 model.

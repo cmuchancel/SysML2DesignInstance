@@ -53,6 +53,11 @@ const builder = (y: typeof yargs) =>
       type: "number",
       describe: "Desired quantity (used for sorting only)",
     })
+    .option("json", {
+      type: "boolean",
+      describe: "Emit JSON output instead of human-readable text",
+      default: false,
+    })
     .example("$0 --category capacitor --value 10uF --voltage 6.3V --package 0603", "Find a 10uF 6.3V 0603 ceramic capacitor.")
     .help();
 
@@ -84,6 +89,7 @@ const run = async () => {
     p.trim(),
   ) as Provider[];
   const limitArg = (argv.limit as number) || 12;
+  const jsonOutput = Boolean(argv.json);
 
   if (argv.nl && typeof argv.nl === "string") {
     if (!llmAvailable) {
@@ -111,17 +117,40 @@ const run = async () => {
         if ((!input.keywords || input.keywords.length === 0) && typeof argv.nl === "string") {
           input.keywords = argv.nl.split(/\s+/).filter(Boolean);
         }
-        console.log("LLM parsed query:", { ...input, keywords });
+        if (!jsonOutput) {
+          console.log("LLM parsed query:", { ...input, keywords });
+        }
       } else {
-        console.warn("LLM parse failed, using manual flags only.");
+        if (!jsonOutput) {
+          console.warn("LLM parse failed, using manual flags only.");
+        }
       }
     } catch (err) {
-      console.warn("LLM parsing error, using manual flags only.", (err as Error).message);
+      if (!jsonOutput) {
+        console.warn("LLM parsing error, using manual flags only.", (err as Error).message);
+      }
     }
   }
 
   try {
     const result = await searchParts(input, limitArg, providersArg);
+    if (jsonOutput) {
+      console.log(
+        JSON.stringify(
+          {
+            query: result.query,
+            source: result.source,
+            providersTried: result.providersTried,
+            count: result.results.length,
+            results: result.results,
+            input,
+          },
+          null,
+          2,
+        ),
+      );
+      return;
+    }
     if (!result.results.length) {
       console.log("No results found. Adjust your query or relax filters.");
       return;
@@ -133,6 +162,9 @@ const run = async () => {
     console.log("-".repeat(72));
     for (const item of result.results) {
       console.log(`${item.manufacturerPartNumber} (${item.manufacturer})`);
+      if (item.attributes?.mouserPartNumber) {
+        console.log(`  Mouser #: ${item.attributes.mouserPartNumber}`);
+      }
       if (item.description) console.log(`  ${item.description}`);
       if (item.digiKeyPartNumber)
         console.log(`  Digi-Key #: ${item.digiKeyPartNumber}`);
@@ -140,6 +172,13 @@ const run = async () => {
       if (item.unitPrice !== undefined)
         console.log(`  Unit price: $${item.unitPrice.toFixed(4)}`);
       if (item.url) console.log(`  URL: ${item.url}`);
+      else if (item.attributes?.mouserPartNumber) {
+        console.log(
+          `  URL: https://www.mouser.com/ProductDetail/${encodeURIComponent(
+            item.attributes.mouserPartNumber,
+          )}`,
+        );
+      }
       console.log("-".repeat(72));
     }
   } catch (error) {

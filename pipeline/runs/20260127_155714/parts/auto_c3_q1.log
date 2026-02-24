@@ -1,0 +1,32 @@
+Search timed out after 30s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl MCP6001 rail to rail op amp 5V
+
+LLM parsed query: {
+  category: 'Operational amplifier',
+  manufacturer: 'Microchip Technology',
+  partNumber: 'MCP6001',
+  value: 'Rail-to-rail operational amplifier',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: undefined,
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    'Rail-to-rail input and output',
+    'Single-supply operation',
+    'Low quiescent current',
+    'CMOS input stage',
+    'General-purpose op amp'
+  ],
+  quantity: undefined,
+  keywords: [ 'MCP6001', 'op amp', 'operational amplifier' ],
+  specs: {
+    supplyVoltageRange: '1.8 V to 6.0 V',
+    railToRail: 'input and output',
+    typicalUses: 'general-purpose amplification, sensor interfacing, portable electronics'
+  }
+}

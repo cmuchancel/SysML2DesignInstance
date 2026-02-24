@@ -1,0 +1,38 @@
+Search timed out after 20s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web --limit 1 --nl ATTINY13A 5V microcontroller
+
+LLM parsed query: {
+  category: 'microcontroller',
+  manufacturer: 'Microchip (Atmel)',
+  partNumber: 'ATTINY13A',
+  value: '8-bit AVR microcontroller',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: '8-pin',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    '8-bit AVR core',
+    'Flash memory',
+    'GPIO',
+    'ADC',
+    'PWM',
+    'Internal oscillator',
+    'Watchdog timer',
+    'Low power'
+  ],
+  quantity: undefined,
+  keywords: [ 'ATTINY13A', 'ATtiny13', 'microcontroller' ],
+  specs: {
+    pinCount: '8',
+    core: 'AVR 8-bit',
+    family: 'ATtiny',
+    series: 'ATtiny13A',
+    partType: 'microcontroller',
+    operatingVoltage: '5V'
+  }
+}

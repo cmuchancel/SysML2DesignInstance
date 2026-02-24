@@ -1,0 +1,71 @@
+Search timed out after 60s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider mouser web --limit 5 --nl ATTINY13A 5V microcontroller
+
+LLM parsed query: {
+  category: 'microcontroller',
+  manufacturer: 'Microchip (formerly Atmel)',
+  partNumber: 'ATTINY13A',
+  value: '8-bit AVR microcontroller',
+  tolerance: undefined,
+  power: undefined,
+  voltage: '5V',
+  current: undefined,
+  package: undefined,
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [
+    '8-bit AVR core',
+    'Flash program memory',
+    'EEPROM',
+    'SRAM',
+    'Low-power modes',
+    '8-bit timer/counter',
+    'Watchdog timer',
+    'Analog-to-digital converter (ADC)',
+    'Internal oscillator'
+  ],
+  quantity: undefined,
+  keywords: [ 'ATTINY13A', 'ATtiny13', 'AVR' ],
+  specs: {
+    flash: '1 KB',
+    sram: '64 bytes',
+    eeprom: '64 bytes',
+    ioPins: '6',
+    maxClock: '20 MHz',
+    operatingVoltageRange: '2.7-5.5 V',
+    architecture: 'AVR 8-bit'
+  }
+}
+Source: live | Query: "ATTINY13A Microchip (formerly Atmel) microcontroller 8-bit AVR microcontroller 5V volt 8-bit AVR core Flash program memory EEPROM SRAM Low-power modes 8-bit timer/counter Watchdog timer Analog-to-digital converter (ADC) Internal oscillator ATTINY13A ATtiny13 AVR flash 1 KB sram 64 bytes eeprom 64 bytes ioPins 6 maxClock 20 MHz operatingVoltageRange 2.7-5.5 V architecture AVR 8-bit" | Matches: 5
+------------------------------------------------------------------------
+ATTINY13A-SSU (Microchip Technology)
+  Mouser #: 556-ATTINY13A-SSU
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 6093
+  URL: https://www.mouser.com/ProductDetail/556-ATTINY13A-SSU
+------------------------------------------------------------------------
+ATTINY13A-SF (Microchip Technology)
+  Mouser #: 556-ATTINY13A-SF
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 4276
+  URL: https://www.mouser.com/ProductDetail/556-ATTINY13A-SF
+------------------------------------------------------------------------
+ATTINY13A-SN (Microchip Technology)
+  Mouser #: 556-ATTINY13A-SN
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 2844
+  URL: https://www.mouser.com/ProductDetail/556-ATTINY13A-SN
+------------------------------------------------------------------------
+ATTINY13A-SNR (Microchip Technology)
+  Mouser #: 556-ATTINY13A-SNR
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  Stock: 1824
+  URL: https://www.mouser.com/ProductDetail/556-ATTINY13A-SNR
+------------------------------------------------------------------------
+ATTINY13A (Microchip Technology)
+  Mouser #: N/A
+  Access to this page has been denied either because we believe you are using automation tools to browse the website, or something in the request did not pass security restrictions.
+  URL: https://www.mouser.com/ProductDetail/N%2FA
+------------------------------------------------------------------------

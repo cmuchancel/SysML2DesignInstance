@@ -1,0 +1,82 @@
+{
+  "id": "resp_0efedacb084bd77f0069790108d3f48195bbc80f0be259b74e",
+  "created_at": 1769537800.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5-mini-2025-08-07",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0efedacb084bd77f006979010911688195b814a05b7b3ac231",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_0efedacb084bd77f006979013666e081958b915fb70b999406",
+      "content": [
+        {
+          "annotations": [],
+          "text": "package LedFlicker {\n  model Circuit {\n    // Assumption: LED Vf \u2248 2.0 V, target current 10 mA \u2192 R = (5-2)/0.01 = 300 \u03a9.\n    block Supply {\n      property voltage: Real = 5.0\n    }\n    block LED {\n      property Vf: Real = 2.0\n      property If_target: Real = 0.01\n    }\n    block Resistor {\n      property resistanceOhm: Real = 300.0\n    }\n    block Oscillator {\n      property frequencyHz: Real = 10.0\n      invariant frequencyHz >= 9.5 and frequencyHz <= 10.5\n    }\n    part supply: Supply\n    part led: LED\n    part r: Resistor\n    part osc: Oscillator\n\n    // Vendor-sourceable reference parts (common vendors / Digi-Key links)\n    block VendorPart {\n      property vendor: String\n      property partNumber: String\n      property url: String\n    }\n    part led_part: VendorPart { vendor = \"Kingbright\"; partNumber = \"WP710A10ID\"; url = \"https://www.digikey.com\" }\n    part resistor_part: VendorPart { vendor = \"Vishay\"; partNumber = \"CRCW0805300R\"; url = \"https://www.digikey.com\" }\n    part osc_part: VendorPart { vendor = \"Texas Instruments\"; partNumber = \"NE555P\"; url = \"https://www.digikey.com\" }\n  }\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1.0,
+  "background": false,
+  "completed_at": 1769537864.0,
+  "conversation": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": null,
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 260,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 1939,
+    "output_tokens_details": {
+      "reasoning_tokens": 1600
+    },
+    "total_tokens": 2199
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true
+}

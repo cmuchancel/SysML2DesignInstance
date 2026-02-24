@@ -1,0 +1,28 @@
+Search timed out after 20s
+
+> sysmltodesigninstance@1.0.0 cli
+> tsx src/cli.ts --provider web --limit 1 --nl 5mm indicator LED 5V 20mA
+
+LLM parsed query: {
+  category: 'indicator LED',
+  manufacturer: undefined,
+  partNumber: undefined,
+  value: undefined,
+  tolerance: undefined,
+  power: '100mW',
+  voltage: '5V',
+  current: '20mA',
+  package: '5mm (T-1 3/4) through-hole',
+  temperatureCoefficient: undefined,
+  material: undefined,
+  features: [ 'indicator', 'through-hole', '5mm' ],
+  quantity: undefined,
+  keywords: [ '5mm', 'indicator LED', 'LED' ],
+  specs: {
+    diameter: '5mm',
+    mounting: 'through-hole',
+    operatingVoltage: '5V',
+    forwardCurrent: '20mA',
+    power: '100mW'
+  }
+}

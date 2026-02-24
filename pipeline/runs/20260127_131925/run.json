@@ -1,0 +1,11 @@
+{
+  "brief": "Design a circuit whose LED flickers at 10 Hz \u00b15% from a 5 V supply; include current limiting and make it sourceable from common vendors.",
+  "created": "20260127_131925",
+  "paths": {
+    "prompt": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_131925/prompt.txt",
+    "questions": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_131925/questions.md",
+    "concepts": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_131925/concepts",
+    "parts": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_131925/parts",
+    "sysml": "/Users/chancelavoie/Desktop/SysMLtoDesignInstance/pipeline/runs/20260127_131925/sysml"
+  }
+}
