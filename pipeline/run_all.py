@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import math
 import os
@@ -22,8 +23,6 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Optional
-
-from openai import OpenAI
 from log_stages import StageLog
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -37,6 +36,47 @@ BOOTSTRAP_DEPS = OPTIMIZATION_DIR / "scripts" / "bootstrap_deps.py"
 CONFIGURATOR_DIR = REPO_ROOT.parent / "sysml-v2-configurator"
 CONFIG_PART_PICKER = CONFIGURATOR_DIR / "part_picker_cli.mjs"
 CONFIG_CONSTRAINT_VALIDATOR = CONFIGURATOR_DIR / "ConstraintValidation.py"
+
+DEFAULT_CONCEPT_COUNT = 3
+DEFAULT_PROVIDER_ORDER = "web,mouser,octopart,digikey"
+GENERIC_CONCEPT_VARIANTS = [
+    (
+        "Balanced COTS Architecture",
+        "Use a balanced off-the-shelf architecture that satisfies the brief without over-specializing any subsystem.",
+    ),
+    (
+        "Performance-First Architecture",
+        "Favor higher-performing commercial subsystems and tighter integration to maximize requirement headroom.",
+    ),
+    (
+        "Low-Complexity Architecture",
+        "Favor a simpler, easier-to-source architecture with fewer custom dependencies and clearer implementation paths.",
+    ),
+]
+PROMPT_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "at",
+    "be",
+    "by",
+    "design",
+    "for",
+    "from",
+    "in",
+    "into",
+    "is",
+    "it",
+    "of",
+    "on",
+    "or",
+    "system",
+    "that",
+    "the",
+    "this",
+    "to",
+    "with",
+}
 
 
 # ---------- helpers ----------
@@ -52,6 +92,17 @@ def load_env_if_present() -> None:
         if k and v and k not in os.environ:
             os.environ[k] = v
 
+
+def make_openai_client():
+    try:
+        from openai import OpenAI
+    except Exception as exc:
+        raise RuntimeError(
+            "OpenAI client import failed. Repair the pipeline venv or rerun "
+            "SysMLtoDesignInstance/pipeline/setup_pipeline_env.sh."
+        ) from exc
+    return OpenAI()
+
 def run(cmd: List[str], cwd: Path | None = None) -> str:
     result = subprocess.run(cmd, cwd=cwd, check=True, capture_output=True, text=True, env=os.environ.copy())
     return result.stdout
@@ -65,6 +116,17 @@ def latest_run(out_dir: Path) -> Path:
     if not runs:
         raise SystemExit(f"No run directory found in {out_dir}")
     return runs[-1]
+
+
+def scaffold_run_dir_from_output(stdout: str) -> Path | None:
+    for line in stdout.splitlines():
+        if line.startswith("Scaffold created at "):
+            candidate = line.split("Scaffold created at ", 1)[1].strip()
+            if candidate:
+                path = Path(candidate)
+                if path.exists():
+                    return path
+    return None
 
 
 def find_latest_sysml(sysml_dir: Path) -> Path:
@@ -182,6 +244,7 @@ def bom_rows_from_summary(bom: Dict[str, List[Dict[str, str]]]) -> List[Dict[str
                     "slot": slot,
                     "title": entry.get("title", "item"),
                     "url": entry.get("url"),
+                    "supplier": entry.get("supplier"),
                     "status": entry.get("status", "pending"),
                     "stock": entry.get("stock"),
                 }
@@ -199,6 +262,7 @@ def write_design_instances_sysml(path: Path, concepts: List[Dict[str, Any]], bom
     lines.append("  part def SlotSelection {")
     lines.append("    attribute slot: String;")
     lines.append("    attribute title: String;")
+    lines.append("    attribute supplier: String;")
     lines.append("    attribute url: String;")
     lines.append("    attribute status: String;")
     lines.append("  }")
@@ -227,11 +291,13 @@ def write_design_instances_sysml(path: Path, concepts: List[Dict[str, Any]], bom
                     break
             entry = entries[0] if entries else {}
             title = entry.get("title", "unsourced").replace('"', '\\"')
+            supplier = entry.get("supplier", "").replace('"', '\\"')
             url = entry.get("url", "").replace('"', '\\"')
             status = entry.get("status", "pending").replace('"', '\\"')
             lines.append("    part {}_{} : SlotSelection {{".format(cid, slot_name))
             lines.append(f'      slot = "{slot_name}";')
             lines.append(f'      title = "{title}";')
+            lines.append(f'      supplier = "{supplier}";')
             lines.append(f'      url = "{url}";')
             lines.append(f'      status = "{status}";')
             lines.append("    }")
@@ -244,8 +310,25 @@ def load_prompt(run_dir: Path) -> str:
     return (run_dir / "prompt.txt").read_text(encoding="utf-8").strip()
 
 
+def extract_user_brief(prompt_text: str) -> str:
+    text = prompt_text.strip()
+    repeat_marker = "-- repeat --"
+    if repeat_marker in text:
+        before_repeat = text.split(repeat_marker, 1)[0]
+        lines = [line.strip() for line in before_repeat.splitlines() if line.strip() and not line.strip().startswith("#")]
+        if lines:
+            return " ".join(lines).strip()
+
+    instruction_marker = "# Instructions to the model"
+    if instruction_marker in text:
+        text = text.split(instruction_marker, 1)[0].strip()
+
+    lines = [line.strip() for line in text.splitlines() if line.strip() and not line.strip().startswith("#")]
+    return " ".join(lines).strip() or prompt_text.strip()
+
+
 def call_llm(prompt: str, model: str, temperature: float | None) -> str:
-    client = OpenAI()
+    client = make_openai_client()
     resp = client.responses.create(
         model=model,
         input=prompt,
@@ -267,6 +350,296 @@ def call_llm(prompt: str, model: str, temperature: float | None) -> str:
     raise RuntimeError("LLM response contained no text")
 
 
+def parse_json_array_from_text(text: str) -> List[Dict[str, Any]]:
+    candidate_texts = [text]
+    start = text.find("[")
+    end = text.rfind("]")
+    if start >= 0 and end > start:
+        candidate_texts.append(text[start : end + 1])
+    start_obj = text.find("{")
+    end_obj = text.rfind("}")
+    if start_obj >= 0 and end_obj > start_obj:
+        candidate_texts.append(text[start_obj : end_obj + 1])
+
+    for candidate in candidate_texts:
+        try:
+            parsed = json.loads(candidate)
+        except Exception:
+            continue
+        if isinstance(parsed, list):
+            return [item for item in parsed if isinstance(item, dict)]
+        if isinstance(parsed, dict):
+            concepts = parsed.get("concepts")
+            if isinstance(concepts, list):
+                return [item for item in concepts if isinstance(item, dict)]
+    raise ValueError("response did not contain a JSON array of concepts")
+
+
+def repair_concepts_json(raw_text: str, model: str, temperature: float | None) -> str:
+    repair_prompt = f"""
+Convert the following model output into valid JSON only.
+
+Requirements:
+- Return either a JSON array or a JSON object with key "concepts".
+- Each concept must be an object with:
+  - "name"
+  - "approach"
+  - optional "slots" array of objects with "slot", "purpose", and "search_queries"
+  - optional "search_queries" array
+- Do not add markdown fences or explanatory prose.
+
+Raw output:
+{raw_text}
+"""
+    return call_llm(repair_prompt, model, temperature)
+
+
+def parse_slot_array_from_text(text: str) -> List[Dict[str, Any]]:
+    candidate_texts = [text]
+    start = text.find("[")
+    end = text.rfind("]")
+    if start >= 0 and end > start:
+        candidate_texts.append(text[start : end + 1])
+    start_obj = text.find("{")
+    end_obj = text.rfind("}")
+    if start_obj >= 0 and end_obj > start_obj:
+        candidate_texts.append(text[start_obj : end_obj + 1])
+
+    for candidate in candidate_texts:
+        try:
+            parsed = json.loads(candidate)
+        except Exception:
+            continue
+        if isinstance(parsed, list):
+            return [item for item in parsed if isinstance(item, dict)]
+        if isinstance(parsed, dict):
+            slots = parsed.get("slots")
+            if isinstance(slots, list):
+                return [item for item in slots if isinstance(item, dict)]
+    raise ValueError("response did not contain a JSON array of slots")
+
+
+def repair_slots_json(raw_text: str, model: str, temperature: float | None) -> str:
+    repair_prompt = f"""
+Convert the following model output into valid JSON only.
+
+Requirements:
+- Return either a JSON array or a JSON object with key "slots".
+- Each slot must be an object with:
+  - "slot"
+  - "purpose"
+  - "search_queries" as an array of 1-3 strings
+- Do not add markdown fences or explanatory prose.
+
+Raw output:
+{raw_text}
+"""
+    return call_llm(repair_prompt, model, temperature)
+
+
+def extract_prompt_keywords(prompt_text: str, limit: int = 8) -> List[str]:
+    keywords: List[str] = []
+    seen: set[str] = set()
+    for token in re.findall(r"[A-Za-z][A-Za-z0-9_-]{2,}", prompt_text.lower()):
+        if token in PROMPT_STOPWORDS or token in seen:
+            continue
+        seen.add(token)
+        keywords.append(token)
+        if len(keywords) >= limit:
+            break
+    return keywords
+
+
+def build_generic_slot_specs(prompt_text: str, concept_name: str) -> List[Dict[str, Any]]:
+    prompt_clean = " ".join(prompt_text.split())
+    keywords = extract_prompt_keywords(prompt_clean)
+    keyword_phrase = " ".join(keywords[:5]) if keywords else prompt_clean[:80].strip()
+    return [
+        {
+            "slot": "primary_subsystem",
+            "purpose": "Primary purchasable subsystem that implements the core function of the design brief.",
+            "search_queries": [
+                f"{keyword_phrase} commercial module",
+                f"{keyword_phrase} supplier part",
+                f"{keyword_phrase} off the shelf",
+            ],
+        },
+        {
+            "slot": "supporting_subsystem",
+            "purpose": "Supporting purchasable subsystem that enables the primary function or integration of the design.",
+            "search_queries": [
+                f"{keyword_phrase} supporting module",
+                f"{concept_name} supporting subsystem",
+                f"{keyword_phrase} accessory component",
+            ],
+        },
+    ]
+
+
+def infer_slot_specs_with_llm(
+    prompt_text: str,
+    concept_name: str,
+    concept_approach: str,
+    model: str,
+    temperature: float | None,
+) -> List[Dict[str, Any]]:
+    slot_prompt = f"""
+You are extracting sourceable subsystems for a design concept.
+
+Requirement:
+{prompt_text}
+
+Concept name:
+{concept_name}
+
+Concept approach:
+{concept_approach}
+
+Return JSON only.
+Return either a JSON array or {{"slots": [...]}}.
+Each slot must be an object with:
+- "slot": a concise subsystem/component identifier
+- "purpose": one sentence explaining its role
+- "search_queries": array of 1-3 concrete web-search strings that could find a purchasable real-world part
+
+Rules:
+- Choose 1-4 slots.
+- Keep slots general enough to apply to arbitrary domains, but specific enough to source real parts.
+- Do not assume a fixed domain or benchmark family.
+- No markdown or prose outside JSON.
+"""
+    raw = call_llm(slot_prompt, model, temperature)
+    try:
+        return parse_slot_array_from_text(raw)
+    except Exception:
+        repaired = repair_slots_json(raw, model, temperature)
+        return parse_slot_array_from_text(repaired)
+
+
+def normalize_slot_items(
+    raw_slots: List[Dict[str, Any]],
+    fallback_queries: List[str],
+) -> List[Dict[str, Any]]:
+    normalized_slots: List[Dict[str, Any]] = []
+    for raw_slot in raw_slots:
+        if not isinstance(raw_slot, dict):
+            continue
+        slot_name = str(raw_slot.get("slot") or raw_slot.get("name") or "").strip()
+        if not slot_name:
+            continue
+        slot_queries = raw_slot.get("search_queries") or []
+        if isinstance(slot_queries, str):
+            slot_queries = [slot_queries]
+        slot_queries = [str(q).strip() for q in slot_queries if str(q).strip()]
+        normalized_slots.append(
+            {
+                "slot": slot_name,
+                "purpose": str(raw_slot.get("purpose") or "").strip(),
+                "search_queries": slot_queries or fallback_queries[:2],
+            }
+        )
+    return normalized_slots
+
+
+def resolve_slot_specs(
+    prompt_text: str,
+    concept_name: str,
+    concept_approach: str,
+    provided_slots: List[Dict[str, Any]] | None,
+    fallback_queries: List[str],
+    model: str,
+    temperature: float | None,
+) -> List[Dict[str, Any]]:
+    normalized_slots = normalize_slot_items(provided_slots or [], fallback_queries)
+    if normalized_slots:
+        return normalized_slots
+    try:
+        llm_slots = infer_slot_specs_with_llm(prompt_text, concept_name, concept_approach, model, temperature)
+        normalized_slots = normalize_slot_items(llm_slots, fallback_queries)
+        if normalized_slots:
+            return normalized_slots
+    except Exception:
+        pass
+    return build_generic_slot_specs(prompt_text, concept_name)
+
+
+def build_generic_fallback_concepts(
+    prompt_text: str,
+    n_concepts: int,
+    model: str,
+    temperature: float | None,
+) -> List[Dict[str, Any]]:
+    prompt_clean = " ".join(prompt_text.split())
+    fallback_concepts: List[Dict[str, Any]] = []
+    for idx in range(n_concepts):
+        title, summary = GENERIC_CONCEPT_VARIANTS[idx % len(GENERIC_CONCEPT_VARIANTS)]
+        concept_name = f"{title} {idx + 1}" if idx >= len(GENERIC_CONCEPT_VARIANTS) else title
+        concept_approach = f"{summary} Brief context: {prompt_clean[:220].rstrip()}"
+        fallback_queries = [
+            f"{prompt_clean[:120].strip()} {concept_name}".strip(),
+            f"{prompt_clean[:120].strip()} supplier".strip(),
+            f"{prompt_clean[:120].strip()} commercial off the shelf".strip(),
+        ]
+        slots = resolve_slot_specs(
+            prompt_text=prompt_clean,
+            concept_name=concept_name,
+            concept_approach=concept_approach,
+            provided_slots=None,
+            fallback_queries=fallback_queries,
+            model=model,
+            temperature=temperature,
+        )
+        fallback_concepts.append(
+            {
+                "name": concept_name,
+                "approach": concept_approach,
+                "slots": slots,
+                "search_queries": fallback_queries,
+            }
+        )
+    return fallback_concepts
+
+
+def normalize_concept_item(
+    item: Dict[str, Any],
+    prompt_text: str,
+    index: int,
+    model: str,
+    temperature: float | None,
+) -> Dict[str, Any]:
+    prompt_clean = " ".join(prompt_text.split())
+    title, summary = GENERIC_CONCEPT_VARIANTS[index % len(GENERIC_CONCEPT_VARIANTS)]
+    fallback_name = f"{title} {index + 1}" if index >= len(GENERIC_CONCEPT_VARIANTS) else title
+    fallback_approach = f"{summary} Brief context: {prompt_clean[:220].rstrip()}"
+    fallback_queries = [
+        f"{prompt_clean[:120].strip()} {fallback_name}".strip(),
+        f"{prompt_clean[:120].strip()} supplier".strip(),
+        f"{prompt_clean[:120].strip()} commercial off the shelf".strip(),
+    ]
+    name = str(item.get("name") or fallback_name).strip() or fallback_name
+    approach = str(item.get("approach") or fallback_approach).strip() or fallback_approach
+    queries = item.get("search_queries") or []
+    if isinstance(queries, str):
+        queries = [queries]
+    normalized_queries = [str(q).strip() for q in queries if str(q).strip()] or fallback_queries
+    normalized_slots = resolve_slot_specs(
+        prompt_text=prompt_text,
+        concept_name=name,
+        concept_approach=approach,
+        provided_slots=item.get("slots") or [],
+        fallback_queries=normalized_queries,
+        model=model,
+        temperature=temperature,
+    )
+
+    return {
+        "name": name,
+        "approach": approach,
+        "slots": normalized_slots,
+        "search_queries": normalized_queries,
+    }
+
+
 def gen_concepts(prompt_text: str, sysml_path: Path, n_concepts: int, model: str, temperature: float | None) -> List[Dict[str, Any]]:
     sysml_snippet = sysml_path.read_text(encoding="utf-8")[:4000]
     llm_prompt = f"""
@@ -283,10 +656,16 @@ Return JSON array. Each item fields:
 - "name": short concept name
 - "approach": 1-2 sentence summary
 - "slots": array where each slot is an object with:
-    - "slot": identifier (e.g., "led", "driver", "supply", "resistor")
+    - "slot": concrete subsystem/component identifier relevant to the brief (e.g., "flight_controller", "battery_pack", "camera", "motor_driver", "sensor")
     - "purpose": short phrase of its role
     - "search_queries": array of 1-3 targeted search strings to find a concrete part for this slot
 - "search_queries": optional fallback array (broad, concept-level) if slots are missing
+
+Rules:
+- Concepts must differ materially in architecture or implementation strategy.
+- Prefer domain-specific slot names over generic names like "component" or "module".
+- Limit each concept to 1-4 slots that are realistically sourceable.
+- Return JSON only. No markdown.
 """
     try:
         text = call_llm(llm_prompt, model, temperature)
@@ -294,90 +673,33 @@ Return JSON array. Each item fields:
         text = ""
     data: List[Dict[str, Any]] = []
     parsed = False
-    for attempt in range(2):
+    if text:
         try:
-            candidate = text if attempt == 0 else text[text.find("[") : text.rfind("]") + 1]
-            data = json.loads(candidate)
+            data = parse_json_array_from_text(text)
             parsed = True
-            break
         except Exception:
-            continue
-    # Prepare default diverse concepts for backfill or total fallback.
-    fallback_pool = [
-        {
-            "name": "NE555-astable",
-            "approach": "Use an NE555 in astable mode to blink an LED near 10 Hz from 5 V with RC timing and a series current-limiting resistor.",
-            "slots": [
-                {"slot": "driver", "purpose": "Oscillator/timer to toggle LED", "search_queries": ["NE555 timer 5V astable"]},
-                {"slot": "led", "purpose": "Indicator LED", "search_queries": ["5mm indicator LED 5V 20mA"]},
-                {"slot": "resistor", "purpose": "LED current limit", "search_queries": ["330 ohm resistor 0.25W"]},
-                {"slot": "supply", "purpose": "5V source", "search_queries": ["5V DC wall adapter"]},
-            ],
-            "search_queries": [
-                "NE555 astable 10 Hz LED flasher 5V parts",
-                "LMC555 low power 5V timer 10Hz",
-                "10 Hz LED flasher resistor capacitor values"
-            ],
-        },
-        {
-            "name": "Microcontroller-PWM",
-            "approach": "Use a low-cost 8-bit MCU (e.g., ATtiny/STM8) running a 10 Hz toggle to drive the LED via a series resistor.",
-            "slots": [
-                {"slot": "mcu", "purpose": "Controller toggling GPIO", "search_queries": ["ATTINY13A 5V microcontroller"]},
-                {"slot": "led", "purpose": "Indicator LED", "search_queries": ["5mm indicator LED 5V 20mA"]},
-                {"slot": "resistor", "purpose": "LED current limit", "search_queries": ["330 ohm resistor 0.25W"]},
-                {"slot": "supply", "purpose": "5V source", "search_queries": ["5V DC wall adapter"]},
-            ],
-            "search_queries": [
-                "ATTINY13A 5V microcontroller",
-                "STM8S003F3P6 dev board 5V",
-                "5mm LED 330 ohm resistor kit"
-            ],
-        },
-        {
-            "name": "OpAmp-Relaxation",
-            "approach": "Use a rail-to-rail op-amp Schmitt-trigger relaxation oscillator set to ~10 Hz, feeding the LED through a resistor.",
-            "slots": [
-                {"slot": "opamp", "purpose": "Oscillator/driver", "search_queries": ["MCP6001 rail to rail op amp 5V"]},
-                {"slot": "led", "purpose": "Indicator LED", "search_queries": ["5mm indicator LED 5V 20mA"]},
-                {"slot": "resistor", "purpose": "LED current limit", "search_queries": ["330 ohm resistor 0.25W"]},
-                {"slot": "supply", "purpose": "5V source", "search_queries": ["5V DC wall adapter"]},
-            ],
-            "search_queries": [
-                "MCP6001 rail to rail op amp 5V",
-                "10 Hz relaxation oscillator op amp",
-                "330 ohm resistor 5mm LED"
-            ],
-        },
-    ]
-
+            try:
+                repaired = repair_concepts_json(text, model, temperature)
+                data = parse_json_array_from_text(repaired)
+                parsed = True
+            except Exception:
+                parsed = False
     concepts: List[Dict[str, Any]] = []
     if parsed:
-        for item in data:
+        for idx, item in enumerate(data):
             if not isinstance(item, dict):
                 continue
-            name = item.get("name") or "Concept"
-            queries = item.get("search_queries") or []
-            if isinstance(queries, str):
-                queries = [queries]
-            slots = item.get("slots") or []
-            concepts.append(
-                {
-                    "name": str(name),
-                    "approach": str(item.get("approach", "")).strip(),
-                    "slots": slots,
-                    "search_queries": [str(q).strip() for q in queries if str(q).strip()],
-                }
-            )
+            concepts.append(normalize_concept_item(item, prompt_text, idx, model, temperature))
 
     # Backfill to at least n_concepts with diverse defaults.
-    for fb in fallback_pool:
+    for fb in build_generic_fallback_concepts(prompt_text, n_concepts, model, temperature):
         if len(concepts) >= n_concepts:
             break
         if fb["name"] not in [c["name"] for c in concepts]:
             concepts.append(fb)
 
     # If still short, cycle the pool.
+    fallback_pool = build_generic_fallback_concepts(prompt_text, max(n_concepts, 1), model, temperature)
     while len(concepts) < n_concepts:
         concepts.append(fallback_pool[len(concepts) % len(fallback_pool)])
 
@@ -985,6 +1307,8 @@ def run_optimizer_for_concept(
     targets: Dict[str, float],
     run_dir: Path,
     model: str,
+    decision_mode: str,
+    decision_model: str | None,
 ) -> Dict[str, Any]:
     concept_dir = run_dir / "optimization" / f"concept_{concept_idx}"
     concept_dir.mkdir(parents=True, exist_ok=True)
@@ -1011,7 +1335,11 @@ def run_optimizer_for_concept(
         str(objectives_path),
         "--skip-checker",
         "--no-refine-unknown-checks",
+        "--decision-mode",
+        decision_mode,
     ]
+    if decision_model:
+        cmd.extend(["--decision-model", decision_model])
     optimizer_timeout = int(os.environ.get("OPTIMIZER_TIMEOUT_SEC", "240"))
     proc_stdout = ""
     proc_stderr = ""
@@ -1120,6 +1448,55 @@ def run_optimizer_for_concept(
     }
 
 
+def run_concept_optimizations(
+    concepts: List[Dict[str, Any]],
+    targets: Dict[str, float],
+    run_dir: Path,
+    model: str,
+    decision_mode: str,
+    decision_model: str | None,
+    max_parallel: int,
+) -> List[Dict[str, Any]]:
+    if not concepts:
+        return []
+
+    worker_count = max(1, min(max_parallel, len(concepts)))
+    results_by_index: Dict[int, Dict[str, Any]] = {}
+
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        future_map = {
+            executor.submit(
+                run_optimizer_for_concept,
+                ci,
+                concept,
+                targets,
+                run_dir,
+                model,
+                decision_mode,
+                decision_model,
+            ): ci
+            for ci, concept in enumerate(concepts, 1)
+        }
+        for future in as_completed(future_map):
+            ci = future_map[future]
+            try:
+                results_by_index[ci] = future.result()
+            except Exception as exc:
+                concept_dir = run_dir / "optimization" / f"concept_{ci}"
+                concept_dir.mkdir(parents=True, exist_ok=True)
+                result = {
+                    "concept_index": ci,
+                    "status": "error",
+                    "model_path": str(concept_dir / "model.sysml"),
+                    "best_solution_path": str(concept_dir / "best_solution.json"),
+                    "error": str(exc),
+                }
+                (concept_dir / "best_solution.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
+                results_by_index[ci] = result
+
+    return [results_by_index[ci] for ci in range(1, len(concepts) + 1)]
+
+
 def token_set(text: str) -> set[str]:
     return {t for t in re.split(r"[^a-zA-Z0-9]+", text.lower()) if t}
 
@@ -1129,6 +1506,7 @@ def build_slot_search_input(
     slot: Dict[str, Any],
     optimized_values: Dict[str, float],
     targets: Dict[str, float],
+    user_brief: str,
 ) -> Dict[str, Any]:
     slot_name = str(slot.get("slot") or slot.get("name") or "component").strip()
     slot_slug = safe_slug(slot_name)
@@ -1146,7 +1524,11 @@ def build_slot_search_input(
     data: Dict[str, Any] = {
         "slot": slot_slug,
         "keywords": keywords,
-        "category": "electronic component",
+        "brief": user_brief,
+        "concept_name": str(concept.get("name") or ""),
+        "concept_approach": str(concept.get("approach") or ""),
+        "slot_purpose": str(slot.get("purpose") or ""),
+        "optimized_targets": {k: v for k, v in optimized_values.items() if isinstance(v, (int, float))},
     }
 
     if "resistor" in slot_slug:
@@ -1272,8 +1654,8 @@ def run_configurator_part_picker(
             "error": f"missing configurator part picker: {CONFIG_PART_PICKER}",
         }
 
-    picker_timeout = int(os.environ.get("CONFIGURATOR_PICKER_TIMEOUT_SEC", str(max(timeout_sec, 25))))
-    picker_timeout_buffer = int(os.environ.get("CONFIGURATOR_PICKER_TIMEOUT_BUFFER_SEC", "90"))
+    picker_timeout = int(os.environ.get("CONFIGURATOR_PICKER_TIMEOUT_SEC", str(max(timeout_sec, 180))))
+    picker_timeout_buffer = int(os.environ.get("CONFIGURATOR_PICKER_TIMEOUT_BUFFER_SEC", "180"))
     timeout_arg: float | None = None if picker_timeout <= 0 else float(max(picker_timeout + picker_timeout_buffer, 20))
     cmd = [
         "node",
@@ -1336,6 +1718,7 @@ def run_configurator_part_picker(
     status = str(payload.get("status", "not_found"))
     if status == "selected":
         item = {
+            "supplier": payload.get("supplier") or payload.get("provider") or payload.get("manufacturer") or None,
             "manufacturer": payload.get("manufacturer"),
             "manufacturerPartNumber": payload.get("manufacturerPartNumber"),
             "description": payload.get("description") or payload.get("title"),
@@ -1406,6 +1789,43 @@ def build_relaxed_search_inputs(search_input: Dict[str, Any]) -> List[Dict[str, 
         seen.add(marker)
         unique.append(item)
     return unique
+
+
+def run_configurator_part_picker_with_relaxation(
+    search_input: Dict[str, Any],
+    slot_name: str,
+    requirements_sysml: Path,
+    timeout_sec: int,
+    sites: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    attempts: List[Dict[str, Any]] = []
+    last_result: Dict[str, Any] = {"status": "error", "results": [], "count": 0, "error": "no_attempts"}
+    used_input = dict(search_input)
+    for candidate_input in build_relaxed_search_inputs(search_input):
+        result = run_configurator_part_picker(
+            search_input=candidate_input,
+            slot_name=slot_name,
+            requirements_sysml=requirements_sysml,
+            timeout_sec=timeout_sec,
+            sites=sites,
+        )
+        attempts.append(
+            {
+                "input": candidate_input,
+                "status": result.get("status"),
+                "count": _search_count(result),
+                "error": result.get("error"),
+            }
+        )
+        last_result = result
+        used_input = candidate_input
+        if _search_count(result) > 0:
+            break
+    return {
+        "search_result": last_result,
+        "used_input": used_input,
+        "attempts": attempts,
+    }
 
 
 def run_structured_part_search_with_relaxation(
@@ -1491,6 +1911,7 @@ def pick_best_part(search_result: Dict[str, Any], search_input: Dict[str, Any]) 
     return {
         "status": "selected",
         "constraint_match_score": int(best["_constraint_score"]),
+        "supplier": best.get("supplier"),
         "stock": best.get("stock"),
         "unitPrice": best.get("unitPrice"),
         "manufacturer": best.get("manufacturer"),
@@ -1522,7 +1943,9 @@ def write_search_log(
     lines.append(f"matches: {search_result.get('count', len(search_result.get('results', []) or []))}")
     lines.append("----")
     for item in (search_result.get("results") or [])[:10]:
-        lines.append(f"{item.get('manufacturerPartNumber', 'unknown')} ({item.get('manufacturer', 'unknown')})")
+        supplier = item.get("supplier") or item.get("provider") or ""
+        supplier_suffix = f" @ {supplier}" if supplier else ""
+        lines.append(f"{item.get('manufacturerPartNumber', 'unknown')} ({item.get('manufacturer', 'unknown')}){supplier_suffix}")
         if item.get("stock") is not None:
             lines.append(f"Stock: {item.get('stock')}")
         if item.get("unitPrice") is not None:
@@ -1698,6 +2121,7 @@ def write_optimized_design_instances_sysml(
     lines.append("  part def SlotSelection {")
     lines.append("    attribute slot: String;")
     lines.append("    attribute title: String;")
+    lines.append("    attribute supplier: String;")
     lines.append("    attribute url: String;")
     lines.append("    attribute status: String;")
     lines.append("    attribute constraintScore: Real;")
@@ -1751,6 +2175,7 @@ def write_optimized_design_instances_sysml(
             lines.append(f"    part {cid}_{slot_slug} : SlotSelection {{")
             lines.append(f'      slot = "{as_sysml_string(row.get("slot", "slot"))}";')
             lines.append(f'      title = "{as_sysml_string(row.get("title", "unsourced"))}";')
+            lines.append(f'      supplier = "{as_sysml_string(row.get("supplier", ""))}";')
             lines.append(f'      url = "{as_sysml_string(row.get("url", ""))}";')
             lines.append(f'      status = "{as_sysml_string(row.get("status", "pending"))}";')
             lines.append(f"      constraintScore = {fmt_num(as_float(row.get('constraint_match_score'), 0.0))};")
@@ -1766,17 +2191,39 @@ def write_optimized_design_instances_sysml(
 # ---------- main ----------
 
 
+def resolve_parallel_concept_limit(requested: int, concept_count: int) -> int:
+    if concept_count <= 0:
+        return 1
+    if requested and requested > 0:
+        return max(1, min(requested, concept_count))
+    env_limit = int(os.environ.get("PIPELINE_MAX_PARALLEL_CONCEPTS", "0") or "0")
+    if env_limit > 0:
+        return max(1, min(env_limit, concept_count))
+    return max(1, concept_count)
+
+
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--nl", type=str, help="Natural-language brief")
     p.add_argument("--nl-file", type=Path, help="File containing NL brief")
     p.add_argument("--syside-venv", type=Path, default=REPO_ROOT / ".venv", help="Venv with syside installed (default: ./.venv)")
-    p.add_argument("--max-iters", type=int, default=12)
+    p.add_argument("--max-iters", type=int, default=25)
     p.add_argument("--max-total-tokens", type=int, default=200000)
-    p.add_argument("--concepts", type=int, default=3, help="Number of design concepts to generate")
-    p.add_argument("--parts-per-concept", type=int, default=3, help="Max search queries per concept to execute")
+    p.add_argument("--concepts", type=int, default=DEFAULT_CONCEPT_COUNT, help="Number of design concepts to generate")
+    p.add_argument(
+        "--max-parallel-concepts",
+        type=int,
+        default=0,
+        help="Maximum number of concepts to optimize in parallel (0 = auto).",
+    )
+    p.add_argument("--parts-per-concept", type=int, default=3, help="Maximum number of concept slots to source per concept")
     p.add_argument("--search-limit", type=int, default=5, help="Max results per search in CLI")
-    p.add_argument("--providers", type=str, default="mouser,web", help="Comma list provider order for CLI (e.g., mouser,web)")
+    p.add_argument(
+        "--providers",
+        type=str,
+        default=DEFAULT_PROVIDER_ORDER,
+        help="Comma list provider order for CLI (default: web,mouser,octopart,digikey)",
+    )
     p.add_argument(
         "--configurator-sites",
         type=str,
@@ -1800,6 +2247,18 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument("--model", type=str, default="gpt-5-mini", help="LLM model for concepts")
     p.add_argument("--temperature", type=float, default=None)
+    p.add_argument(
+        "--optimizer-decision-mode",
+        type=str,
+        default=os.environ.get("PIPELINE_DECISION_MODE", "auto"),
+        help="Decision mode passed through to optimization/scripts/syspipe.py (auto, agent, human, llm).",
+    )
+    p.add_argument(
+        "--optimizer-decision-model",
+        type=str,
+        default=os.environ.get("PIPELINE_DECISION_MODEL"),
+        help="Optional decision model passed through to optimization/scripts/syspipe.py when using llm mode.",
+    )
     return p.parse_args()
 
 
@@ -1825,10 +2284,11 @@ def main() -> None:
     else:
         scaffold_cmd += ["--nl-file", str(args.nl_file)]
     print("Scaffolding...")
-    run(scaffold_cmd)
+    scaffold_stdout = run(scaffold_cmd)
 
-    run_dir = latest_run(out_base)
+    run_dir = scaffold_run_dir_from_output(scaffold_stdout) or latest_run(out_base)
     prompt_txt = load_prompt(run_dir)
+    user_brief = extract_user_brief(prompt_txt)
     sysml_dir = run_dir / "sysml"
     sysml_dir.mkdir(exist_ok=True)
 
@@ -1836,8 +2296,11 @@ def main() -> None:
     stage = StageLog(run_dir)
     stage.info("requirements:start")
     print("Running refine_sysml.py ...")
+    # Run the refiner under the current pipeline interpreter. It still uses
+    # the SysIDE venv for compilation via --venv, but avoids coupling LLM
+    # client imports to packages installed inside that venv.
     refine_cmd = [
-        str(args.syside_venv / "bin/python"),
+        sys.executable,
         str(REFINE),
         "--input",
         str(run_dir / "prompt.txt"),
@@ -1858,7 +2321,7 @@ def main() -> None:
         stage.info("requirements:failed", error=str(e))
         # fall back to minimal requirements-only SysML
         fallback = sysml_dir / "fallback_requirements.sysml"
-        write_min_requirements_sysml(fallback, prompt_txt)
+        write_min_requirements_sysml(fallback, user_brief)
         stage.info("requirements:fallback_written", path=str(fallback))
     # check success from run_log
     run_log = load_run_log(sysml_dir)
@@ -1868,7 +2331,7 @@ def main() -> None:
         success = bool(last.get("success", False)) if isinstance(last, dict) else True
     if not success:
         fallback = sysml_dir / "fallback_requirements.sysml"
-        write_min_requirements_sysml(fallback, prompt_txt)
+        write_min_requirements_sysml(fallback, user_brief)
         stage.info("requirements:fallback_written", path=str(fallback))
     stage.info("requirements:done")
     latest_sysml = find_latest_sysml(sysml_dir)
@@ -1880,11 +2343,11 @@ def main() -> None:
     deliver_sysml = deliver_dir / "final.sysml"
     deliver_sysml.write_bytes(latest_sysml.read_bytes())
 
-    # 3) Concepts via LLM (fixed to exactly 3 design instances)
+    # 3) Concepts via LLM
     stage.info("concepts:start")
     print("Generating concepts...")
-    target_concepts = 3
-    concepts = gen_concepts(prompt_txt, latest_sysml, target_concepts, args.model, args.temperature)[:target_concepts]
+    target_concepts = max(1, int(args.concepts))
+    concepts = gen_concepts(user_brief, latest_sysml, target_concepts, args.model, args.temperature)[:target_concepts]
     concepts_path = run_dir / "concepts" / "auto_concepts.json"
     concepts_path.parent.mkdir(parents=True, exist_ok=True)
     concepts_path.write_text(json.dumps(concepts, indent=2), encoding="utf-8")
@@ -1894,29 +2357,22 @@ def main() -> None:
         raise RuntimeError(f"Expected {target_concepts} concepts, got {len(concepts)}")
 
     requirements_text = latest_sysml.read_text(encoding="utf-8")
-    targets = parse_targets(prompt_txt, requirements_text)
+    targets = parse_targets(user_brief, requirements_text)
 
     # 4) Optimization per concept
     stage.info("optimize:start")
-    print("Running optimization per concept...")
+    parallel_concepts = resolve_parallel_concept_limit(args.max_parallel_concepts, len(concepts))
+    print(f"Running optimization for {len(concepts)} concepts with parallelism={parallel_concepts}...")
     ensure_optimizer_dependencies(sys.executable)
-    optimization_results: List[Dict[str, Any]] = []
-    for ci, concept in enumerate(concepts, 1):
-        print(f"  Concept {ci}: optimizing")
-        try:
-            result = run_optimizer_for_concept(ci, concept, targets, run_dir, args.model)
-        except Exception as exc:
-            concept_dir = run_dir / "optimization" / f"concept_{ci}"
-            concept_dir.mkdir(parents=True, exist_ok=True)
-            result = {
-                "concept_index": ci,
-                "status": "error",
-                "model_path": str(concept_dir / "model.sysml"),
-                "best_solution_path": str(concept_dir / "best_solution.json"),
-                "error": str(exc),
-            }
-            (concept_dir / "best_solution.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
-        optimization_results.append(result)
+    optimization_results = run_concept_optimizations(
+        concepts=concepts,
+        targets=targets,
+        run_dir=run_dir,
+        model=args.model,
+        decision_mode=args.optimizer_decision_mode,
+        decision_model=args.optimizer_decision_model,
+        max_parallel=parallel_concepts,
+    )
     optimize_success = sum(1 for r in optimization_results if r.get("status") == "success")
     stage.info("optimize:done", total=len(optimization_results), success=optimize_success, failed=len(optimization_results) - optimize_success)
 
@@ -1926,7 +2382,7 @@ def main() -> None:
     print("Selecting parts from optimized attributes...")
     parts_dir = run_dir / "parts"
     parts_dir.mkdir(exist_ok=True)
-    part_timeout = int(os.environ.get("PART_SEARCH_TIMEOUT_SEC", "30"))
+    part_timeout = int(os.environ.get("PART_SEARCH_TIMEOUT_SEC", "180"))
 
     opt_by_idx = {int(r["concept_index"]): r for r in optimization_results if "concept_index" in r}
     optimized_bom_rows: List[Dict[str, Any]] = []
@@ -1937,6 +2393,8 @@ def main() -> None:
         opt = opt_by_idx.get(ci, {})
         optimized_values = opt.get("optimized_values") or {}
         slots = concept.get("slots") or [{"slot": "primary", "search_queries": concept.get("search_queries", [])}]
+        if args.parts_per_concept > 0:
+            slots = list(slots)[: args.parts_per_concept]
         for slot in slots:
             slot_name = str(slot.get("slot") or slot.get("name") or "slot")
             slot_slug = safe_slug(slot_name)
@@ -1956,6 +2414,7 @@ def main() -> None:
                     "constraint_match_score": 0,
                     "stock": None,
                     "unitPrice": None,
+                    "supplier": None,
                     "manufacturer": None,
                     "manufacturerPartNumber": None,
                     "description": None,
@@ -1966,7 +2425,7 @@ def main() -> None:
                 search_input_used = dict(search_input)
                 search_attempts: List[Dict[str, Any]] = []
             else:
-                search_input = build_slot_search_input(concept, slot, optimized_values, targets)
+                search_input = build_slot_search_input(concept, slot, optimized_values, targets, user_brief)
                 search_attempts = []
                 search_input_used = dict(search_input)
 
@@ -1977,22 +2436,17 @@ def main() -> None:
                     "error": "configurator_picker_disabled",
                 }
                 if use_configurator_picker:
-                    configurator_result = run_configurator_part_picker(
+                    configurator_bundle = run_configurator_part_picker_with_relaxation(
                         search_input=search_input,
                         slot_name=slot_name,
                         requirements_sysml=latest_sysml,
                         timeout_sec=part_timeout,
                         sites=configurator_sites,
                     )
-                    search_attempts.append(
-                        {
-                            "source": "configurator_chatgpt",
-                            "input": search_input,
-                            "status": configurator_result.get("status"),
-                            "count": _search_count(configurator_result),
-                            "error": configurator_result.get("error"),
-                        }
-                    )
+                    configurator_result = configurator_bundle["search_result"]
+                    search_input_used = configurator_bundle["used_input"]
+                    for attempt in configurator_bundle["attempts"]:
+                        search_attempts.append({"source": "configurator_chatgpt", **attempt})
 
                 if _search_count(configurator_result) > 0:
                     search_result = configurator_result
@@ -2042,6 +2496,7 @@ def main() -> None:
                     "url": picked.get("url"),
                     "stock": picked.get("stock"),
                     "unitPrice": picked.get("unitPrice"),
+                    "supplier": picked.get("supplier"),
                     "provider": picked.get("provider"),
                     "constraint_match_score": picked.get("constraint_match_score", 0),
                     "query_input": search_input,
@@ -2140,6 +2595,7 @@ def main() -> None:
         entry = {
             "title": str(row.get("title", "item")),
             "url": str(row.get("url", "") or ""),
+            "supplier": str(row.get("supplier", "") or ""),
             "status": str(row.get("status", "pending")),
             "stock": str(row.get("stock", "") or ""),
         }
@@ -2225,6 +2681,7 @@ def main() -> None:
 
     summary = {
         "prompt": prompt_txt,
+        "user_brief": user_brief,
         "sysml": latest_sysml.name,
         "concepts_file": str(concepts_path.relative_to(run_dir)),
         "parts_logs": [p.name for p in sorted(parts_dir.glob("auto_c*.log"))],
@@ -2234,6 +2691,10 @@ def main() -> None:
         "optimized_bom": str(bom_optimized_path.relative_to(run_dir)),
         "constraint_validation": str(constraint_validation_path.relative_to(run_dir)),
         "optimization_targets": targets,
+        "concept_count": len(concepts),
+        "optimizer_decision_mode": args.optimizer_decision_mode,
+        "optimizer_decision_model": args.optimizer_decision_model,
+        "max_parallel_concepts": parallel_concepts,
         "part_picker": {
             "configurator_chatgpt_enabled": use_configurator_picker,
             "configurator_gemini_enabled": use_configurator_picker,
@@ -2256,10 +2717,10 @@ def main() -> None:
         design_instances_opt_path,
         bom_optimized_path,
         constraint_validation_path,
-    ] + [run_dir / "optimization" / f"concept_{i}" / "model.sysml" for i in range(1, 4)] + [
-        run_dir / "optimization" / f"concept_{i}" / "best_solution.json" for i in range(1, 4)
+    ] + [run_dir / "optimization" / f"concept_{i}" / "model.sysml" for i in range(1, len(concepts) + 1)] + [
+        run_dir / "optimization" / f"concept_{i}" / "best_solution.json" for i in range(1, len(concepts) + 1)
     ] + [
-        run_dir / "validation" / f"concept_{i}" / "constraint_validation.json" for i in range(1, 4)
+        run_dir / "validation" / f"concept_{i}" / "constraint_validation.json" for i in range(1, len(concepts) + 1)
     ]
     missing = [str(p) for p in required_artifacts if not p.exists()]
     if missing:

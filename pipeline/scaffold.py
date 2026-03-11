@@ -17,6 +17,7 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
+import secrets
 from textwrap import dedent
 
 
@@ -42,6 +43,8 @@ def main() -> None:
 
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     run_dir = args.out / ts
+    while run_dir.exists():
+        run_dir = args.out / f"{ts}_{secrets.token_hex(2)}"
     concepts_dir = run_dir / "concepts"
     parts_dir = run_dir / "parts"
     sysml_dir = run_dir / "sysml"

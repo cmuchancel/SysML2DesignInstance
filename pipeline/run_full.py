@@ -22,7 +22,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--nl", type=str, help="Natural-language brief (or use --nl-file).")
     p.add_argument("--nl-file", type=Path, help="File containing NL brief.")
     p.add_argument("--syside-venv", type=Path, required=True, help="Path to syside-enabled venv.")
-    p.add_argument("--max-iters", type=int, default=10)
+    p.add_argument("--max-iters", type=int, default=25)
     p.add_argument("--max-total-tokens", type=int, default=60000)
     p.add_argument("--output-base", type=Path, default=SCRIPT_DIR / "runs")
     p.add_argument("--dry-run", action="store_true", help="Create scaffold only, skip refine.")
@@ -69,8 +69,11 @@ def main() -> None:
         return
 
     print("Running refine_sysml.py ...")
+    # Run the refiner under the current pipeline interpreter. It still uses
+    # the SysIDE venv for compilation via --venv, but avoids coupling LLM
+    # client imports to packages installed inside that venv.
     refine_cmd = [
-        str(args.syside_venv / "bin/python"),
+        sys.executable,
         str(REFINE),
         "--input",
         str(prompt),

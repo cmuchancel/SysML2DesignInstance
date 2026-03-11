@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import textwrap
@@ -14,10 +15,19 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from time import perf_counter
 
-from openai import OpenAI
-
 # Paths relative to this file so the script works from anywhere inside the repo.
 SCRIPT_DIR = Path(__file__).resolve().parent
+
+
+def make_openai_client():
+    try:
+        from openai import OpenAI
+    except Exception as exc:
+        raise RuntimeError(
+            "OpenAI client import failed. Repair the pipeline venv or rerun "
+            "SysMLtoDesignInstance/pipeline/setup_pipeline_env.sh."
+        ) from exc
+    return OpenAI()
 
 
 def parse_args() -> argparse.Namespace:
@@ -42,7 +52,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--max-iters",
         type=int,
-        default=5,
+        default=25,
         help="Number of refinement attempts to perform.",
     )
     parser.add_argument(
@@ -158,13 +168,14 @@ def build_prompt(
         "Produce valid SysMLv2 (.sysml) content using the official syntax. "
         "Do not include commentary, markdown fencing, or prose outside of the model.",
         "STRUCTURE RULES:\n"
-        "- Keep requirements at the top level (use 'requirement def R {...}').\n"
+        "- Keep requirements at the top level (use 'requirement def R { text = \"...\"; }'). The text assignment must end with a semicolon.\n"
         "- Constraints separate (use 'constraint def C { in x: Real; (expr) }'). NO semicolon after the expression.\n"
         "- Always use 'public import ScalarValues::*;' so Real is in scope.\n"
-        "- Define only abstract/reusable design elements (blocks/parts/constraints). Do NOT emit any concrete design instances or BOM/source suggestions in this refinement stage.\n"
+        "- Define only abstract/reusable design elements with 'part def' and 'constraint def'. Do NOT emit any concrete design instances or BOM/source suggestions in this refinement stage.\n"
+        "- Never use 'block def'. Never use 'property'; use 'attribute' for scalar fields.\n"
         "- No solution-specific values or part numbers; stay solution-agnostic.\n"
         "- Follow the TEMPLATE exactly if unsure.\n",
-        "MINIMALITY: Use the fewest lines, elements, and properties possible while "
+        "MINIMALITY: Use the fewest lines, elements, and attributes possible while "
         "fully satisfying every requirement above. Avoid optional fluff, redundant "
         "packages, duplicate definitions, and unnecessary hierarchy.",
         textwrap.dedent(
@@ -183,7 +194,7 @@ def build_prompt(
                 in V: Real;
                 (V >= 4.75) and (V <= 5.25)
               }
-              // optional abstract blocks, no instances
+              // optional abstract part definitions, no instances
               part def LED { }
               part def Driver { }
             }
@@ -274,6 +285,22 @@ def call_model(
     return response_text, token_stats, response_payload
 
 
+def normalize_candidate_text(candidate_text: str) -> str:
+    """Repair a few common LLM syntax slips before sending the model to SysIDE."""
+    normalized = candidate_text.replace("\r\n", "\n")
+    normalized = re.sub(r"^\s*```(?:sysml)?\s*$", "", normalized, flags=re.MULTILINE)
+    normalized = re.sub(r"^\s*```\s*$", "", normalized, flags=re.MULTILINE)
+    normalized = re.sub(r"(^\s*)block def\b", r"\1part def", normalized, flags=re.MULTILINE)
+    normalized = re.sub(r"(^\s*)property\b", r"\1attribute", normalized, flags=re.MULTILINE)
+    normalized = re.sub(
+        r'(text\s*=\s*"(?:[^"\\]|\\.)*")\s*(\n\s*\})',
+        r"\1;\2",
+        normalized,
+        flags=re.S,
+    )
+    return normalized.strip() + "\n"
+
+
 def resolve_python_executable(venv_root: Optional[Path]) -> Path:
     if not venv_root:
         raise ValueError("--venv is required so syside runs inside the correct environment.")
@@ -342,7 +369,7 @@ def main() -> None:
 
     spec_text = load_user_input(args.input)
     example_text = load_example_snippet(args.example)
-    client = None if args.dry_run else OpenAI()
+    client = None if args.dry_run else make_openai_client()
     python_exe = None if args.dry_run else resolve_python_executable(args.venv)
     if not args.dry_run and python_exe is not None:
         assert_syside_available(python_exe, args.venv)
@@ -374,6 +401,7 @@ def main() -> None:
             token_usage,
             raw_response,
         ) = call_model(client, prompt, args.model, args.temperature)
+        candidate_text = normalize_candidate_text(candidate_text)
         prompt_path = timestamp_dir / f"iteration_{iteration:02d}_prompt.txt"
         prompt_path.write_text(prompt, encoding="utf-8")
         sysml_path = timestamp_dir / f"iteration_{iteration:02d}.sysml"

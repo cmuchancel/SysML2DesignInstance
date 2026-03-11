@@ -1,0 +1,15 @@
+# Full Python dependency set for the end-to-end SysMLtoDesignInstance pipeline.
+# Install SysIDE separately in the same venv if you have access to it.
+
+numpy>=2.2,<3
+scipy>=1.14,<2
+sympy>=1.13,<2
+matplotlib>=3.10,<4
+pymoo>=0.6.1,<0.7
+openai>=1.0,<2
+cvxpy>=1.8.1,<2
+pandas>=2.2,<3
+pyarrow>=18,<20
+numexpr>=2.10,<3
+bottleneck>=1.4,<2
+streamlit>=1.40,<2

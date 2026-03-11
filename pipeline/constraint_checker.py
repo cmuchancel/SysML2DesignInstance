@@ -23,11 +23,20 @@ import tempfile
 from pathlib import Path
 from typing import Dict, Any
 
-from openai import OpenAI
-
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 ENV_PATH = REPO_ROOT / ".env"
+
+
+def make_openai_client():
+    try:
+        from openai import OpenAI
+    except Exception as exc:
+        raise RuntimeError(
+            "OpenAI client import failed. Repair the pipeline venv or rerun "
+            "SysMLtoDesignInstance/pipeline/setup_pipeline_env.sh."
+        ) from exc
+    return OpenAI()
 
 
 def load_env() -> None:
@@ -83,7 +92,7 @@ Return only the Python code, no markdown fences.
 
 
 def ask_llm(requirements: str, attrs: Dict[str, Any], model: str, temperature: float) -> str:
-    client = OpenAI()
+    client = make_openai_client()
     prompt = PROMPT_TEMPLATE.format(requirements=requirements, attrs_json=json.dumps(attrs, indent=2))
     kwargs = {"model": model, "input": prompt, "max_output_tokens": 1200}
     # Some models reject temperature; include only if >0 to keep deterministic by default.

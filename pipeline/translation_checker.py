@@ -23,7 +23,16 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List
 
-import openai
+
+def make_openai_client():
+  try:
+    from openai import OpenAI
+  except Exception as exc:
+    raise RuntimeError(
+      "OpenAI client import failed. Repair the pipeline venv or rerun "
+      "SysMLtoDesignInstance/pipeline/setup_pipeline_env.sh."
+    ) from exc
+  return OpenAI()
 
 
 def read_text(path: Path) -> str:
@@ -71,7 +80,7 @@ def build_messages(nl: str, sysml: str) -> List[Dict[str, Any]]:
 
 
 def run_check(nl: str, sysml: str, model: str) -> Dict[str, Any]:
-  client = openai.OpenAI()
+  client = make_openai_client()
   # Use responses API to match project policy and avoid content-shape issues.
   completion = client.responses.create(
     model=model,

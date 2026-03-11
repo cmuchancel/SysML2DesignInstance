@@ -103,8 +103,13 @@ app.post("/api/search/parts", handleSearch);
 const runSchema = z.object({
   nl: z.string().min(4),
   maxIters: z.number().optional(),
+  concepts: z.number().min(1).max(12).optional(),
+  maxParallelConcepts: z.number().min(1).max(12).optional(),
   partsPerConcept: z.number().optional(),
   searchLimit: z.number().optional(),
+  providers: z.array(z.enum(["web", "mouser", "octopart", "digikey", "mock"])).optional(),
+  optimizerDecisionMode: z.enum(["auto", "agent", "human", "llm"]).optional(),
+  optimizerDecisionModel: z.string().min(1).optional(),
 });
 
 const simpleRunSchema = z.object({
@@ -141,7 +146,7 @@ const listRuns = async (): Promise<string[]> => {
 
 const newestRun = (names: string[]): string | undefined =>
   names
-    .filter((n) => /^\d{8}_\d{6}$/.test(n))
+    .filter((n) => /^\d{8}_\d{6}(?:_[a-f0-9]{4})?$/.test(n))
     .sort()
     .at(-1);
 
@@ -161,17 +166,30 @@ app.post("/api/pipeline/run", async (req: Request, res: Response) => {
     "6000",
     "--model",
     process.env.OPENAI_MODEL || "gpt-5-mini",
+    "--concepts",
+    String(parsed.data.concepts ?? 3),
+    "--max-parallel-concepts",
+    String(parsed.data.maxParallelConcepts ?? parsed.data.concepts ?? 3),
     "--parts-per-concept",
     String(parsed.data.partsPerConcept ?? 3),
     "--search-limit",
     String(parsed.data.searchLimit ?? 3),
   ];
+  if (parsed.data.providers?.length) {
+    args.push("--providers", parsed.data.providers.join(","));
+  }
+  if (parsed.data.optimizerDecisionMode) {
+    args.push("--optimizer-decision-mode", parsed.data.optimizerDecisionMode);
+  }
+  if (parsed.data.optimizerDecisionModel) {
+    args.push("--optimizer-decision-model", parsed.data.optimizerDecisionModel);
+  }
 
   try {
     const { stdout, stderr } = await execFileAsync(cmd, args, {
       cwd: path.join(__dirname, ".."),
       env: { ...process.env },
-      timeout: Number(process.env.PIPELINE_TIMEOUT_MS || 180000),
+      timeout: Number(process.env.PIPELINE_TIMEOUT_MS || 1800000),
       maxBuffer: 10 * 1024 * 1024,
     });
 

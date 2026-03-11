@@ -1,60 +1,92 @@
-# SysML Pipeline (Spec → Design → Parts)
+# SysML Pipeline
 
-This folder wires the Spec Guardian → Design Instantiator → Design Realizer loop around the existing SysML refinement tool (`Sysmlgeneration/refine_sysml.py`) and the component finder CLI.
+This is the full prompt-to-design pipeline for `SysMLtoDesignInstance`:
 
-## Quick start
-1) Create a run scaffold from a natural-language brief:
-   ```bash
-   python pipeline/scaffold.py --nl "Design a 1 kg inspection drone that fits in a 30 cm cube and flies 20 min." \
-     --out pipeline/runs
-   ```
-   This creates `pipeline/runs/<timestamp>/` with:
-   - `prompt.txt` (NL duplicated, ready for Spec Guardian / refine loop)
-   - `questions.md` (fill in open points)
-   - `concepts/` (place Design Instantiator alternatives)
-   - `parts/` (place Design Realizer part picks)
+1. natural-language prompt
+2. SysML refinement with `syside check`
+3. concept generation
+4. concept optimization through `optimization/scripts/syspipe.py`
+5. supplier-backed part selection
+6. final SysML/BOM deliverables under `pipeline/runs/<timestamp>/`
 
-2) Run the SysML refinement loop (compiler-in-the-loop):
-   ```bash
-   ./pipeline/run_refine.sh pipeline/runs/<timestamp>/prompt.txt /abs/path/to/syside_venv \
-     --max-iters 10 --max-total-tokens 60000
-   ```
-   The loop saves each iteration + compiler output under `sysml/`.
+## First-time setup
 
-Or end-to-end in one go (scaffold + refine):
+From the repo root:
+
 ```bash
-python pipeline/run_full.py --nl "Design a 1 kg inspection drone..." \
-  --syside-venv /abs/path/to/syside_venv \
-  --max-iters 10 --max-total-tokens 60000
+./setup_pipeline.sh
 ```
 
-**Zero-touch flow (prompt → SysML → concepts → part searches):**
+Equivalent direct path:
+
 ```bash
-python pipeline/run_all.py --nl "Design a 1 kg inspection drone that fits in a 30 cm cube and flies 20 min."
+bash SysMLtoDesignInstance/pipeline/setup_pipeline_env.sh
 ```
+
+That script:
+- creates the default pipeline venv at `SysMLtoDesignInstance/.venv`
+- installs Python dependencies from [`requirements.txt`](./requirements.txt)
+- installs Node dependencies for `SysMLtoDesignInstance` and `sysml-v2-configurator`
+- installs Playwright Chromium for the supplier-search path
+- copies [`../.env.example`](../.env.example) to `SysMLtoDesignInstance/.env` if needed
+
+You still need to fill in:
+- `OPENAI_API_KEY`
+- `SYSIDE_LICENSE_KEY`
+- any optional supplier credentials you want to use
+
+If you have a pip-installable SysIDE package, you can let the setup script install it:
+
+```bash
+SYSIDE_PIP_SPEC=syside bash SysMLtoDesignInstance/pipeline/setup_pipeline_env.sh
+```
+
+## Run the full pipeline
+
+From the repo root:
+
+```bash
+./run_pipeline.sh --nl "Design a compact battery-powered inspection drone that fits in a 30 cm cube and flies for 20 minutes."
+```
+
+Equivalent direct path:
+
+```bash
+SysMLtoDesignInstance/.venv/bin/python SysMLtoDesignInstance/pipeline/run_all.py \
+  --nl "Design a compact battery-powered inspection drone that fits in a 30 cm cube and flies for 20 minutes."
+```
+
+Useful options:
+- `--concepts N`: number of concepts to generate
+- `--max-parallel-concepts N`: cap concept-level parallel optimization
+- `--parts-per-concept N`: max slots to source per concept
+- `--search-limit N`: supplier search depth per slot
+- `--max-iters N`: SysML refine iterations
+- `--model MODEL`: LLM used by concept generation and refinement
+- `--configurator-sites mouser.com,digikey.com`: restrict supplier domains if desired
+
 Defaults:
-- Uses the repo `.venv` for syside
-- Generates 3 concepts and 3 part searches each (provider order: mouser,web)
-- Writes everything under `pipeline/runs/<timestamp>/`
+- uses `SysMLtoDesignInstance/.venv` as the SysIDE venv
+- writes outputs to `SysMLtoDesignInstance/pipeline/runs/<timestamp>/`
+- uses broad supplier search by default
+- keeps human input out of orchestration; decision points are delegated through the pipeline policy layer
 
-3) Fill in Design Instantiator outputs:
-   - Add 3–6 alternative concepts under `pipeline/runs/<timestamp>/concepts/` (markdown is fine).
-   - Mark tradeoffs (cost / complexity / performance / risk).
+## Regression batch
 
-4) Run Design Realizer (parts binding):
-   - For each concept, derive key parameters and search parts with the component finder CLI, e.g.:
-     ```bash
-     npm run cli -- --provider web --limit 8 --keywords "10k resistor" --keywords "0603" --keywords "1%"
-     ```
-   - Save hits in `pipeline/runs/<timestamp>/parts/concept_XX.json` (include URL, price, stock, key specs).
+To run the checked-in prompt batch:
 
-5) Feed chosen concept + parts back into `prompt.txt` or `extra_context` and re-run `refine_sysml.py` until `syside check` passes and parts exist.
+```bash
+./run_pipeline_batch.sh
+```
 
-## Roles
-- **Spec Guardian**: ensures SysML matches NL; updates `prompt.txt` and `questions.md`; drives `refine_sysml.py`.
-- **Design Instantiator**: writes multiple concepts in `concepts/`.
-- **Design Realizer**: binds parts and records them in `parts/`.
+Equivalent direct path:
 
-## Notes
-- No provider APIs are required for the parts step; the CLI can operate on web scraping. If you have Mouser/Digi-Key/OCTOPART credentials, set env vars to improve fidelity.
-- Keep prompts minimal—per `Sysmlgeneration/README.md`, the NL brief is echoed twice and deltas are appended iteration by iteration.
+```bash
+SysMLtoDesignInstance/.venv/bin/python SysMLtoDesignInstance/pipeline/run_prompt_regression_batch.py
+```
+
+## Full help
+
+For the end-to-end run guide, environment notes, outputs, and troubleshooting, see:
+
+- [HELP.md](./HELP.md)
