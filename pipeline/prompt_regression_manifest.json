@@ -1,0 +1,18 @@
+[
+  {
+    "id": "logic_io_module",
+    "prompt": "Design a small 5 V logic I/O module with a microcontroller, a momentary pushbutton input, and a status LED with series resistor. Allow different MCU families (8-bit AVR or 32-bit ARM Cortex-M). Everything must be sourced from Mouser. The board should run from a regulated 5 V rail (4.75-5.25 V tolerance). Provide attributes to note whether the MCU, LED+resistor, and button are present. Keep the SysML minimal but compilable."
+  },
+  {
+    "id": "solar_environment_monitor",
+    "prompt": "Design a solar-powered remote environmental monitor that measures temperature and humidity outdoors and uploads telemetry over LoRa. It must run for at least 72 hours without sunlight, fit in a weather-resistant enclosure, and use sourceable off-the-shelf parts from common vendors. Provide attributes for the sensor module, radio module, battery, solar input, and enclosure."
+  },
+  {
+    "id": "peristaltic_dosing_pump",
+    "prompt": "Design a benchtop peristaltic dosing pump for lab use that can meter between 5 mL/min and 50 mL/min from a 24 V DC supply. Use purchasable off-the-shelf components and expose attributes for the pump head, motor, motor driver, controller, and power supply. The design should support precise low-flow dosing and use suppliers reachable from the open web."
+  },
+  {
+    "id": "inspection_drone",
+    "prompt": "Design a compact battery-powered inspection drone that fits in a 30 cm cube and flies for 20 minutes. It should include a flight controller, camera, propulsion subsystem, battery, and frame, and it must be realizable with sourceable off-the-shelf parts from suppliers on the web. Provide attributes that capture those major subsystems."
+  }
+]
